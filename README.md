@@ -26,6 +26,17 @@ Descrição:
 - Banco de dados MySQL
 - Servidor de e-mail configurado para sistema de convites
 
+# Metodologia de Desenvolvimento
+
+## Test-Driven Development (TDD)
+O projeto CACALOO adota o TDD como metodologia principal de desenvolvimento. Isso significa que:
+- Os testes automatizados são escritos antes da implementação das funcionalidades
+- Seguimos o ciclo Red-Green-Refactor (Teste falha → Implementação → Refatoração)
+- Mantemos uma alta cobertura de código testado
+- Utilizamos os testes como forma de documentação viva do código
+
+Mais detalhes sobre nossa abordagem TDD podem ser encontrados em [docs/metodologia/tdd.md](docs/metodologia/tdd.md)
+
 # Sprints
 
 ## Sprint 1: Fundação e Autenticação

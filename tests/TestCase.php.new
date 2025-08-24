@@ -1,0 +1,19 @@
+<?php
+
+namespace Tests;
+
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
+{
+    use \Illuminate\Foundation\Testing\CreatesApplication;
+
+    /**
+     * Indica que o teste deve desabilitar a proteção CSRF.
+     * Necessário para testes de formulários.
+     */
+    protected function withoutCsrf()
+    {
+        return $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+    }
+}
