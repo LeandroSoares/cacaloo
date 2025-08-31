@@ -20,6 +20,11 @@ class Invitation extends Model
     public const STATUS_CANCELLED = 'cancelled';
 
     /**
+     * O período padrão de validade de um convite em dias
+     */
+    public const DEFAULT_EXPIRATION_DAYS = 7;
+
+    /**
      * Os atributos que são atribuíveis em massa.
      *
      * @var array<int, string>
@@ -144,5 +149,20 @@ class Invitation extends Model
     public static function generateToken(): string
     {
         return Str::random(64);
+    }
+
+    /**
+     * O hook boot inicializa automaticamente uma data de expiração
+     * para novos convites se não for fornecida explicitamente.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($invitation) {
+            if (!$invitation->expires_at) {
+                $invitation->expires_at = now()->addDays(self::DEFAULT_EXPIRATION_DAYS);
+            }
+        });
     }
 }

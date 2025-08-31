@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('invited_by')->constrained('users');
             $table->enum('status', ['pending', 'accepted', 'expired', 'cancelled'])->default('pending');
             $table->timestamp('accepted_at')->nullable();
-            $table->timestamp('expires_at');
+            $table->timestamp('expires_at')->nullable();
             $table->foreignId('accepted_by')->nullable()->constrained('users');
             $table->timestamps();
         });
