@@ -17,6 +17,12 @@
                     </x-nav-link>
 
                     <!-- Adicione aqui mais links de navegação para a área do usuário -->
+                        <x-nav-link :href="route('user.meus-dados')" :active="request()->routeIs('user.meus-dados')">
+                            {{ __('Meus Dados') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('user.medium-history')" :active="request()->routeIs('user.medium-history')">
+                            {{ __('Histórico Mediúnico') }}
+                        </x-nav-link>
                 </div>
             </div>
 
@@ -91,6 +97,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.meus-dados')" :active="request()->routeIs('user.meus-dados')">
+                {{ __('Meus Dados') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.medium-history')" :active="request()->routeIs('user.medium-history')">
+                {{ __('Histórico Mediúnico') }}
             </x-responsive-nav-link>
         </div>
 

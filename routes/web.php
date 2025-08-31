@@ -47,6 +47,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/meus-dados', function () {
+        return view('user.meus-dados');
+    })->name('user.meus-dados');
+
+    Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
+        ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
 });
 

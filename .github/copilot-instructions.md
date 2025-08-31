@@ -1,5 +1,9 @@
 # GitHub Copilot - Instruções Laravel Expert
 
+## documentação
+- sempre leia a documentação na pasta docs
+- antes de implementar veja se existe o card de feature documentando do que vamos desenvolver, se não tiver crie um.
+
 ## 🎯 Padrões de Código
 - Seguir **PSR-12** rigorosamente
 - Usar **PHP 8.2+** com recursos modernos
