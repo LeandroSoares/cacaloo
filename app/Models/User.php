@@ -26,6 +26,7 @@ class User extends Authenticatable
         'medium_type',
         'development_start_date',
         'medium_notes',
+        'is_active',
     ];
 
     /**
@@ -50,13 +51,39 @@ class User extends Authenticatable
             'password' => 'hashed',
             'medium_type' => MediumType::class,
             'development_start_date' => 'date',
+            'is_active' => 'boolean',
         ];
     }
 
     /**
-     * Verifica se o usuário é um médium (possui type definido)
+     * The "booted" method of the model.
      */
-    public function isMedium(): bool
+    protected static function booted(): void
+    {
+        // Adiciona um escopo global para retornar apenas usuários ativos
+        static::addGlobalScope('active', function ($query) {
+            $query->where('is_active', true);
+        });
+    }
+
+    /**
+     * Desativa o usuário ao invés de excluí-lo do banco de dados
+     */
+    public function deactivate(): bool
+    {
+        return $this->update(['is_active' => false]);
+    }
+
+    /**
+     * Obtém todos os usuários, incluindo os inativos
+     */
+    public static function getAllIncludingInactive()
+    {
+        return static::withoutGlobalScope('active')->get();
+    }
+
+    /**
+     * Verifica se o usuário é um médium (possui type definido)
     {
         return !is_null($this->medium_type);
     }

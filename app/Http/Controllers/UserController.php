@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,7 +17,13 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = User::with('roles')->get();
+        // Mostrar usuários inativos apenas para sysadmin
+        if (Auth::check() && Auth::user()->hasRole('sysadmin')) {
+            $users = User::getAllIncludingInactive()->load('roles');
+        } else {
+            $users = User::with('roles')->get();
+        }
+        
         return view('admin.users.index', compact('users'));
     }
 
@@ -103,9 +110,17 @@ class UserController extends Controller
                 ->with('error', 'O usuário administrador do sistema não pode ser excluído.');
         }
 
-        $user->delete();
-
-        return redirect()->route('admin.users.index')
-            ->with('success', 'Usuário excluído com sucesso.');
+        // Verificar se o usuário atual é sysadmin
+        if (Auth::check() && Auth::user()->hasRole('sysadmin')) {
+            // Exclusão permanente (apenas sysadmin)
+            $user->delete();
+            return redirect()->route('admin.users.index')
+                ->with('success', 'Usuário excluído permanentemente do banco de dados.');
+        } else {
+            // Desativação (outros admins)
+            $user->deactivate();
+            return redirect()->route('admin.users.index')
+                ->with('success', 'Usuário desativado com sucesso.');
+        }
     }
 }

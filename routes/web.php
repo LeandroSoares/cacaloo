@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 // Rota de teste para envio de email
 Route::get('/test-email', function () {

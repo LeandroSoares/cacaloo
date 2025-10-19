@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom CSS Layer */
+@layer components {
+    /* Smooth scroll */
+    html {
+        @apply scroll-smooth;
+    }
+
+    /* Hero overlay gradient */
+    .hero-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+    }
+
+    /* Animações de entrada */
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Bounce animation para scroll indicator */
+    .animate-bounce-slow {
+        animation: bounce 2s infinite;
+    }
+}
+
+/* Focus visible para acessibilidade */
+@layer utilities {
+    .focus-ring {
+        @apply focus:outline-none focus:ring-4 focus:ring-oxossi/50 focus:ring-offset-2;
+    }
+}

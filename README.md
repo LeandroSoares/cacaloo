@@ -104,3 +104,10 @@ Mais detalhes sobre nossa abordagem TDD podem ser encontrados em [docs/metodolog
 4. Relatórios filtrados e exportáveis
 5. Gestão de eventos e grupos de trabalho
 
+# Dados importantes
+
+Nome da organização: Casa de Caridade Legião de Oxóssi e Ogum
+Sigla para o sistema: CACALOO
+Endereço: Rua Ilhéus do Prata, 26 - Imirim, São Paulo - SP
+CEP: 02478-060
+Cel: (11) 99320-3215

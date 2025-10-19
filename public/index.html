@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Caridade Legião de Oxóssi e Ogum - São Paulo</title>
+    <meta name="description" content="Casa de Caridade Legião de Oxóssi e Ogum. Um espaço de acolhimento, caridade e conexão espiritual dedicado aos Orixás Oxóssi e Ogum em São Paulo.">
+    <meta name="keywords" content="Umbanda, Oxóssi, Ogum, Casa de Caridade, São Paulo, Gira, Terreiro, Espiritualidade">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Casa de Caridade Legião de Oxóssi e Ogum">
+    <meta property="og:description" content="Um espaço de acolhimento, caridade e conexão espiritual dedicado aos Orixás Oxóssi e Ogum">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casadecaridade.org.br">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ReligiousOrganization",
+        "name": "Casa de Caridade Legião de Oxóssi e Ogum",
+        "description": "Casa espiritual de Umbanda dedicada aos Orixás Oxóssi e Ogum",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua das Flores, 123",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "01234-567",
+            "addressCountry": "BR"
+        },
+        "telephone": "+5511999988888",
+        "email": "contato@casadecaridade.org.br"
+    }
+    </script>
+
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxossi-green': '#2E7D32',
+                        'oxossi-green-dark': '#1B5E20',
+                        'ogum-red': '#C62828',
+                        'ogum-red-dark': '#B71C1C',
+                        'sacred-gold': '#D4AF37',
+                        'whatsapp': '#25D366'
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 leading-relaxed">
+    <!-- Skip to Main Content -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-oxossi-green text-white px-4 py-2 rounded-md z-50">
+        Pular para conteúdo principal
+    </a>
+
+    <!-- Header -->
+    <header class="site-header fixed w-full top-0 z-40 transition-all duration-300 bg-transparent">
+        <nav class="container mx-auto px-4 py-4" role="navigation" aria-label="Navegação principal">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="nav-logo">
+                    <img src="assets/images/logo.png" alt="Logo Casa de Caridade Legião de Oxóssi e Ogum"
+                         class="w-12 h-12 rounded-full border-2 border-sacred-gold shadow-lg"
+                         loading="eager">
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul class="nav-menu hidden md:flex space-x-8">
+                    <li><a href="#inicio" class="nav-link text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Início</a></li>
+                    <li><a href="#sobre" class="nav-link text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Sobre Nós</a></li>
+                    <li><a href="#eventos" class="nav-link text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Eventos</a></li>
+                    <li><a href="#contato" class="nav-link text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Contato</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button class="nav-toggle md:hidden text-white focus:outline-none focus:ring-2 focus:ring-sacred-gold rounded"
+                        aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="nav-menu-mobile md:hidden hidden mt-4 pb-4">
+                <ul class="space-y-4">
+                    <li><a href="#inicio" class="block text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Início</a></li>
+                    <li><a href="#sobre" class="block text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Sobre Nós</a></li>
+                    <li><a href="#eventos" class="block text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Eventos</a></li>
+                    <li><a href="#contato" class="block text-white hover:text-sacred-gold transition-colors duration-300 font-semibold">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section relative min-h-screen flex items-center justify-center text-center">
+            <!-- Background -->
+            <div class="hero-background absolute inset-0">
+                <img src="assets/images/floresta-bg.jpg" alt="" class="w-full h-full object-cover" loading="eager">
+                <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/50"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="hero-content relative z-10 text-white max-w-4xl mx-auto px-4">
+                <img src="assets/images/logo.png" alt="Logo Casa de Caridade Legião de Oxóssi e Ogum"
+                     class="hero-logo w-36 h-36 md:w-48 md:h-48 mx-auto mb-8 rounded-full border-4 border-sacred-gold shadow-2xl"
+                     loading="eager">
+
+                <h1 class="hero-title font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Casa de Caridade<br>
+                    <span class="text-sacred-gold">Legião de Oxóssi e Ogum</span>
+                </h1>
+
+                <p class="hero-subtitle text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto">
+                    Um espaço de acolhimento, caridade e conexão espiritual dedicado aos Orixás Oxóssi e Ogum
+                </p>
+
+                <div class="hero-ctas flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sobre" class="btn btn-primary inline-block px-8 py-4 bg-oxossi-green text-white font-semibold rounded-lg border-2 border-oxossi-green hover:bg-oxossi-green-dark hover:border-oxossi-green-dark transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl min-w-48 text-center">
+                        Saiba Mais
+                    </a>
+                    <a href="#contato" class="btn btn-secondary inline-block px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl min-w-48 text-center">
+                        Entre em Contato
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce-gentle" aria-hidden="true">
+                <span class="block text-sm mb-2">Role para baixo</span>
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="about-section py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-16">
+                    <h2 class="section-title font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Sobre Nossa Casa
+                    </h2>
+                    <p class="section-intro text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Conheça nossa história, missão e os Orixás que guiam nosso caminho
+                    </p>
+                </header>
+
+                <div class="about-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center animate">
+                        <div class="card-icon w-16 h-16 mx-auto mb-6 text-oxossi-green">
+                            <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title font-heading text-xl font-bold text-gray-900 mb-4">Nossa História</h3>
+                        <p class="card-text text-gray-600 leading-relaxed">
+                            A Casa de Caridade Legião de Oxóssi e Ogum foi fundada com o propósito de oferecer
+                            um espaço de acolhimento espiritual, caridade e desenvolvimento mediúnico. Ao longo
+                            dos anos, temos servido à comunidade com dedicação e amor.
+                        </p>
+                    </article>
+
+                    <article class="card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center animate">
+                        <div class="card-icon w-16 h-16 mx-auto mb-6 text-oxossi-green">
+                            <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title font-heading text-xl font-bold text-gray-900 mb-4">Missão e Valores</h3>
+                        <p class="card-text text-gray-600 leading-relaxed">
+                            Nossa missão é promover a caridade, o amor ao próximo e o desenvolvimento espiritual
+                            através dos ensinamentos da Umbanda. Trabalhamos com fé, humildade e respeito às
+                            forças da natureza e aos Orixás.
+                        </p>
+                    </article>
+
+                    <article class="card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center animate md:col-span-2 lg:col-span-1">
+                        <div class="card-icon w-16 h-16 mx-auto mb-6 text-oxossi-green">
+                            <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title font-heading text-xl font-bold text-gray-900 mb-4">Oxóssi e Ogum</h3>
+                        <p class="card-text text-gray-600 leading-relaxed">
+                            Oxóssi, o caçador das matas, representa fartura e conhecimento. Ogum, o guerreiro,
+                            simboliza força e determinação. São nossos guias espirituais que nos auxiliam no
+                            caminho da evolução e da caridade.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="eventos" class="events-section py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-16">
+                    <h2 class="section-title font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Giras e Eventos
+                    </h2>
+                    <p class="section-intro text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Confira nossa programação e participe conosco
+                    </p>
+                </header>
+
+                <div class="events-list space-y-6 max-w-4xl mx-auto">
+                    <article class="event-card flex flex-col sm:flex-row gap-6 bg-white p-6 rounded-xl shadow-lg border-l-4 border-oxossi-green hover:shadow-xl hover:translate-x-2 transition-all duration-300 animate">
+                        <div class="event-date flex-shrink-0 w-full sm:w-20 h-20 bg-oxossi-green text-white rounded-lg flex flex-col items-center justify-center text-center">
+                            <span class="event-day text-2xl font-bold leading-none">25</span>
+                            <span class="event-month text-sm font-semibold uppercase mt-1">OUT</span>
+                        </div>
+                        <div class="event-info flex-1">
+                            <h3 class="event-title font-heading text-xl font-bold text-gray-900 mb-2">Gira de Caboclos</h3>
+                            <p class="event-time text-ogum-red font-semibold mb-3">Sexta-feira às 20h00</p>
+                            <p class="event-description text-gray-600 leading-relaxed">
+                                Trabalho espiritual com os Caboclos da mata, entidades de Oxóssi
+                                que trazem mensagens de força e sabedoria.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="event-card flex flex-col sm:flex-row gap-6 bg-white p-6 rounded-xl shadow-lg border-l-4 border-oxossi-green hover:shadow-xl hover:translate-x-2 transition-all duration-300 animate">
+                        <div class="event-date flex-shrink-0 w-full sm:w-20 h-20 bg-oxossi-green text-white rounded-lg flex flex-col items-center justify-center text-center">
+                            <span class="event-day text-2xl font-bold leading-none">28</span>
+                            <span class="event-month text-sm font-semibold uppercase mt-1">OUT</span>
+                        </div>
+                        <div class="event-info flex-1">
+                            <h3 class="event-title font-heading text-xl font-bold text-gray-900 mb-2">Gira de Pretos-Velhos</h3>
+                            <p class="event-time text-ogum-red font-semibold mb-3">Segunda-feira às 20h00</p>
+                            <p class="event-description text-gray-600 leading-relaxed">
+                                Trabalho de caridade e aconselhamento com os sábios Pretos-Velhos,
+                                que trazem paz e conforto espiritual.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="event-card flex flex-col sm:flex-row gap-6 bg-white p-6 rounded-xl shadow-lg border-l-4 border-oxossi-green hover:shadow-xl hover:translate-x-2 transition-all duration-300 animate">
+                        <div class="event-date flex-shrink-0 w-full sm:w-20 h-20 bg-oxossi-green text-white rounded-lg flex flex-col items-center justify-center text-center">
+                            <span class="event-day text-2xl font-bold leading-none">01</span>
+                            <span class="event-month text-sm font-semibold uppercase mt-1">NOV</span>
+                        </div>
+                        <div class="event-info flex-1">
+                            <h3 class="event-title font-heading text-xl font-bold text-gray-900 mb-2">Gira de Exú</h3>
+                            <p class="event-time text-ogum-red font-semibold mb-3">Sexta-feira às 20h00</p>
+                            <p class="event-description text-gray-600 leading-relaxed">
+                                Trabalho de limpeza espiritual e abertura de caminhos com os guardiões Exús.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="contact-section py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-16">
+                    <h2 class="section-title font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Entre em Contato
+                    </h2>
+                    <p class="section-intro text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Estamos aqui para atendê-lo com carinho e dedicação
+                    </p>
+                </header>
+
+                <div class="contact-grid grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h3 class="contact-subtitle font-heading text-2xl font-bold text-gray-900 mb-8 pb-3 border-b-4 border-oxossi-green">
+                            Informações de Contato
+                        </h3>
+
+                        <div class="space-y-8">
+                            <div class="contact-item flex gap-6 items-start animate">
+                                <div class="contact-icon flex-shrink-0 w-12 h-12 text-oxossi-green">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">Endereço</h4>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        Rua das Flores, 123 - Bairro São Jorge<br>
+                                        São Paulo - SP<br>
+                                        CEP: 01234-567
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item flex gap-6 items-start animate">
+                                <div class="contact-icon flex-shrink-0 w-12 h-12 text-oxossi-green">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">Telefone</h4>
+                                    <p>
+                                        <a href="tel:+5511999988888" class="text-gray-600 hover:text-oxossi-green transition-colors duration-300">
+                                            (11) 9999-8888
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item flex gap-6 items-start animate">
+                                <div class="contact-icon flex-shrink-0 w-12 h-12 text-oxossi-green">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">E-mail</h4>
+                                    <p>
+                                        <a href="mailto:contato@casadecaridade.org.br" class="text-gray-600 hover:text-oxossi-green transition-colors duration-300">
+                                            contato@casadecaridade.org.br
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item contact-whatsapp flex gap-6 items-start animate">
+                                <div class="contact-icon flex-shrink-0 w-12 h-12 text-whatsapp">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">WhatsApp</h4>
+                                    <a href="https://wa.me/5511999988888"
+                                       class="btn-whatsapp inline-block px-6 py-3 bg-whatsapp text-white font-semibold rounded-lg hover:bg-green-600 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+                                       target="_blank" rel="noopener">
+                                        Fale Conosco pelo WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schedule -->
+                    <div class="contact-schedule">
+                        <h3 class="contact-subtitle font-heading text-2xl font-bold text-gray-900 mb-8 pb-3 border-b-4 border-oxossi-green">
+                            Horários de Funcionamento
+                        </h3>
+
+                        <div class="overflow-x-auto">
+                            <table class="schedule-table w-full border-collapse mb-6 shadow-lg rounded-lg overflow-hidden">
+                                <thead>
+                                    <tr class="bg-oxossi-green text-white">
+                                        <th class="p-4 text-left font-semibold">Dia</th>
+                                        <th class="p-4 text-left font-semibold">Horário</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Segunda-feira</td>
+                                        <td class="p-4">20h00 - 22h00</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Terça-feira</td>
+                                        <td class="p-4 text-gray-500">Fechado</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Quarta-feira</td>
+                                        <td class="p-4 text-gray-500">Fechado</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Quinta-feira</td>
+                                        <td class="p-4 text-gray-500">Fechado</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Sexta-feira</td>
+                                        <td class="p-4">20h00 - 23h00</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Sábado</td>
+                                        <td class="p-4 text-gray-500">Fechado</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="p-4 font-medium">Domingo</td>
+                                        <td class="p-4 text-gray-500">Fechado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="schedule-note p-4 bg-yellow-50 border-l-4 border-sacred-gold rounded">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong>Observação:</strong> Em datas especiais e festas de Orixás,
+                                podem haver alterações. Consulte pelo WhatsApp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="footer-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- About -->
+                <div class="footer-about">
+                    <img src="assets/images/logo.png" alt="Logo Casa de Caridade"
+                         class="footer-logo w-24 h-24 rounded-full mb-4" loading="lazy">
+                    <p class="footer-description text-sm text-gray-300 leading-relaxed">
+                        Casa de Caridade Legião de Oxóssi e Ogum.
+                        Um espaço de fé, caridade e desenvolvimento espiritual.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4 class="footer-title text-lg font-semibold text-sacred-gold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="text-gray-300 hover:text-oxossi-green transition-colors duration-300">Início</a></li>
+                        <li><a href="#sobre" class="text-gray-300 hover:text-oxossi-green transition-colors duration-300">Sobre Nós</a></li>
+                        <li><a href="#eventos" class="text-gray-300 hover:text-oxossi-green transition-colors duration-300">Eventos</a></li>
+                        <li><a href="#contato" class="text-gray-300 hover:text-oxossi-green transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <h4 class="footer-title text-lg font-semibold text-sacred-gold mb-4">Contato</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li>Rua das Flores, 123</li>
+                        <li>São Paulo - SP</li>
+                        <li><a href="tel:+5511999988888" class="hover:text-oxossi-green transition-colors duration-300">(11) 9999-8888</a></li>
+                        <li><a href="mailto:contato@casadecaridade.org.br" class="hover:text-oxossi-green transition-colors duration-300">contato@casadecaridade.org.br</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-social">
+                    <h4 class="footer-title text-lg font-semibold text-sacred-gold mb-4">Redes Sociais</h4>
+                    <div class="social-icons flex gap-4">
+                        <a href="#" aria-label="Facebook" target="_blank" rel="noopener"
+                           class="w-10 h-10 bg-gray-700 hover:bg-oxossi-green text-white rounded-full flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" target="_blank" rel="noopener"
+                           class="w-10 h-10 bg-gray-700 hover:bg-oxossi-green text-white rounded-full flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447c0-1.297.49-2.448 1.418-3.323.928-.875 2.079-1.365 3.323-1.365 1.297 0 2.448.49 3.323 1.365.875.875 1.365 2.026 1.365 3.323 0 1.297-.49 2.448-1.365 3.244-.875.928-2.026 1.297-3.323 1.297zm7.83-9.565h-1.557V5.608h1.557v1.815zm-1.557 1.959h1.557v1.557h-1.557V9.382z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5511999988888" aria-label="WhatsApp" target="_blank" rel="noopener"
+                           class="w-10 h-10 bg-gray-700 hover:bg-whatsapp text-white rounded-full flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center pt-8 border-t border-gray-700">
+                <p class="text-sm text-gray-300 mb-2">
+                    &copy; 2025 Casa de Caridade Legião de Oxóssi e Ogum. Todos os direitos reservados.
+                </p>
+                <p class="footer-credits text-sm text-gray-400">
+                    Desenvolvido com ❤️ e respeito espiritual
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
