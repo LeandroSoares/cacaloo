@@ -59,10 +59,10 @@ sudo -u www-data composer install --no-dev --optimize-autoloader
 
 #### 4. Configurar Ambiente
 ```bash
-# Copiar arquivo de configuração
-sudo -u www-data cp .env.production .env
+# Copiar template de produção
+sudo -u www-data cp .env.example.production .env
 
-# Editar configurações (banco de dados, etc.)
+# Editar configurações específicas (banco de dados, etc.)
 sudo -u www-data nano .env
 
 # Gerar chave da aplicação

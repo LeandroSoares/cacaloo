@@ -15,10 +15,10 @@ NC='\033[0m' # No Color
 # Verificar se o Composer está instalado
 if [ ! -f "composer.phar" ]; then
     echo -e "${YELLOW}⚠️  Composer não encontrado. Baixando...${NC}"
-    
+
     # Baixar Composer
     curl -sS https://getcomposer.org/installer | php
-    
+
     echo -e "${GREEN}✅ Composer baixado com sucesso!${NC}"
 else
     echo -e "${GREEN}✅ Composer já está disponível${NC}"
@@ -66,8 +66,17 @@ sudo -u www-data php composer.phar install --no-dev --optimize-autoloader --no-i
 # Copiar arquivo .env se não existir
 if [ ! -f ".env" ]; then
     echo -e "${YELLOW}⚙️  Criando arquivo .env...${NC}"
-    sudo -u www-data cp .env.example .env
-    echo -e "${RED}⚠️  IMPORTANTE: Configure o arquivo .env com suas credenciais!${NC}"
+    
+    # Usar template de produção se disponível
+    if [ -f ".env.example.production" ]; then
+        sudo -u www-data cp .env.example.production .env
+        echo -e "${GREEN}✅ Usando template de produção${NC}"
+    else
+        sudo -u www-data cp .env.example .env
+        echo -e "${YELLOW}⚠️  Usando template padrão${NC}"
+    fi
+    
+    echo -e "${RED}⚠️  IMPORTANTE: Configure o arquivo .env com suas credenciais específicas!${NC}"
 else
     echo -e "${GREEN}✅ Arquivo .env já existe${NC}"
 fi

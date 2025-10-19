@@ -46,13 +46,13 @@ sudo chown -R www-data:www-data /var/www/cacaloo
 
 ## 5. Configurar Ambiente
 ```bash
-# Copiar arquivo .env
-sudo -u www-data cp .env.production .env
+# Copiar template de produção
+sudo -u www-data cp .env.example.production .env
 
-# OU se não tiver .env.production:
-sudo -u www-data cp .env.example .env
+# OU usar template padrão e configurar manualmente:
+# sudo -u www-data cp .env.example .env
 
-# Editar .env com suas configurações
+# Editar .env com suas configurações específicas
 sudo -u www-data nano .env
 ```
 
