@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'nome_completo' => env('APP_NAME', 'Casa de Caridade Legião de Oxóssi e Ogum'),
+    'nome_completo' => 'Casa de Caridade Legião de Oxóssi e Ogum',
 
     'endereco' => [
         'rua' => 'Rua Ilhéus do Prata, 26',
@@ -28,9 +28,9 @@ return [
     ],
 
     'horarios' => [
-        'segunda_sexta' => '19h00 às 22h00',
-        'sabado' => '15h00 às 18h00',
-        'domingo' => '09h00 às 12h00',
+        'sexta' => '20h00 às 22h00',
+        // 'sabado' => '15h00 às 18h00',
+        // 'domingo' => '09h00 às 12h00',
     ],
 
     'redes_sociais' => [

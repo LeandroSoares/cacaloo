@@ -73,11 +73,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Atribui automaticamente a role "user" para usuários convidados
+        $user->assignRole('user');
+
         // Marca o convite como aceito e registra quem aceitou
         $invitation->markAsAccepted($user->id);
 
         event(new Registered($user));
 
-        Auth::login($user);        return redirect(route('dashboard', absolute: false));
+        Auth::login($user);
+
+        return redirect(route('dashboard', absolute: false));
     }
 }

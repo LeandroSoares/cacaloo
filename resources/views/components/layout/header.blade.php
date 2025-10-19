@@ -1,3 +1,25 @@
+@props(['sectionsVisibility' => []])
+
+@php
+// Debug - verificar o que está sendo passado
+// dd('sectionsVisibility:', $sectionsVisibility); // Descomente para debugar
+
+// Verificar visibilidade das seções para os links de navegação
+// Se sectionsVisibility está vazio, usar valores padrão (para outras páginas)
+// Se sectionsVisibility tem dados, usar os valores reais do banco
+if (empty($sectionsVisibility)) {
+    // Outras páginas - todos os links visíveis por padrão
+    $aboutVisible = true;
+    $eventsVisible = true;
+    $contactVisible = true;
+} else {
+    // Home - usar valores reais do banco
+    $aboutVisible = $sectionsVisibility['about']['is_visible'] ?? false;
+    $eventsVisible = $sectionsVisibility['events']['is_visible'] ?? false;
+    $contactVisible = $sectionsVisibility['contact']['is_visible'] ?? false;
+}
+@endphp
+
 <header
     x-data="{
         isOpen: false,
@@ -32,15 +54,21 @@
                 <a href="#inicio" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Início
                 </a>
+                @if($aboutVisible)
                 <a href="#sobre" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Sobre Nós
                 </a>
+                @endif
+                @if($eventsVisible)
                 <a href="#eventos" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Eventos
                 </a>
+                @endif
+                @if($contactVisible)
                 <a href="#contato" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Contato
                 </a>
+                @endif
 
                 <!-- Login Button -->
                 <a href="{{ route('login') }}" class="bg-oxossi hover:bg-oxossi-dark text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 focus-ring shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -104,6 +132,7 @@
                 >
                     Início
                 </a>
+                @if($aboutVisible)
                 <a
                     href="#sobre"
                     @click="isOpen = false"
@@ -111,6 +140,8 @@
                 >
                     Sobre Nós
                 </a>
+                @endif
+                @if($eventsVisible)
                 <a
                     href="#eventos"
                     @click="isOpen = false"
@@ -118,6 +149,8 @@
                 >
                     Eventos
                 </a>
+                @endif
+                @if($contactVisible)
                 <a
                     href="#contato"
                     @click="isOpen = false"
@@ -125,6 +158,7 @@
                 >
                     Contato
                 </a>
+                @endif
 
                 <!-- Login Button Mobile -->
                 <a

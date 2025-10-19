@@ -28,6 +28,10 @@
                         {{ __('Convites') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admin.home-customization.index')" :active="request()->routeIs('admin.home-customization.*')" class="text-white hover:text-blue-200">
+                        🏠 {{ __('Homepage') }}
+                    </x-nav-link>
+
                     <!-- Adicione aqui mais links administrativos -->
                 </div>
             </div>

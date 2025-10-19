@@ -1,3 +1,5 @@
+@props(['homeContent' => null])
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
@@ -27,7 +29,11 @@
     </a>
 
     <!-- Header/Navegação -->
-    <x-layout.header />
+    @if($homeContent)
+        <x-layout.header :sections-visibility="$homeContent" />
+    @else
+        <x-layout.header />
+    @endif
 
     <!-- Main Content -->
     <main id="main-content">

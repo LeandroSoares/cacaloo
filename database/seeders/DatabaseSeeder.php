@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(MagicTypesSeeder::class);
+        $this->call(HomeSectionsSeeder::class);
     }
 }

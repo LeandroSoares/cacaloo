@@ -1,10 +1,20 @@
+@props(['content' => []])
+
+@php
+$title = $content['title'] ?? 'Entre em Contato';
+$subtitle = $content['subtitle'] ?? 'Estamos aqui para atendê-lo com carinho e dedicação';
+$contentText = $content['content'] ?? '';
+$isVisible = $content['is_visible'] ?? true;
+@endphp
+
+@if($isVisible)
 <section id="contato" class="py-20 lg:py-32 bg-gray-50">
     <div class="container mx-auto px-4">
 
         <!-- Section Title -->
         <x-ui.section-title
-            title="Entre em Contato"
-            subtitle="Estamos aqui para atendê-lo com carinho e dedicação"
+            :title="$title"
+            :subtitle="$subtitle"
         />
 
         <!-- Contact Grid -->
@@ -123,7 +133,14 @@
                         podem haver alterações. Consulte pelo WhatsApp.
                     </p>
                 </div>
+
+                @if($contentText)
+                <div class="mt-6 p-4 bg-oxossi/10 border-l-4 border-oxossi rounded-lg">
+                    <p class="text-gray-700 leading-relaxed">{{ $contentText }}</p>
+                </div>
+                @endif
             </div>
         </div>
     </div>
 </section>
+@endif

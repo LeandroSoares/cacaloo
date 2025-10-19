@@ -1,3 +1,53 @@
+<?php $attributes ??= new \Illuminate\View\ComponentAttributeBag;
+
+$__newAttributes = [];
+$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['sectionsVisibility' => []]));
+
+foreach ($attributes->all() as $__key => $__value) {
+    if (in_array($__key, $__propNames)) {
+        $$__key = $$__key ?? $__value;
+    } else {
+        $__newAttributes[$__key] = $__value;
+    }
+}
+
+$attributes = new \Illuminate\View\ComponentAttributeBag($__newAttributes);
+
+unset($__propNames);
+unset($__newAttributes);
+
+foreach (array_filter((['sectionsVisibility' => []]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+    $$__key = $$__key ?? $__value;
+}
+
+$__defined_vars = get_defined_vars();
+
+foreach ($attributes->all() as $__key => $__value) {
+    if (array_key_exists($__key, $__defined_vars)) unset($$__key);
+}
+
+unset($__defined_vars, $__key, $__value); ?>
+
+<?php
+// Debug - verificar o que está sendo passado
+// dd('sectionsVisibility:', $sectionsVisibility); // Descomente para debugar
+
+// Verificar visibilidade das seções para os links de navegação
+// Se sectionsVisibility está vazio, usar valores padrão (para outras páginas)
+// Se sectionsVisibility tem dados, usar os valores reais do banco
+if (empty($sectionsVisibility)) {
+    // Outras páginas - todos os links visíveis por padrão
+    $aboutVisible = true;
+    $eventsVisible = true;
+    $contactVisible = true;
+} else {
+    // Home - usar valores reais do banco
+    $aboutVisible = $sectionsVisibility['about']['is_visible'] ?? false;
+    $eventsVisible = $sectionsVisibility['events']['is_visible'] ?? false;
+    $contactVisible = $sectionsVisibility['contact']['is_visible'] ?? false;
+}
+?>
+
 <header
     x-data="{
         isOpen: false,
@@ -32,15 +82,21 @@
                 <a href="#inicio" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Início
                 </a>
+                <?php if($aboutVisible): ?>
                 <a href="#sobre" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Sobre Nós
                 </a>
+                <?php endif; ?>
+                <?php if($eventsVisible): ?>
                 <a href="#eventos" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Eventos
                 </a>
+                <?php endif; ?>
+                <?php if($contactVisible): ?>
                 <a href="#contato" class="text-gray-700 hover:text-oxossi font-medium transition-colors focus-ring px-3 py-2 rounded-lg">
                     Contato
                 </a>
+                <?php endif; ?>
 
                 <!-- Login Button -->
                 <a href="<?php echo e(route('login')); ?>" class="bg-oxossi hover:bg-oxossi-dark text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 focus-ring shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -104,6 +160,7 @@
                 >
                     Início
                 </a>
+                <?php if($aboutVisible): ?>
                 <a
                     href="#sobre"
                     @click="isOpen = false"
@@ -111,6 +168,8 @@
                 >
                     Sobre Nós
                 </a>
+                <?php endif; ?>
+                <?php if($eventsVisible): ?>
                 <a
                     href="#eventos"
                     @click="isOpen = false"
@@ -118,6 +177,8 @@
                 >
                     Eventos
                 </a>
+                <?php endif; ?>
+                <?php if($contactVisible): ?>
                 <a
                     href="#contato"
                     @click="isOpen = false"
@@ -125,6 +186,7 @@
                 >
                     Contato
                 </a>
+                <?php endif; ?>
 
                 <!-- Login Button Mobile -->
                 <a

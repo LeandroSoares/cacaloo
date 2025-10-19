@@ -48,20 +48,59 @@ class InvitationFunctionalityTest extends TestCase
 
         $this->actingAs($this->admin);
 
-        $response = $this->post(route('admin.invitations.store'), [
-            'email' => 'test@example.com',
-            'expires_days' => 10,
-        ]);
+        $invitationData = [
+            'email' => 'novo.usuario@example.com',
+            'expiration_days' => 7
+        ];
 
-        $response->assertRedirect(route('admin.invitations.index'));
-        $response->assertSessionHas('success');
+        $response = $this->post(route('invitations.store'), $invitationData);
 
+        $response->assertRedirect();
         $this->assertDatabaseHas('invitations', [
-            'email' => 'test@example.com',
-            'status' => Invitation::STATUS_PENDING,
+            'email' => 'novo.usuario@example.com',
+            'invited_by' => $this->admin->id,
+            'status' => Invitation::STATUS_PENDING
         ]);
 
-        Mail::assertSent(InvitationMail::class);
+        Mail::assertSent(InvitationMail::class, function ($mail) use ($invitationData) {
+            return $mail->hasTo($invitationData['email']);
+        });
+    }
+
+    /**
+     * Testa se usuário registrado via convite recebe automaticamente a role "user"
+     */
+    public function test_invited_user_receives_user_role_automatically(): void
+    {
+        // Criar role user
+        Role::create(['name' => 'user']);
+
+        // Criar convite
+        $invitation = $this->invitationService->create('newuser@example.com', $this->admin->id);
+
+        // Dados de registro
+        $registrationData = [
+            'name' => 'Novo Usuário',
+            'email' => 'newuser@example.com',
+            'password' => 'password123',
+            'password_confirmation' => 'password123',
+            'token' => $invitation->token,
+        ];
+
+        // Registrar usuário via convite
+        $response = $this->post(route('register'), $registrationData);
+
+        // Verificar se usuário foi criado
+        $user = User::where('email', 'newuser@example.com')->first();
+        $this->assertNotNull($user);
+
+        // Verificar se recebeu a role "user" automaticamente
+        $this->assertTrue($user->hasRole('user'));
+
+        // Verificar se convite foi marcado como aceito
+        $invitation->refresh();
+        $this->assertTrue($invitation->isAccepted());
+        $this->assertEquals($user->id, $invitation->accepted_by);
     }
 
     /**

@@ -1,17 +1,55 @@
+<?php $attributes ??= new \Illuminate\View\ComponentAttributeBag;
+
+$__newAttributes = [];
+$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['content' => []]));
+
+foreach ($attributes->all() as $__key => $__value) {
+    if (in_array($__key, $__propNames)) {
+        $$__key = $$__key ?? $__value;
+    } else {
+        $__newAttributes[$__key] = $__value;
+    }
+}
+
+$attributes = new \Illuminate\View\ComponentAttributeBag($__newAttributes);
+
+unset($__propNames);
+unset($__newAttributes);
+
+foreach (array_filter((['content' => []]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+    $$__key = $$__key ?? $__value;
+}
+
+$__defined_vars = get_defined_vars();
+
+foreach ($attributes->all() as $__key => $__value) {
+    if (array_key_exists($__key, $__defined_vars)) unset($$__key);
+}
+
+unset($__defined_vars, $__key, $__value); ?>
+
+<?php
+$title = $content['title'] ?? 'Giras e Eventos';
+$subtitle = $content['subtitle'] ?? 'Confira nossa programação e participe conosco';
+$events = $content['events'] ?? [];
+$isVisible = $content['is_visible'] ?? true;
+?>
+
+<?php if($isVisible): ?>
 <section id="eventos" class="py-20 lg:py-32 bg-white">
     <div class="container mx-auto px-4">
 
         <!-- Section Title -->
         <?php if (isset($component)) { $__componentOriginal02a170618cef57f8f8e8e7cbeca0353c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal02a170618cef57f8f8e8e7cbeca0353c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.ui.section-title','data' => ['title' => 'Giras e Eventos','subtitle' => 'Confira nossa programação e participe conosco']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.ui.section-title','data' => ['title' => $title,'subtitle' => $subtitle]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('ui.section-title'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['title' => 'Giras e Eventos','subtitle' => 'Confira nossa programação e participe conosco']); ?>
+<?php $component->withAttributes(['title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($title),'subtitle' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($subtitle)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal02a170618cef57f8f8e8e7cbeca0353c)): ?>
@@ -83,4 +121,5 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 <?php /**PATH C:\Users\leand\projects\cacaloo\resources\views/components/sections/events.blade.php ENDPATH**/ ?>

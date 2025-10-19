@@ -4,14 +4,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\HomeCustomizationController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rota de teste para envio de email
 Route::get('/test-email', function () {
@@ -74,8 +73,13 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     Route::post('invitations/{invitation}/resend', [InvitationController::class, 'resend'])->name('invitations.resend');
     Route::patch('invitations/{invitation}/cancel', [InvitationController::class, 'cancel'])->name('invitations.cancel');
 
+    // Customização da Homepage
+    Route::get('home-customization', [HomeCustomizationController::class, 'index'])->name('home-customization.index');
+    Route::post('home-customization', [HomeCustomizationController::class, 'store'])->name('home-customization.store');
+
     // Adicione aqui outras rotas administrativas
 });
+
 
 // Rotas SysAdmin - Super Administrador
 Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix('sysadmin')->name('sysadmin.')->group(function () {

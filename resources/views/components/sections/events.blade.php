@@ -1,10 +1,20 @@
+@props(['content' => []])
+
+@php
+$title = $content['title'] ?? 'Giras e Eventos';
+$subtitle = $content['subtitle'] ?? 'Confira nossa programação e participe conosco';
+$events = $content['events'] ?? [];
+$isVisible = $content['is_visible'] ?? true;
+@endphp
+
+@if($isVisible)
 <section id="eventos" class="py-20 lg:py-32 bg-white">
     <div class="container mx-auto px-4">
 
         <!-- Section Title -->
         <x-ui.section-title
-            title="Giras e Eventos"
-            subtitle="Confira nossa programação e participe conosco"
+            :title="$title"
+            :subtitle="$subtitle"
         />
 
         <!-- Events List -->
@@ -67,3 +77,4 @@
         </div>
     </div>
 </section>
+@endif
