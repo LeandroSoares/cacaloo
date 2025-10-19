@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeCustomizationController;
 use App\Mail\TestEmail;
