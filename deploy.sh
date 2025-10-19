@@ -63,6 +63,27 @@ echo -e "${YELLOW}📦 Instalando dependências do Composer...${NC}"
 cd $PROJECT_DIR
 sudo -u www-data php composer.phar install --no-dev --optimize-autoloader --no-interaction
 
+# Verificar se Node.js está instalado para compilar assets
+if command -v node &> /dev/null; then
+    echo -e "${YELLOW}📦 Instalando dependências Node.js...${NC}"
+    sudo -u www-data npm install
+    
+    echo -e "${YELLOW}🧹 Limpando build anterior...${NC}"
+    sudo -u www-data rm -rf public/build/*
+    
+    echo -e "${YELLOW}🏗️  Compilando assets do Vite...${NC}"
+    sudo -u www-data npm run build
+    
+    echo -e "${GREEN}✅ Assets compilados com sucesso!${NC}"
+else
+    echo -e "${YELLOW}⚠️  Node.js não encontrado. Usando assets do repositório.${NC}"
+    echo -e "${YELLOW}💡 Para compilar assets no servidor:${NC}"
+    echo "   curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -"
+    echo "   sudo apt-get install -y nodejs"
+    echo "   sudo -u www-data npm install"
+    echo "   sudo -u www-data npm run build"
+fi
+
 # Copiar arquivo .env se não existir
 if [ ! -f ".env" ]; then
     echo -e "${YELLOW}⚙️  Criando arquivo .env...${NC}"
@@ -97,6 +118,19 @@ sudo -u www-data php artisan db:seed --force
 
 # Limpar e cachear configurações
 echo -e "${YELLOW}🧹 Otimizando aplicação...${NC}"
+sudo -u www-data php artisan config:cache
+sudo -u www-data php artisan route:cache
+sudo -u www-data php artisan view:cache
+
+# Limpar caches se existirem
+echo -e "${YELLOW}🧼 Limpando caches antigos...${NC}"
+sudo -u www-data php artisan cache:clear
+sudo -u www-data php artisan view:clear
+sudo -u www-data php artisan config:clear
+sudo -u www-data php artisan route:clear
+
+# Recriar caches
+echo -e "${YELLOW}♻️  Recriando caches...${NC}"
 sudo -u www-data php artisan config:cache
 sudo -u www-data php artisan route:cache
 sudo -u www-data php artisan view:cache
