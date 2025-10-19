@@ -102,9 +102,11 @@ else
     echo -e "${GREEN}✅ Arquivo .env já existe${NC}"
 fi
 
-# Gerar chave da aplicação SEMPRE (evita erro 419)
-echo -e "${YELLOW}🔑 Gerando chave da aplicação...${NC}"
-sudo -u www-data php artisan key:generate --force
+# Gerar chave da aplicação se necessário
+if ! grep -q "APP_KEY=base64:" .env; then
+    echo -e "${YELLOW}🔑 Gerando chave da aplicação...${NC}"
+    sudo -u www-data php artisan key:generate
+fi
 
 # Executar migrations
 echo -e "${YELLOW}🗄️  Executando migrations...${NC}"
@@ -143,15 +145,8 @@ elif systemctl is-active --quiet nginx; then
 fi
 
 echo -e "${GREEN}🎉 Deploy concluído com sucesso!${NC}"
-
-# Aviso sobre erro 419
-echo -e "${YELLOW}⚠️  Se encontrar erro 419 (CSRF), execute:${NC}"
-echo "   cd /var/www/cacaloo && sudo bash fix-csrf.sh"
-echo ""
-
 echo -e "${YELLOW}📝 Próximos passos:${NC}"
-echo "1. Configure o arquivo .env com suas credenciais específicas"
-echo "2. Ajuste SESSION_DOMAIN para seu domínio real"
-echo "3. Configure o virtual host do Apache/Nginx"
-echo "4. Configure SSL se necessário"
-echo "5. Teste a aplicação"
+echo "1. Configure o arquivo .env com suas credenciais de banco"
+echo "2. Configure o virtual host do Apache/Nginx"
+echo "3. Configure SSL se necessário"
+echo "4. Teste a aplicação"

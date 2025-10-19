@@ -1,4 +1,4 @@
-<x-user-layout>
+<x-layout.app>
     <x-slot name="header">
         🌿 Portal da Casa
     </x-slot>
@@ -115,4 +115,4 @@
             </div>
         </div>
     </div>
-</x-user-layout>
+</x-layout.app>
