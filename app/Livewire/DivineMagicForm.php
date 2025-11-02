@@ -19,6 +19,8 @@ class DivineMagicForm extends Component
         'priest_name' => '',
         'observations' => '',
     ];
+    public $editingMagic = null;
+    public $isEditing = false;
 
     protected $rules = [
         'newMagic.magic_type_id' => 'required',
@@ -60,26 +62,56 @@ class DivineMagicForm extends Component
         $this->availableMagicTypes = MagicType::orderBy('name')->get()->toArray();
     }
 
-    public function addMagic()
+    public function save()
     {
         $this->validate();
 
-        $this->user->divineMagics()->create([
+        $data = [
             'magic_type_id' => $this->newMagic['magic_type_id'],
             'date' => $this->newMagic['date'],
             'temple' => $this->newMagic['temple'],
             'priest_name' => $this->newMagic['priest_name'],
             'observations' => $this->newMagic['observations'],
-        ]);
+        ];
+
+        if ($this->isEditing) {
+            $this->editingMagic->update($data);
+            session()->flash('message', 'Magia divina atualizada com sucesso!');
+            $this->cancel();
+        } else {
+            $this->user->divineMagics()->create($data);
+            session()->flash('message', 'Magia divina adicionada com sucesso!');
+        }
 
         $this->resetNewMagic();
         $this->loadDivineMagics();
-
-        session()->flash('message', 'Magia divina adicionada com sucesso!');
         $this->dispatch('profile-updated');
     }
 
-    public function deleteMagic($id)
+    public function edit($id)
+    {
+        $magic = DivineMagic::find($id);
+        if ($magic && $magic->user_id === $this->user->id) {
+            $this->editingMagic = $magic;
+            $this->isEditing = true;
+            $this->newMagic = [
+                'magic_type_id' => $magic->magic_type_id,
+                'date' => $magic->date?->format('Y-m-d') ?? '',
+                'temple' => $magic->temple ?? '',
+                'priest_name' => $magic->priest_name ?? '',
+                'observations' => $magic->observations ?? '',
+            ];
+        }
+    }
+
+    public function cancel()
+    {
+        $this->isEditing = false;
+        $this->editingMagic = null;
+        $this->resetNewMagic();
+    }
+
+    public function delete($id)
     {
         $divineMagic = DivineMagic::find($id);
 

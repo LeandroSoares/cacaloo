@@ -19,7 +19,7 @@ class ReligiousInfoForm extends Component
     public $development_end;
     public $service_start;
     public $umbanda_baptism;
-    public $cambone_experience;
+    public $cambone_experience = false; // Inicializar com false por padrão
     public $cambone_start_date;
     public $cambone_end_date;
 
@@ -36,9 +36,21 @@ class ReligiousInfoForm extends Component
             $this->development_end = $data->development_end?->format('Y-m-d');
             $this->service_start = $data->service_start?->format('Y-m-d');
             $this->umbanda_baptism = $data->umbanda_baptism?->format('Y-m-d');
-            $this->cambone_experience = $data->cambone_experience;
+            $this->cambone_experience = (bool) $data->cambone_experience;
             $this->cambone_start_date = $data->cambone_start_date?->format('Y-m-d');
             $this->cambone_end_date = $data->cambone_end_date?->format('Y-m-d');
+        } else {
+            // Inicializar valores padrão para novos registros
+            $this->cambone_experience = false;
+        }
+    }
+
+    public function updatedCamboneExperience($value)
+    {
+        // Se desmarcar o checkbox, limpar as datas relacionadas
+        if (!$value) {
+            $this->cambone_start_date = null;
+            $this->cambone_end_date = null;
         }
     }
 
@@ -58,6 +70,9 @@ class ReligiousInfoForm extends Component
             'cambone_start_date' => 'nullable|date',
             'cambone_end_date' => 'nullable|date',
         ]);
+
+        // Garantir que cambone_experience seja sempre um boolean válido
+        $validated['cambone_experience'] = (bool) $this->cambone_experience;
 
         ReligiousInfo::updateOrCreate(
             ['user_id' => Auth::id()],

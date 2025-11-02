@@ -13,8 +13,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RolesAndPermissionsSeeder::class);
-        $this->call(MagicTypesSeeder::class);
-        $this->call(HomeSectionsSeeder::class);
+        // Seeders que não dependem de outros dados (ordem de prioridade)
+        $this->call([
+            // 1. Roles e Permissões (base do sistema de autorização)
+            RolesAndPermissionsSeeder::class,
+
+            // 2. Dados básicos do sistema espiritual
+            MagicTypesSeeder::class,
+            OrishaSeeder::class,
+
+            // 3. Conteúdo e configurações
+            HomeSectionsSeeder::class,
+            CoursesSeeder::class,
+            MysteriesSeeder::class,
+            DailyMessageSeeder::class,
+        ]);
+
+        $this->command->info('🎉 Todos os seeders executados com sucesso!');
+        $this->command->info('📊 Sistema inicializado com dados completos.');
     }
 }

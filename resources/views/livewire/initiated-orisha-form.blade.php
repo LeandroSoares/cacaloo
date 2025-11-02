@@ -42,11 +42,17 @@
                                     <div class="text-sm text-gray-900">{{ $orisha['priest_name'] }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button wire:click="deleteOrisha({{ $orisha['id'] }})"
-                                            class="text-red-600 hover:text-red-900"
-                                            onclick="return confirm('Tem certeza que deseja remover este orixá?')">
-                                        Remover
-                                    </button>
+                                    <div class="flex space-x-2">
+                                        <button wire:click="edit({{ $orisha['id'] }})"
+                                                class="text-blue-600 hover:text-blue-900">
+                                            Editar
+                                        </button>
+                                        <button wire:click="delete({{ $orisha['id'] }})"
+                                                class="text-red-600 hover:text-red-900"
+                                                onclick="return confirm('Tem certeza que deseja remover este orixá?')">
+                                            Excluir
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -60,9 +66,9 @@
         </div>
     @endif
 
-    <!-- Formulário para adicionar novo orixá iniciado -->
-    <h3 class="text-lg font-medium text-gray-700 mb-2">Adicionar Novo Orixá Iniciado</h3>
-    <form wire:submit.prevent="addOrisha" class="space-y-4">
+    <!-- Formulário para adicionar/editar orixá -->
+    <div class="border-t pt-6">
+        <form wire:submit.prevent="save" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label for="orisha_id" class="block text-sm font-medium text-gray-700">Orixá</label>
@@ -100,10 +106,24 @@
             </div>
         </div>
 
-        <div class="pt-4">
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                Adicionar Orixá
-            </button>
-        </div>
-    </form>
+            <!-- Botões -->
+            <div class="pt-4 flex space-x-3">
+                <button type="submit"
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    @if($isEditing)
+                        Atualizar Orixá
+                    @else
+                        Adicionar Orixá
+                    @endif
+                </button>
+
+                @if($isEditing)
+                    <button type="button" wire:click="cancel"
+                            class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Cancelar
+                    </button>
+                @endif
+            </div>
+        </form>
+    </div>
 </div>

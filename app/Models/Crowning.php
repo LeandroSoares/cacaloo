@@ -17,4 +17,14 @@ class Crowning extends Model
         'priest_name',
         'temple_name',
     ];
+
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -15,4 +15,13 @@ class Crossing extends Model
         'entity',
         'purpose',
     ];
+
+    protected $casts = [
+        'date' => 'date',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

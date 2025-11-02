@@ -14,28 +14,29 @@ class ReligiousCourseForm extends Component
     public $availableCourses = [];
     public $newCourse = [
         'course_id' => '',
-        'start_date' => '',
-        'end_date' => '',
-        'institution' => '',
-        'certificate' => false,
+        'date' => '',
+        'finished' => false,
+        'has_initiation' => false,
+        'initiation_date' => '',
+        'observations' => '',
     ];
+    public $editingCourse = null;
+    public $isEditing = false;
 
     protected $rules = [
         'newCourse.course_id' => 'required',
-        'newCourse.start_date' => 'required|date',
-        'newCourse.end_date' => 'nullable|date|after_or_equal:newCourse.start_date',
-        'newCourse.institution' => 'required|string|max:255',
-        'newCourse.certificate' => 'boolean',
+        'newCourse.date' => 'required|date',
+        'newCourse.finished' => 'boolean',
+        'newCourse.has_initiation' => 'boolean',
+        'newCourse.initiation_date' => 'nullable|date',
+        'newCourse.observations' => 'nullable|string',
     ];
 
     protected $messages = [
         'newCourse.course_id.required' => 'O curso é obrigatório.',
-        'newCourse.start_date.required' => 'A data de início é obrigatória.',
-        'newCourse.start_date.date' => 'A data de início deve ser uma data válida.',
-        'newCourse.end_date.date' => 'A data de conclusão deve ser uma data válida.',
-        'newCourse.end_date.after_or_equal' => 'A data de conclusão deve ser posterior ou igual à data de início.',
-        'newCourse.institution.required' => 'A instituição é obrigatória.',
-        'newCourse.institution.max' => 'A instituição não pode ter mais de 255 caracteres.',
+        'newCourse.date.required' => 'A data do curso é obrigatória.',
+        'newCourse.date.date' => 'A data do curso deve ser uma data válida.',
+        'newCourse.initiation_date.date' => 'A data da iniciação deve ser uma data válida.',
     ];
 
     public function mount($user)
@@ -60,26 +61,58 @@ class ReligiousCourseForm extends Component
         $this->availableCourses = Course::orderBy('name')->get()->toArray();
     }
 
-    public function addCourse()
+    public function save()
     {
         $this->validate();
 
-        $this->user->religiousCourses()->create([
+        $data = [
             'course_id' => $this->newCourse['course_id'],
-            'start_date' => $this->newCourse['start_date'],
-            'end_date' => $this->newCourse['end_date'],
-            'institution' => $this->newCourse['institution'],
-            'certificate' => $this->newCourse['certificate'],
-        ]);
+            'date' => $this->newCourse['date'],
+            'finished' => $this->newCourse['finished'],
+            'has_initiation' => $this->newCourse['has_initiation'],
+            'initiation_date' => $this->newCourse['has_initiation'] ? $this->newCourse['initiation_date'] : null,
+            'observations' => $this->newCourse['observations'],
+        ];
 
-        $this->resetNewCourse();
+        if ($this->isEditing) {
+            $this->editingCourse->update($data);
+            session()->flash('message', 'Curso atualizado com sucesso!');
+            $this->cancel();
+        } else {
+            $this->user->religiousCourses()->create($data);
+            session()->flash('message', 'Curso adicionado com sucesso!');
+        }
+
+        $this->resetForm();
         $this->loadReligiousCourses();
-
-        session()->flash('message', 'Curso adicionado com sucesso!');
         $this->dispatch('profile-updated');
     }
 
-    public function deleteCourse($id)
+    public function edit($id)
+    {
+        $course = ReligiousCourse::find($id);
+        if ($course && $course->user_id === $this->user->id) {
+            $this->editingCourse = $course;
+            $this->isEditing = true;
+            $this->newCourse = [
+                'course_id' => $course->course_id,
+                'date' => $course->date?->format('Y-m-d') ?? '',
+                'finished' => $course->finished,
+                'has_initiation' => $course->has_initiation,
+                'initiation_date' => $course->initiation_date?->format('Y-m-d') ?? '',
+                'observations' => $course->observations ?? '',
+            ];
+        }
+    }
+
+    public function cancel()
+    {
+        $this->isEditing = false;
+        $this->editingCourse = null;
+        $this->resetForm();
+    }
+
+    public function delete($id)
     {
         $religiousCourse = ReligiousCourse::find($id);
 
@@ -87,18 +120,19 @@ class ReligiousCourseForm extends Component
             $religiousCourse->delete();
             $this->loadReligiousCourses();
             session()->flash('message', 'Curso removido com sucesso!');
-        $this->dispatch('profile-updated');
+            $this->dispatch('profile-updated');
         }
     }
 
-    private function resetNewCourse()
+    private function resetForm()
     {
         $this->newCourse = [
             'course_id' => '',
-            'start_date' => '',
-            'end_date' => '',
-            'institution' => '',
-            'certificate' => false,
+            'date' => '',
+            'finished' => false,
+            'has_initiation' => false,
+            'initiation_date' => '',
+            'observations' => '',
         ];
     }
 }

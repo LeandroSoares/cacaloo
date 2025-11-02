@@ -103,7 +103,7 @@
 
             @role('sysadmin')
             <!-- Menu exclusivo para Sysadmin Responsivo -->
-            <x-responsive-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.*')">
+            <x-responsive-nav-link :href="route('sysadmin.roles.index')" :active="request()->routeIs('sysadmin.roles.*')">
                 {{ __('Papéis') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.*')">

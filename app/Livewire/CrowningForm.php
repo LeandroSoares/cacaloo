@@ -10,20 +10,32 @@ class CrowningForm extends Component
 {
     private const MAX_LENGTH = 255;
 
-    public string $startDate = '';
-    public string $endDate = '';
-    public string $guideName = '';
-    public string $priestName = '';
-    public string $templeName = '';
+    public string $start_date = '';
+    public string $end_date = '';
+    public string $guide_name = '';
+    public string $priest_name = '';
+    public string $temple_name = '';
+
+    public function mount()
+    {
+        $crowning = \App\Models\Crowning::where('user_id', auth()->id())->first();
+        if ($crowning) {
+            $this->start_date = $crowning->start_date?->format('Y-m-d') ?? '';
+            $this->end_date = $crowning->end_date?->format('Y-m-d') ?? '';
+            $this->guide_name = $crowning->guide_name ?? '';
+            $this->priest_name = $crowning->priest_name ?? '';
+            $this->temple_name = $crowning->temple_name ?? '';
+        }
+    }
 
     public function rules(): array
     {
         return [
-            'startDate' => ['required', 'date'],
-            'endDate' => ['required', 'date'],
-            'guideName' => ['required', 'string', 'max:' . self::MAX_LENGTH],
-            'priestName' => ['required', 'string', 'max:' . self::MAX_LENGTH],
-            'templeName' => ['required', 'string', 'max:' . self::MAX_LENGTH],
+            'start_date' => ['nullable', 'date'],
+            'end_date' => ['nullable', 'date'],
+            'guide_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
+            'priest_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
+            'temple_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
         ];
     }
 
@@ -31,13 +43,13 @@ class CrowningForm extends Component
     {
         $this->validate();
         $service->store([
-            'start_date' => $this->startDate,
-            'end_date' => $this->endDate,
-            'guide_name' => $this->guideName,
-            'priest_name' => $this->priestName,
-            'temple_name' => $this->templeName,
+            'start_date' => $this->start_date ?: null,
+            'end_date' => $this->end_date ?: null,
+            'guide_name' => $this->guide_name ?: null,
+            'priest_name' => $this->priest_name ?: null,
+            'temple_name' => $this->temple_name ?: null,
         ]);
-        $this->reset(['startDate', 'endDate', 'guideName', 'priestName', 'templeName']);
+        // Não resetar os campos para manter os dados visíveis após salvar
         session()->flash('message', 'Coroação salva com sucesso!');
         $this->dispatch('profile-updated');
     }

@@ -39,9 +39,7 @@ Route::get('/check-roles-permissions', function () {
 
 // Área do Usuário (comum)
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('user.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -66,9 +64,6 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     // Gerenciamento de Usuários
     Route::resource('users', UserController::class);
 
-    // Gerenciamento de Papéis
-    Route::resource('roles', RoleController::class);
-
     // Gerenciamento de Convites
     Route::resource('invitations', InvitationController::class)->except(['edit', 'update', 'show']);
     Route::post('invitations/{invitation}/resend', [InvitationController::class, 'resend'])->name('invitations.resend');
@@ -77,6 +72,17 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     // Customização da Homepage
     Route::get('home-customization', [HomeCustomizationController::class, 'index'])->name('home-customization.index');
     Route::post('home-customization', [HomeCustomizationController::class, 'store'])->name('home-customization.store');
+
+    // Gerenciamento de Entidades do Sistema
+    Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
+    Route::resource('mysteries', \App\Http\Controllers\Admin\MysteryController::class);
+    Route::resource('orishas', \App\Http\Controllers\Admin\OrishaController::class);
+    Route::resource('magic-types', \App\Http\Controllers\Admin\MagicTypeController::class);
+
+    // Mensagens do Dia
+    Route::resource('daily-messages', \App\Http\Controllers\Admin\DailyMessageController::class);
+    Route::patch('daily-messages/{dailyMessage}/toggle-active', [\App\Http\Controllers\Admin\DailyMessageController::class, 'toggleActive'])->name('daily-messages.toggle-active');
+    Route::post('daily-messages-cache/clear', [\App\Http\Controllers\Admin\DailyMessageController::class, 'clearCache'])->name('daily-messages.clear-cache');
 
     // Adicione aqui outras rotas administrativas
 });

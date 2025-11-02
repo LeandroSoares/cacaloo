@@ -71,10 +71,12 @@
                 <label for="cambone_experience" class="block text-sm font-medium text-gray-700">Experiência como Cambone</label>
                 <div class="mt-2">
                     <label class="inline-flex items-center">
-                        <input type="checkbox" id="cambone_experience" wire:model="cambone_experience" class="rounded border-gray-300 text-indigo-600 shadow-sm">
+                        <input type="hidden" wire:model="cambone_experience" value="0">
+                        <input type="checkbox" id="cambone_experience" wire:model.live="cambone_experience" value="1" {{ $cambone_experience ? 'checked' : '' }} class="rounded border-gray-300 text-indigo-600 shadow-sm">
                         <span class="ml-2">Sim</span>
                     </label>
                 </div>
+                @error('cambone_experience') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
             <div x-show="$wire.cambone_experience">
                 <label for="cambone_start_date" class="block text-sm font-medium text-gray-700">Data de Início como Cambone</label>

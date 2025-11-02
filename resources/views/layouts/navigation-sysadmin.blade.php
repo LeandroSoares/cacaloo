@@ -20,6 +20,10 @@
                         {{ __('Permissões') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('sysadmin.roles.index')" :active="request()->routeIs('sysadmin.roles.*')" class="text-white hover:text-purple-200">
+                        {{ __('Papéis') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('sysadmin.system.logs')" :active="request()->routeIs('sysadmin.system.*')" class="text-white hover:text-purple-200">
                         {{ __('Logs do Sistema') }}
                     </x-nav-link>
@@ -88,6 +92,10 @@
 
             <x-responsive-nav-link :href="route('sysadmin.permissions.index')" :active="request()->routeIs('sysadmin.permissions.*')" class="text-white hover:text-purple-200">
                 {{ __('Permissões') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('sysadmin.roles.index')" :active="request()->routeIs('sysadmin.roles.*')" class="text-white hover:text-purple-200">
+                {{ __('Papéis') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('sysadmin.system.logs')" :active="request()->routeIs('sysadmin.system.*')" class="text-white hover:text-purple-200">

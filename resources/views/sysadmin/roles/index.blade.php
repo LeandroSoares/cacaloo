@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.sysadmin')
 
 @section('title', 'Gerenciamento de Papéis')
 
@@ -23,7 +23,7 @@
                     @endif
 
                     <div class="flex justify-end mb-4">
-                        <a href="{{ route('admin.roles.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
+                        <a href="{{ route('sysadmin.roles.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
                             Novo Papel
                         </a>
                     </div>
@@ -60,10 +60,10 @@
                                         </td>
                                         <td class="py-4 px-6 text-sm font-medium">
                                             <div class="flex space-x-2">
-                                                <a href="{{ route('admin.roles.edit', $role) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                                <a href="{{ route('sysadmin.roles.edit', $role) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
 
                                                 @if($role->name !== 'sysadmin')
-                                                    <form action="{{ route('admin.roles.destroy', $role) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este papel?');">
+                                                    <form action="{{ route('sysadmin.roles.destroy', $role) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este papel?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="text-red-600 hover:text-red-900">Excluir</button>

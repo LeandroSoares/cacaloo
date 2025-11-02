@@ -19,6 +19,8 @@ class InitiatedMysteryForm extends Component
         'priest_name' => '',
         'observations' => '',
     ];
+    public $editingMystery = null;
+    public $isEditing = false;
 
     protected $rules = [
         'newMystery.mystery_id' => 'required',
@@ -60,26 +62,56 @@ class InitiatedMysteryForm extends Component
         $this->availableMysteries = Mystery::orderBy('name')->get()->toArray();
     }
 
-    public function addMystery()
+    public function save()
     {
         $this->validate();
 
-        $this->user->initiatedMysteries()->create([
+        $data = [
             'mystery_id' => $this->newMystery['mystery_id'],
             'date' => $this->newMystery['date'],
             'temple' => $this->newMystery['temple'],
             'priest_name' => $this->newMystery['priest_name'],
             'observations' => $this->newMystery['observations'],
-        ]);
+        ];
+
+        if ($this->isEditing) {
+            $this->editingMystery->update($data);
+            session()->flash('message', 'Mistério atualizado com sucesso!');
+            $this->cancel();
+        } else {
+            $this->user->initiatedMysteries()->create($data);
+            session()->flash('message', 'Mistério iniciado adicionado com sucesso!');
+        }
 
         $this->resetNewMystery();
         $this->loadInitiatedMysteries();
-
-        session()->flash('message', 'Mistério iniciado adicionado com sucesso!');
         $this->dispatch('profile-updated');
     }
 
-    public function deleteMystery($id)
+    public function edit($id)
+    {
+        $mystery = InitiatedMystery::find($id);
+        if ($mystery && $mystery->user_id === $this->user->id) {
+            $this->editingMystery = $mystery;
+            $this->isEditing = true;
+            $this->newMystery = [
+                'mystery_id' => $mystery->mystery_id,
+                'date' => $mystery->date?->format('Y-m-d') ?? '',
+                'temple' => $mystery->temple ?? '',
+                'priest_name' => $mystery->priest_name ?? '',
+                'observations' => $mystery->observations ?? '',
+            ];
+        }
+    }
+
+    public function cancel()
+    {
+        $this->isEditing = false;
+        $this->editingMystery = null;
+        $this->resetNewMystery();
+    }
+
+    public function delete($id)
     {
         $initiatedMystery = InitiatedMystery::find($id);
 
@@ -87,7 +119,7 @@ class InitiatedMysteryForm extends Component
             $initiatedMystery->delete();
             $this->loadInitiatedMysteries();
             session()->flash('message', 'Mistério removido com sucesso!');
-        $this->dispatch('profile-updated');
+            $this->dispatch('profile-updated');
         }
     }
 

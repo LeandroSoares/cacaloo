@@ -89,18 +89,18 @@ class RolesAndPermissionsSeeder extends Seeder
         );
 
         foreach ($allPermissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
         // Criar papéis e atribuir permissões
 
         // Papel Sysadmin - acesso total
-        $sysadminRole = Role::create(['name' => 'sysadmin']);
-        $sysadminRole->givePermissionTo(Permission::all());
+        $sysadminRole = Role::firstOrCreate(['name' => 'sysadmin']);
+        $sysadminRole->syncPermissions(Permission::all());
 
         // Papel Admin - acesso administrativo sem configurações técnicas
-        $adminRole = Role::create(['name' => 'admin']);
-        $adminRole->givePermissionTo(array_merge(
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $adminRole->syncPermissions(array_merge(
             $userPermissions,
             $invitePermissions,
             $mediumTypePermissions,
@@ -114,8 +114,8 @@ class RolesAndPermissionsSeeder extends Seeder
         ));
 
         // Papel Manager - acesso gerencial
-        $managerRole = Role::create(['name' => 'manager']);
-        $managerRole->givePermissionTo([
+        $managerRole = Role::firstOrCreate(['name' => 'manager']);
+        $managerRole->syncPermissions([
             'user.view',
             'invite.view',
             'invite.create',
@@ -126,18 +126,20 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         // Papel User - acesso básico
-        $userRole = Role::create(['name' => 'user']);
-        $userRole->givePermissionTo([
+        $userRole = Role::firstOrCreate(['name' => 'user']);
+        $userRole->syncPermissions([
             'medium_type.view',
             'medium_attribute.view',
         ]);
 
         // Criar um usuário Sysadmin inicial
-        $sysadmin = User::create([
-            'name' => 'Administrador do Sistema',
-            'email' => 'admin@cacaloo.com.br',
-            'password' => Hash::make('cacaloo@admin123'),
-        ]);
+        $sysadmin = User::firstOrCreate(
+            ['email' => 'admin@cacaloo.com.br'],
+            [
+                'name' => 'Administrador do Sistema',
+                'password' => Hash::make('cacaloo@admin123'),
+            ]
+        );
         $sysadmin->assignRole('sysadmin');
     }
 }

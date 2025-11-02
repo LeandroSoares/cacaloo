@@ -83,16 +83,30 @@
                     <span class="text-white text-lg">✨</span>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-lg" style="color: var(--oxossi-main);">
-                        Pensamento do Dia
-                    </h4>
-                    <p style="color: var(--text-secondary);" class="mt-2 italic">
-                        "A verdadeira espiritualidade é a que nos faz mais humanos, mais compassivos e mais unidos.
-                        Que Oxóssi ilumine seus caminhos e Ogum lhe dê força para trilhá-los."
-                    </p>
-                    <p class="text-sm mt-3" style="color: var(--gold-main);">
-                        — Casa de Caridade Legião de Oxóssi e Ogum
-                    </p>
+                    @if($dailyMessage)
+                        <h4 class="font-semibold text-lg" style="color: var(--oxossi-main);">
+                            {{ $dailyMessage->title }}
+                        </h4>
+                        <p style="color: var(--text-secondary);" class="mt-2 italic whitespace-pre-line">
+                            "{{ $dailyMessage->message }}"
+                        </p>
+                        @if($dailyMessage->author)
+                            <p class="text-sm mt-3" style="color: var(--gold-main);">
+                                — {{ $dailyMessage->author }}
+                            </p>
+                        @endif
+                    @else
+                        <h4 class="font-semibold text-lg" style="color: var(--oxossi-main);">
+                            Pensamento do Dia
+                        </h4>
+                        <p style="color: var(--text-secondary);" class="mt-2 italic">
+                            "A verdadeira espiritualidade é a que nos faz mais humanos, mais compassivos e mais unidos.
+                            Que Oxóssi ilumine seus caminhos e Ogum lhe dê força para trilhá-los."
+                        </p>
+                        <p class="text-sm mt-3" style="color: var(--gold-main);">
+                            — Casa de Caridade Legião de Oxóssi e Ogum
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ class RoleController extends Controller
     public function index(): View
     {
         $roles = Role::with('permissions')->get();
-        return view('admin.roles.index', compact('roles'));
+        return view('sysadmin.roles.index', compact('roles'));
     }
 
     /**
@@ -26,7 +26,7 @@ class RoleController extends Controller
     public function create(): View
     {
         $permissions = Permission::all();
-        return view('admin.roles.create', compact('permissions'));
+        return view('sysadmin.roles.create', compact('permissions'));
     }
 
     /**
@@ -42,7 +42,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->name]);
         $role->syncPermissions($request->permissions);
 
-        return redirect()->route('roles.index')
+        return redirect()->route('sysadmin.roles.index')
             ->with('success', 'Papel criado com sucesso.');
     }
 
@@ -52,7 +52,7 @@ class RoleController extends Controller
     public function edit(Role $role): View
     {
         $permissions = Permission::all();
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('sysadmin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -68,7 +68,7 @@ class RoleController extends Controller
         $role->update(['name' => $request->name]);
         $role->syncPermissions($request->permissions);
 
-        return redirect()->route('roles.index')
+        return redirect()->route('sysadmin.roles.index')
             ->with('success', 'Papel atualizado com sucesso.');
     }
 
@@ -79,19 +79,19 @@ class RoleController extends Controller
     {
         // Verificar se o papel pode ser excluído (por exemplo, não excluir sysadmin)
         if ($role->name === 'sysadmin') {
-            return redirect()->route('roles.index')
+            return redirect()->route('sysadmin.roles.index')
                 ->with('error', 'O papel de Administrador do Sistema não pode ser excluído.');
         }
 
         // Verificar se há usuários com este papel
         if ($role->users->count() > 0) {
-            return redirect()->route('roles.index')
+            return redirect()->route('sysadmin.roles.index')
                 ->with('error', 'Não é possível excluir um papel que está em uso por usuários.');
         }
 
         $role->delete();
 
-        return redirect()->route('roles.index')
+        return redirect()->route('sysadmin.roles.index')
             ->with('success', 'Papel excluído com sucesso.');
     }
 }

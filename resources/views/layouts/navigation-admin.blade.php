@@ -20,16 +20,32 @@
                         {{ __('Usuários') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.*')" class="text-white hover:text-blue-200">
-                        {{ __('Papéis') }}
-                    </x-nav-link>
-
                     <x-nav-link :href="route('admin.invitations.index')" :active="request()->routeIs('admin.invitations.*')" class="text-white hover:text-blue-200">
                         {{ __('Convites') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('admin.home-customization.index')" :active="request()->routeIs('admin.home-customization.*')" class="text-white hover:text-blue-200">
                         🏠 {{ __('Homepage') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.courses.index')" :active="request()->routeIs('admin.courses.*')" class="text-white hover:text-blue-200">
+                        📚 {{ __('Cursos') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.mysteries.index')" :active="request()->routeIs('admin.mysteries.*')" class="text-white hover:text-blue-200">
+                        🔮 {{ __('Mistérios') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.orishas.index')" :active="request()->routeIs('admin.orishas.*')" class="text-white hover:text-blue-200">
+                        ⚡ {{ __('Orixás') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.magic-types.index')" :active="request()->routeIs('admin.magic-types.*')" class="text-white hover:text-blue-200">
+                        ✨ {{ __('Tipos de Magia') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.daily-messages.index')" :active="request()->routeIs('admin.daily-messages.*')" class="text-white hover:text-blue-200">
+                        💬 {{ __('Mensagens do Dia') }}
                     </x-nav-link>
 
                     <!-- Adicione aqui mais links administrativos -->
@@ -100,12 +116,28 @@
                 {{ __('Usuários') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.*')" class="text-white hover:text-blue-200">
-                {{ __('Papéis') }}
-            </x-responsive-nav-link>
-
             <x-responsive-nav-link :href="route('admin.invitations.index')" :active="request()->routeIs('admin.invitations.*')" class="text-white hover:text-blue-200">
                 {{ __('Convites') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.courses.index')" :active="request()->routeIs('admin.courses.*')" class="text-white hover:text-blue-200">
+                📚 {{ __('Cursos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.mysteries.index')" :active="request()->routeIs('admin.mysteries.*')" class="text-white hover:text-blue-200">
+                🔮 {{ __('Mistérios') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.orishas.index')" :active="request()->routeIs('admin.orishas.*')" class="text-white hover:text-blue-200">
+                ⚡ {{ __('Orixás') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.magic-types.index')" :active="request()->routeIs('admin.magic-types.*')" class="text-white hover:text-blue-200">
+                ✨ {{ __('Tipos de Magia') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.daily-messages.index')" :active="request()->routeIs('admin.daily-messages.*')" class="text-white hover:text-blue-200">
+                💬 {{ __('Mensagens do Dia') }}
             </x-responsive-nav-link>
         </div>
 
