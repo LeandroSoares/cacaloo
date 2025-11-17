@@ -74,6 +74,25 @@ class ReligiousInfoForm extends Component
         // Garantir que cambone_experience seja sempre um boolean válido
         $validated['cambone_experience'] = (bool) $this->cambone_experience;
 
+        // Converter strings vazias em null para campos de data
+        $dateFields = [
+            'start_date',
+            'charity_house_start',
+            'charity_house_end',
+            'development_start',
+            'development_end',
+            'service_start',
+            'umbanda_baptism',
+            'cambone_start_date',
+            'cambone_end_date',
+        ];
+
+        foreach ($dateFields as $field) {
+            if (isset($validated[$field]) && $validated[$field] === '') {
+                $validated[$field] = null;
+            }
+        }
+
         ReligiousInfo::updateOrCreate(
             ['user_id' => Auth::id()],
             $validated + ['user_id' => Auth::id()]
