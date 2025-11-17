@@ -40,5 +40,24 @@ jobs:
           STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
           STG_DEPLOY_DIR: ${{ secrets.STG_DEPLOY_DIR }}
         run: |
-          ssh -p "$STG_SSH_PORT" "$STG_SSH_USER@$STG_SSH_HOST" \
-            "cd $STG_DEPLOY_DIR && ENVIRONMENT=stg ./deploy.sh"
+          ssh -p "$STG_SSH_PORT" "$STG_SSH_USER@$STG_SSH_HOST" bash -s << EOF
+            set -e
+            
+            # Criar diretório se não existir
+            mkdir -p $STG_DEPLOY_DIR
+            cd $STG_DEPLOY_DIR
+            
+            # Clonar ou atualizar repositório
+            if [ ! -d ".git" ]; then
+              echo "Clonando repositório..."
+              git clone -b v2 https://github.com/LeandroSoares/cacaloo.git .
+            else
+              echo "Atualizando repositório..."
+              git fetch origin v2
+              git reset --hard origin/v2
+            fi
+            
+            # Executar deploy
+            chmod +x deploy.sh
+            ENVIRONMENT=stg ./deploy.sh
+          EOF
