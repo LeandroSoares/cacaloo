@@ -37,6 +37,14 @@ jobs:
           APP_KEY="base64:$(openssl rand -base64 32)"
           sed -i "s|APP_KEY=.*|APP_KEY=$APP_KEY|" .env
 
+      - name: Create storage directories structure
+        run: |
+          mkdir -p storage/framework/{sessions,views,cache,testing}
+          mkdir -p storage/logs
+          mkdir -p storage/app/public
+          mkdir -p bootstrap/cache
+          chmod -R 775 storage bootstrap/cache
+
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --no-dev
 
