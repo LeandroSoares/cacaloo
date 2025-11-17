@@ -68,6 +68,9 @@ class EntityConsecrationForm extends Component
             $this->entity = $consecration->entity;
             $this->name = $consecration->name;
             $this->date = $consecration->date?->format('Y-m-d');
+
+            // Forçar re-renderização para atualizar os inputs
+            $this->js('$wire.$refresh()');
         }
     }
 

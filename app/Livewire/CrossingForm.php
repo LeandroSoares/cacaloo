@@ -68,6 +68,9 @@ class CrossingForm extends Component
             $this->entity = $crossing->entity;
             $this->date = $crossing->date?->format('Y-m-d');
             $this->purpose = $crossing->purpose;
+
+            // Forçar re-renderização para atualizar os inputs
+            $this->js('$wire.$refresh()');
         }
     }
 

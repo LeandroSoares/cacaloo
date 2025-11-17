@@ -31,8 +31,8 @@ if (empty($sectionsVisibility)) {
         }
     }"
     x-init="init()"
-    :class="isScrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-md'"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300"
+    :class="isScrolled ? 'shadow-lg' : 'shadow-md'"
 >
     <nav class="container mx-auto px-4 lg:px-8">
         <div class="flex items-center justify-between h-20">

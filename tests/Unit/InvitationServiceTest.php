@@ -75,7 +75,12 @@ class InvitationServiceTest extends TestCase
 
         // Cria um convite
         $email = 'newuser@example.com';
-        $invitation = $this->invitationService->create($email, $this->user->id);
+        $invitation = $this->invitationService->create(
+            $this->user->id,
+            7,
+            null,
+            $email
+        );
 
         // Verifica se o convite foi criado corretamente
         $this->assertEquals($email, $invitation->email);
@@ -97,7 +102,12 @@ class InvitationServiceTest extends TestCase
         $expectedDate = now()->addDays($expirationDays)->startOfDay();
 
         // Cria um convite
-        $invitation = $this->invitationService->create('newuser@example.com', $this->user->id, $expirationDays);
+        $invitation = $this->invitationService->create(
+            $this->user->id,
+            $expirationDays,
+            null,
+            'newuser@example.com'
+        );
 
         // Verifica se a data de expiração está correta
         $this->assertEquals(

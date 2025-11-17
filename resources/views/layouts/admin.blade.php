@@ -16,12 +16,13 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>[x-cloak] { display: none !important; }</style>
 </head>
-<body class="h-full font-sans antialiased bg-gray-50" x-data="{ sidebarOpen: false }">
-    <div class="flex h-full">
+<body class="h-full font-sans antialiased bg-gray-50">
+    <div x-data="{ sidebarOpen: false }" class="flex h-full min-h-screen">
         <!-- Sidebar -->
-        <div class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
-             :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+       <div class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+           :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
             <!-- Sidebar Header -->
             <div class="flex items-center justify-between h-16 px-4 bg-gray-800">
                 <div class="flex items-center">
@@ -166,7 +167,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col lg:ml-0">
+    <div class="flex-1 flex flex-col lg:ml-64">
             <!-- Top Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 lg:static lg:overflow-y-visible">
                 <div class="px-4 sm:px-6 lg:px-8">
@@ -204,7 +205,7 @@
 
             <!-- Page Content -->
             <main class="flex-1 overflow-y-auto">
-                <div class="p-6">
+                <div class="p-2 sm:p-6">
                     <!-- Alert Messages -->
                     @if (session('success'))
                         <div class="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
@@ -241,14 +242,15 @@
     </div>
 
     <!-- Mobile Sidebar Overlay -->
-    <div x-show="sidebarOpen"
-         x-transition:enter="transition-opacity ease-linear duration-300"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition-opacity ease-linear duration-300"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0"
-         class="lg:hidden fixed inset-0 z-40 bg-gray-600 bg-opacity-75"
-         @click="sidebarOpen = false"></div>
+    <div x-show="sidebarOpen" x-cloak
+        x-transition:enter="transition-opacity ease-linear duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity ease-linear duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="lg:hidden fixed inset-0 z-40 bg-gray-600 bg-opacity-75"
+        @click="sidebarOpen = false"></div>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>

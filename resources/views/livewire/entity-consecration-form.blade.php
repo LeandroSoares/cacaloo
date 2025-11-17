@@ -1,19 +1,19 @@
-<div class="p-6 bg-white rounded-lg shadow-md mb-8 border border-gray-200">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Consagrações</h2>
+{{-- ESTE É UM FORM DO TIPO LISTA --}}
+<x-form-card title="Consagrações" icon="💫">
     <form wire:submit.prevent="save" class="space-y-6">
         @if ($errors->any())
-            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+            <x-alert type="error">
                 <ul class="list-disc pl-5">
                     @foreach ($errors->all() as $error)
                         <li>{{ __($error) }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </x-alert>
         @endif
         @if (session()->has('message'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
+            <x-alert type="success">
                 {{ session('message') }}
-            </div>
+            </x-alert>
         @endif
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -34,11 +34,13 @@
         </div>
         <div class="flex justify-end mt-6">
             @if ($editingId)
-                <button type="button" wire:click="cancel" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded shadow mr-3">Cancelar</button>
+                <x-button type="button" wire:click="cancel" variant="secondary" class="mr-3">
+                    Cancelar
+                </x-button>
             @endif
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded shadow">
+            <x-button type="submit">
                 {{ $editingId ? 'Atualizar' : 'Adicionar' }} Consagração
-            </button>
+            </x-button>
         </div>
     </form>
 
@@ -58,7 +60,7 @@
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         @foreach ($consecrations as $consecration)
-                            <tr class="hover:bg-gray-50">
+                            <tr wire:key="consecration-{{ $consecration->id }}" class="hover:bg-gray-50 {{ $editingId === $consecration->id ? 'bg-blue-50 border-l-4 border-blue-500' : '' }}">
                                 <td class="py-3 px-4 text-sm text-gray-900">
                                     {{ $consecration->date ? $consecration->date->format('d/m/Y') : '-' }}
                                 </td>
@@ -69,11 +71,14 @@
                                     {{ $consecration->name ?: '-' }}
                                 </td>
                                 <td class="py-3 px-4 text-sm text-gray-900">
-                                    <button wire:click="edit({{ $consecration->id }})" class="text-blue-600 hover:text-blue-900 mr-3">
-                                        Editar
+                                    <button type="button"
+                                            wire:click="edit({{ $consecration->id }})"
+                                            class="text-blue-600 hover:text-blue-900 mr-3">
+                                        {{ $editingId === $consecration->id ? '✓ Editando' : 'Editar' }}
                                     </button>
-                                    <button wire:click="delete({{ $consecration->id }})"
-                                            onclick="return confirm('Tem certeza que deseja excluir esta consagração?')"
+                                    <button type="button"
+                                            wire:click="delete({{ $consecration->id }})"
+                                            wire:confirm="Tem certeza que deseja excluir esta consagração?"
                                             class="text-red-600 hover:text-red-900">
                                         Excluir
                                     </button>
@@ -90,4 +95,4 @@
             </div>
         @endif
     </div>
-</div>
+</x-form-card>

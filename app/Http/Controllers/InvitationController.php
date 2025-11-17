@@ -43,6 +43,15 @@ class InvitationController extends Controller
     }
 
     /**
+     * Mostra detalhes de um convite específico
+     */
+    public function show(Invitation $invitation): View
+    {
+        $invitation->load('inviter', 'acceptedBy');
+        return view('admin.invitations.show', compact('invitation'));
+    }
+
+    /**
      * Armazena um novo convite
      */
     public function store(InvitationRequest $request): RedirectResponse
@@ -52,16 +61,30 @@ class InvitationController extends Controller
 
         try {
             $invitation = $this->invitationService->create(
-                $validated['email'],
                 Auth::id(),
-                $expirationDays
+                $expirationDays,
+                $validated['name'] ?? null,
+                $validated['email'] ?? null,
+                $validated['whatsapp'] ?? null
             );
 
+            // Mensagem dinâmica baseada no tipo de convite
+            $message = 'Convite criado com sucesso';
+            if ($invitation->name) {
+                $message .= ' para ' . $invitation->name;
+            } elseif ($invitation->email) {
+                $message .= ' e enviado para ' . $invitation->email;
+            } elseif ($invitation->whatsapp) {
+                $message .= ' para ' . $invitation->whatsapp;
+            } else {
+                $message = 'Convite anônimo criado com sucesso';
+            }
+
             return redirect()->route('admin.invitations.index')
-                ->with('success', 'Convite enviado com sucesso para ' . $invitation->email);
+                ->with('success', $message . '.');
         } catch (\Exception $e) {
             return redirect()->route('admin.invitations.index')
-                ->with('error', 'Erro ao enviar convite: ' . $e->getMessage());
+                ->with('error', 'Erro ao criar convite: ' . $e->getMessage());
         }
     }
 

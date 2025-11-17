@@ -1,74 +1,13 @@
-<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-    <h2 class="text-xl font-semibold text-gray-800 mb-4">Mistérios Iniciados</h2>
-
+{{-- ESTE É UM FORM DO TIPO LISTA --}}
+<x-form-card title="Mistérios Iniciados" icon="🌙">
     @if (session()->has('message'))
-        <div class="mb-4 p-4 bg-green-100 text-green-700 rounded">
+        <x-alert type="success">
             {{ session('message') }}
-        </div>
-    @endif
-
-    <!-- Lista de mistérios já iniciados -->
-    @if (count($initiatedMysteries) > 0)
-        <div class="mb-6">
-            <h3 class="text-lg font-medium text-gray-700 mb-2">Mistérios Já Iniciados</h3>
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mistério</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Templo</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sacerdote</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach($initiatedMysteries as $index => $mystery)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm font-medium text-gray-900">
-                                        {{ $mystery['mystery']['name'] }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">
-                                        {{ \Carbon\Carbon::parse($mystery['date'])->format('d/m/Y') }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ $mystery['temple'] }}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ $mystery['priest_name'] }}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <div class="flex space-x-2">
-                                        <button wire:click="edit({{ $mystery['id'] }})"
-                                                class="text-blue-600 hover:text-blue-900">
-                                            Editar
-                                        </button>
-                                        <button wire:click="delete({{ $mystery['id'] }})"
-                                                class="text-red-600 hover:text-red-900"
-                                                onclick="return confirm('Tem certeza que deseja remover este mistério?')">
-                                            Excluir
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    @else
-        <div class="mb-6 p-4 bg-gray-50 rounded text-gray-500">
-            Nenhum mistério iniciado cadastrado até o momento.
-        </div>
+        </x-alert>
     @endif
 
     <!-- Formulário para adicionar/editar mistério -->
-    <div class="border-t pt-6">
-        <form wire:submit.prevent="save" class="space-y-4">
+    <form wire:submit.prevent="save" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label for="mystery_id" class="block text-sm font-medium text-gray-700">Mistério</label>
@@ -106,24 +45,80 @@
             </div>
         </div>
 
-            <!-- Botões -->
-            <div class="pt-4 flex space-x-3">
-                <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    @if($isEditing)
-                        Atualizar Mistério
-                    @else
-                        Adicionar Mistério
-                    @endif
-                </button>
-
+        <!-- Botões -->
+        <div class="flex justify-end mt-6 space-x-3">
+            <x-button type="submit">
                 @if($isEditing)
-                    <button type="button" wire:click="cancel"
-                            class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        Cancelar
-                    </button>
+                    Atualizar Mistério
+                @else
+                    Adicionar Mistério
                 @endif
+            </x-button>
+
+            @if($isEditing)
+                <x-button type="button" wire:click="cancel" variant="secondary">
+                    Cancelar
+                </x-button>
+            @endif
+        </div>
+    </form>
+
+    <!-- Lista de mistérios já iniciados -->
+    @if (count($initiatedMysteries) > 0)
+        <div class="mt-6 border-t pt-6">
+            <h3 class="text-lg font-medium text-gray-700 mb-2">Mistérios Já Iniciados</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mistério</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Templo</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sacerdote</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($initiatedMysteries as $index => $mystery)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">
+                                        {{ $mystery['mystery']['name'] }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">
+                                        {{ isset($mystery['date']) ? \Carbon\Carbon::parse($mystery['date'])->format('d/m/Y') : '-' }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $mystery['temple'] ?? '-' }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{ $mystery['priest_name'] ?? '-' }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex space-x-2">
+                                        <button wire:click="edit({{ $mystery['id'] }})"
+                                                class="text-blue-600 hover:text-blue-900">
+                                            Editar
+                                        </button>
+                                        <button wire:click="delete({{ $mystery['id'] }})"
+                                                class="text-red-600 hover:text-red-900"
+                                                onclick="return confirm('Tem certeza que deseja remover este mistério?')">
+                                            Excluir
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-        </form>
-    </div>
-</div>
+        </div>
+    @else
+        <div class="mt-6 p-4 bg-gray-50 rounded text-gray-500">
+            Nenhum mistério iniciado cadastrado até o momento.
+        </div>
+    @endif
+</x-form-card>

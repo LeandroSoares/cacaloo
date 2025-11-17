@@ -1,19 +1,18 @@
-<div class="bg-white rounded-lg shadow p-6 mb-8 border border-gray-200">
-    <h3 class="text-lg font-semibold mb-4 text-gray-700">Coroações</h3>
+<x-form-card title="Coroações" icon="👑">
     <form wire:submit.prevent="save" class="space-y-4">
         @if (session()->has('message'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
+            <x-alert type="success">
                 {{ session('message') }}
-            </div>
+            </x-alert>
         @endif
         @if ($errors->any())
-            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+            <x-alert type="error">
                 <ul class="list-disc pl-5">
                     @foreach ($errors->all() as $error)
                         <li>{{ __($error) }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </x-alert>
         @endif
         <div class="grid grid-cols-2 gap-6">
             <div>
@@ -43,7 +42,9 @@
             </div>
         </div>
         <div class="flex justify-end mt-6">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded shadow">Salvar Coroação</button>
+            <x-button type="submit">
+                Salvar Coroação
+            </x-button>
         </div>
     </form>
-</div>
+</x-form-card>

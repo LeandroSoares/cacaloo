@@ -1,10 +1,9 @@
-<div class="p-6 bg-white rounded-lg shadow-md mb-8 border border-gray-200">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Cruz de Força</h2>
+<x-form-card title="Cruz de Força" icon="✝️">
     <form wire:submit.prevent="save" class="space-y-6">
         @if (session()->has('message'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
+            <x-alert type="success">
                 {{ session('message') }}
-            </div>
+            </x-alert>
         @endif
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -29,7 +28,9 @@
             </div>
         </div>
         <div class="flex justify-end mt-6">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded shadow">Salvar Cruz de Força</button>
+            <x-button type="submit">
+                Salvar Cruz de Força
+            </x-button>
         </div>
     </form>
-</div>
+</x-form-card>

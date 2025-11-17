@@ -65,7 +65,7 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     Route::resource('users', UserController::class);
 
     // Gerenciamento de Convites
-    Route::resource('invitations', InvitationController::class)->except(['edit', 'update', 'show']);
+    Route::resource('invitations', InvitationController::class)->except(['edit', 'update']);
     Route::post('invitations/{invitation}/resend', [InvitationController::class, 'resend'])->name('invitations.resend');
     Route::patch('invitations/{invitation}/cancel', [InvitationController::class, 'cancel'])->name('invitations.cancel');
 

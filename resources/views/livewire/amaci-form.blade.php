@@ -1,10 +1,10 @@
-<div class="p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-lg font-semibold text-gray-800">Amacis</h2>
+{{-- ESTE É UM FORM DO TIPO LISTA --}}
+<x-form-card title="Amacis" icon="🌿">
     <form wire:submit="save" class="space-y-6">
         @if (session()->has('message'))
-        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
-            {{ session('message') }}
-        </div>
+            <x-alert type="success">
+                {{ session('message') }}
+            </x-alert>
         @endif
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -27,17 +27,15 @@
             </div>
         </div>
 
-        <div class="flex justify-between mt-6">
+        <div class="flex justify-end mt-6 space-x-3">
             @if($editingId)
-            <button type="button" wire:click="cancel" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">
-                Cancelar
-            </button>
-            @else
-            <div></div>
+                <x-button type="button" wire:click="cancel" variant="secondary">
+                    Cancelar
+                </x-button>
             @endif
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            <x-button type="submit">
                 {{ $editingId ? 'Atualizar' : 'Adicionar' }} Amaci
-            </button>
+            </x-button>
         </div>
     </form>
 
@@ -71,4 +69,4 @@
         </div>
     </div>
     @endif
-</div>
+</x-form-card>

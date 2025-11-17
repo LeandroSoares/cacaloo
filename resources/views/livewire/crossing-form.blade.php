@@ -1,10 +1,10 @@
-<div class="p-6 bg-white rounded-lg shadow-md mb-8 border border-gray-200">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Cruzamentos</h2>
+{{-- ESTE É UM FORM DO TIPO LISTA --}}
+<x-form-card title="Cruzamentos" icon="✨">
     <form wire:submit.prevent="save" class="space-y-6">
         @if (session()->has('message'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
+            <x-alert type="success">
                 {{ session('message') }}
-            </div>
+            </x-alert>
         @endif
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -25,11 +25,13 @@
         </div>
         <div class="flex justify-end mt-6">
             @if ($editingId)
-                <button type="button" wire:click="cancel" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded shadow mr-3">Cancelar</button>
+                <x-button type="button" wire:click="cancel" variant="secondary" class="mr-3">
+                    Cancelar
+                </x-button>
             @endif
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded shadow">
+            <x-button type="submit">
                 {{ $editingId ? 'Atualizar' : 'Adicionar' }} Cruzamento
-            </button>
+            </x-button>
         </div>
     </form>
 
@@ -48,7 +50,7 @@
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         @foreach ($crossings as $crossing)
-                            <tr class="hover:bg-gray-50">
+                            <tr wire:key="crossing-{{ $crossing->id }}" class="hover:bg-gray-50 {{ $editingId == $crossing->id ? 'bg-blue-50 border-l-4 border-blue-500' : '' }}">
                                 <td class="py-3 px-4 text-sm text-gray-900">
                                     {{ $crossing->date ? $crossing->date->format('d/m/Y') : '-' }}
                                 </td>
@@ -59,11 +61,14 @@
                                     {{ $crossing->purpose ?: '-' }}
                                 </td>
                                 <td class="py-3 px-4 text-sm text-gray-900">
-                                    <button wire:click="edit({{ $crossing->id }})" class="text-blue-600 hover:text-blue-900 mr-3">
-                                        Editar
+                                    <button type="button"
+                                            wire:click="edit({{ $crossing->id }})"
+                                            class="text-blue-600 hover:text-blue-900 mr-3">
+                                        {{ $editingId == $crossing->id ? '✓ Editando' : 'Editar' }}
                                     </button>
-                                    <button wire:click="delete({{ $crossing->id }})"
-                                            onclick="return confirm('Tem certeza que deseja excluir este cruzamento?')"
+                                    <button type="button"
+                                            wire:click="delete({{ $crossing->id }})"
+                                            wire:confirm="Tem certeza que deseja excluir este cruzamento?"
                                             class="text-red-600 hover:text-red-900">
                                         Excluir
                                     </button>
@@ -80,4 +85,4 @@
             </div>
         @endif
     </div>
-</div>
+</x-form-card>

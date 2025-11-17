@@ -10,19 +10,39 @@ use Illuminate\Support\Carbon;
 class InvitationService
 {
     /**
-     * Cria um novo convite para o email especificado
+     * Cria um novo convite
+     *
+     * Permite criar convites anônimos (sem email/whatsapp) ou com contato específico.
+     * Veja: docs/especificacoes-features/convite-por-whatsapp.md
+     *
+     * @param int $invitedBy ID do usuário que convida
+     * @param int $expirationDays Dias até expiração
+     * @param string|null $name Nome do convidado (opcional)
+     * @param string|null $email E-mail do convidado (opcional)
+     * @param string|null $whatsapp WhatsApp do convidado (opcional)
+     * @return Invitation
      */
-    public function create(string $email, int $invitedBy, int $expirationDays = 7): Invitation
-    {
+    public function create(
+        int $invitedBy,
+        int $expirationDays = 7,
+        ?string $name = null,
+        ?string $email = null,
+        ?string $whatsapp = null
+    ): Invitation {
         $invitation = Invitation::create([
+            'name' => $name,
             'email' => $email,
+            'whatsapp' => $whatsapp,
             'token' => Invitation::generateToken(),
             'invited_by' => $invitedBy,
             'status' => Invitation::STATUS_PENDING,
             'expires_at' => now()->addDays($expirationDays),
         ]);
 
-        $this->sendInvitationEmail($invitation);
+        // Envia email somente se fornecido
+        if ($email) {
+            $this->sendInvitationEmail($invitation);
+        }
 
         return $invitation;
     }

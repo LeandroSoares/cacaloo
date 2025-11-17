@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             CoursesSeeder::class,
             MysteriesSeeder::class,
             DailyMessageSeeder::class,
+            SysAdminSeed::class,
         ]);
 
         $this->command->info('🎉 Todos os seeders executados com sucesso!');

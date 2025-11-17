@@ -27,10 +27,15 @@ class Invitation extends Model
     /**
      * Os atributos que são atribuíveis em massa.
      *
+     * TODO: Futuramente, email será nullable e whatsapp será required_without:email
+     * Veja: docs/especificacoes-features/convite-por-whatsapp.md
+     *
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'email',
+        'whatsapp',
         'token',
         'invited_by',
         'status',

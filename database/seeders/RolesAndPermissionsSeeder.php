@@ -131,15 +131,5 @@ class RolesAndPermissionsSeeder extends Seeder
             'medium_type.view',
             'medium_attribute.view',
         ]);
-
-        // Criar um usuário Sysadmin inicial
-        $sysadmin = User::firstOrCreate(
-            ['email' => 'admin@cacaloo.com.br'],
-            [
-                'name' => 'Administrador do Sistema',
-                'password' => Hash::make('cacaloo@admin123'),
-            ]
-        );
-        $sysadmin->assignRole('sysadmin');
     }
 }

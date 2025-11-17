@@ -1,10 +1,9 @@
-<div class="p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-lg font-semibold text-gray-800">Último Templo</h2>
+<x-form-card title="Último Templo" icon="🏛️">
     <form wire:submit="save" class="space-y-6">
         @if (session()->has('message'))
-        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
-            {{ session('message') }}
-        </div>
+            <x-alert type="success">
+                {{ session('message') }}
+            </x-alert>
         @endif
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -40,9 +39,9 @@
         </div>
 
         <div class="flex justify-end mt-6">
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            <x-button type="submit">
                 Salvar
-            </button>
+            </x-button>
         </div>
     </form>
-</div>
+</x-form-card>
