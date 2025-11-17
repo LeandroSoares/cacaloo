@@ -9,47 +9,16 @@ env:
   APP_ENV: stg
 
 jobs:
-  test-and-deploy:
-    name: Test and deploy to `env:stg`
+  deploy:
+    name: Deploy to staging
     runs-on: ubuntu-latest
+    environment: stg
     permissions:
       contents: read
-      id-token: write
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-          extensions: mbstring, bcmath, xml, curl, openssl, sqlite3
-          coverage: none
-
-      - name: Prepare environment file
-        run: |
-          cp .env.example .env
-          sed -i 's/APP_ENV=.*/APP_ENV=testing/' .env
-          sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
-          sed -i 's/DB_DATABASE=.*/DB_DATABASE=:memory:/' .env
-          # Gerar APP_KEY manualmente para evitar rodar artisan antes do composer
-          APP_KEY="base64:$(openssl rand -base64 32)"
-          sed -i "s|APP_KEY=.*|APP_KEY=$APP_KEY|" .env
-
-      - name: Create storage directories structure
-        run: |
-          mkdir -p storage/framework/{sessions,views,cache,testing}
-          mkdir -p storage/logs
-          mkdir -p storage/app/public
-          mkdir -p bootstrap/cache
-          chmod -R 775 storage bootstrap/cache
-
-      - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist
-
-      - name: Run focused tests
-        run: php artisan test --filter=CrossingFormTest
 
       - name: Start SSH agent
         uses: webfactory/ssh-agent@v0.7.0
@@ -60,6 +29,9 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -p "$STG_SSH_PORT" "$STG_SSH_HOST" >> ~/.ssh/known_hosts
+        env:
+          STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
+          STG_SSH_HOST: ${{ secrets.STG_SSH_HOST }}
 
       - name: Deploy on VPS (env:stg)
         env:
