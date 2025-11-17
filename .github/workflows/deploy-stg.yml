@@ -1,0 +1,59 @@
+name: Deploy to VPS staging
+
+on:
+  push:
+    branches:
+      - v2
+
+env:
+  APP_ENV: stg
+
+jobs:
+  test-and-deploy:
+    name: Test and deploy to `env:stg`
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: mbstring, bcmath, xml, curl, openssl
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate --ansi
+
+      - name: Run focused tests
+        run: php artisan test --filter=CrossingFormTest
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.STG_SSH_PRIVATE_KEY }}
+
+      - name: Trust staging host
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$STG_SSH_PORT" "$STG_SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy on VPS (env:stg)
+        env:
+          STG_SSH_HOST: ${{ secrets.STG_SSH_HOST }}
+          STG_SSH_USER: ${{ secrets.STG_SSH_USER }}
+          STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
+          STG_DEPLOY_DIR: ${{ secrets.STG_DEPLOY_DIR }}
+        run: |
+          ssh -p "$STG_SSH_PORT" "$STG_SSH_USER@$STG_SSH_HOST" \
+            "cd $STG_DEPLOY_DIR && ENVIRONMENT=stg ./deploy.sh"
