@@ -119,13 +119,9 @@
                                     📋 Copiar
                                 </button>
                             </div>
-                            <form action="GET" submit="https://wa.me/">
-                                <label for="text" class="block text-sm font-medium text-blue-800 mb-2">Mensagem do convite</label>
-                                <textarea id="text" name="text" rows="3" class="w-full px-3 py-2 border border-blue-300 rounded-md bg-white text-sm mb-2">
-                                    Olá{{ $invitation->name ? ' ' . $invitation->name : '' }}! Você foi convidado para se juntar ao nosso sistema. Acesse o link: {{ route('register', ['token' => $invitation->token]) }}
-                                </textarea>
-                                <button type="submit" class="w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 font-semibold mt-2">📱 Compartilhar via WhatsApp</button>
-                            </form>
+                            <label for="inviteMessage" class="block text-sm font-medium text-blue-800 mb-2">Mensagem do convite</label>
+                            <textarea id="inviteMessage" rows="3" class="w-full px-3 py-2 border border-blue-300 rounded-md bg-white text-sm mb-2">Olá{{ $invitation->name ? ' ' . $invitation->name : '' }}! Você foi convidado para se juntar ao nosso sistema. Acesse o link: {{ route('register', ['token' => $invitation->token]) }}</textarea>
+                            <button type="button" onclick="shareWhatsappMessage()" class="w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 font-semibold mt-2">📱 Compartilhar via WhatsApp</button>
                         </div>
                     @endif
                 </div>
@@ -193,30 +189,5 @@
         </div>
     </div>
 
-    @push('scripts')
-    <script>
-        function copyInviteLink() {
-            const input = document.getElementById('inviteLink');
-            input.select();
-            input.setSelectionRange(0, 99999); // Para dispositivos móveis
-
-            navigator.clipboard.writeText(input.value).then(function() {
-                // Criar notificação temporária
-                const notification = document.createElement('div');
-                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-                notification.textContent = '✓ Link copiado para a área de transferência!';
-                document.body.appendChild(notification);
-
-                // Remover após 3 segundos
-                setTimeout(() => {
-                    notification.remove();
-                }, 3000);
-            }, function(err) {
-                alert('Erro ao copiar link: ' + err);
-            });
-        }
-
-
-    </script>
-    @endpush
+     
 @endsection

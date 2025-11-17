@@ -104,7 +104,6 @@
     "umbanda_start_location": "Local de início na Umbanda",
     "Update Password": "Atualizar senha",
     "users.index": "Usuários",
-    "home": "Início",
     "walking_together_orishas": "Orixás que andam junto",
     "was_cambone": "Você foi cambone?",
     "Welcome to our application": "Bem-vindo à nossa aplicação",
@@ -155,5 +154,7 @@
     "The course name is required": "O nome do curso é obrigatório",
     "The course name cannot be longer than 255 characters": "O nome do curso não pode ter mais de 255 caracteres",
     "Profile": "Perfil",
-    "Log Out": "Sair"
+    "Log Out": "Sair",
+    "pagination.next": "Próxima",
+    "pagination.previous": "Anterior"
 }

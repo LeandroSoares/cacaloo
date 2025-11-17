@@ -19,9 +19,9 @@
     <style>[x-cloak] { display: none !important; }</style>
 </head>
 <body class="h-full font-sans antialiased bg-gray-50">
-    <div x-data="{ sidebarOpen: false }" class="flex h-full min-h-screen">
+    <div x-data="{ sidebarOpen: false }" x-init="sidebarOpen = false" class="flex h-full min-h-screen">
         <!-- Sidebar -->
-       <div class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+       <div x-cloak class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
             <!-- Sidebar Header -->
             <div class="flex items-center justify-between h-16 px-4 bg-gray-800">

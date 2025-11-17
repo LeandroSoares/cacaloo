@@ -5,7 +5,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-16">
             <div class="mb-6 bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-xl font-semibold text-gray-800">Meus Dados Mediúnicos</h2>
+                    <h2 class="text-xl font-semibold text-gray-800">Meus Dados</h2>
                     <a href="{{ route('user.medium-history') }}" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
                         Ver Histórico Completo
                     </a>
