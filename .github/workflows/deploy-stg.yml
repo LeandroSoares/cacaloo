@@ -17,47 +17,52 @@ jobs:
       contents: read
 
     steps:
-      - name: Check out repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Start SSH agent
-        uses: webfactory/ssh-agent@v0.7.0
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          ssh-private-key: ${{ secrets.STG_SSH_PRIVATE_KEY }}
+          php-version: 8.2
+          extensions: mbstring, bcmath, xml, curl, openssl
 
-      - name: Trust staging host
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -p "$STG_SSH_PORT" "$STG_SSH_HOST" >> ~/.ssh/known_hosts
-        env:
-          STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
-          STG_SSH_HOST: ${{ secrets.STG_SSH_HOST }}
+      - name: Install Composer dependencies
+        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
 
-      - name: Deploy on VPS (env:stg)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Synchronize files to server
+        uses: easingthemes/ssh-deploy@v5.0.0
         env:
-          STG_SSH_HOST: ${{ secrets.STG_SSH_HOST }}
-          STG_SSH_USER: ${{ secrets.STG_SSH_USER }}
-          STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
-          STG_DEPLOY_DIR: ${{ secrets.STG_DEPLOY_DIR }}
-        run: |
-          ssh -p "$STG_SSH_PORT" "$STG_SSH_USER@$STG_SSH_HOST" bash -s << EOF
-            set -e
-            
-            # Criar diretório se não existir
-            mkdir -p $STG_DEPLOY_DIR
-            cd $STG_DEPLOY_DIR
-            
-            # Clonar ou atualizar repositório
-            if [ ! -d ".git" ]; then
-              echo "Clonando repositório..."
-              git clone -b v2 https://github.com/LeandroSoares/cacaloo.git .
-            else
-              echo "Atualizando repositório..."
-              git fetch origin v2
-              git reset --hard origin/v2
-            fi
-            
-            # Executar deploy
-            chmod +x deploy.sh
-            ENVIRONMENT=stg ./deploy.sh
-          EOF
+          SSH_PRIVATE_KEY: ${{ secrets.STG_SSH_PRIVATE_KEY }}
+          SOURCE: "."
+          REMOTE_HOST: ${{ secrets.STG_SSH_HOST }}
+          REMOTE_USER: ${{ secrets.STG_SSH_USER }}
+          REMOTE_PORT: ${{ secrets.STG_SSH_PORT }}
+          TARGET: ${{ secrets.STG_DEPLOY_DIR }}
+          EXCLUDE: "/node_modules/, /.git/, /.github/, /storage/, /vendor/, .env, .env.example"
+
+      - name: Run deployment commands
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.STG_SSH_HOST }}
+          username: ${{ secrets.STG_SSH_USER }}
+          key: ${{ secrets.STG_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.STG_SSH_PORT }}
+          script: |
+            cd ${{ secrets.STG_DEPLOY_DIR }}
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            sudo systemctl reload nginx
+            # sudo systemctl reload php8.2-fpm
