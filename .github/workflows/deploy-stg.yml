@@ -65,7 +65,7 @@ jobs:
           REMOTE_PORT: ${{ secrets.STG_SSH_PORT }}
           TARGET: ${{ secrets.STG_DEPLOY_DIR }}
           # Exclui node_modules (não é necessário no servidor), mas envia /vendor
-          EXCLUDE: "/node_modules/, /.git/, /.github/, /storage/, .env, .env.example"
+          EXCLUDE: "/node_modules/, /.git/, /.github/, .env.example"
 
       # --- CORREÇÃO 2 ---
       # Executa apenas os comandos artisan no servidor
