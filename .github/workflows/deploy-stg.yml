@@ -32,7 +32,14 @@ jobs:
 
       # Instala dependências PHP (pasta /vendor)
       - name: Install Composer dependencies
-        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
+        env:
+          ENV_DATA: ${{ secrets.ENV_DATA }}
+        run: |
+          echo "$ENV_DATA" >> .env
+          mkdir -p storage/framework/{sessions,views,cache}
+          mkdir -p storage/logs
+          chmod -R 775 storage
+          composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
 
       - name: Setup Node
         uses: actions/setup-node@v4
