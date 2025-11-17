@@ -46,7 +46,7 @@ jobs:
           chmod -R 775 storage bootstrap/cache
 
       - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --no-dev
+        run: composer install --no-progress --prefer-dist
 
       - name: Run focused tests
         run: php artisan test --filter=CrossingFormTest
