@@ -24,11 +24,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-          extensions: mbstring, bcmath, xml, curl, openssl
+          extensions: mbstring, bcmath, xml, curl, openssl, sqlite3
           coverage: none
-
-      - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --no-dev
 
       - name: Prepare environment
         run: |
@@ -37,7 +34,15 @@ jobs:
           sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
           sed -i 's/DB_DATABASE=.*/DB_DATABASE=:memory:/' .env
           php artisan key:generate --ansi
-          touch database/database.sqlite
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --no-dev --no-scripts
+
+      - name: Generate optimized autoload
+        run: composer dump-autoload --optimize
+
+      - name: Run package discovery
+        run: php artisan package:discover --ansi
 
       - name: Run focused tests
         run: php artisan test --filter=CrossingFormTest
