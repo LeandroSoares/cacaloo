@@ -38,24 +38,24 @@ class EntityConsecrationForm extends Component
 
         if ($this->editingId) {
             $consecration = EntityConsecration::find($this->editingId);
-            if ($consecration && $consecration->user_id === $this->user->id) {
+            if ($consecration && $consecration->user_id == $this->user->id) {
                 $consecration->update([
+                    'consecration_date' => $this->consecration_date ?: null,
                     'entity' => $this->entity,
-                    'name' => $this->name,
-                    'date' => $this->date,
+                    'consecrated_at' => $this->consecrated_at,
                 ]);
             }
         } else {
             $this->user->entityConsecrations()->create([
+                'consecration_date' => $this->consecration_date ?: null,
                 'entity' => $this->entity,
-                'name' => $this->name,
-                'date' => $this->date,
+                'consecrated_at' => $this->consecrated_at,
             ]);
         }
 
-        $this->reset(['entity', 'name', 'date', 'editingId']);
+        $this->reset(['consecration_date', 'entity', 'consecrated_at', 'editingId']);
         $this->loadConsecrations();
-        session()->flash('message', 'Consagração salva com sucesso!');
+        session()->flash('message', 'Consagração salva com sucesso.');
 
         $this->dispatch('profile-updated');
     }
@@ -63,21 +63,21 @@ class EntityConsecrationForm extends Component
     public function edit($id)
     {
         $consecration = EntityConsecration::find($id);
-        if ($consecration && $consecration->user_id === $this->user->id) {
+        if ($consecration && $consecration->user_id == $this->user->id) {
             $this->editingId = $id;
+            $this->consecration_date = $consecration->consecration_date?->format('Y-m-d');
             $this->entity = $consecration->entity;
-            $this->name = $consecration->name;
-            $this->date = $consecration->date?->format('Y-m-d');
+            $this->consecrated_at = $consecration->consecrated_at;
 
             // Forçar re-renderização para atualizar os inputs
-            $this->js('$wire.$refresh()');
+            // $this->js('$wire.$refresh()');
         }
     }
 
     public function delete($id)
     {
         $consecration = EntityConsecration::find($id);
-        if ($consecration && $consecration->user_id === $this->user->id) {
+        if ($consecration && $consecration->user_id == $this->user->id) {
             $consecration->delete();
             $this->loadConsecrations();
             session()->flash('message', 'Consagração excluída com sucesso!');

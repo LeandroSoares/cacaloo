@@ -91,7 +91,7 @@ class ReligiousCourseForm extends Component
     public function edit($id)
     {
         $course = ReligiousCourse::find($id);
-        if ($course && $course->user_id === $this->user->id) {
+        if ($course && $course->user_id == $this->user->id) {
             $this->editingCourse = $course;
             $this->isEditing = true;
             $this->newCourse = [
@@ -116,7 +116,7 @@ class ReligiousCourseForm extends Component
     {
         $religiousCourse = ReligiousCourse::find($id);
 
-        if ($religiousCourse && $religiousCourse->user_id === $this->user->id) {
+        if ($religiousCourse && $religiousCourse->user_id == $this->user->id) {
             $religiousCourse->delete();
             $this->loadReligiousCourses();
             session()->flash('message', 'Curso removido com sucesso!');

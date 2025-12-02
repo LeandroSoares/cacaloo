@@ -38,7 +38,7 @@ class AmaciForm extends Component
 
         if ($this->editingId) {
             $amaci = Amaci::find($this->editingId);
-            if ($amaci && $amaci->user_id === $this->user->id) {
+            if ($amaci && $amaci->user_id == $this->user->id) {
                 $amaci->update([
                     'type' => $this->type,
                     'observations' => $this->observations,
@@ -63,7 +63,7 @@ class AmaciForm extends Component
     public function edit($id)
     {
         $amaci = Amaci::find($id);
-        if ($amaci && $amaci->user_id === $this->user->id) {
+        if ($amaci && $amaci->user_id == $this->user->id) {
             $this->editingId = $id;
             $this->type = $amaci->type;
             $this->observations = $amaci->observations;
@@ -74,7 +74,7 @@ class AmaciForm extends Component
     public function delete($id)
     {
         $amaci = Amaci::find($id);
-        if ($amaci && $amaci->user_id === $this->user->id) {
+        if ($amaci && $amaci->user_id == $this->user->id) {
             $amaci->delete();
             $this->loadAmacis();
             session()->flash('message', 'Amaci excluído com sucesso.');

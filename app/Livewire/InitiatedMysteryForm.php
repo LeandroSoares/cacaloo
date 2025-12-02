@@ -91,7 +91,7 @@ class InitiatedMysteryForm extends Component
     public function edit($id)
     {
         $mystery = InitiatedMystery::find($id);
-        if ($mystery && $mystery->user_id === $this->user->id) {
+        if ($mystery && $mystery->user_id == $this->user->id) {
             $this->editingMystery = $mystery;
             $this->isEditing = true;
             $this->newMystery = [
@@ -115,7 +115,7 @@ class InitiatedMysteryForm extends Component
     {
         $initiatedMystery = InitiatedMystery::find($id);
 
-        if ($initiatedMystery && $initiatedMystery->user_id === $this->user->id) {
+        if ($initiatedMystery && $initiatedMystery->user_id == $this->user->id) {
             $initiatedMystery->delete();
             $this->loadInitiatedMysteries();
             session()->flash('message', 'Mistério removido com sucesso!');

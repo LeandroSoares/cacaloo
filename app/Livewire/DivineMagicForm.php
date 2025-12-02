@@ -91,7 +91,7 @@ class DivineMagicForm extends Component
     public function edit($id)
     {
         $magic = DivineMagic::find($id);
-        if ($magic && $magic->user_id === $this->user->id) {
+        if ($magic && $magic->user_id == $this->user->id) {
             $this->editingMagic = $magic;
             $this->isEditing = true;
             $this->newMagic = [
@@ -115,7 +115,7 @@ class DivineMagicForm extends Component
     {
         $divineMagic = DivineMagic::find($id);
 
-        if ($divineMagic && $divineMagic->user_id === $this->user->id) {
+        if ($divineMagic && $divineMagic->user_id == $this->user->id) {
             $divineMagic->delete();
             $this->loadDivineMagics();
             session()->flash('message', 'Magia divina removida com sucesso!');

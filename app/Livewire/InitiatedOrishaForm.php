@@ -91,7 +91,7 @@ class InitiatedOrishaForm extends Component
     public function edit($id)
     {
         $orisha = InitiatedOrisha::find($id);
-        if ($orisha && $orisha->user_id === $this->user->id) {
+        if ($orisha && $orisha->user_id == $this->user->id) {
             $this->editingOrisha = $orisha;
             $this->isEditing = true;
             $this->newOrisha = [
@@ -115,7 +115,7 @@ class InitiatedOrishaForm extends Component
     {
         $initiatedOrisha = InitiatedOrisha::find($id);
 
-        if ($initiatedOrisha && $initiatedOrisha->user_id === $this->user->id) {
+        if ($initiatedOrisha && $initiatedOrisha->user_id == $this->user->id) {
             $initiatedOrisha->delete();
             $this->loadInitiatedOrishas();
             session()->flash('message', 'Orixá removido com sucesso!');
