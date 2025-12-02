@@ -62,15 +62,31 @@ class CrossingForm extends Component
 
     public function edit($id)
     {
+        \Illuminate\Support\Facades\Log::info('Edit method called', ['id' => $id, 'user_id' => $this->user->id]);
         $crossing = Crossing::find($id);
+
+        if ($crossing) {
+            \Illuminate\Support\Facades\Log::info('Crossing found', ['crossing_user_id' => $crossing->user_id]);
+        } else {
+            \Illuminate\Support\Facades\Log::info('Crossing not found');
+        }
+
         if ($crossing && $crossing->user_id === $this->user->id) {
             $this->editingId = $id;
             $this->entity = $crossing->entity;
             $this->date = $crossing->date?->format('Y-m-d');
             $this->purpose = $crossing->purpose;
 
+            \Illuminate\Support\Facades\Log::info('Crossing assigned', [
+                'entity' => $this->entity,
+                'date' => $this->date,
+                'purpose' => $this->purpose
+            ]);
+
             // Forçar re-renderização para atualizar os inputs
             // $this->js('$wire.$refresh()');
+        } else {
+            \Illuminate\Support\Facades\Log::info('Authorization failed or crossing null');
         }
     }
 
