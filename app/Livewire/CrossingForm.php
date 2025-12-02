@@ -71,7 +71,7 @@ class CrossingForm extends Component
             \Illuminate\Support\Facades\Log::info('Crossing not found');
         }
 
-        if ($crossing && $crossing->user_id === $this->user->id) {
+        if ($crossing && $crossing->user_id == $this->user->id) {
             $this->editingId = $id;
             $this->entity = $crossing->entity;
             $this->date = $crossing->date?->format('Y-m-d');
@@ -93,7 +93,7 @@ class CrossingForm extends Component
     public function delete($id)
     {
         $crossing = Crossing::find($id);
-        if ($crossing && $crossing->user_id === $this->user->id) {
+        if ($crossing && $crossing->user_id == $this->user->id) {
             $crossing->delete();
             $this->loadCrossings();
             session()->flash('message', 'Cruzamento excluído com sucesso.');
