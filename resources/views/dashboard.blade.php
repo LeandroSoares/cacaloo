@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', '🌿 Portal da Casa')
+@section('title', '🌿 Portal da Casa - teste')
 
 @section('content')
 
