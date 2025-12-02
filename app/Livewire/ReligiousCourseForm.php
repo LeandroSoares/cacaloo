@@ -70,7 +70,7 @@ class ReligiousCourseForm extends Component
             'date' => $this->newCourse['date'],
             'finished' => $this->newCourse['finished'],
             'has_initiation' => $this->newCourse['has_initiation'],
-            'initiation_date' => $this->newCourse['has_initiation'] ? $this->newCourse['initiation_date'] : null,
+            'initiation_date' => ($this->newCourse['has_initiation'] && !empty($this->newCourse['initiation_date'])) ? $this->newCourse['initiation_date'] : null,
             'observations' => $this->newCourse['observations'],
         ];
 

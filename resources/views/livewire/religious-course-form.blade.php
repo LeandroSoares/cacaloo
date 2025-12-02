@@ -176,23 +176,5 @@
         </div>
     @endif
 
-    <script>
-        // Habilita/desabilita o campo de data da iniciação baseado no checkbox
-        document.addEventListener('livewire:update', function () {
-            const hasInitiationCheckbox = document.getElementById('has_initiation');
-            const initiationDateField = document.getElementById('initiation_date');
 
-            if (hasInitiationCheckbox && initiationDateField) {
-                function toggleInitiationDate() {
-                    initiationDateField.disabled = !hasInitiationCheckbox.checked;
-                    if (!hasInitiationCheckbox.checked) {
-                        initiationDateField.value = '';
-                    }
-                }
-
-                hasInitiationCheckbox.addEventListener('change', toggleInitiationDate);
-                toggleInitiationDate(); // Executar na inicialização
-            }
-        });
-    </script>
 </x-form-card>
