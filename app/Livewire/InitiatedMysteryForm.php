@@ -15,8 +15,6 @@ class InitiatedMysteryForm extends Component
     public $newMystery = [
         'mystery_id' => '',
         'date' => '',
-        'temple' => '',
-        'priest_name' => '',
         'observations' => '',
     ];
     public $editingMystery = null;
@@ -25,8 +23,6 @@ class InitiatedMysteryForm extends Component
     protected $rules = [
         'newMystery.mystery_id' => 'required',
         'newMystery.date' => 'required|date',
-        'newMystery.temple' => 'required|string|max:255',
-        'newMystery.priest_name' => 'required|string|max:255',
         'newMystery.observations' => 'nullable|string',
     ];
 
@@ -34,10 +30,6 @@ class InitiatedMysteryForm extends Component
         'newMystery.mystery_id.required' => 'O mistério é obrigatório.',
         'newMystery.date.required' => 'A data da iniciação é obrigatória.',
         'newMystery.date.date' => 'A data da iniciação deve ser uma data válida.',
-        'newMystery.temple.required' => 'O templo é obrigatório.',
-        'newMystery.temple.max' => 'O nome do templo não pode ter mais de 255 caracteres.',
-        'newMystery.priest_name.required' => 'O nome do sacerdote é obrigatório.',
-        'newMystery.priest_name.max' => 'O nome do sacerdote não pode ter mais de 255 caracteres.',
     ];
 
     public function mount($user)
@@ -69,8 +61,6 @@ class InitiatedMysteryForm extends Component
         $data = [
             'mystery_id' => $this->newMystery['mystery_id'],
             'date' => $this->newMystery['date'],
-            'temple' => $this->newMystery['temple'],
-            'priest_name' => $this->newMystery['priest_name'],
             'observations' => $this->newMystery['observations'],
         ];
 
@@ -97,8 +87,6 @@ class InitiatedMysteryForm extends Component
             $this->newMystery = [
                 'mystery_id' => $mystery->mystery_id,
                 'date' => $mystery->date?->format('Y-m-d') ?? '',
-                'temple' => $mystery->temple ?? '',
-                'priest_name' => $mystery->priest_name ?? '',
                 'observations' => $mystery->observations ?? '',
             ];
         }
@@ -128,8 +116,6 @@ class InitiatedMysteryForm extends Component
         $this->newMystery = [
             'mystery_id' => '',
             'date' => '',
-            'temple' => '',
-            'priest_name' => '',
             'observations' => '',
         ];
     }

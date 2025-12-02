@@ -26,18 +26,6 @@
                 @error('newMystery.date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
-            <div>
-                <label for="temple" class="block text-sm font-medium text-gray-700">Templo</label>
-                <input type="text" wire:model="newMystery.temple" id="temple" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                @error('newMystery.temple') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="priest_name" class="block text-sm font-medium text-gray-700">Nome do Sacerdote</label>
-                <input type="text" wire:model="newMystery.priest_name" id="priest_name" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                @error('newMystery.priest_name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
-            </div>
-
             <div class="md:col-span-2">
                 <label for="observations" class="block text-sm font-medium text-gray-700">Observações</label>
                 <textarea wire:model="newMystery.observations" id="observations" rows="3" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
@@ -73,8 +61,6 @@
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mistério</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Templo</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sacerdote</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
                         </tr>
                     </thead>
@@ -90,12 +76,6 @@
                                     <div class="text-sm text-gray-900">
                                         {{ isset($mystery['date']) ? \Carbon\Carbon::parse($mystery['date'])->format('d/m/Y') : '-' }}
                                     </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ $mystery['temple'] ?? '-' }}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ $mystery['priest_name'] ?? '-' }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex space-x-2">
