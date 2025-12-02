@@ -70,7 +70,7 @@ class CrossingForm extends Component
             $this->purpose = $crossing->purpose;
 
             // Forçar re-renderização para atualizar os inputs
-            $this->js('$wire.$refresh()');
+            // $this->js('$wire.$refresh()');
         }
     }
 
