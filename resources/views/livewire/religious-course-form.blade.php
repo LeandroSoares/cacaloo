@@ -33,7 +33,7 @@
                 <!-- Possui Iniciação -->
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input wire:model="newCourse.has_initiation" id="has_initiation" type="checkbox"
+                        <input wire:model.live="newCourse.has_initiation" id="has_initiation" type="checkbox"
                                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
                     </div>
                     <div class="ml-3 text-sm">
@@ -42,12 +42,14 @@
                 </div>
 
                 <!-- Data da Iniciação -->
+                @if($newCourse['has_initiation'])
                 <div>
                     <label for="initiation_date" class="block text-sm font-medium text-gray-700">Data da Iniciação</label>
                     <input type="date" wire:model="newCourse.initiation_date" id="initiation_date"
                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     @error('newCourse.initiation_date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                 </div>
+                @endif
 
                 <!-- Curso Finalizado -->
                 <div class="flex items-start">
