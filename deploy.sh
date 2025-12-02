@@ -28,15 +28,9 @@ fi
 echo -e "${YELLOW}📋 Verificando versão do PHP...${NC}"
 php -v
 
-# Verificar se o Git está instalado
-if ! command -v git &> /dev/null; then
-    echo -e "${RED}❌ Git não está instalado. Instale com: sudo apt install git${NC}"
-    exit 1
-fi
-
 # Clonar ou atualizar repositório
 REPO_URL="https://github.com/LeandroSoares/cacaloo.git"
-PROJECT_DIR="/var/www/cacaloo"
+PROJECT_DIR="${PROJECT_DIR:-/var/www/cacaloo}"
 
 if [ -d "$PROJECT_DIR" ]; then
     echo -e "${YELLOW}📁 Atualizando repositório existente...${NC}"
@@ -97,8 +91,12 @@ else
     fi
 fi
 
-# Copiar arquivo .env se não existir
-if [ ! -f ".env" ]; then
+# Configurar arquivo .env
+if [ ! -z "$ENV_DATA" ]; then
+    echo -e "${YELLOW}⚙️  Atualizando arquivo .env com dados da pipeline...${NC}"
+    echo "$ENV_DATA" | sudo -u www-data tee .env > /dev/null
+    echo -e "${GREEN}✅ Arquivo .env atualizado${NC}"
+elif [ ! -f ".env" ]; then
     echo -e "${YELLOW}⚙️  Criando arquivo .env...${NC}"
 
     # Usar template de produção se disponível
@@ -112,7 +110,7 @@ if [ ! -f ".env" ]; then
 
     echo -e "${RED}⚠️  IMPORTANTE: Configure o arquivo .env com suas credenciais específicas!${NC}"
 else
-    echo -e "${GREEN}✅ Arquivo .env já existe${NC}"
+    echo -e "${GREEN}✅ Arquivo .env já existe e ENV_DATA não foi fornecido${NC}"
 fi
 
 # Gerar chave da aplicação se necessário

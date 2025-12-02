@@ -4,42 +4,36 @@ on:
   push:
     branches:
       - main
-
-jobs:
-  deploy:
-    name: Deploy to production
-    runs-on: ubuntu-latest
-    environment: prod
-
-    steps:
-      - name: Deploy via SSH
 name: Deploy to VPS Production (SSH + Git Pull)
 
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     name: Deploy to production
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prd
 
     steps:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.0
+        env:
+          PROJECT_DIR: ${{ secrets.PROD_DEPLOY_DIR }}
+          ENV_DATA: ${{ secrets.ENV_DATA_PROD }}
         with:
           host: ${{ secrets.PROD_SSH_HOST }}
           username: ${{ secrets.PROD_SSH_USER }}
           key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
           port: ${{ secrets.PROD_SSH_PORT }}
+          envs: PROJECT_DIR,ENV_DATA
           script: |
-            cd ${{ secrets.PROD_DEPLOY_DIR }}
+            cd $PROJECT_DIR
             
             # Garante que o script é executável
             chmod +x deploy.sh
             
-            # Executa o script de deploy que já contém toda a lógica
-            # (git pull, composer, check node/assets, migrate, cache, reload)
+            # Executa o script de deploy
+            # As variáveis PROJECT_DIR e ENV_DATA estarão disponíveis no ambiente
             ./deploy.sh
