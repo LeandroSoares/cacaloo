@@ -45,8 +45,7 @@
                 <div>
                     <label for="initiation_date" class="block text-sm font-medium text-gray-700">Data da Iniciação</label>
                     <input type="date" wire:model="newCourse.initiation_date" id="initiation_date"
-                           class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                           @if(!$newCourse['has_initiation']) disabled @endif>
+                           class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     @error('newCourse.initiation_date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                 </div>
 
