@@ -41,14 +41,23 @@ PROJECT_DIR="/var/www/cacaloo"
 if [ -d "$PROJECT_DIR" ]; then
     echo -e "${YELLOW}📁 Atualizando repositório existente...${NC}"
     cd $PROJECT_DIR
+    
+    # Detectar branch atual ou usar main como fallback
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    if [ "$CURRENT_BRANCH" == "HEAD" ]; then
+        CURRENT_BRANCH="main"
+    fi
+    
+    echo -e "${YELLOW}   Branch atual: $CURRENT_BRANCH${NC}"
+    
     git fetch origin
-    git checkout v2
-    git pull origin v2
+    git checkout $CURRENT_BRANCH
+    git pull origin $CURRENT_BRANCH
 else
     echo -e "${YELLOW}📥 Clonando repositório...${NC}"
     sudo git clone $REPO_URL $PROJECT_DIR
     cd $PROJECT_DIR
-    sudo git checkout v2
+    sudo git checkout main
 fi
 
 # Definir permissões
@@ -76,12 +85,16 @@ if command -v node &> /dev/null; then
 
     echo -e "${GREEN}✅ Assets compilados com sucesso!${NC}"
 else
-    echo -e "${YELLOW}⚠️  Node.js não encontrado. Usando assets do repositório.${NC}"
-    echo -e "${YELLOW}💡 Para compilar assets no servidor:${NC}"
-    echo "   curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -"
-    echo "   sudo apt-get install -y nodejs"
-    echo "   sudo -u www-data npm install"
-    echo "   sudo -u www-data npm run build"
+    echo -e "${YELLOW}⚠️  Node.js não encontrado. Verificando assets commitados...${NC}"
+    
+    if [ -d "public/build" ] && [ -f "public/build/manifest.json" ]; then
+        echo -e "${GREEN}✅ Assets pré-compilados encontrados em public/build.${NC}"
+        echo -e "${GREEN}   Usando versão commitada do build.${NC}"
+    else
+        echo -e "${RED}❌ ERRO: Node.js não encontrado e assets não foram commitados!${NC}"
+        echo -e "${RED}   Execute 'npm run build' localmente e commite a pasta 'public/build'.${NC}"
+        exit 1
+    fi
 fi
 
 # Copiar arquivo .env se não existir
