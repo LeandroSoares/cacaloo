@@ -40,20 +40,20 @@ class EntityConsecrationForm extends Component
             $consecration = EntityConsecration::find($this->editingId);
             if ($consecration && $consecration->user_id == $this->user->id) {
                 $consecration->update([
-                    'consecration_date' => $this->consecration_date ?: null,
+                    'date' => $this->date ?: null,
                     'entity' => $this->entity,
-                    'consecrated_at' => $this->consecrated_at,
+                    'name' => $this->name,
                 ]);
             }
         } else {
             $this->user->entityConsecrations()->create([
-                'consecration_date' => $this->consecration_date ?: null,
+                'date' => $this->date ?: null,
                 'entity' => $this->entity,
-                'consecrated_at' => $this->consecrated_at,
+                'name' => $this->name,
             ]);
         }
 
-        $this->reset(['consecration_date', 'entity', 'consecrated_at', 'editingId']);
+        $this->reset(['date', 'entity', 'name', 'editingId']);
         $this->loadConsecrations();
         session()->flash('message', 'Consagração salva com sucesso.');
 
@@ -65,9 +65,9 @@ class EntityConsecrationForm extends Component
         $consecration = EntityConsecration::find($id);
         if ($consecration && $consecration->user_id == $this->user->id) {
             $this->editingId = $id;
-            $this->consecration_date = $consecration->consecration_date?->format('Y-m-d');
+            $this->date = $consecration->date?->format('Y-m-d');
             $this->entity = $consecration->entity;
-            $this->consecrated_at = $consecration->consecrated_at;
+            $this->name = $consecration->name;
 
             // Forçar re-renderização para atualizar os inputs
             // $this->js('$wire.$refresh()');
