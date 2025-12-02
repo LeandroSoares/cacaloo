@@ -190,4 +190,34 @@
     </div>
 
      
+    @push('scripts')
+    <script>
+        function copyInviteLink(url) {
+            const inviteLink = document.getElementById('inviteLink');
+            inviteLink.select();
+            inviteLink.setSelectionRange(0, 99999); // For mobile devices
+
+            navigator.clipboard.writeText(inviteLink.value).then(function() {
+                // Criar notificação temporária
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+                notification.textContent = '✓ Link copiado para a área de transferência!';
+                document.body.appendChild(notification);
+
+                // Remover após 3 segundos
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }, function(err) {
+                alert('Erro ao copiar link: ' + err);
+            });
+        }
+
+        function shareWhatsappMessage() {
+            const message = document.getElementById('inviteMessage').value;
+            const url = 'https://wa.me/?text=' + encodeURIComponent(message);
+            window.open(url, '_blank');
+        }
+    </script>
+    @endpush
 @endsection

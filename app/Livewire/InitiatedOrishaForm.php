@@ -14,9 +14,6 @@ class InitiatedOrishaForm extends Component
     public $availableOrishas = [];
     public $newOrisha = [
         'orisha_id' => '',
-        'date' => '',
-        'temple' => '',
-        'priest_name' => '',
         'observations' => '',
     ];
     public $editingOrisha = null;
@@ -24,20 +21,11 @@ class InitiatedOrishaForm extends Component
 
     protected $rules = [
         'newOrisha.orisha_id' => 'required',
-        'newOrisha.date' => 'required|date',
-        'newOrisha.temple' => 'required|string|max:255',
-        'newOrisha.priest_name' => 'required|string|max:255',
         'newOrisha.observations' => 'nullable|string',
     ];
 
     protected $messages = [
         'newOrisha.orisha_id.required' => 'O orixá é obrigatório.',
-        'newOrisha.date.required' => 'A data da iniciação é obrigatória.',
-        'newOrisha.date.date' => 'A data da iniciação deve ser uma data válida.',
-        'newOrisha.temple.required' => 'O templo é obrigatório.',
-        'newOrisha.temple.max' => 'O nome do templo não pode ter mais de 255 caracteres.',
-        'newOrisha.priest_name.required' => 'O nome do sacerdote é obrigatório.',
-        'newOrisha.priest_name.max' => 'O nome do sacerdote não pode ter mais de 255 caracteres.',
     ];
 
     public function mount($user)
@@ -68,10 +56,8 @@ class InitiatedOrishaForm extends Component
 
         $data = [
             'orisha_id' => $this->newOrisha['orisha_id'],
-            'date' => $this->newOrisha['date'],
-            'temple' => $this->newOrisha['temple'],
-            'priest_name' => $this->newOrisha['priest_name'],
             'observations' => $this->newOrisha['observations'],
+            'initiated' => true,
         ];
 
         if ($this->isEditing) {
@@ -96,9 +82,6 @@ class InitiatedOrishaForm extends Component
             $this->isEditing = true;
             $this->newOrisha = [
                 'orisha_id' => $orisha->orisha_id,
-                'date' => $orisha->date?->format('Y-m-d') ?? '',
-                'temple' => $orisha->temple ?? '',
-                'priest_name' => $orisha->priest_name ?? '',
                 'observations' => $orisha->observations ?? '',
             ];
         }
@@ -127,9 +110,6 @@ class InitiatedOrishaForm extends Component
     {
         $this->newOrisha = [
             'orisha_id' => '',
-            'date' => '',
-            'temple' => '',
-            'priest_name' => '',
             'observations' => '',
         ];
     }

@@ -31,6 +31,6 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 exemplos/*
-docs/*
+
 deploy-stg
 deploy-stg.pub

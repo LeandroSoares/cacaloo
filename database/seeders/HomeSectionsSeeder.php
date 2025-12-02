@@ -25,7 +25,7 @@ class HomeSectionsSeeder extends Seeder
             [
                 'title_line1' => 'Casa de Caridade',
                 'title_line2' => 'Legião de Oxóssi e Ogum',
-                'subtitle' => 'Um espaço de acolhimento, caridade e conexão espiritual dedicado aos Orixás Oxóssi e Ogum',
+                'subtitle' => 'Um espaço de acolhimento, caridade e conexão espiritual',
                 'background_color' => '#2E7D32',
                 'is_visible' => true,
                 'sort_order' => 1,
@@ -50,13 +50,13 @@ class HomeSectionsSeeder extends Seeder
         $aboutCards = [
             [
                 'title' => 'Nossa História',
-                'content' => 'Fundada com o propósito de promover a caridade e o desenvolvimento espiritual, nossa casa é um espaço sagrado dedicado aos Orixás Oxóssi e Ogum. Há anos acolhemos filhos de fé em busca de orientação e crescimento espiritual.',
+                'content' => 'Fundada com o propósito de promover a caridade e o desenvolvimento espiritual por meio da Umbanda Sagrada. Há anos acolhemos filhos de fé em busca de orientação e crescimento espiritual.',
                 'icon' => 'book-open',
                 'sort_order' => 1,
             ],
             [
                 'title' => 'Nossa Missão',
-                'content' => 'Promover a caridade cristã, o desenvolvimento mediúnico e a evolução espiritual através dos ensinamentos dos Orixás. Oferecemos um ambiente de acolhimento, amor e orientação para todos que buscam a luz.',
+                'content' => 'Promover a caridade, o desenvolvimento mediúnico e a evolução espiritual através dos ensinamentos dos Orixás. Oferecemos um ambiente de acolhimento, amor e orientação para todos que buscam a luz.',
                 'icon' => 'heart',
                 'sort_order' => 2,
             ],
@@ -90,9 +90,9 @@ class HomeSectionsSeeder extends Seeder
                 'title' => 'Giras e Eventos',
                 'subtitle' => 'Confira nossa programação e participe conosco das giras e celebrações espirituais',
                 'content' => "Horários de funcionamento:\n" .
-                           "• Sextas-feiras: " . ($centroConfig['horarios']['sexta'] ?? '20h00 às 22h00') . "\n" .
-                           "• Giras especiais conforme calendário espiritual\n" .
-                           "• Consulte nossa programação mensal",
+                    "• Sextas-feiras: " . ($centroConfig['horarios']['sexta'] ?? '20h00 às 22h00') . "\n" .
+                    "• Giras especiais conforme calendário espiritual\n" .
+                    "• Consulte nossa programação mensal",
                 'is_visible' => true,
                 'sort_order' => 3,
             ]
@@ -105,20 +105,7 @@ class HomeSectionsSeeder extends Seeder
         $contato = $centroConfig['contato'] ?? [];
         $redes = $centroConfig['redes_sociais'] ?? $centroConfig['redes'] ?? [];
 
-        $contactContent = "🏠 **Endereço:**\n" .
-                         ($endereco['completo'] ?? 'Rua Ilhéus do Prata, 26 - Imirim - São Paulo - SP') . "\n" .
-                         ($endereco['cep'] ?? 'CEP: 02478-060') . "\n\n" .
-
-                         "📞 **Contato:**\n" .
-                         ($contato['telefone'] ? "Telefone: " . $contato['telefone'] . "\n" : '') .
-                         ($contato['whatsapp'] ? "WhatsApp: " . $contato['whatsapp'] . "\n" : '') . "\n" .
-
-                         "🕐 **Horários:**\n" .
-                         "Sextas-feiras: " . ($centroConfig['horarios']['sexta'] ?? '20h00 às 22h00') . "\n\n" .
-
-                         "🌐 **Redes Sociais:**\n" .
-                         ($redes['facebook'] ? "Facebook: " . $redes['facebook'] . "\n" : '') .
-                         ($redes['instagram'] ? "Instagram: " . $redes['instagram'] . "\n" : '');
+        $contactContent = "";
 
         HomeSection::updateOrCreate(
             ['section_key' => 'contact'],
