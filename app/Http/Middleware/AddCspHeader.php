@@ -15,16 +15,10 @@ class AddCspHeader
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $response = $next($request);
+        // Use native headers to ensure they are sent
+        header("Content-Security-Policy: default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';");
+        header("X-CSP-Debug: true");
 
-        // Permissive CSP to allow Livewire/Alpine.js (unsafe-eval)
-        // and external resources (Cloudflare, fonts, etc.)
-        $response->headers->set(
-            'Content-Security-Policy',
-            "default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"
-        );
-        $response->headers->set('X-CSP-Debug', 'true');
-
-        return $response;
+        return $next($request);
     }
 }
