@@ -1,15 +1,10 @@
-name: Deploy to VPS Production (SSH + Git Pull)
+name: Deploy to VPS Production (Inline SSH)
 
 on:
   push:
     branches:
       - main
-name: Deploy to VPS Production (SSH + Git Pull)
 
-on:
-  push:
-    branches:
-      - main
 jobs:
   deploy:
     name: Deploy to production
@@ -29,11 +24,53 @@ jobs:
           port: ${{ secrets.PROD_SSH_PORT }}
           envs: PROJECT_DIR,ENV_DATA
           script: |
-            cd $PROJECT_DIR
+            # Definições
+            TARGET_DIR="${PROJECT_DIR:-/var/www/cacaloo}"
+            REPO_URL="https://github.com/LeandroSoares/cacaloo.git"
             
-            # Garante que o script é executável
-            chmod +x deploy.sh
+            echo "🚀 Iniciando deploy em: $TARGET_DIR"
+
+            # 1. Garante que o diretório existe
+            if [ ! -d "$TARGET_DIR" ]; then
+                echo "📥 Diretório não encontrado. Clonando repositório..."
+                git clone "$REPO_URL" "$TARGET_DIR"
+            fi
+
+            cd "$TARGET_DIR"
+
+            # 2. Atualiza o código
+            echo "⬇️  Atualizando código via Git..."
+            git fetch origin
+            git checkout main
+            git pull origin main
+
+            # 3. Atualiza .env (se fornecido na secret)
+            if [ ! -z "$ENV_DATA" ]; then
+                echo "⚙️  Atualizando arquivo .env..."
+                echo "$ENV_DATA" > .env
+            fi
+
+            # 4. Garante Composer
+            if [ ! -f "composer.phar" ]; then
+                echo "📥 Baixando composer.phar..."
+                curl -sS https://getcomposer.org/installer | php
+            fi
+
+            # 5. Instala dependências PHP
+            echo "📦 Instalando dependências do Composer..."
+            php composer.phar install --no-dev --optimize-autoloader --no-interaction
+
+            # 6. Migrations
+            echo "🗄️  Executando Migrations..."
+            php artisan migrate --force
+
+            # 7. Otimização e Cache
+            echo "🧹 Otimizando caches..."
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
             
-            # Executa o script de deploy
-            # As variáveis PROJECT_DIR e ENV_DATA estarão disponíveis no ambiente
-            ./deploy.sh
+            # Nota: Assets (JS/CSS) já devem ter sido commitados na pasta public/build
+            # pois não rodamos npm run build aqui (sem nodejs/sem permissão).
+
+            echo "✅ Deploy concluído com sucesso!"
