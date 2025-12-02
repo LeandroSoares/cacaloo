@@ -3,6 +3,7 @@
 @section('title', 'Portal da Casa')
 
 @section('content')
+<h1>TESTE DE IMPLANTAÇÃO</h1>
 <div class="space-y-6">
     <!-- Saudação Espiritual -->
     <div class="user-card animate-fade-in-up">
