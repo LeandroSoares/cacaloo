@@ -38,12 +38,15 @@ class CrossingForm extends Component
 
         if ($this->editingId) {
             $crossing = Crossing::find($this->editingId);
-            if ($crossing && $crossing->user_id === $this->user->id) {
+            if ($crossing && $crossing->user_id == $this->user->id) {
+                \Illuminate\Support\Facades\Log::info('Updating crossing', ['id' => $this->editingId]);
                 $crossing->update([
                     'entity' => $this->entity,
                     'date' => $this->date ?: null,
                     'purpose' => $this->purpose,
                 ]);
+            } else {
+                \Illuminate\Support\Facades\Log::info('Update failed: Authorization or not found', ['editingId' => $this->editingId]);
             }
         } else {
             $this->user->crossings()->create([
