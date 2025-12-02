@@ -9,7 +9,7 @@ services:
     container_name: cacaloo_app
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8001:80"
     environment:
       - APP_ENV=local
       - APP_DEBUG=true

@@ -76,7 +76,12 @@ class ProfileTest extends TestCase
             ->assertRedirect('/');
 
         $this->assertGuest();
-        $this->assertNull($user->fresh());
+
+        // O usuário deve estar inativo no banco de dados
+        $this->assertDatabaseHas('users', [
+            'id' => $user->id,
+            'is_active' => false,
+        ]);
     }
 
     public function test_correct_password_must_be_provided_to_delete_account(): void

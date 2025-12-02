@@ -1,0 +1,444 @@
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_can_create_an_amaci(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_loads_amacis_on_mount(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_can_edit_an_amaci(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_can_delete_an_amaci(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_can_cancel_editing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_cannot_edit_another_users_amaci(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_cannot_delete_another_users_amaci(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_validates_date_format(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_validates_max_length(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\AmaciFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_can_create_a_crossing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_loads_crossings_on_mount(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_can_edit_a_crossing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_can_delete_a_crossing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_can_cancel_editing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_cannot_edit_another_users_crossing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_cannot_delete_another_users_crossing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_validates_required_fields(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_validates_date_format(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_validates_max_length(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_shows_success_message_after_save(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrossingFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrowningFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrowningFormTest::it_can_create_a_crowning(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrowningFormTest::it_can_edit_a_crowning(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrowningFormTest::it_cannot_edit_another_users_crowning(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\CrowningFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_can_create_a_consecration(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_loads_consecrations_on_mount(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_can_edit_a_consecration(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_can_delete_a_consecration(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_can_cancel_editing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_cannot_edit_another_users_consecration(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_cannot_delete_another_users_consecration(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_validates_date_format(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_validates_max_length(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_shows_success_message_after_save(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\EntityConsecrationFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\LastTempleFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\LastTempleFormTest::it_can_save_last_temple(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\LastTempleFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::personal_data_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::religious_info_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::priestly_formation_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::force_cross_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::head_orisha_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::divine_magic_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::initiated_orisha_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::initiated_mystery_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::religious_course_form_renders(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::personal_data_form_dispatches_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::religious_info_form_dispatches_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\RemainingFormsTest::priestly_formation_form_dispatches_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\WorkGuideFormTest::it_renders_successfully(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\WorkGuideFormTest::it_can_save_work_guides(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\WorkGuideFormTest::it_validates_max_length(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Livewire\WorkGuideFormTest::it_dispatches_profile_updated_event(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                    0.09s  
+
+   PASS  Tests\Unit\Http\Controllers\RoleControllerTest
+  ✓ basic test                                                           0.09s  
+
+   PASS  Tests\Unit\Http\Controllers\UserControllerTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\KernelTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Middleware\AdminAccessTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Middleware\AuthenticateTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Middleware\CheckRoleTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Middleware\RedirectIfAuthenticatedTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Middleware\SysAdminAccessTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Requests\Auth\LoginRequestTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Http\Requests\ProfileUpdateRequestTest
+  ✓ basic test
+
+   PASS  Tests\Unit\InvitationModelTest
+  ✓ is valid returns true for pending non expired invitation             5.65s  
+  ✓ is valid returns false for expired invitation                        0.11s  
+  ✓ is valid returns false for cancelled invitation                      0.10s  
+  ✓ is valid returns false for accepted invitation                       0.10s  
+  ✓ mark as accepted updates invitation                                  0.13s  
+  ✓ mark as cancelled updates invitation                                 0.10s  
+  ✓ generate token creates unique token                                  0.10s  
+
+   PASS  Tests\Unit\InvitationServiceTest
+  ✓ mark as accepted method                                              0.11s  
+  ✓ mark as accepted throws exception for invalid invitation             0.12s  
+  ✓ create method sends email                                            0.22s  
+  ✓ create method sets expiration days                                   0.52s  
+
+   PASS  Tests\Unit\Models\UserTest
+  ✓ basic test
+  ✓ user attributes
+  ✓ user role checking
+
+   PASS  Tests\Unit\Providers\AppServiceProviderTest
+  ✓ basic test
+
+   PASS  Tests\Unit\Providers\RoleServiceProviderTest
+  ✓ basic test
+  ✓ blade directives
+
+   PASS  Tests\Unit\Utils\ArrayHelperTest
+  ✓ is associative
+  ✓ filter empty
+  ✓ get
+  ✓ map
+  ✓ implode
+
+   PASS  Tests\Unit\Utils\DateHelperTest
+  ✓ format
+  ✓ diff in days
+  ✓ is after
+  ✓ add days
+  ✓ convert timezone
+
+   PASS  Tests\Unit\Utils\FileHelperTest
+  ✓ get extension
+  ✓ exists
+  ✓ format size
+  ✓ make directory
+  ✓ get mime type                                                        0.01s  
+
+   PASS  Tests\Unit\Utils\FormatHelperTest
+  ✓ currency                                                             0.01s  
+  ✓ percentage
+  ✓ phone
+  ✓ cpf
+  ✓ cnpj
+  ✓ date
+
+   PASS  Tests\Unit\Utils\HtmlHelperTest
+  ✓ escape                                                               0.01s  
+  ✓ link
+  ✓ image
+  ✓ list
+  ✓ table
+
+   PASS  Tests\Unit\Utils\JsonHelperTest
+  ✓ encode                                                               0.01s  
+  ✓ decode                                                               0.01s  
+  ✓ is valid
+  ✓ get last error
+  ✓ format
+
+   PASS  Tests\Unit\Utils\NumberHelperTest
+  ✓ format                                                               0.01s  
+  ✓ ceil
+  ✓ floor
+  ✓ in range
+  ✓ clamp
+  ✓ percentage
+  ✓ random                                                               0.03s  
+
+   PASS  Tests\Unit\Utils\PasswordHelperTest
+  ✓ hash                                                                 0.23s  
+  ✓ verify                                                               0.54s  
+  ✓ needs rehash                                                         0.22s  
+  ✓ generate                                                             0.01s  
+  ✓ strength
+  ✓ is secure
+
+   PASS  Tests\Unit\Utils\StringHelperTest
+  ✓ title case                                                           0.01s  
+  ✓ remove special chars
+  ✓ limit string
+  ✓ slug
+  ✓ contains with string
+  ✓ contains with array
+
+   PASS  Tests\Unit\Utils\UrlHelperTest
+  ✓ is valid                                                             0.01s  
+  ✓ get scheme
+  ✓ get host
+  ✓ get path
+  ✓ get query
+  ✓ get query param
+  ✓ build query
+
+   PASS  Tests\Unit\Utils\ValidationHelperTest
+  ✓ is email                                                             0.01s  
+  ✓ is url
+  ✓ is alpha
+  ✓ is alpha numeric
+  ✓ is numeric
+  ✓ is date
+
+   PASS  Tests\Unit\View\Components\AppLayoutTest
+  ✓ basic test
+
+   PASS  Tests\Unit\View\Components\GuestLayoutTest
+  ✓ basic test
+
+   PASS  Tests\Feature\Admin\UserControllerTest
+  ✓ admin can view users list                                            0.74s  
+  ✓ admin can access user create form                                    0.26s  
+  ✓ admin can create new user                                            0.24s  
+  ✓ admin can edit existing user                                         0.22s  
+  ✓ admin can update existing user                                       0.12s  
+  ✓ admin can delete user                                                0.12s  
+  ✓ cannot delete system admin user                                      0.12s  
+
+   PASS  Tests\Feature\Auth\AuthenticationTest
+  ✓ login screen can be rendered                                         0.16s  
+  ✓ users can authenticate using the login screen                        0.15s  
+  ✓ users can not authenticate with invalid password                     0.35s  
+  ✓ users can logout                                                     0.11s  
+
+   PASS  Tests\Feature\Auth\EmailVerificationTest
+  ✓ email verification screen can be rendered                            0.14s  
+  ✓ email can be verified                                                0.16s  
+  ✓ email is not verified with invalid hash                              0.18s  
+
+   PASS  Tests\Feature\Auth\PasswordConfirmationTest
+  ✓ confirm password screen can be rendered                              0.16s  
+  ✓ password can be confirmed                                            0.12s  
+  ✓ password is not confirmed with invalid password                      0.32s  
+
+   PASS  Tests\Feature\Auth\PasswordResetTest
+  ✓ reset password link screen can be rendered                           0.16s  
+  ✓ reset password link can be requested                                 0.39s  
+  ✓ reset password screen can be rendered                                0.38s  
+  ✓ password can be reset with valid token                               0.35s  
+
+   PASS  Tests\Feature\Auth\PasswordUpdateTest
+  ✓ password can be updated                                              0.11s  
+  ✓ correct password must be provided to update password                 0.11s  
+
+   PASS  Tests\Feature\Auth\PermissionTest
+  ✓ user with view permission can see users list                         0.14s  
+  ✓ admin can see admin menu                                             0.18s  
+  ✓ sysadmin can access any permission                                   0.14s  
+  ✓ regular user cannot access unassigned permissions                    0.12s  
+
+   FAIL  Tests\Feature\Auth\RegistrationTest
+  ✓ registration screen can be rendered                                  0.19s  
+  ⨯ new users can register                                              21.73s  
+
+   PASS  Tests\Feature\Auth\RoleMiddlewareTest
+  ✓ unauthenticated user is redirected to login                          0.12s  
+  ✓ sysadmin can access admin area                                       0.13s  
+  ✓ admin can access users area                                          0.14s  
+  ✓ regular user cannot access admin area                                0.12s  
+  ✓ user without specific role cannot access restricted area             0.12s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                        0.20s  
+
+   PASS  Tests\Feature\InvitationAccessTest
+  ✓ admin can access invitations area                                    0.14s  
+  ✓ sysadmin can access invitations area                                 0.13s  
+  ✓ regular user cannot access invitations area                          0.15s  
+
+   PASS  Tests\Feature\InvitationFunctionalityTest
+  ✓ admin can create invitation                                          0.12s  
+  ✓ admin can create anonymous invitation                                0.11s  
+  ✓ invited user receives user role automatically                        0.18s  
+  ✓ admin can resend invitation                                          0.11s  
+  ✓ admin can cancel invitation                                          0.17s  
+  ✓ invitation email validation                                          0.18s  
+  ✓ admin can view invitation details                                    0.19s  
+
+   PASS  Tests\Feature\Livewire\AmaciFormTest
+  ✓ it renders successfully                                              0.29s  
+  ✓ it can create an amaci                                               0.23s  
+  ✓ it loads amacis on mount                                             0.16s  
+  ✓ it can edit an amaci                                                 0.22s  
+  ✓ it can delete an amaci                                               0.16s  
+  ✓ it can cancel editing                                                0.17s  
+  ✓ it cannot edit another users amaci                                   0.15s  
+  ✓ it cannot delete another users amaci                                 0.15s  
+  ✓ it validates date format                                             0.17s  
+  ✓ it validates max length                                              0.17s  
+  ✓ it dispatches profile updated event                                  0.16s  
+
+   PASS  Tests\Feature\Livewire\CrossingFormTest
+  ✓ it renders successfully                                              0.17s  
+  ✓ it can create a crossing                                             0.18s  
+  ✓ it loads crossings on mount                                          0.15s  
+  ✓ it can edit a crossing                                               0.19s  
+  ✓ it can delete a crossing                                             0.16s  
+  ✓ it can cancel editing                                                0.16s  
+  ✓ it cannot edit another users crossing                                0.15s  
+  ✓ it cannot delete another users crossing                              0.15s  
+  ✓ it validates required fields                                         0.19s  
+  ✓ it validates date format                                             0.17s  
+  ✓ it validates max length                                              0.17s  
+  ✓ it shows success message after save                                  0.19s  
+  ✓ it dispatches profile updated event                                  0.18s  
+
+   PASS  Tests\Feature\Livewire\CrowningFormTest
+  ✓ it renders successfully                                              0.16s  
+  ✓ it can create a crowning                                             0.18s  
+  ✓ it can edit a crowning                                               0.18s  
+  ✓ it cannot edit another users crowning                                0.14s  
+  ✓ it dispatches profile updated event                                  0.18s  
+
+   PASS  Tests\Feature\Livewire\EntityConsecrationFormTest
+  ✓ it renders successfully                                              0.16s  
+  ✓ it can create a consecration                                         0.18s  
+  ✓ it loads consecrations on mount                                      0.16s  
+  ✓ it can edit a consecration                                           0.19s  
+  ✓ it can delete a consecration                                         0.21s  
+  ✓ it can cancel editing                                                0.18s  
+  ✓ it cannot edit another users consecration                            0.16s  
+  ✓ it cannot delete another users consecration                          0.20s  
+  ✓ it validates date format                                             0.18s  
+  ✓ it validates max length                                              0.20s  
+  ✓ it shows success message after save                                  0.17s  
+  ✓ it dispatches profile updated event                                  0.17s  
+
+   PASS  Tests\Feature\Livewire\LastTempleFormTest
+  ✓ it renders successfully                                              0.16s  
+  ✓ it can save last temple                                              0.19s  
+  ✓ it dispatches profile updated event                                  0.17s  
+
+   PASS  Tests\Feature\Livewire\RemainingFormsTest
+  ✓ personal data form renders                                           0.15s  
+  ✓ religious info form renders                                          0.15s  
+  ✓ priestly formation form renders                                      0.15s  
+  ✓ force cross form renders                                             0.16s  
+  ✓ head orisha form renders                                             0.22s  
+  ✓ divine magic form renders                                            0.18s  
+  ✓ initiated orisha form renders                                        0.16s  
+  ✓ initiated mystery form renders                                       0.16s  
+  ✓ religious course form renders                                        0.15s  
+  ✓ personal data form dispatches event                                  0.17s  
+  ✓ religious info form dispatches event                                 0.18s  
+  ✓ priestly formation form dispatches event                             0.19s  
+
+   PASS  Tests\Feature\Livewire\WorkGuideFormTest
+  ✓ it renders successfully                                              0.16s  
+  ✓ it can save work guides                                              0.19s  
+  ✓ it validates max length                                              0.17s  
+  ✓ it dispatches profile updated event                                  0.18s  
+
+   PASS  Tests\Feature\Models\UserTest
+  ✓ can create user                                                      0.10s  
+
+   PASS  Tests\Feature\ProfileTest
+  ✓ profile page is displayed                                            0.33s  
+  ✓ profile information can be updated                                   0.13s  
+  ✓ email verification status is unchanged when the email address is un… 0.12s  
+  ✓ user can delete their account                                        0.11s  
+  ✓ correct password must be provided to delete account                  0.12s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Auth\RegistrationTest > new users can register         
+  The user is not authenticated
+Failed asserting that false is true.
+
+  at tests/Feature/Auth/RegistrationTest.php:47
+     43▕             'password_confirmation' => 'password',
+     44▕             'token' => $invitation->token,
+     45▕         ]);
+     46▕ 
+  ➜  47▕         $this->assertAuthenticated();
+     48▕         $response->assertRedirect(route('dashboard', absolute: false));
+     49▕     }
+     50▕ }
+     51▕
+
+
+  Tests:    1 failed, 203 passed (946 assertions)
+  Duration: 52.08s
+

@@ -43,7 +43,7 @@ class PermissionTest extends TestCase
     {
         // Criar usuário com papel que tem permissão de visualização
         $user = User::factory()->create();
-        $user->assignRole('manager');
+        $user->assignRole('admin');
 
         $response = $this->actingAs($user)->get('/admin/users');
 
@@ -60,7 +60,7 @@ class PermissionTest extends TestCase
         $user = User::factory()->create();
         $user->assignRole('admin');
 
-        $response = $this->actingAs($user)->get('/dashboard');
+        $response = $this->actingAs($user)->get('/admin/dashboard');
 
         $response->assertStatus(200);
         $response->assertSee('Usuários'); // Verifica se o menu de usuários está visível

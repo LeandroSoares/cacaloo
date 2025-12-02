@@ -152,8 +152,9 @@ class UserControllerTest extends TestCase
         $response = $this->actingAs($this->admin)->delete('/admin/users/' . $user->id);
 
         $response->assertRedirect('/admin/users');
-        $this->assertDatabaseMissing('users', [
+        $this->assertDatabaseHas('users', [
             'id' => $user->id,
+            'is_active' => false,
         ]);
     }
 

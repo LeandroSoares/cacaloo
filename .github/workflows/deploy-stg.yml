@@ -26,20 +26,23 @@ jobs:
           php-version: 8.2
           extensions: mbstring, bcmath, xml, curl, openssl
 
-      # Cria um .env para o runner (necessário para package:discover)
-      - name: Create .env file for CI runner
-        run: cp .env.example .env
-
-      # Instala dependências PHP (pasta /vendor)
-      - name: Install Composer dependencies
+      # Cria o .env e estrutura do storage antes de rodar o Composer
+      - name: Prepare environment file
         env:
           ENV_DATA: ${{ secrets.ENV_DATA }}
         run: |
-          echo "$ENV_DATA" >> .env
+          if [ -z "$ENV_DATA" ]; then
+            cp .env.example .env
+          else
+            printf "%s\n" "$ENV_DATA" > .env
+          fi
           mkdir -p storage/framework/{sessions,views,cache}
           mkdir -p storage/logs
           chmod -R 775 storage
-          composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
+
+      # Instala dependências PHP (pasta /vendor)
+      - name: Install Composer dependencies
+        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -56,16 +59,27 @@ jobs:
       # Sincroniza TUDO (incluindo /vendor e assets compilados)
       # A pasta /vendor não está mais no EXCLUDE
       - name: Synchronize files to server
-        uses: easingthemes/ssh-deploy@v5.0.0
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.STG_SSH_PRIVATE_KEY }}
-          SOURCE: "."
-          REMOTE_HOST: ${{ secrets.STG_SSH_HOST }}
-          REMOTE_USER: ${{ secrets.STG_SSH_USER }}
-          REMOTE_PORT: ${{ secrets.STG_SSH_PORT }}
-          TARGET: ${{ secrets.STG_DEPLOY_DIR }}
-          # Exclui node_modules (não é necessário no servidor), mas envia /vendor
-          EXCLUDE: "/node_modules/, /.git/, /.github/, .env.example"
+          STG_SSH_HOST: ${{ secrets.STG_SSH_HOST }}
+          STG_SSH_USER: ${{ secrets.STG_SSH_USER }}
+          STG_SSH_PORT: ${{ secrets.STG_SSH_PORT }}
+          STG_SSH_PRIVATE_KEY: ${{ secrets.STG_SSH_PRIVATE_KEY }}
+          STG_DEPLOY_DIR: ${{ secrets.STG_DEPLOY_DIR }}
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "$STG_SSH_PRIVATE_KEY"
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$STG_SSH_PORT" "$STG_SSH_HOST" >> ~/.ssh/known_hosts
+
+          rsync -az --delete \
+            --exclude "node_modules/" \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude "storage/" \
+            --exclude ".env" \
+            --exclude ".env.example" \
+            -e "ssh -p $STG_SSH_PORT" \
+            ./ "$STG_SSH_USER@$STG_SSH_HOST:$STG_DEPLOY_DIR"
 
       # --- CORREÇÃO 2 ---
       # Executa apenas os comandos artisan no servidor
@@ -79,6 +93,12 @@ jobs:
           port: ${{ secrets.STG_SSH_PORT }}
           script: |
             cd ${{ secrets.STG_DEPLOY_DIR }}
+
+            # Garante storage local e permissões corretas
+            mkdir -p storage/framework/{sessions,views,cache}
+            mkdir -p storage/logs
+            sudo chown -R www-data:www-data storage bootstrap/cache
+            sudo chmod -R 775 storage bootstrap/cache
 
             # As dependências vieram na sincronização
             # Apenas executamos os comandos do Laravel

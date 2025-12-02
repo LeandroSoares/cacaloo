@@ -41,14 +41,14 @@ class CrossingForm extends Component
             if ($crossing && $crossing->user_id === $this->user->id) {
                 $crossing->update([
                     'entity' => $this->entity,
-                    'date' => $this->date,
+                    'date' => $this->date ?: null,
                     'purpose' => $this->purpose,
                 ]);
             }
         } else {
             $this->user->crossings()->create([
                 'entity' => $this->entity,
-                'date' => $this->date,
+                'date' => $this->date ?: null,
                 'purpose' => $this->purpose,
             ]);
         }
