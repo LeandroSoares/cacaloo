@@ -16,7 +16,6 @@ class AddCspHeader
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-        die('Middleware running');
 
         // Permissive CSP to allow Livewire/Alpine.js (unsafe-eval)
         // and external resources (Cloudflare, fonts, etc.)
