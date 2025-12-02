@@ -1,10 +1,9 @@
-import "./bootstrap";
-import Alpine from "alpinejs";
+// import Alpine from "alpinejs";
 
-if (!window.Alpine) {
-  window.Alpine = Alpine;
-}
-Alpine.start();
+// if (!window.Alpine) {
+//   window.Alpine = Alpine;
+// }
+// Alpine.start();
 
 // Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
