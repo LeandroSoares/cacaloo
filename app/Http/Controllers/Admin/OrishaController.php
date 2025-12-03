@@ -64,7 +64,7 @@ class OrishaController extends Controller
      */
     public function show(Orisha $orisha)
     {
-        $orisha->load(['initiatedOrishas.user', 'headOrishas.user']);
+        $orisha->load(['initiatedOrishas.user']);
 
         return view('admin.orishas.show', compact('orisha'));
     }
@@ -94,8 +94,7 @@ class OrishaController extends Controller
     public function destroy(Orisha $orisha)
     {
         // Verificar se o orixá tem usuários associados
-        $hasUsers = $orisha->initiatedOrishas()->count() > 0 ||
-                   $orisha->headOrishas()->count() > 0;
+        $hasUsers = $orisha->initiatedOrishas()->count() > 0;
 
         if ($hasUsers) {
             return redirect()->route('admin.orishas.index')

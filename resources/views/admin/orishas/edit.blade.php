@@ -39,6 +39,34 @@
                     @enderror
                 </div>
 
+                <!-- Tipo -->
+                <div>
+                    <label for="type_orisha" class="block text-sm font-medium text-gray-700">Tipo</label>
+                    <select name="type_orisha"
+                            id="type_orisha"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('type_orisha') border-red-500 @enderror">
+                        <option value="">Selecione...</option>
+                        <option value="Universal" {{ old('type_orisha', $orisha->type_orisha) == 'Universal' ? 'selected' : '' }}>Universal</option>
+                        <option value="Cósmico" {{ old('type_orisha', $orisha->type_orisha) == 'Cósmico' ? 'selected' : '' }}>Cósmico</option>
+                    </select>
+                    @error('type_orisha')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Trono -->
+                <div>
+                    <label for="throne" class="block text-sm font-medium text-gray-700">Trono</label>
+                    <input type="text"
+                           name="throne"
+                           id="throne"
+                           value="{{ old('throne', $orisha->throne) }}"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('throne') border-red-500 @enderror">
+                    @error('throne')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <!-- Descrição -->
                 <div>
                     <label for="description" class="block text-sm font-medium text-gray-700">Descrição</label>
@@ -47,6 +75,30 @@
                               rows="4"
                               class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('description') border-red-500 @enderror">{{ old('description', $orisha->description) }}</textarea>
                     @error('description')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Oferendas -->
+                <div>
+                    <label for="oferings" class="block text-sm font-medium text-gray-700">Oferendas</label>
+                    <textarea name="oferings"
+                              id="oferings"
+                              rows="3"
+                              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('oferings') border-red-500 @enderror">{{ old('oferings', $orisha->oferings) }}</textarea>
+                    @error('oferings')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Texto Detalhado -->
+                <div>
+                    <label for="text" class="block text-sm font-medium text-gray-700">Texto Detalhado</label>
+                    <textarea name="text"
+                              id="text"
+                              rows="10"
+                              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('text') border-red-500 @enderror">{{ old('text', $orisha->text) }}</textarea>
+                    @error('text')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>

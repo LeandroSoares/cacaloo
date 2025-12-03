@@ -32,7 +32,6 @@ services:
       - ./storage/logs:/var/www/html/storage/logs
     depends_on:
       - mariadb
-      - mailhog
     networks:
       - cacaloo_network
 

@@ -167,7 +167,7 @@
         </div>
 
         <!-- Main Content -->
-    <div class="flex-1 flex flex-col lg:ml-64">
+    <div class="flex-1 flex flex-col">
             <!-- Top Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 lg:static lg:overflow-y-visible">
                 <div class="px-4 sm:px-6 lg:px-8">

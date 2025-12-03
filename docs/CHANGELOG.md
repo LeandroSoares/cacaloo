@@ -4,6 +4,22 @@ Todas as mudanças importantes neste projeto serão documentadas neste arquivo.
 
 ---
 
+## [v2.2] - 2025-12-03 🌟 **DADOS DE ORIXÁS E UI**
+
+### ✅ **Adicionado**
+- **Campo `throne`** na tabela `orishas` e no Model
+- **Campos `is_right` e `is_left`** na visualização de detalhes
+- **Seeder de Orixás** atualizado com dados completos (14 Orixás)
+- **Dados detalhados** (texto, oferendas, tipo, trono) importados de markdown
+- **Visualização aprimorada** em `admin.orishas.show`
+
+### 🔧 **Melhorado**
+- **Layout Admin** corrigido (removida margem redundante `lg:ml-64`)
+- **OrishaSeeder** agora suporta inserção em lote com dados ricos
+- **UI de Detalhes** mostra indicadores visuais para Direita/Esquerda
+
+---
+
 ## [v2.1] - 2025-11-02 🎯 **CRUD ADMIN COMPLETO**
 
 ### ✅ **Adicionado**

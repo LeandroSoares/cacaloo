@@ -40,6 +40,16 @@
                             </div>
 
                             <div>
+                                <span class="text-sm font-medium text-gray-500">Tipo:</span>
+                                <span class="text-sm text-gray-900 ml-2">{{ $orisha->type_orisha ?? 'N/A' }}</span>
+                            </div>
+
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Trono:</span>
+                                <span class="text-sm text-gray-900 ml-2">{{ $orisha->throne ?? 'N/A' }}</span>
+                            </div>
+
+                            <div>
                                 <span class="text-sm font-medium text-gray-500">Status:</span>
                                 @if($orisha->active)
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 ml-2">
@@ -48,6 +58,32 @@
                                 @else
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 ml-2">
                                         Inativo
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Direita:</span>
+                                @if($orisha->is_right)
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 ml-2">
+                                        Sim
+                                    </span>
+                                @else
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 ml-2">
+                                        Não
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Esquerda:</span>
+                                @if($orisha->is_left)
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800 ml-2">
+                                        Sim
+                                    </span>
+                                @else
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 ml-2">
+                                        Não
                                     </span>
                                 @endif
                             </div>
@@ -86,6 +122,30 @@
                     <h2 class="text-lg font-medium text-gray-900 mb-3">Descrição</h2>
                     <div class="prose max-w-none text-sm text-gray-700">
                         {!! nl2br(e($orisha->description)) !!}
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <!-- Oferendas -->
+            @if($orisha->oferings)
+            <div class="mt-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h2 class="text-lg font-medium text-gray-900 mb-3">Oferendas</h2>
+                    <div class="prose max-w-none text-sm text-gray-700">
+                        {!! nl2br(e($orisha->oferings)) !!}
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <!-- Texto Detalhado -->
+            @if($orisha->text)
+            <div class="mt-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h2 class="text-lg font-medium text-gray-900 mb-3">Texto Detalhado</h2>
+                    <div class="prose max-w-none text-sm text-gray-700 whitespace-pre-wrap">
+                        {{ $orisha->text }}
                     </div>
                 </div>
             </div>

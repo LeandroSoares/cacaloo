@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,7 +13,11 @@ return new class extends Migration
         Schema::create('orishas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('type_orisha')->nullable(); //cosmico ou universal
+            $table->string('throne')->nullable();
             $table->text('description')->nullable();
+            $table->longText('text')->nullable();
+            $table->string('oferings')->nullable();
             $table->boolean('is_right')->default(false);
             $table->boolean('is_left')->default(false);
             $table->boolean('active')->default(true);

@@ -2080,3 +2080,11 @@ docker-compose logs -f app
 - **Password hashing** com bcrypt
 
 O sistema está **completo e em produção**, oferecendo uma solução robusta para gestão espiritual com múltiplos canais de convite, formulários interativos e controle administrativo avançado.
+
+---
+
+## 📄 **DOCUMENTAÇÃO ESPECÍFICA**
+
+Para detalhes aprofundados sobre módulos específicos, consulte os documentos abaixo:
+
+-   [Estrutura de Dados dos Orixás](especificacoes-features/orixas-data-structure.md) - Detalhes sobre campos, seeding e estrutura de dados dos Orixás (v2.2).
