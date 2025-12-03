@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Aplicação Laravel
   app:
@@ -57,33 +55,33 @@ services:
       - cacaloo_network
 
   # MailHog para testes de email
-  mailhog:
-    image: mailhog/mailhog:latest
-    container_name: cacaloo_mailhog
-    restart: unless-stopped
-    ports:
-      - "8025:8025" # Interface web para visualização dos emails
-      - "1025:1025" # Porta SMTP usada pelo Laravel
-    networks:
-      - cacaloo_network
+  # mailhog:
+  #   image: mailhog/mailhog:latest
+  #   container_name: cacaloo_mailhog
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8025:8025" # Interface web para visualização dos emails
+  #     - "1025:1025" # Porta SMTP usada pelo Laravel
+  #   networks:
+  #     - cacaloo_network
 
-  # Redis para cache e filas (opcional)
-  redis:
-    image: redis:7-alpine
-    container_name: cacaloo_redis
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - cacaloo_network
+  # # Redis para cache e filas (opcional)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: cacaloo_redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis_data:/data
+  #   networks:
+  #     - cacaloo_network
 
 volumes:
   mariadb_data:
     driver: local
-  redis_data:
-    driver: local
+  # redis_data:
+  #   driver: local
 
 networks:
   cacaloo_network:

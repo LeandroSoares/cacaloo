@@ -1,3 +1,0 @@
-@echo off
-echo Iniciando Laravel com Xdebug habilitado...
-php -d xdebug.mode=debug -d xdebug.start_with_request=yes artisan serve --host=127.0.0.1 --port=8000
