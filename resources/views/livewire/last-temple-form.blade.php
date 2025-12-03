@@ -6,7 +6,7 @@
             </x-alert>
         @endif
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Nome do Templo</label>
                 <input type="text" id="name" wire:model="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">

@@ -5,7 +5,7 @@
                 {{ session('message') }}
             </x-alert>
         @endif
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div class="md:col-span-2">
                 <label for="ancestor" class="block text-sm font-medium text-gray-700">Orixá Ancestre</label>
                 <input type="text" id="ancestor" wire:model="ancestor" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">

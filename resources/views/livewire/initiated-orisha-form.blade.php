@@ -8,7 +8,7 @@
 
     <!-- Formulário para adicionar/editar orixá -->
     <form wire:submit.prevent="save" class="space-y-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
                 <label for="orisha_id" class="block text-sm font-medium text-gray-700">Orixá</label>
                 <select wire:model="newOrisha.orisha_id" id="orisha_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">

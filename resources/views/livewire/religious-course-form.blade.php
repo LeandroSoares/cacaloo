@@ -8,7 +8,7 @@
 
     <!-- Formulário para adicionar/editar curso -->
     <form wire:submit.prevent="save" class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <!-- Nome do Curso -->
                 <div>
                     <label for="course_id" class="block text-sm font-medium text-gray-700">Nome do Curso</label>

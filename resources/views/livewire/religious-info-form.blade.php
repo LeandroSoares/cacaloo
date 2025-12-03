@@ -14,7 +14,7 @@
                 {{ session('message') }}
             </x-alert>
         @endif
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
                 <label for="start_date" class="block text-sm font-medium text-gray-700">Data de início na Umbanda</label>
                 <input type="date" id="start_date" wire:model="start_date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
@@ -35,7 +35,7 @@
                 <input type="date" id="charity_house_end" wire:model="charity_house_end" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                 @error('charity_house_end') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="col-span-2">
+            <div class="md:col-span-2">
                 <label for="charity_house_observations" class="block text-sm font-medium text-gray-700">Observações</label>
                 <textarea id="charity_house_observations" wire:model="charity_house_observations" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea>
                 @error('charity_house_observations') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
@@ -60,7 +60,7 @@
                 <input type="date" id="umbanda_baptism" wire:model="umbanda_baptism" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                 @error('umbanda_baptism') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="col-span-2">
+            <div class="md:col-span-2">
                 <label for="cambone_experience" class="block text-sm font-medium text-gray-700">Experiência como Cambone</label>
                 <div class="mt-2">
                     <label class="inline-flex items-center">
