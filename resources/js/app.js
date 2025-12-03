@@ -1,13 +1,12 @@
-// import Alpine from "alpinejs";
+import Alpine from "alpinejs";
 
-// if (!window.Alpine) {
-//   window.Alpine = Alpine;
-// }
-// Alpine.start();
+window.Alpine = Alpine;
+
+Alpine.start();
 
 // Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
@@ -43,12 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 });
-window.copyInviteLink = function() {
+window.copyInviteLink = function () {
   const input = document.getElementById("inviteLink");
   input.select();
   input.setSelectionRange(0, 99999); // Para dispositivos móveis
   navigator.clipboard.writeText(input.value).then(
-    function() {
+    function () {
       const notification = document.createElement("div");
       notification.className =
         "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
@@ -58,12 +57,12 @@ window.copyInviteLink = function() {
         notification.remove();
       }, 3000);
     },
-    function(err) {
+    function (err) {
       alert("Erro ao copiar link: " + err);
     }
   );
 };
-window.shareWhatsappMessage = function() {
+window.shareWhatsappMessage = function () {
   const msg = document.getElementById("inviteMessage").value;
   const url = "https://wa.me/?text=" + encodeURIComponent(msg);
   window.open(url, "_blank");
