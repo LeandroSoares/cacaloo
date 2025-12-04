@@ -73,6 +73,24 @@
                 </p>
             </a>
         </div>
+
+
+        <!-- Orientações Casa -->
+        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <a href="{{ route('user.orientacoes-casa') }}" class="block">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--forest-main);">
+                        <span class="text-white text-xl">🏠</span>
+                    </div>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        Orientações Casa
+                    </h3>
+                </div>
+                <p style="color: var(--text-secondary);" class="text-sm">
+                    Acesse as orientações da Casa
+                </p>
+            </a>
+        </div>
     </div>
 
     <!-- Mensagem Inspiradora -->

@@ -49,6 +49,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('user.meus-dados');
     })->name('user.meus-dados');
 
+    Route::get('/orientacoes-casa', function () {
+        return view('user.orientacoes-casa');
+    })->name('user.orientacoes-casa');
+
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
         ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
@@ -103,7 +107,7 @@ Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix(
         if (request()->has('download')) {
             $logPath = storage_path('logs/laravel.log');
             if (file_exists($logPath)) {
-                return response()->download($logPath, 'laravel-log-'.date('Y-m-d').'.log');
+                return response()->download($logPath, 'laravel-log-' . date('Y-m-d') . '.log');
             }
             return back()->with('error', 'Arquivo de log não encontrado.');
         }
@@ -116,4 +120,4 @@ Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix(
     // Adicione aqui outras rotas de sysadmin
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
