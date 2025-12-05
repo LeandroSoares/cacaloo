@@ -75,6 +75,7 @@
         </div>
 
 
+
         <!-- Orientações Casa -->
         <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
             <a href="{{ route('user.orientacoes-casa') }}" class="block">
@@ -88,6 +89,57 @@
                 </div>
                 <p style="color: var(--text-secondary);" class="text-sm">
                     Acesse as orientações da Casa
+                </p>
+            </a>
+        </div>
+
+        <!-- Guias -->
+        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <a href="{{ route('user.guias') }}" class="block">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--oxossi-main);">
+                        <span class="text-white text-xl">🕊️</span>
+                    </div>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        Guias
+                    </h3>
+                </div>
+                <p style="color: var(--text-secondary);" class="text-sm">
+                    Conheça os guias espirituais
+                </p>
+            </a>
+        </div>
+
+        <!-- Lendas -->
+        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <a href="{{ route('user.lendas') }}" class="block">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--gold-main);">
+                        <span class="text-white text-xl">📖</span>
+                    </div>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        Lendas
+                    </h3>
+                </div>
+                <p style="color: var(--text-secondary);" class="text-sm">
+                    Histórias e ensinamentos dos Orixás
+                </p>
+            </a>
+        </div>
+
+        <!-- Orientações Médiuns -->
+        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <a href="{{ route('user.orientacoes-mediuns') }}" class="block">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--forest-main);">
+                        <span class="text-white text-xl">🙏</span>
+                    </div>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        Orientações Médiuns
+                    </h3>
+                </div>
+                <p style="color: var(--text-secondary);" class="text-sm">
+                    Diretrizes para o desenvolvimento mediúnico
                 </p>
             </a>
         </div>

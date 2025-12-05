@@ -53,6 +53,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('user.orientacoes-casa');
     })->name('user.orientacoes-casa');
 
+    Route::get('/orientacoes-mediuns', function () {
+        return view('user.orientacoes-mediuns');
+    })->name('user.orientacoes-mediuns');
+
+    Route::get('/guias', function () {
+        return view('user.guias');
+    })->name('user.guias');
+
+    Route::get('/lendas', function () {
+        return view('user.lendas');
+    })->name('user.lendas');
+
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
         ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
