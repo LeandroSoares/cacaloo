@@ -205,8 +205,11 @@
 <!-- Footer Quote -->
             <div class="mt-16 text-center">
                 <blockquote class="text-xl italic text-gray-500 font-serif">
-                    "As lendas não são apenas histórias do passado, são espelhos onde vemos nossa própria alma e o caminho
-                    para o divino."
+                    "É a manifestação cultural do povo brasileiro, incluindo: 
+                     Lendas e Mitos: Histórias fantásticas como as do Boto Cor-de-Rosa, Mula-sem-Cabeça e Lobisomem. 
+                     Festas Populares: Como o Carnaval, que absorveu influências locais. 
+                     Músicas e Danças: Ritmos regionais e cantigas. 
+                     Artesanato e Culinária: Tradições locais passadas de pais para filhos."
                 </blockquote>
             </div>
 
