@@ -139,6 +139,7 @@
                 class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
             Fechar
         </button>
+        </dialog>
 <!-- Modal 2 -->
 <dialog id="modal2" class="p-0 rounded-xl w-11/12 md:w-2/3">
     <div class="p-6">
@@ -205,5 +206,5 @@
                 class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
             Fechar
         </button>
-
+</dialog>
 @endsection
