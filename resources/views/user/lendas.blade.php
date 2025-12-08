@@ -7,11 +7,10 @@
             <!-- Hero Section -->
             <div class="text-center mb-16">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-                    Lendas de Umbanda
+                    Lendas do Folclore
                 </h1>
                 <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                    Histórias ancestrais que revelam a sabedoria, os mistérios e a essência dos Orixás.
-                    Mergulhe no conhecimento sagrado transmitido através das gerações.
+                    O folclore brasileiro é um rico conjunto de mitos, lendas, danças, músicas, festas e costumes populares que refletem a identidade cultural do Brasil, nascido da miscigenação das culturas indígena, africana e europeia, transmitidos de geração em geração, com personagens famosos como Saci-Pererê, Curupira, Iara e Boitatá, celebrados anualmente no Dia do Folclore em 22 de agosto
                 </p>
                 <div class="mt-8 flex justify-center">
                     <div class="h-1 w-24 bg-indigo-600 rounded-full"></div>
