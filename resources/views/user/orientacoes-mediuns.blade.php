@@ -28,7 +28,7 @@
                 Conteúdo que explica as obrigações espirituais, horários, respeito às hierarquias
                 e importância da disciplina para o desenvolvimento mediúnico.
             </p>
-            <button onclick="document.getElementById('l3').showl()" 
+            <button onclick="document.getElementById('modal3').showl()" 
                 class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
                 Ler Mais
             </button>
@@ -144,8 +144,9 @@
 <!-- Modal 2 -->
 <dialog id="modal3" class="p-0 rounded-xl w-11/12 md:w-2/3">
     <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Disciplina do Médium</h2>
+        <h2 class="text-2xl font-bold mb-4">Disciplina do Médium </h2>
         <p class="text-gray-700 leading-relaxed">
+
 <p class="text-gray-700 leading-relaxed space-y-4">
 
     <strong class="text-lg">Disciplina do Médium de Umbanda</strong><br><br>
@@ -202,17 +203,20 @@
     </ul>
 
 </p>
+
         </p>
         <button onclick="document.getElementById('modal3').close()" 
                 class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
             Fechar
         </button>
+    </div>
 </dialog>
-<!-- Modal 3 -->
+        <!-- Modal 3 -->
 <dialog id="modal4" class="p-0 rounded-xl w-11/12 md:w-2/3">
     <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Disciplina do Médium</h2>
+        <h2 class="text-2xl font-bold mb-4">Preparação do Médium </h2>
         <p class="text-gray-700 leading-relaxed">
+
 <p class="text-gray-700 leading-relaxed space-y-4">
 
     <strong class="text-lg">Preparação do Médium antes dos Trabalhos Mediúnicos</strong><br><br>
@@ -287,6 +291,7 @@
         <button onclick="document.getElementById('modal4').close()" 
                 class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
             Fechar
-        </button>   
-        </dialog>
+        </button>
+    </div>
+</dialog>
 @endsection
