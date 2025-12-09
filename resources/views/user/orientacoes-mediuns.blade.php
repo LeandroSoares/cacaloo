@@ -28,7 +28,7 @@
                 Conteúdo que explica as obrigações espirituais, horários, respeito às hierarquias
                 e importância da disciplina para o desenvolvimento mediúnico.
             </p>
-            <button onclick="document.getElementById('modal3').showl()" 
+            <button onclick="document.getElementById('modal3').showModal()" 
                 class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
                 Ler Mais
             </button>
