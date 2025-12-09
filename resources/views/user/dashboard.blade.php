@@ -122,11 +122,29 @@
                     </h3>
                 </div>
                 <p style="color: var(--text-secondary);" class="text-sm">
+                    Histórias do Folclore Brasileiro
+                </p>
+            </a>
+        </div>
+        
+        <!-- Lendas dos Orixás-->
+        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <a href="{{ route('user.lendasOrixas') }}" class="block">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--gold-main);">
+                        <span class="text-white text-xl">📖</span>
+                    </div>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        Lendas dos Orixás
+                    </h3>
+                </div>
+                <p style="color: var(--text-secondary);" class="text-sm">
                     Histórias e ensinamentos dos Orixás
                 </p>
             </a>
         </div>
 
+        
         <!-- Orientações Médiuns -->
         <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
             <a href="{{ route('user.orientacoes-mediuns') }}" class="block">
