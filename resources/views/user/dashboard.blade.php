@@ -118,7 +118,7 @@
                         <span class="text-white text-xl">📖</span>
                     </div>
                     <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Lendas
+                        Lendas do Folclore Brasileiro
                     </h3>
                 </div>
                 <p style="color: var(--text-secondary);" class="text-sm">
