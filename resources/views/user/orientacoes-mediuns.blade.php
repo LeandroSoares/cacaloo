@@ -4,7 +4,7 @@
     <div class="py-12">
 <div class="py-12 max-w-6xl mx-auto px-4">
 
-    <h1 class="text-3xl font-bold mb-8">Orientações da Casa</h1>
+    <h1 class="text-3xl font-bold mb-8">Orientações do Médium</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -28,7 +28,7 @@
                 Conteúdo que explica as obrigações espirituais, horários, respeito às hierarquias
                 e importância da disciplina para o desenvolvimento mediúnico.
             </p>
-            <button onclick="document.getElementById('modal3').showModal()" 
+            <button onclick="document.getElementById('l3').showl()" 
                 class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
                 Ler Mais
             </button>
@@ -140,6 +140,7 @@
             Fechar
         </button>
         </dialog>
+        
 <!-- Modal 2 -->
 <dialog id="modal3" class="p-0 rounded-xl w-11/12 md:w-2/3">
     <div class="p-6">
