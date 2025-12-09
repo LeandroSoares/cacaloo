@@ -141,7 +141,7 @@
         </button>
         </dialog>
 <!-- Modal 2 -->
-<dialog id="modal2" class="p-0 rounded-xl w-11/12 md:w-2/3">
+<dialog id="modal3" class="p-0 rounded-xl w-11/12 md:w-2/3">
     <div class="p-6">
         <h2 class="text-2xl font-bold mb-4">Disciplina do Médium</h2>
         <p class="text-gray-700 leading-relaxed">
@@ -202,9 +202,90 @@
 
 </p>
         </p>
-        <button onclick="document.getElementById('modal2').close()" 
+        <button onclick="document.getElementById('modal3').close()" 
                 class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
             Fechar
         </button>
 </dialog>
+<!-- Modal 3 -->
+<dialog id="modal4" class="p-0 rounded-xl w-11/12 md:w-2/3">
+    <div class="p-6">
+        <h2 class="text-2xl font-bold mb-4">Disciplina do Médium</h2>
+        <p class="text-gray-700 leading-relaxed">
+<p class="text-gray-700 leading-relaxed space-y-4">
+
+    <strong class="text-lg">Preparação do Médium antes dos Trabalhos Mediúnicos</strong><br><br>
+
+    A preparação do médium antes de ir para o terreiro é fundamental para garantir harmonia energética,
+    concentração e receptividade espiritual. Os cuidados começam, geralmente, 12 horas antes da gira e envolvem
+    práticas físicas, comportamentais e espirituais.<br><br>
+
+    <strong class="text-lg">Preparação Física e Comportamental</strong><br><br>
+
+    <strong>Preceitos (Abstinências):</strong><br>
+    Os preceitos mais comuns na Casa de Caridade incluem a abstinência de:
+
+    <ul class="list-disc pl-6 space-y-2 mt-2">
+        <li><strong>Carne vermelha:</strong> Possui energia mais densa e interfere na vibração sutil necessária ao contato espiritual.</li>
+        <li><strong>Bebidas alcoólicas:</strong> Prejudicam a clareza mental e a concentração.</li>
+        <li><strong>Atividade sexual:</strong> A energia sexual deve ser preservada antes da gira, pois influencia diretamente a incorporação.</li>
+        <li><strong>Locais de baixa vibração:</strong> Evitar ambientes promíscuos ou energeticamente densos no dia da gira.</li>
+    </ul>
+
+    <ul class="list-disc pl-6 space-y-2 mt-4">
+        <li><strong>Alimentação leve:</strong> Optar por refeições leves e de fácil digestão.</li>
+        <li><strong>Higiene pessoal:</strong> Estar limpo é sinal de respeito com a casa e com os guias espirituais.</li>
+        <li><strong>Vestuário:</strong> Usar roupas limpas e claras (preferencialmente brancas) ou vestimentas ritualísticas da casa.</li>
+    </ul><br>
+
+    <strong class="text-lg">Preparação Mental e Espiritual</strong><br><br>
+
+    <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Introspecção e serenidade:</strong> Manter a mente calma, evitando discussões, fofocas ou situações estressantes.</li>
+        <li><strong>Oração e meditação:</strong> Dedicar tempo para orar e meditar, mantendo o pensamento alinhado aos propósitos da gira.</li>
+    </ul><br>
+
+    <strong class="text-lg">Firmezas das Forças Espirituais</strong><br><br>
+
+    <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Firmeza do Anjo de Guarda:</strong> 1 vela branca.</li>
+
+        <li><strong>Firmeza da Direita:</strong><br>
+            Formar um triângulo com 3 velas da cor dos seus Orixás (ou brancas, se não souber quais são).
+        </li>
+
+        <li><strong>Firmeza da Esquerda:</strong><br>
+            Triângulo com 3 velas preta/vermelha para Guardião, Guia Chefe e Pombagira.
+        </li>
+    </ul><br>
+
+    <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Banhos de ervas:</strong> Banhos de limpeza e harmonização (arruda, alecrim, guiné etc.) ajudam a purificar o campo áurico.</li>
+
+        <li><strong>Banho de Amaci:</strong> Preparado com ervas específicas, aplicado na cabeça. Indicado para médiuns em desenvolvimento ou já prontos.</li>
+
+        <li><strong>Conexão com os guias:</strong> Desde casa, o médium deve sintonizar-se com seus guias e Orixás, firmando a intenção de servir.</li>
+    </ul><br>
+
+    <strong class="text-lg">Ao Chegar no Terreiro</strong><br><br>
+
+    <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Pontualidade:</strong> Chegar cedo demonstra respeito e permite o ajuste energético antes do início.</li>
+
+        <li><strong>Saudação à casa:</strong> Cumprimentar tronqueira, Congá e membros da Casa com respeito e humildade.</li>
+
+        <li><strong>Silêncio e concentração:</strong> Evitar conversas paralelas e manter foco no trabalho espiritual.</li>
+    </ul><br>
+
+    Essas práticas visam purificar e elevar as vibrações do médium, facilitando a incorporação harmônica e a realização
+    do trabalho de caridade com a luz e a força das entidades espirituais.
+
+</p>
+
+        </p>
+        <button onclick="document.getElementById('modal4').close()" 
+                class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
+            Fechar
+        </button>   
+        </dialog>
 @endsection
