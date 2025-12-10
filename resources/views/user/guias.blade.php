@@ -16,7 +16,7 @@
             <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">Guardiões da Mata</p>
             <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
             <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('vigia').showModal()"
+                onclick="document.getElementById('vigia').showModal()">
                 <!--onclick="openModal('vigia')"-->
                 Ler mais
             </button>
@@ -43,7 +43,7 @@
         </p>
 
         <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
-             onclick="document.getElementById('bruxas').showModal()"
+             onclick="document.getElementById('bruxas').showModal()">
             <!-- onclick="openModal('bruxas')"-->
             Ler mais
         </button>
@@ -62,7 +62,7 @@
             <p class="text-sm text-red-600 font-semibold text-center mb-6 uppercase">Forças da Alegria</p>
             <p class="text-gray-600 text-justify mb-4">Atuam com doçura, alegria e transformação emocional...</p>
             <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('mirim').showModal()"
+                onclick="document.getElementById('mirim').showModal()">
                 <!--onclick="openModal('mirim')"--> 
                 Ler mais
             </button>
@@ -80,7 +80,7 @@
             <p class="text-sm text-gray-700 font-semibold text-center mb-6 uppercase">Mistério & Elevação</p>
             <p class="text-gray-600 text-justify mb-4">Linhas de evolução espiritual profunda, ligadas à transição e cura...</p>
             <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('almas').showModal()"
+                onclick="document.getElementById('almas').showModal()">
                 <!-- onclick="openModal('almas')"--> 
                 Ler mais
             </button>
@@ -98,7 +98,7 @@
             <p class="text-sm text-blue-500 font-semibold text-center mb-6 uppercase">Forças da Água</p>
             <p class="text-gray-600 text-justify mb-4">Seres ligados às águas, à fluidez emocional e ao magnetismo...</p>
             <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('ondinas').showModal()"
+                onclick="document.getElementById('ondinas').showModal()">
                 <!-- onclick="openModal('ondinas')"--> 
                 Ler mais
             </button>
@@ -116,7 +116,7 @@
             <p class="text-sm text-amber-700 font-semibold text-center mb-6 uppercase">Sabedoria & Curva</p>
             <p class="text-gray-600 text-justify mb-4">Mães espirituais, conselheiras e curadoras ancestrais...</p>
             <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('pretas').showModal()"
+                onclick="document.getElementById('pretas').showModal()">
                 <!--onclick="openModal('pretas')"-->
                 Ler mais
             </button>
@@ -134,7 +134,7 @@
             <p class="text-sm text-cyan-600 font-semibold text-center mb-6 uppercase">Encanto das Águas</p>
             <p class="text-gray-600 text-justify mb-4">Seres das águas profundas que trabalham magnetismo e sensualidade sagrada...</p>
             <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('sereias').showModal()"
+                onclick="document.getElementById('sereias').showModal()">
                 <!--onclick="openModal('sereias')"-->
                 Ler mais
             </button>
@@ -152,7 +152,7 @@
             <p class="text-sm text-yellow-600 font-semibold text-center mb-6 uppercase">Alegria & Força</p>
             <p class="text-gray-600 text-justify mb-4">Trabalham com energia vibrante, coragem e descontração...</p>
             <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('baianos').showModal()"
+                onclick="document.getElementById('baianos').showModal()">
                 <!--onclick="openModal('baianos')"-->
                 Ler mais
             </button>
@@ -170,7 +170,7 @@
             <p class="text-sm text-orange-600 font-semibold text-center mb-6 uppercase">Força & Coragem</p>
             <p class="text-gray-600 text-justify mb-4">Entidades de grande bravura ligadas ao campo e ao comando energético...</p>
             <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('boiadeiros').showModal()"
+                onclick="document.getElementById('boiadeiros').showModal()">
                 <!--onclick="openModal('boiadeiros')"--> 
                 Ler mais
             </button>
@@ -198,8 +198,340 @@
         </p>
 
         <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg"
-            onclick="document.getElementById('caboclas').showModal()"
+            onclick="document.getElementById('caboclas').showModal()">
             <!--onclick="openModal('caboclas')"-->
+            Ler mais
+        </button>
+    </div>
+</div>
+<!-- CARDS -->
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-pink-500 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-child-reaching text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Crianças</h3>
+        <p class="text-sm text-pink-600 font-semibold text-center mb-6 uppercase">Alegria & Pureza</p>
+        <p class="text-gray-600 text-justify mb-4">
+            Entidades infantis que trazem leveza, cura e renovação espiritual, 
+            manifestando-se com alegria e sabedoria pura para ajudar nos terreiros.
+        </p>
+        <button class="mt-4 w-full bg-pink-500 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('criancas').showModal()">
+		Ler mais
+		</button>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-red-600 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-skull-crossbones text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Exu Mirim</h3>
+        <p class="text-sm text-red-600 font-semibold text-center mb-6 uppercase">Desenrolo & Proteção</p>
+        <p class="text-gray-600 text-justify mb-4">
+            Entidades jovens e encantadas que atuam desfazendo magias negativas, limpando caminhos e revelando forças ocultas.
+            São irreverentes, rápidos e especialistas em “desenrolar” a vida.
+        </p>
+        <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('exumirim').showModal()">
+		Ler mais
+		</button>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-red-700 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-fire-flame-curved text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Exu</h3>
+        <p class="text-sm text-red-700 font-semibold text-center mb-6 uppercase">Guarda & Caminhos</p>
+        <p class="text-gray-600 text-justify mb-4">
+            Exus são guardiões, mensageiros e protetores da Umbanda. Trabalham abrindo caminhos, desfazendo demandas e conduzindo energias com precisão.
+        </p>
+        <button class="mt-4 w-full bg-red-700 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('exu').showModal()">
+		Ler mais
+		</button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-blue-600 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-water text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Janaína</h3>
+        <p class="text-sm text-blue-600 font-semibold text-center mb-6 uppercase">Força das Águas</p>
+        <p class="text-gray-600 text-justify mb-4">
+            A Linha de Janaína manifesta a força das águas, com Iemanjá, Cabocla Janaína e Erê Janaína atuando em cura, sensibilidade e orientação amorosa.
+        </p>
+        <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('janaina').showModal()">
+		Ler mais
+		</button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-blue-800 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-800 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-anchor text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Marinheiros</h3>
+        <p class="text-sm text-blue-800 font-semibold text-center mb-6 uppercase">Força do Mar</p>
+        <p class="text-gray-600 text-justify mb-4">
+            Espíritos que trabalharam nos mares e hoje atuam na Umbanda com descarrego, equilíbrio emocional e limpeza profunda, sob a força de Iemanjá.
+        </p>
+        <button class="mt-4 w-full bg-blue-800 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('marinheiros').showModal()">
+		Ler mais</button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-red-700 h-3"></div>
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-shield-halved text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Ogum</h3>
+        <p class="text-sm text-red-700 font-semibold text-center mb-6 uppercase">Força & Lei</p>
+        <p class="text-gray-600 text-justify mb-4">
+            Orixá da coragem, da guerra, do ferro e dos caminhos. Ogum abre estradas, afasta demandas e fortalece seus filhos com determinação e proteção.
+        </p>
+        <button class="mt-4 w-full bg-red-700 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('ogum').showModal()">
+		Ler mais
+		</button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-rose-700 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-rose-100 text-rose-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-chess-queen text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha de Pombagira</h3>
+
+        <p class="text-sm text-rose-700 font-semibold text-center mb-6 uppercase">
+            Poder & Transmutação
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Pombagiras são entidades da esquerda que atuam com transmutação, autoestima,
+            equilíbrio emocional e quebra de demandas. Trabalham ao lado dos Exus,
+            auxiliando na libertação, transformação e melhoria de vida.
+        </p>
+
+        <button class="mt-4 w-full bg-rose-700 text-white py-2 rounded-lg" 
+		onclick="document.getElementById('pombagira').showModal()">
+        Ler mais
+        </button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-blue-700 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-landmark text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha do Oriente</h3>
+
+        <p class="text-sm text-blue-700 font-semibold text-center mb-6 uppercase">
+            Sabedoria & Cura
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            A Linha do Oriente reúne espíritos sábios de várias culturas que atuam na cura,
+            no conhecimento ancestral e no combate às demandas. A falange dos Mongóis faz
+            parte dessa linha, trazendo força guerreira e visão estratégica.
+        </p>
+
+        <button class="mt-4 w-full bg-blue-700 text-white py-2 rounded-lg"
+            onclick="document.getElementById('oriente').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-blue-700 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-sun text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha do Oriente</h3>
+
+        <p class="text-sm text-blue-700 font-semibold text-center mb-6 uppercase">
+            Sabedoria & Iluminação
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Reúne espíritos sábios de povos antigos — hindus, egípcios, maias, árabes,
+            celtas e muitos outros — que atuam com cura energética, equilíbrio interior
+            e evolução espiritual.
+        </p>
+
+        <button class="mt-4 w-full bg-blue-700 text-white py-2 rounded-lg"
+            onclick="document.getElementById('orientecompleta').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-green-700 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-green-100 text-green-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-feather-pointed text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Caboclos</h3>
+
+        <p class="text-sm text-green-700 font-semibold text-center mb-6 uppercase">
+            Cura & Sabedoria Ancestral
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Espíritos de grande força e sabedoria ligados à natureza, que atuam na cura,
+            no aconselhamento e na elevação espiritual, sempre transmitindo equilíbrio,
+            coragem e humildade.
+        </p>
+
+        <button class="mt-4 w-full bg-green-700 text-white py-2 rounded-lg"
+            onclick="document.getElementById('caboclos').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-red-800 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-800 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-gun text-2xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Cangaceiros</h3>
+
+        <p class="text-sm text-red-800 font-semibold text-center mb-6 uppercase">
+            Justiça & Bravura
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Entidades valentes e justas que trazem a força, coragem e resistência do sertão.
+            Combatem injustiças, protegem e ensinam a vencer desafios com fé e determinação.
+        </p>
+
+        <button class="mt-4 w-full bg-red-800 text-white py-2 rounded-lg"
+            onclick="document.getElementById('cangaceiros').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-green-700 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-green-100 text-green-700 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-leaf text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Encantados</h3>
+
+        <p class="text-sm text-green-700 font-semibold text-center mb-6 uppercase">
+            Natureza & Mistério
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Espíritos naturais que não morrem, mas se encantam, habitando matas,
+            rios e mares. São seres de sabedoria profunda e grande poder espiritual.
+        </p>
+
+        <button class="mt-4 w-full bg-green-700 text-white py-2 rounded-lg"
+            onclick="document.getElementById('encantados').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-amber-800 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-800 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-cross text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Freis</h3>
+
+        <p class="text-sm text-amber-800 font-semibold text-center mb-6 uppercase">
+            Caridade & Cura
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Entidades como freis, frades e padres que irradiam amor, cura,
+            humildade e compaixão. Trabalham na transformação espiritual e
+            na proteção da natureza e dos animais.
+        </p>
+
+        <button class="mt-4 w-full bg-amber-800 text-white py-2 rounded-lg"
+            onclick="document.getElementById('freis').showModal()">
+            Ler mais
+        </button>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-neutral-800 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-neutral-200 text-neutral-800 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-pipe-smoking text-3xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Pretos Velhos</h3>
+
+        <p class="text-sm text-neutral-800 font-semibold text-center mb-6 uppercase">
+            Sabedoria & Humildade
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Ancestrais espirituais que se manifestam com amor, paciência e fé,
+            oferecendo cura, aconselhamento e profunda sabedoria através de
+            benzimentos e ervas.
+        </p>
+
+        <button class="mt-4 w-full bg-neutral-800 text-white py-2 rounded-lg"
+            onclick="document.getElementById('pretos').showModal()">
             Ler mais
         </button>
     </div>
@@ -993,6 +1325,660 @@
   <div class="text-center mt-6">
     <button onclick="document.getElementById('caboclas').close()"
             class="px-6 py-2 bg-green-800 text-white rounded-lg hover:bg-green-900">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha das Crianças -->
+<dialog id='criancas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-pink-600">Linha das Crianças</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha das Crianças na Umbanda, também chamada de Ibejis, Erês ou Ibeijada, 
+      representa espíritos infantis que trazem alegria, pureza, leveza e renovação espiritual.
+      Suas manifestações são docemente infantis, mas carregam profunda sabedoria.
+    </p>
+
+    <p>
+      Esses espíritos atuam na cura emocional, no equilíbrio energético, na limpeza de tristezas, 
+      medos e angústias, utilizando elementos simples como doces, guaraná e brincadeiras simbólicas.
+    </p>
+
+    <h3 class="text-xl font-semibold text-pink-600">Características e Funções</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Alegria e leveza no terreiro</li>
+      <li>Sabedoria pura e mensagens diretas</li>
+      <li>Purificação emocional por meio de doces e energias infantis</li>
+      <li>Atuam como mensageiros dos Orixás</li>
+      <li>Manifestam-se com personalidades diversas (choronas, manhosas, travessas, agitadas)</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-pink-600">Simbologia e Conexões</h3>
+    <p>
+      São associados a São Cosme e Damião e a figuras infantis do imaginário brasileiro.
+      Representam a pureza espiritual e a alegria divina.
+    </p>
+
+    <h3 class="text-xl font-semibold text-pink-600">Como Interagir</h3>
+    <p>
+      Basta abrir o coração, se permitir brincar, sorrir e aceitar doces — ações simbólicas 
+      que facilitam a limpeza espiritual promovida pelos Erês.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('criancas').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha de Exu Mirim -->
+<dialog id='mirim' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-red-600">Linha de Exu Mirim</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha de Exu Mirim é uma linha da esquerda na Umbanda composta por entidades 
+      que se manifestam como crianças ou adolescentes espirituais, muitas vezes irreverentes e travessas.
+      Representam forças de transformação rápida, quebra de demandas e “desenrolos”.
+    </p>
+
+    <p>
+      Apesar da aparência infantil, possuem profundo conhecimento das energias negativas e sabem 
+      desfazer amarrações, magias e bloqueios, restaurando o equilíbrio astral.
+    </p>
+
+    <h3 class="text-xl font-semibold text-red-600">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Trabalham desfazendo demandas e magias negativas</li>
+      <li>Personalidade travessa, irreverente e sincera</li>
+      <li>Podem ser espíritos encarnados ou encantados</li>
+      <li>Ajudam a ativar força pessoal e coragem</li>
+      <li>Promovem limpezas espirituais profundas</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-red-600">Simbologia</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Cores: preto e vermelho</li>
+      <li>Saudação: <strong>Laroyê Exu Mirim!</strong></li>
+    </ul>
+
+    <p>
+      São extremamente eficazes quando trabalhados com doutrina e respeito, apesar de serem alvo de preconceito.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('exu-mirim').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha de Exu -->
+<dialog id='exu' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-red-700">Linha de Exu</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha de Exu na Umbanda é composta por espíritos guardiões que atuam 
+      como mensageiros dos Orixás, protetores, abridores de caminhos e 
+      responsáveis por desfazer demandas espirituais.
+    </p>
+
+    <p>
+      Diferente da visão distorcida popular, Exu é um espírito de luz na Umbanda, 
+      disciplinado e atuante na manutenção da ordem espiritual.
+    </p>
+
+    <h3 class="text-xl font-semibold text-red-700">Funções Principais</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Proteção dos terreiros</li>
+      <li>Abertura de caminhos</li>
+      <li>Desmanche de demandas</li>
+      <li>Equilíbrio energético</li>
+      <li>Resolução de problemas práticos (trabalho, amor, vida cotidiana)</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-red-700">Distinções Importantes</h3>
+    <p>
+      Exu não é quiumba. Quiumbas são espíritos zombeteiros, enquanto Exu é servidor da luz.
+      Trabalham com firmeza e foco, mas sempre dentro da lei espiritual.
+    </p>
+
+    <h3 class="text-xl font-semibold text-red-700">Oferendas</h3>
+    <p>
+      Seu principal alimento ritual é o padê, composto por farinha, dendê, marafo e pimenta.
+      Cada templo pode ter variações tradicionais.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('exu').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha de Janaína -->
+<dialog id='janaina' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-blue-600">Linha de Janaína</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha de Janaína na Umbanda reúne manifestações espirituais associadas a Iemanjá,
+      à Cabocla Janaína e às Erês Janaína. Cada uma expressa uma força diferente 
+      ligada às águas, à intuição e ao amor.
+    </p>
+
+    <h3 class="text-xl font-semibold text-blue-600">Iemanjá – Rainha do Mar</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Orixá das águas salgadas</li>
+      <li>Representação da maternidade e proteção</li>
+      <li>Conectada ao amor, calma e equilíbrio</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-blue-600">Cabocla Janaína</h3>
+    <p>
+      Guia amorosa, sábia e direta, que atua nas linhas de Iemanjá ou Oxum. 
+      Trabalha pela caridade, justiça e proteção.
+    </p>
+
+    <h3 class="text-xl font-semibold text-blue-600">Erê Janaína</h3>
+    <p>
+      Manifestação infantil com grande sensibilidade emocional, ligada às águas e ao amor.
+      Apreciam doces, guaraná, bonecas e cores suaves.
+    </p>
+
+    <h3 class="text-xl font-semibold text-blue-600">Oferendas</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Rosas, perfumes, espelhos, frutas</li>
+      <li>Velas azul-claras e brancas</li>
+      <li>Oferendas na beira do rio ou mar</li>
+    </ul>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('janaina').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Marinheiros -->
+<dialog id='marinheiros' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-blue-700">Linha dos Marinheiros</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Marinheiros na Umbanda é formada por espíritos que em vida foram
+      marujos, pescadores, navegadores ou piratas. Trabalham na linha de Iemanjá 
+      e atuam em limpeza espiritual, descarrego, equilíbrio emocional e firmeza mediúnica.
+    </p>
+
+    <p>
+      São conhecidos pelo balanço característico, simbolizando o movimento do mar
+      e a oscilação emocional humana.
+    </p>
+
+    <h3 class="text-xl font-semibold text-blue-700">Características e Trabalhos</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Descarrego e limpeza profunda</li>
+      <li>Quebra de demandas</li>
+      <li>Trabalho emocional e sentimental</li>
+      <li>Apoio no desenvolvimento mediúnico</li>
+      <li>Conexão com a calunga grande (mar)</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-blue-700">Linha de Piratas</h3>
+    <p>
+      Trabalham o “porão emocional”, limpando sentimentos esquecidos e trazendo
+      à tona potenciais e força interior.
+    </p>
+
+    <h3 class="text-xl font-semibold text-blue-700">Aparência</h3>
+    <p>
+      Podem se apresentar com bandanas, brincos, faixas ou aspecto de marinheiro tradicional,
+      dependendo de sua história espiritual.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('marinheiros').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha de Ogum -->
+<dialog id='ogum' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-red-700">Linha de Ogum</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      Ogum na Umbanda é o Orixá da guerra, da lei, do trabalho, da tecnologia e da abertura de caminhos.
+      Ele é sincretizado com São Jorge e representa coragem, ordem e determinação.
+    </p>
+
+    <p>
+      É o grande guerreiro espiritual que combate injustiças, afasta demandas e fortalece 
+      aqueles que precisam vencer batalhas internas e externas.
+    </p>
+
+    <h3 class="text-xl font-semibold text-red-700">Características e Domínios</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Força, coragem e disciplina</li>
+      <li>Estradas, caminhos e encruzilhadas</li>
+      <li>Metalurgia, ferro, armas e tecnologia</li>
+      <li>Lei, ordem e justiça</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-red-700">Culto</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Dia: Terça-feira</li>
+      <li>Cores: vermelho, azul-marinho ou verde</li>
+      <li>Saudação: <strong>Ogum Iê!</strong> / <strong>Patakori Ogum!</strong></li>
+      <li>Comidas: inhame assado com dendê, feijão fradinho, cará, feijoada, cerveja branca</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-red-700">Falanges de Ogum</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Ogum Matinata (Guerreiro)</li>
+      <li>Ogum Beira-Mar</li>
+      <li>Ogum de Lei</li>
+      <li>Ogum Rompe-Mato</li>
+      <li>Ogum Megê</li>
+      <li>Ogum Sete Espadas</li>
+      <li>Ogum Sete Ondas</li>
+    </ul>
+
+    <p>
+      Seus filhos são valentes, objetivos e intensos, podendo ser impulsivos quando desequilibrados.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('ogum').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha de Pombagira -->
+<dialog id='pombagira' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-pink-700">Linha de Pombagira</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      As Pombagiras na Umbanda são guardiãs que trabalham na linha da esquerda ao lado dos Exus.
+      Representam poder feminino, independência, autoestima, sensualidade equilibrada e força emocional.
+    </p>
+
+    <p>
+      Sua atuação é voltada à cura emocional, quebra de demandas, proteção e resolução de conflitos amorosos.
+    </p>
+
+    <h3 class="text-xl font-semibold text-pink-700">Exemplos de Linhas</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Pombagiras de Ogum – firmes e protetoras</li>
+      <li>Pombagiras de Iansã – fortes e guerreiras</li>
+      <li>Pombagiras de Oxum / Iemanjá – ligadas ao amor e à água</li>
+      <li>Pombagiras de Omolu – ligadas à cura e ao cemitério</li>
+      <li>Pombagiras Ciganas – intuitivas e sábias</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-pink-700">Trabalhos</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Quebra de demandas e limpezas profundas</li>
+      <li>Auxílio no amor, autoestima e relações</li>
+      <li>Destrave de padrões emocionais</li>
+      <li>Empoderamento pessoal</li>
+    </ul>
+
+    <p>
+      Apesar do preconceito, são entidades de extrema luz e disciplina dentro da lei maior.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('pombagira').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha do Oriente - Composição -->
+<dialog id='oriente' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-amber-600">Linha do Oriente – Composição</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha do Oriente é formada por espíritos sábios de vários povos antigos e tradicionais.
+      Dentro dessa linha existe a Falange dos Mongóis, frequentemente mencionada, mas não como linha independente.
+    </p>
+
+    <h3 class="text-xl font-semibold text-amber-600">Falanges que a compõem</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Mongóis, chineses e japoneses</li>
+      <li>Egípcios</li>
+      <li>Indus e árabes</li>
+      <li>Ciganos</li>
+      <li>Maias, Astecas e Incas</li>
+      <li>Europeus sábios e guerreiros</li>
+      <li>Médicos, mestres e filósofos</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-amber-600">Características dos Mongóis</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Trabalhos de cura</li>
+      <li>Desmanche de demandas</li>
+      <li>Sabedoria xamânica</li>
+      <li>Aconselhamento estratégico</li>
+    </ul>
+
+    <p>
+      Um dos chefes mais conhecidos dessa linha é Pai Ory do Oriente, símbolo de sabedoria e iluminação.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('oriente').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha do Oriente -->
+<dialog id='orientecompleta' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-yellow-600">Linha do Oriente</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha do Oriente reúne espíritos sábios de diversas tradições antigas, como egípcios, hindus,
+      árabes, celtas, chineses e japoneses. Representam iluminação, cura espiritual e equilíbrio.
+    </p>
+
+    <h3 class="text-xl font-semibold text-yellow-600">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Buscam a evolução espiritual e a expansão da consciência</li>
+      <li>Atuam com meditação, cura energética e sabedoria ancestral</li>
+      <li>Regência de Oxalá e Xangô</li>
+      <li>Cores: amarelo, dourado, rosa e branco</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-yellow-600">Pontos de Culto</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Dia: Quinta-feira</li>
+      <li>Essências: alfazema, olibano, sândalo</li>
+      <li>Objetos: japamalas, velas coloridas e pedras como citrino</li>
+    </ul>
+
+    <p>
+      Seus guias são mestres, sábios, monges, médicos e filósofos, que atuam na cura e iluminação.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('orientecompleta').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Caboclos -->
+<dialog id='caboclos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-green-700">Linha dos Caboclos</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Caboclos reúne espíritos de origem indígena ou ligados à força da floresta.
+      São curadores, conselheiros e guerreiros espirituais extremamente sábios e fortes.
+    </p>
+
+    <p>
+      Trabalham com ervas, elementos naturais, passes de cura e orientações espirituais diretas.
+    </p>
+
+    <h3 class="text-xl font-semibold text-green-700">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Ligação profunda com a natureza</li>
+      <li>Uso de ervas e medicina natural</li>
+      <li>Sabedoria ancestral indígena</li>
+      <li>Força espiritual e coragem</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-green-700">Ritos e Oferendas</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Frutas, mel, vinho moscatel, coco</li>
+      <li>Ervas fortes como gengibre, cravo e arruda</li>
+      <li>Velas verdes, amarelas ou vermelhas</li>
+    </ul>
+
+    <p>
+      A saudação principal é <strong>“Okê, Caboclo!”</strong>
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('caboclos').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Cangaceiros -->
+<dialog id='cangaceiros' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-yellow-700">Linha dos Cangaceiros</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Cangaceiros na Umbanda representa guerreiros espirituais marcados pela bravura,
+      justiça e resistência. São espíritos que simbolizam a luta do povo do sertão contra as
+      injustiças e dificuldades da vida.
+    </p>
+
+    <p>
+      Atuam como protetores, fortalecendo seus médiuns e consulentes para superar desafios,
+      injustiças e opressões.
+    </p>
+
+    <h3 class="text-xl font-semibold text-yellow-700">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Força, coragem e honra</li>
+      <li>Proteção contra injustiças</li>
+      <li>Espíritos guerreiros e firmes</li>
+      <li>Energia do sertão e da resistência</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-yellow-700">Exemplos de Entidades</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Zé do Cangaço</li>
+      <li>Severino</li>
+      <li>Maria Bonita</li>
+      <li>Maria do Cangaço</li>
+      <li>Corisco</li>
+      <li>Zé Bacamarte</li>
+    </ul>
+
+    <p>
+      Sua mensagem central é a luta por justiça, coragem e lealdade.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('cangaceiros').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Encantados -->
+<dialog id='encantados' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-teal-700">Linha dos Encantados</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Encantados representa espíritos que não passaram pelo processo tradicional 
+      da morte, mas se "encantaram", tornando-se seres que transitam entre o plano físico e espiritual.
+    </p>
+
+    <p>
+      Habitantes das matas, rios, mares e montanhas, carregam forte ligação com os elementos
+      da natureza, atuando com profundo conhecimento energético.
+    </p>
+
+    <h3 class="text-xl font-semibold text-teal-700">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Ligação direta com a natureza</li>
+      <li>Sabedoria ancestral e intuitiva</li>
+      <li>Curas espirituais e limpezas profundas</li>
+      <li>Energia alegre ou introspectiva, conforme o elemento</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-teal-700">Manifestações</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Incorporação em médiuns</li>
+      <li>Sonhos e visões</li>
+      <li>Presenças sutis na natureza</li>
+    </ul>
+
+    <p>
+      Os Encantados ensinam respeito à natureza, responsabilidade espiritual e equilíbrio.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('encantados').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Freis -->
+<dialog id='freis' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-stone-700">Linha dos Freis</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Freis, também chamada Linha de São Francisco, reúne espíritos como freis,
+      padres, frades e freiras que trabalham com cura, caridade, desobsessão e elevação espiritual.
+    </p>
+
+    <p>
+      A energia dessa linha é marcada pela humildade, amor ao próximo, simplicidade e profunda
+      compaixão pelos necessitados.
+    </p>
+
+    <h3 class="text-xl font-semibold text-stone-700">Características Principais</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Cura espiritual e física</li>
+      <li>Transformação interior</li>
+      <li>Proteção da natureza e dos animais</li>
+      <li>Caridade e acolhimento</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-stone-700">Regência</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Oxalá</li>
+      <li>Oxum</li>
+      <li>Oxóssi</li>
+    </ul>
+
+    <p>
+      São Francisco de Assis é sincretizado com Xangô, representando equilíbrio, justiça,
+      retidão e amor universal.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('freis').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+      Fechar
+    </button>
+  </div>
+</dialog>
+
+<!-- Linha dos Pretos-Velhos -->
+<dialog id='pretos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+  <h2 class="text-3xl font-bold mb-4 text-gray-800">Linha dos Pretos-Velhos</h2>
+
+  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+
+    <p>
+      A Linha dos Pretos-Velhos representa ancestrais africanos sábios, que viveram como escravizados
+      e, após sua evolução espiritual, retornam para auxiliar com amor, humildade e paciência.
+    </p>
+
+    <p>
+      São considerados grandes conselheiros, curadores e mestres da simplicidade.
+    </p>
+
+    <h3 class="text-xl font-semibold text-gray-800">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Humildade e serenidade</li>
+      <li>Sabedoria acumulada pela vida dura</li>
+      <li>Fala mansa e paciência infinita</li>
+      <li>Curas com ervas, benzimentos e defumações</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-gray-800">Símbolos e Elementos</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Cachimbo</li>
+      <li>Rosário e orações</li>
+      <li>Café preto, bolo de fubá e garapa</li>
+      <li>Ervas simples e sagradas</li>
+    </ul>
+
+    <p>
+      Sua data comemorativa é 13 de maio, marcando a abolição da escravatura.
+    </p>
+
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="document.getElementById('pretos').close()" 
+      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
       Fechar
     </button>
   </div>
