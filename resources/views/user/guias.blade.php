@@ -14,7 +14,7 @@
             </div>
             <h3 class="text-2xl font-bold text-center mb-4">Caboclo Vigia</h3>
             <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">Guardiões da Mata</p>
-            <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. Guerreiro sábio e disciplinado, líder da tribo Arapuins no Amazonas até seu desencarne em 1789, continua protegendo seu povo, a floresta e todos que nela buscam cura e equilíbrio. Sua missão é vigiar e manter a ordem espiritual, trazendo conselhos diretos e carregados de conhecimento ancestral. É um caboclo que mais escuta do que fala, e quando fala transmite o amor e a firmeza de um grande Pai. Oferendas comuns: frutas, milho, coco, mel, vinho tinto e ervas.</p>
+            <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
             <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" onclick="openModal('vigia')">Ler mais</button>
         </div>
     </div>
