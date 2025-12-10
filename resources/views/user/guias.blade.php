@@ -17,7 +17,6 @@
             <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
             <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('vigia').showModal()">
-                <!--onclick="openModal('vigia')"-->
                 Ler mais
             </button>
         </div>
@@ -43,8 +42,7 @@
         </p>
 
         <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
-             onclick="document.getElementById('bruxas').showModal()">
-            <!-- onclick="openModal('bruxas')"-->
+            onclick="document.getElementById('bruxas').showModal()">
             Ler mais
         </button>
     </div>
@@ -63,7 +61,6 @@
             <p class="text-gray-600 text-justify mb-4">Atuam com doçura, alegria e transformação emocional...</p>
             <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('mirim').showModal()">
-                <!--onclick="openModal('mirim')"--> 
                 Ler mais
             </button>
         </div>
@@ -81,7 +78,6 @@
             <p class="text-gray-600 text-justify mb-4">Linhas de evolução espiritual profunda, ligadas à transição e cura...</p>
             <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('almas').showModal()">
-                <!-- onclick="openModal('almas')"--> 
                 Ler mais
             </button>
         </div>
@@ -99,7 +95,6 @@
             <p class="text-gray-600 text-justify mb-4">Seres ligados às águas, à fluidez emocional e ao magnetismo...</p>
             <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('ondinas').showModal()">
-                <!-- onclick="openModal('ondinas')"--> 
                 Ler mais
             </button>
         </div>
@@ -117,7 +112,6 @@
             <p class="text-gray-600 text-justify mb-4">Mães espirituais, conselheiras e curadoras ancestrais...</p>
             <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('pretas').showModal()">
-                <!--onclick="openModal('pretas')"-->
                 Ler mais
             </button>
         </div>
@@ -135,7 +129,6 @@
             <p class="text-gray-600 text-justify mb-4">Seres das águas profundas que trabalham magnetismo e sensualidade sagrada...</p>
             <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('sereias').showModal()">
-                <!--onclick="openModal('sereias')"-->
                 Ler mais
             </button>
         </div>
@@ -153,7 +146,6 @@
             <p class="text-gray-600 text-justify mb-4">Trabalham com energia vibrante, coragem e descontração...</p>
             <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('baianos').showModal()">
-                <!--onclick="openModal('baianos')"-->
                 Ler mais
             </button>
         </div>
@@ -171,7 +163,6 @@
             <p class="text-gray-600 text-justify mb-4">Entidades de grande bravura ligadas ao campo e ao comando energético...</p>
             <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('boiadeiros').showModal()">
-                <!--onclick="openModal('boiadeiros')"--> 
                 Ler mais
             </button>
         </div>
@@ -199,7 +190,6 @@
 
         <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg"
             onclick="document.getElementById('caboclas').showModal()">
-            <!--onclick="openModal('caboclas')"-->
             Ler mais
         </button>
     </div>
@@ -475,7 +465,7 @@
             rios e mares. São seres de sabedoria profunda e grande poder espiritual.
         </p>
 
-        <button class="mt-4 w-full bg-green-700 text-white py-2 rounded-lg"
+        <button class="mt-4 w-full bg-green-650 text-white py-2 rounded-lg"
             onclick="document.getElementById('encantados').showModal()">
             Ler mais
         </button>
