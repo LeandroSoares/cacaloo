@@ -15,7 +15,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Caboclo Vigia</h3>
             <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">Guardiões da Mata</p>
             <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
-            <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" onclick="openModal('vigia')">Ler mais</button>
+            <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('vigia').showModal()"
+                <!--onclick="openModal('vigia')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -39,7 +43,8 @@
         </p>
 
         <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
-            onclick="openModal('linhabruxas')">
+             onclick="document.getElementById('bruxas').showModal()"
+            <!-- onclick="openModal('linhabruxas')"> -->
             Ler mais
         </button>
     </div>
@@ -56,7 +61,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Pombagira Mirim</h3>
             <p class="text-sm text-red-600 font-semibold text-center mb-6 uppercase">Forças da Alegria</p>
             <p class="text-gray-600 text-justify mb-4">Atuam com doçura, alegria e transformação emocional...</p>
-            <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" onclick="openModal('mirim')">Ler mais</button>
+            <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('mirim').showModal()"
+                <!--onclick="openModal('mirim')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -70,7 +79,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Linha das Almas</h3>
             <p class="text-sm text-gray-700 font-semibold text-center mb-6 uppercase">Mistério & Elevação</p>
             <p class="text-gray-600 text-justify mb-4">Linhas de evolução espiritual profunda, ligadas à transição e cura...</p>
-            <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" onclick="openModal('almas')">Ler mais</button>
+            <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('almas').showModal()"
+                <!-- onclick="openModal('almas')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -84,7 +97,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Linha das Ondinas</h3>
             <p class="text-sm text-blue-500 font-semibold text-center mb-6 uppercase">Forças da Água</p>
             <p class="text-gray-600 text-justify mb-4">Seres ligados às águas, à fluidez emocional e ao magnetismo...</p>
-            <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" onclick="openModal('ondinas')">Ler mais</button>
+            <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('ondinas').showModal()"
+                <!-- onclick="openModal('ondinas')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -98,7 +115,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Pretas Velhas</h3>
             <p class="text-sm text-amber-700 font-semibold text-center mb-6 uppercase">Sabedoria & Curva</p>
             <p class="text-gray-600 text-justify mb-4">Mães espirituais, conselheiras e curadoras ancestrais...</p>
-            <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg" onclick="openModal('pretas')">Ler mais</button>
+            <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('pretas').showModal()"
+                <!--onclick="openModal('pretas')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -112,7 +133,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Linha das Sereias</h3>
             <p class="text-sm text-cyan-600 font-semibold text-center mb-6 uppercase">Encanto das Águas</p>
             <p class="text-gray-600 text-justify mb-4">Seres das águas profundas que trabalham magnetismo e sensualidade sagrada...</p>
-            <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" onclick="openModal('sereias')">Ler mais</button>
+            <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('sereias').showModal()"
+                <!--onclick="openModal('sereias')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -126,7 +151,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Linha dos Baianos</h3>
             <p class="text-sm text-yellow-600 font-semibold text-center mb-6 uppercase">Alegria & Força</p>
             <p class="text-gray-600 text-justify mb-4">Trabalham com energia vibrante, coragem e descontração...</p>
-            <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" onclick="openModal('baianos')">Ler mais</button>
+            <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('baianos').showModal()"
+                <!--onclick="openModal('baianos')">--->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -140,7 +169,11 @@
             <h3 class="text-2xl font-bold text-center mb-4">Linha dos Boiadeiros</h3>
             <p class="text-sm text-orange-600 font-semibold text-center mb-6 uppercase">Força & Coragem</p>
             <p class="text-gray-600 text-justify mb-4">Entidades de grande bravura ligadas ao campo e ao comando energético...</p>
-            <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" onclick="openModal('boiadeiros')">Ler mais</button>
+            <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" 
+                onclick="document.getElementById('boiadeiros').showModal()"
+                <!--onclick="openModal('boiadeiros')"> -->
+                Ler mais
+            </button>
         </div>
     </div>
 
@@ -165,7 +198,8 @@
         </p>
 
         <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg"
-            onclick="openModal('linhacaboclas')">
+            onclick="document.getElementById('caboclas').showModal()"
+            <!--onclick="openModal('caboclas')">-->
             Ler mais
         </button>
     </div>
@@ -176,7 +210,7 @@
 <!-- AREA DE MODAIS-->
 
 <!-- Caboclo Vigia -->
-<dialog id="vigia" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='vigia' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-green-700">Caboclo Vigia</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -246,7 +280,7 @@
 </dialog>
 
 <!-- Linha das Bruxas -->
-<dialog id="linhabruxas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='bruxas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-purple-700">Linha das Bruxas</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -330,7 +364,7 @@
 </dialog>
 
 <!-- Linha da Pombagira Mirim -->
-<dialog id="mirim" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='mirim' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-red-600">Linha da Pombagira Mirim</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -401,7 +435,7 @@
 </dialog>
 
 <!-- Linha das Almas -->
-<dialog id="almas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='almas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-purple-700">Linha das Almas</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -492,7 +526,7 @@
 </dialog>
 
 <!-- Linha das Ondinas -->
-<dialog id="ondinas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='ondinas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-blue-700">Linha das Ondinas na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -579,7 +613,7 @@
 </dialog>
 
 <!-- Linha das Pretas Velhas -->
-<dialog id="pretas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='pretas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-amber-800">Linha das Pretas Velhas na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -659,7 +693,7 @@
 </dialog>
 
 <!-- Linha das Sereias -->
-<dialog id="sereias" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='sereias' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-cyan-700">Linha das Sereias na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -751,7 +785,7 @@
 </dialog>
 
 <!-- Linha dos Baianos -->
-<dialog id="baianos" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='baianos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-yellow-700">Linha dos Baianos na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -798,7 +832,7 @@
 </dialog>
 
 <!-- Linha de Boiadeiro -->
-<dialog id="boiadeiros" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='boiadeiros' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-amber-800">Linha de Boiadeiro</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -866,7 +900,7 @@
 
 
 <!-- Linha de Caboclas -->
-<dialog id="linhacaboclas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id='caboclas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-green-800">Linha de Caboclas na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -950,7 +984,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhacaboclas').close()"
+    <button onclick="document.getElementById('caboclas').close()"
             class="px-6 py-2 bg-green-800 text-white rounded-lg hover:bg-green-900">
       Fechar
     </button>
