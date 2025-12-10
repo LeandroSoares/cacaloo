@@ -17,7 +17,7 @@
             <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
             <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('vigia').showModal()"
-                <!--onclick="openModal('vigia')"> -->
+                <!--onclick="openModal('vigia')"-->
                 Ler mais
             </button>
         </div>
@@ -44,7 +44,7 @@
 
         <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
              onclick="document.getElementById('bruxas').showModal()"
-            <!-- onclick="openModal('linhabruxas')"> -->
+            <!-- onclick="openModal('bruxas')"-->
             Ler mais
         </button>
     </div>
@@ -63,7 +63,7 @@
             <p class="text-gray-600 text-justify mb-4">Atuam com doçura, alegria e transformação emocional...</p>
             <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('mirim').showModal()"
-                <!--onclick="openModal('mirim')"> -->
+                <!--onclick="openModal('mirim')"--> 
                 Ler mais
             </button>
         </div>
@@ -81,7 +81,7 @@
             <p class="text-gray-600 text-justify mb-4">Linhas de evolução espiritual profunda, ligadas à transição e cura...</p>
             <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('almas').showModal()"
-                <!-- onclick="openModal('almas')"> -->
+                <!-- onclick="openModal('almas')"--> 
                 Ler mais
             </button>
         </div>
@@ -99,7 +99,7 @@
             <p class="text-gray-600 text-justify mb-4">Seres ligados às águas, à fluidez emocional e ao magnetismo...</p>
             <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('ondinas').showModal()"
-                <!-- onclick="openModal('ondinas')"> -->
+                <!-- onclick="openModal('ondinas')"--> 
                 Ler mais
             </button>
         </div>
@@ -117,7 +117,7 @@
             <p class="text-gray-600 text-justify mb-4">Mães espirituais, conselheiras e curadoras ancestrais...</p>
             <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('pretas').showModal()"
-                <!--onclick="openModal('pretas')"> -->
+                <!--onclick="openModal('pretas')"-->
                 Ler mais
             </button>
         </div>
@@ -135,7 +135,7 @@
             <p class="text-gray-600 text-justify mb-4">Seres das águas profundas que trabalham magnetismo e sensualidade sagrada...</p>
             <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('sereias').showModal()"
-                <!--onclick="openModal('sereias')"> -->
+                <!--onclick="openModal('sereias')"-->
                 Ler mais
             </button>
         </div>
@@ -153,7 +153,7 @@
             <p class="text-gray-600 text-justify mb-4">Trabalham com energia vibrante, coragem e descontração...</p>
             <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('baianos').showModal()"
-                <!--onclick="openModal('baianos')">--->
+                <!--onclick="openModal('baianos')"-->
                 Ler mais
             </button>
         </div>
@@ -171,7 +171,7 @@
             <p class="text-gray-600 text-justify mb-4">Entidades de grande bravura ligadas ao campo e ao comando energético...</p>
             <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('boiadeiros').showModal()"
-                <!--onclick="openModal('boiadeiros')"> -->
+                <!--onclick="openModal('boiadeiros')"--> 
                 Ler mais
             </button>
         </div>
@@ -199,7 +199,7 @@
 
         <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg"
             onclick="document.getElementById('caboclas').showModal()"
-            <!--onclick="openModal('caboclas')">-->
+            <!--onclick="openModal('caboclas')"-->
             Ler mais
         </button>
     </div>
@@ -275,7 +275,10 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('vigia').close()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">Fechar</button>
+    <button onclick="document.getElementById('vigia').close()" 
+        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+        Fechar
+    </button>
   </div>
 </dialog>
 
@@ -359,7 +362,10 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhabruxas').close()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">Fechar</button>
+    <button onclick="document.getElementById('bruxas').close()" 
+        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+        Fechar
+    </button>
   </div>
 </dialog>
 
@@ -428,7 +434,8 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('mirim').close()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+    <button onclick="document.getElementById('mirim').close()" 
+        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
       Fechar
     </button>
   </div>
