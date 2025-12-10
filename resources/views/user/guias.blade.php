@@ -19,10 +19,32 @@
         </div>
     </div>
 
-    <!-- A Linha das Bruxas na Umbanda é formada por espíritos de bruxos, bruxas, feiticeiras, magos e magas que atuam na manipulação das energias naturais. É uma falange rara, presente em poucos terreiros, ligada à magia ancestral e à alta magia. Embora muitos associem essa linha ao lado negativo, sua atuação dentro da Umbanda é sempre voltada ao bem, mesmo quando lida com demandas pesadas. Trabalham manipulação energética profunda, rituais naturais e transmutação. São regidos por um colegiado de espíritos elevados como São Bento, São Lázaro, São Roque e São Cipriano. Na cultura popular, fala-se da Rainha das Bruxas e hierarquias antigas. Em tradições externas, relaciona-se com covens, sacerdotisas e lideranças mágicas. Dentro da Umbanda, essa linha surgiu em giras de Xangô comandadas pelo Caboclo Sete Montanhas e atua com grande força espiritual e sabedoria.</p>
-            <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg" onclick="openModal('bruxas')">Ler mais</button>
+ <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
+    <div class="bg-purple-600 h-3"></div>
+
+    <div class="p-8">
+        <div class="flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-full mb-6 mx-auto">
+            <i class="fa-solid fa-hat-wizard text-3xl"></i>
         </div>
+
+        <h3 class="text-2xl font-bold text-center mb-4">Linha das Bruxas</h3>
+
+        <p class="text-sm text-purple-600 font-semibold text-center mb-6 uppercase">
+            Magia & Transformação
+        </p>
+
+        <p class="text-gray-600 text-justify mb-4">
+            Falange rara da Umbanda formada por bruxas, feiticeiras e magos que trabalham
+            a manipulação energética e a alta magia sempre voltadas ao equilíbrio e ao bem.
+        </p>
+
+        <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
+            onclick="openModal('linhabruxas')">
+            Ler mais
+        </button>
     </div>
+</div>
+
 
     <!-- Linha da Pombagira Mirim -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
@@ -308,7 +330,7 @@
 </dialog>
 
 <!-- Linha da Pombagira Mirim -->
-<dialog id="linhapombagiramirim" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="mirim" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-red-600">Linha da Pombagira Mirim</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -372,14 +394,14 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhapombagiramirim').close()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
+    <button onclick="document.getElementById('mirim').close()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
       Fechar
     </button>
   </div>
 </dialog>
 
 <!-- Linha das Almas -->
-<dialog id="linhadasalmas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="almas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-purple-700">Linha das Almas</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -462,7 +484,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhadasalmas').close()"
+    <button onclick="document.getElementById('almas').close()"
             class="px-6 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800">
       Fechar
     </button>
@@ -470,7 +492,7 @@
 </dialog>
 
 <!-- Linha das Ondinas -->
-<dialog id="linhadasondinas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="ondinas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-blue-700">Linha das Ondinas na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -549,7 +571,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhadasondinas').close()"
+    <button onclick="document.getElementById('ondinas').close()"
             class="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800">
       Fechar
     </button>
@@ -557,7 +579,7 @@
 </dialog>
 
 <!-- Linha das Pretas Velhas -->
-<dialog id="linhadapretavelha" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="pretas" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-amber-800">Linha das Pretas Velhas na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -629,7 +651,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhadapretavelha').close()"
+    <button onclick="document.getElementById('pretas').close()"
             class="px-6 py-2 bg-amber-800 text-white rounded-lg hover:bg-amber-900">
       Fechar
     </button>
@@ -637,7 +659,7 @@
 </dialog>
 
 <!-- Linha das Sereias -->
-<dialog id="linhadasereias" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="sereias" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-cyan-700">Linha das Sereias na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -721,7 +743,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhadasereias').close()"
+    <button onclick="document.getElementById('sereias').close()"
             class="px-6 py-2 bg-cyan-700 text-white rounded-lg hover:bg-cyan-800">
       Fechar
     </button>
@@ -729,7 +751,7 @@
 </dialog>
 
 <!-- Linha dos Baianos -->
-<dialog id="linhadosbaianos" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="baianos" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-yellow-700">Linha dos Baianos na Umbanda</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -768,7 +790,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhadosbaianos').close()"
+    <button onclick="document.getElementById('baianos').close()"
             class="px-6 py-2 bg-yellow-700 text-white rounded-lg hover:bg-yellow-800">
       Fechar
     </button>
@@ -776,7 +798,7 @@
 </dialog>
 
 <!-- Linha de Boiadeiro -->
-<dialog id="linhaboiadeiro" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
+<dialog id="boiadeiros" class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
   <h2 class="text-3xl font-bold mb-4 text-amber-800">Linha de Boiadeiro</h2>
 
   <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
@@ -835,7 +857,7 @@
   </div>
 
   <div class="text-center mt-6">
-    <button onclick="document.getElementById('linhaboiadeiro').close()"
+    <button onclick="document.getElementById('boiadeiros').close()"
             class="px-6 py-2 bg-amber-800 text-white rounded-lg hover:bg-amber-900">
       Fechar
     </button>
