@@ -1086,14 +1086,17 @@
     <li></li>
     <li></li>
 <!-- Footer Quote -->
-            <div class="mt-16 text-center">
-                <blockquote class="text-xl italic text-gray-500 font-serif">
-                    "É a manifestação cultural do povo brasileiro, incluindo: 
+            <div class="text-center mb-16">
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                     "É a manifestação cultural do povo brasileiro, incluindo: 
                      Lendas e Mitos: Histórias fantásticas como as do Boto Cor-de-Rosa, Mula-sem-Cabeça e Lobisomem. 
                      Festas Populares: Como o Carnaval, que absorveu influências locais. 
                      Músicas e Danças: Ritmos regionais e cantigas. 
                      Artesanato e Culinária: Tradições locais passadas de pais para filhos."
-                </blockquote>
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <div class="h-1 w-24 bg-indigo-600 rounded-full"></div>
+                </div>
             </div>
 
         </div>
