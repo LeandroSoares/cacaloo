@@ -1083,8 +1083,8 @@
     </div>
 
 </dialog>
-    <br>
-    <br> 
+    <li></li>
+    <li></li>
 <!-- Footer Quote -->
             <div class="mt-16 text-center">
                 <blockquote class="text-xl italic text-gray-500 font-serif">
