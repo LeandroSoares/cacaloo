@@ -1084,6 +1084,7 @@
 
 </dialog>
     <br>
+    <br> 
 <!-- Footer Quote -->
             <div class="mt-16 text-center">
                 <blockquote class="text-xl italic text-gray-500 font-serif">
