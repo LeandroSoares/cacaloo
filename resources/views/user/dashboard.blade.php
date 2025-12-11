@@ -127,8 +127,8 @@
         </div>
 
         <!-- Lendas dos Orixás -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.lendas-Orixas') }}" class="block">
+        <!-- <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
+             <a href="{{ route('user.lendas-Orixas') }}" class="block">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--gold-main);">
                         <span class="text-white text-xl">📖</span>
@@ -141,7 +141,7 @@
                     Histórias e ensinamentos dos Orixás
                 </p>
             </a>
-        </div>
+        </div>>
                 
         <!-- Orientações Médiuns -->
         <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
