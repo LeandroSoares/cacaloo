@@ -1083,9 +1083,13 @@
     </div>
 
 </dialog>
-    <li></li>
-    <li></li>
+
+        </div>
+    </div>
 <!-- Footer Quote -->
+        <div class="py-12 bg-gray-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="text-center mb-16">
                 <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                      "É a manifestação cultural do povo brasileiro, incluindo: 
@@ -1095,7 +1099,7 @@
                      Artesanato e Culinária: Tradições locais passadas de pais para filhos."
                 </p>
                 <div class="mt-8 flex justify-center">
-                    <div class="h-1 w-24 bg-indigo-600 rounded-full"></div>
+                    <div class="h-1 w-24 bg-indigo-200 rounded-full"></div>
                 </div>
             </div>
 
