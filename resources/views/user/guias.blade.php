@@ -14,7 +14,7 @@
             </div>
             <h3 class="text-2xl font-bold text-center mb-4">Caboclo Vigia</h3>
             <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">Guardiões da Mata</p>
-            <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na linha de Oxóssi. </p>
+            <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na  de Oxóssi. </p>
             <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
                 onclick="document.getElementById('vigia').showModal()">
                 Ler mais
@@ -30,7 +30,7 @@
             <i class="fa-solid fa-hat-wizard text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha das Bruxas</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Bruxas</h3>
 
         <p class="text-sm text-purple-600 font-semibold text-center mb-6 uppercase">
             Magia & Transformação
@@ -73,7 +73,7 @@
             <div class="flex items-center justify-center w-16 h-16 bg-gray-200 text-gray-700 rounded-full mb-6 mx-auto">
                 <i class="fa-solid fa-skull text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Linha das Almas</h3>
+            <h3 class="text-2xl font-bold text-center mb-4">Almas</h3>
             <p class="text-sm text-gray-700 font-semibold text-center mb-6 uppercase">Mistério & Elevação</p>
             <p class="text-gray-600 text-justify mb-4">Linhas de evolução espiritual profunda, ligadas à transição e cura...</p>
             <button class="mt-4 w-full bg-gray-700 text-white py-2 rounded-lg" 
@@ -90,7 +90,7 @@
             <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-500 rounded-full mb-6 mx-auto">
                 <i class="fa-solid fa-water text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Linha das Ondinas</h3>
+            <h3 class="text-2xl font-bold text-center mb-4">Ondinas</h3>
             <p class="text-sm text-blue-500 font-semibold text-center mb-6 uppercase">Forças da Água</p>
             <p class="text-gray-600 text-justify mb-4">Seres ligados às águas, à fluidez emocional e ao magnetismo...</p>
             <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg" 
@@ -124,7 +124,7 @@
             <div class="flex items-center justify-center w-16 h-16 bg-cyan-100 text-cyan-600 rounded-full mb-6 mx-auto">
                 <i class="fa-solid fa-fish text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Linha das Sereias</h3>
+            <h3 class="text-2xl font-bold text-center mb-4">Sereias</h3>
             <p class="text-sm text-cyan-600 font-semibold text-center mb-6 uppercase">Encanto das Águas</p>
             <p class="text-gray-600 text-justify mb-4">Seres das águas profundas que trabalham magnetismo e sensualidade sagrada...</p>
             <button class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg" 
@@ -141,7 +141,7 @@
             <div class="flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full mb-6 mx-auto">
                 <i class="fa-solid fa-sun text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Linha dos Baianos</h3>
+            <h3 class="text-2xl font-bold text-center mb-4">Baianos</h3>
             <p class="text-sm text-yellow-600 font-semibold text-center mb-6 uppercase">Alegria & Força</p>
             <p class="text-gray-600 text-justify mb-4">Trabalham com energia vibrante, coragem e descontração...</p>
             <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded-lg" 
@@ -158,7 +158,7 @@
             <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-600 rounded-full mb-6 mx-auto">
                 <i class="fa-solid fa-hat-cowboy text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Linha dos Boiadeiros</h3>
+            <h3 class="text-2xl font-bold text-center mb-4">Boiadeiros</h3>
             <p class="text-sm text-orange-600 font-semibold text-center mb-6 uppercase">Força & Coragem</p>
             <p class="text-gray-600 text-justify mb-4">Entidades de grande bravura ligadas ao campo e ao comando energético...</p>
             <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg" 
@@ -177,7 +177,7 @@
             <i class="fa-solid fa-feather text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha das Caboclas</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Caboclas</h3>
 
         <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">
             Sabedoria & Cura
@@ -202,7 +202,7 @@
         <div class="flex items-center justify-center w-16 h-16 bg-pink-100 text-pink-500 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-child-reaching text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Crianças</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Crianças</h3>
         <p class="text-sm text-pink-600 font-semibold text-center mb-6 uppercase">Alegria & Pureza</p>
         <p class="text-gray-600 text-justify mb-4">
             Entidades infantis que trazem leveza, cura e renovação espiritual, 
@@ -221,7 +221,7 @@
         <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-skull-crossbones text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Exu Mirim</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Exu Mirim</h3>
         <p class="text-sm text-red-600 font-semibold text-center mb-6 uppercase">Desenrolo & Proteção</p>
         <p class="text-gray-600 text-justify mb-4">
             Entidades jovens e encantadas que atuam desfazendo magias negativas, limpando caminhos e revelando forças ocultas.
@@ -240,7 +240,7 @@
         <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-700 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-fire-flame-curved text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Exu</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Exu</h3>
         <p class="text-sm text-red-700 font-semibold text-center mb-6 uppercase">Guarda & Caminhos</p>
         <p class="text-gray-600 text-justify mb-4">
             Exus são guardiões, mensageiros e protetores da Umbanda. Trabalham abrindo caminhos, desfazendo demandas e conduzindo energias com precisão.
@@ -259,7 +259,7 @@
         <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-water text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Janaína</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Janaína</h3>
         <p class="text-sm text-blue-600 font-semibold text-center mb-6 uppercase">Força das Águas</p>
         <p class="text-gray-600 text-justify mb-4">
             A Linha de Janaína manifesta a força das águas, com Iemanjá, Cabocla Janaína e Erê Janaína atuando em cura, sensibilidade e orientação amorosa.
@@ -278,14 +278,15 @@
         <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-800 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-anchor text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Marinheiros</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Marinheiros</h3>
         <p class="text-sm text-blue-800 font-semibold text-center mb-6 uppercase">Força do Mar</p>
         <p class="text-gray-600 text-justify mb-4">
             Espíritos que trabalharam nos mares e hoje atuam na Umbanda com descarrego, equilíbrio emocional e limpeza profunda, sob a força de Iemanjá.
         </p>
         <button class="mt-4 w-full bg-blue-800 text-white py-2 rounded-lg" 
 		onclick="document.getElementById('marinheiros').showModal()">
-		Ler mais</button>
+		Ler mais
+        </button>
     </div>
 </div>
 
@@ -296,7 +297,7 @@
         <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-700 rounded-full mb-6 mx-auto">
             <i class="fa-solid fa-shield-halved text-3xl"></i>
         </div>
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Ogum</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Ogum</h3>
         <p class="text-sm text-red-700 font-semibold text-center mb-6 uppercase">Força & Lei</p>
         <p class="text-gray-600 text-justify mb-4">
             Orixá da coragem, da guerra, do ferro e dos caminhos. Ogum abre estradas, afasta demandas e fortalece seus filhos com determinação e proteção.
@@ -317,7 +318,7 @@
             <i class="fa-solid fa-chess-queen text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha de Pombagira</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Pombagira</h3>
 
         <p class="text-sm text-rose-700 font-semibold text-center mb-6 uppercase">
             Poder & Transmutação
@@ -345,7 +346,7 @@
             <i class="fa-solid fa-landmark text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha do Oriente</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Oriente / Mongóis</h3>
 
         <p class="text-sm text-blue-700 font-semibold text-center mb-6 uppercase">
             Sabedoria & Cura
@@ -372,7 +373,7 @@
             <i class="fa-solid fa-sun text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha do Oriente</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Oriente</h3>
 
         <p class="text-sm text-blue-700 font-semibold text-center mb-6 uppercase">
             Sabedoria & Iluminação
@@ -400,7 +401,7 @@
             <i class="fa-solid fa-feather-pointed text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Caboclos</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Caboclos</h3>
 
         <p class="text-sm text-green-700 font-semibold text-center mb-6 uppercase">
             Cura & Sabedoria Ancestral
@@ -427,7 +428,7 @@
             <i class="fa-solid fa-gun text-2xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Cangaceiros</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Cangaceiros</h3>
 
         <p class="text-sm text-red-800 font-semibold text-center mb-6 uppercase">
             Justiça & Bravura
@@ -454,7 +455,7 @@
             <i class="fa-solid fa-leaf text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Encantados</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Encantados</h3>
 
         <p class="text-sm text-green-700 font-semibold text-center mb-6 uppercase">
             Natureza & Mistério
@@ -481,7 +482,7 @@
             <i class="fa-solid fa-cross text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Freis</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Freis</h3>
 
         <p class="text-sm text-amber-800 font-semibold text-center mb-6 uppercase">
             Caridade & Cura
@@ -508,7 +509,7 @@
             <i class="fa-solid fa-pipe-smoking text-3xl"></i>
         </div>
 
-        <h3 class="text-2xl font-bold text-center mb-4">Linha dos Pretos Velhos</h3>
+        <h3 class="text-2xl font-bold text-center mb-4">Pretos Velhos</h3>
 
         <p class="text-sm text-neutral-800 font-semibold text-center mb-6 uppercase">
             Sabedoria & Humildade
