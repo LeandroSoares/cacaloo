@@ -49,22 +49,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('user.meus-dados');
     })->name('user.meus-dados');
 
-    Route::get('/orientacoes-casa', function () {
-        return view('user.orientacoes-casa');
-    })->name('user.orientacoes-casa');
+    $staticPages = [
+        'guias',
+        'lendas-orixas',
+        'lendas',
+        'orientacoes-casa',
+        'orientacoes-mediuns',
+    ];
 
-    Route::get('/orientacoes-mediuns', function () {
-        return view('user.orientacoes-mediuns');
-    })->name('user.orientacoes-mediuns');
-
-    Route::get('/guias', function () {
-        return view('user.guias');
-    })->name('user.guias');
-
-    Route::get('/lendas', function () {
-        return view('user.lendas');
-    })->name('user.lendas');
-
+    foreach ($staticPages as $page) {
+        Route::get('/' . $page, function () {
+            return view('user.static-pages.' . $page);
+        })->name('user.' . $page);
+    }
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
         ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
