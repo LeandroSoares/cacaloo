@@ -45,23 +45,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/meus-dados', function () {
-        return view('user.meus-dados');
-    })->name('user.meus-dados');
+    Route::view('/meus-dados', 'user.meus-dados')->name('user.meus-dados');
+    Route::view('/guias', 'user.static-pages.guias')->name('user.guias');
+    Route::view('/lendas-orixas', 'user.static-pages.lendas-orixas')->name('user.lendas-orixas');
+    Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
+    Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
+    Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
 
-    $staticPages = [
-        'guias',
-        'lendas-orixas',
-        'lendas',
-        'orientacoes-casa',
-        'orientacoes-mediuns',
-    ];
-
-    foreach ($staticPages as $page) {
-        Route::get('/' . $page, function () {
-            return view('user.static-pages.' . $page);
-        })->name('user.' . $page);
-    }
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
         ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
