@@ -1,69 +1,98 @@
 @extends('layouts.user')
 
+@section('title', 'Guia de Entidades')
+
 @section('content')
-    <div class="py-12">
-<!-- Cards das Linhas da Umbanda -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<style>
+    .guias-hero {
+        background: linear-gradient(135deg, #166534 0%, #15803d 50%, #ca8a04 100%) !important;
+        border-radius: 2rem !important;
+        padding: 4rem 2rem !important;
+        color: white !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .guia-card {
+        background: white !important;
+        border-radius: 1.5rem !important;
+        border: 1px solid #E5E7EB !important;
+        padding: 2.5rem !important;
+        transition: all 0.4s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1) !important;
+        text-align: center;
+    }
+
+    .guia-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .guia-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem auto;
+        font-size: 1.75rem;
+    }
+
+    .btn-guia {
+        margin-top: auto !important;
+        padding: 0.75rem 2rem !important;
+        border-radius: 1rem !important;
+        font-weight: 700 !important;
+        transition: all 0.3s ease !important;
+        color: white !important;
+    }
+</style>
+
+<div class="py-6 px-4">
+    <div class="guias-hero">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up">Linhas de <span style="color: #F4D365">Umbanda</span></h1>
+        <p class="text-lg opacity-90 max-w-2xl animate-fade-in-up" style="animation-delay: 0.2s">Conheça as diversas falanges e entidades que compõem a rica espiritualidade da Umbanda, cada uma com sua missão, força e sabedoria.</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
     <!-- Caboclo Vigia -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
-        <div class="bg-green-600 h-3"></div>
-        <div class="p-8">
-            <div class="flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-6 mx-auto">
-                <i class="fa-solid fa-eye text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Caboclo Vigia</h3>
-            <p class="text-sm text-green-600 font-semibold text-center mb-6 uppercase">Guardiões da Mata</p>
-            <p class="text-gray-600 text-justify mb-4">Caboclo Vigia é um espírito ancestral das matas, guardião da natureza e representante de Oxalá na  de Oxóssi. </p>
-            <button class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('vigia').showModal()">
-                Ler mais
-            </button>
+    <div class="guia-card" style="border-top: 8px solid #059669">
+        <div class="guia-icon" style="background: #ECFDF5; color: #059669">
+            <i class="fa-solid fa-eye"></i>
         </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-1">Caboclo Vigia</h3>
+        <p class="text-xs font-black text-green-700 uppercase tracking-widest mb-4">Guardião da Mata</p>
+        <p class="text-gray-600 mb-6 leading-relaxed">Espírito ancestral das matas e representante de Oxalá. Atua como vigilante e protetor da natureza sagrada.</p>
+        <button onclick="document.getElementById('vigia').showModal()" class="btn-guia shadow-md active:scale-95" style="background: #059669">Ler mais</button>
     </div>
 
- <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
-    <div class="bg-purple-600 h-3"></div>
-
-    <div class="p-8">
-        <div class="flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-full mb-6 mx-auto">
-            <i class="fa-solid fa-hat-wizard text-3xl"></i>
+    <!-- Bruxas -->
+    <div class="guia-card" style="border-top: 8px solid #7E22CE">
+        <div class="guia-icon" style="background: #F5F3FF; color: #7E22CE">
+            <i class="fa-solid fa-hat-wizard"></i>
         </div>
-
-        <h3 class="text-2xl font-bold text-center mb-4">Bruxas</h3>
-
-        <p class="text-sm text-purple-600 font-semibold text-center mb-6 uppercase">
-            Magia & Transformação
-        </p>
-
-        <p class="text-gray-600 text-justify mb-4">
-            Falange rara da Umbanda formada por bruxas, feiticeiras e magos que trabalham
-            a manipulação energética e a alta magia sempre voltadas ao equilíbrio e ao bem.
-        </p>
-
-        <button class="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg"
-            onclick="document.getElementById('bruxas').showModal()">
-            Ler mais
-        </button>
+        <h3 class="text-2xl font-bold text-gray-900 mb-1">Bruxas</h3>
+        <p class="text-xs font-black text-purple-700 uppercase tracking-widest mb-4">Magia & Transformação</p>
+        <p class="text-gray-600 mb-6 leading-relaxed">Mestras da manipulação energética e alta magia. Atuam no equilíbrio das forças e transmutação para o bem.</p>
+        <button onclick="document.getElementById('bruxas').showModal()" class="btn-guia shadow-md active:scale-95" style="background: #7E22CE">Ler mais</button>
     </div>
-</div>
 
 
-    <!-- Linha da Pombagira Mirim -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition">
-        <div class="bg-red-600 h-3"></div>
-        <div class="p-8">
-            <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full mb-6 mx-auto">
-                <i class="fa-solid fa-child text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-center mb-4">Pombagira Mirim</h3>
-            <p class="text-sm text-red-600 font-semibold text-center mb-6 uppercase">Forças da Alegria</p>
-            <p class="text-gray-600 text-justify mb-4">Atuam com doçura, alegria e transformação emocional...</p>
-            <button class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg" 
-                onclick="document.getElementById('mirim').showModal()">
-                Ler mais
-            </button>
+    <!-- Pombagira Mirim -->
+    <div class="guia-card" style="border-top: 8px solid #DC2626">
+        <div class="guia-icon" style="background: #FEF2F2; color: #DC2626">
+            <i class="fa-solid fa-child"></i>
         </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-1">Pombagira Mirim</h3>
+        <p class="text-xs font-black text-red-700 uppercase tracking-widest mb-4">Forças da Alegria</p>
+        <p class="text-gray-600 mb-6 leading-relaxed">Atuam com doçura e alegria na transformação emocional. Trazem a pureza e a força renovadora.</p>
+        <button onclick="document.getElementById('mirim').showModal()" class="btn-guia shadow-md active:scale-95" style="background: #DC2626">Ler mais</button>
     </div>
 
     <!-- Linha das Almas -->
@@ -533,586 +562,137 @@
 <!-- AREA DE MODAIS-->
 
 <!-- Caboclo Vigia -->
-<dialog id='vigia' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-green-700">Caboclo Vigia</h2>
+<x-modal-premium 
+    id="vigia" 
+    title="Caboclo Vigia" 
+    subtitle="Guardião da Vigilância • Sabedoria Ancestral" 
+    icon="fa-solid fa-eye" 
+    headerGradient="linear-gradient(135deg, #166534 0%, #14532d 100%)"
+>
+    <p>O Caboclo Vigia é um espírito da linha dos caboclos na Umbanda, representantes da força da natureza e da sabedoria ancestral indígena. Guardião das florestas, ele atua como protetor, vigilante e guia espiritual para aqueles que buscam equilíbrio, cura e conhecimento.</p>
+    <p>Representa Oxalá dentro da linha de Oxóssi, sendo responsável por levar os pedidos de ambos. Durante sua última encarnação, foi um grande guerreiro e líder da tribo Arapuins, no Amazonas. Mesmo após seu desencarne em 1789, continua zelando pela mata, pelo seu povo e por todos que respeitam a natureza.</p>
+    
+    <h3 class="text-xl font-bold text-green-800">Origem e Missão</h3>
+    <p>O Caboclo Vigia é um espírito ancestral profundamente ligado aos povos originários. Sua principal função é <strong>vigiar</strong>: proteger a natureza, equilibrar forças espirituais e orientar os consulentes. Por ser um caboclo muito velho espiritualmente, carrega grande sabedoria e conhecimento ancestral.</p>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+    <h3 class="text-xl font-bold text-green-800">Características</h3>
+    <p>Forte, direto e sábio, o Caboclo Vigia é conhecido por sua postura firme e disciplinada. Seus conselhos são objetivos e cheios de amor paternal, inspirando força, ordem, determinação e responsabilidade espiritual.</p>
 
-    <p>
-      O Caboclo Vigia é um espírito da linha dos caboclos na Umbanda, representantes da força da natureza e da
-      sabedoria ancestral indígena. Guardião das florestas, ele atua como protetor, vigilante e guia espiritual
-      para aqueles que buscam equilíbrio, cura e conhecimento.
-    </p>
-
-    <p>
-      Representa Oxalá dentro da linha de Oxóssi, sendo responsável por levar os pedidos de ambos. Durante sua
-      última encarnação, foi um grande guerreiro e líder da tribo Arapuins, no Amazonas. Mesmo após seu
-      desencarne em 1789, continua zelando pela mata, pelo seu povo e por todos que respeitam a natureza.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-green-700">Origem e missão</h3>
-    <p>
-      O Caboclo Vigia é um espírito ancestral profundamente ligado aos povos originários. Sua principal função
-      é <strong>vigiar</strong>: proteger a natureza, equilibrar forças espirituais e orientar os consulentes.
-      Por ser um caboclo muito velho espiritualmente, carrega grande sabedoria e conhecimento ancestral.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-green-700">Características</h3>
-    <p>
-      Forte, direto e sábio, o Caboclo Vigia é conhecido por sua postura firme e disciplinada. Seus conselhos são
-      objetivos e cheios de amor paternal, inspirando força, ordem, determinação e responsabilidade espiritual.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-green-700">Ligação com a natureza</h3>
-    <p>
-      Sua morada é a mata. Seu trabalho está profundamente conectado às plantas, aos animais, às águas e ao
-      equilíbrio natural. Ele utiliza seu conhecimento sobre a floresta para orientar e curar, atuando como
-      guardião tanto no plano espiritual quanto no material.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-green-700">Representação na Umbanda</h3>
-    <p>
-      Considerado um grande espírito da <strong>Linha das Matas</strong>, manifesta-se através de médiuns para
-      transmitir ensinamentos elevados. Associado a Oxalá e Oxóssi, é um caboclo que mais escuta do que fala — e
-      quando fala, transmite o carinho e a sabedoria de um grande Pai.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-green-700">Homenagens e oferendas</h3>
-    <p>
-      Seus filhos e devotos podem homenageá-lo oferecendo:
-    </p>
-
+    <h3 class="text-xl font-bold text-green-800">Homenagens</h3>
     <ul class="list-disc pl-6 space-y-1">
-      <li>frutas</li>
-      <li>milho</li>
-      <li>coco</li>
-      <li>mel</li>
-      <li>vinho tinto</li>
-      <li>ervas</li>
+        <li>Frutas Tropicais</li>
+        <li>Milho e Coco</li>
+        <li>Mel e Vinho Tinto</li>
+        <li>Ervas Medicinais</li>
     </ul>
-
-    <p>
-      Pontos cantados de força, respeito e firmeza são usados para chamar sua energia protetora e sua sabedoria.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('vigia').close()" 
-        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-        Fechar
-    </button>
-  </div>
-</dialog>
+</x-modal-premium>
 
 <!-- Linha das Bruxas -->
-<dialog id='bruxas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-purple-700">Linha das Bruxas</h2>
+<x-modal-premium 
+    id="bruxas" 
+    title="Linha das Bruxas" 
+    subtitle="Magia Ancestral • Transformação Energética" 
+    icon="fa-solid fa-hat-wizard" 
+    headerGradient="linear-gradient(135deg, #581c87 0%, #3b0764 100%)"
+>
+    <p>A Linha das Bruxas na Umbanda é uma falange espiritual composta por bruxos, bruxas, feiticeiras, magos e magas que trabalham diretamente com a manipulação das energias naturais. Embora seja uma linha rara e não encontrada em muitos terreiros, possui forte ligação com a magia ancestral e com práticas energéticas profundas.</p>
+    <p>Apesar de popularmente associada à magia negativa, dentro da Umbanda essa linha atua sempre para o bem, mesmo quando lida com pedidos que envolvem desmanches, cortes de demandas ou limpezas espirituais profundas.</p>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
+    <h3 class="text-xl font-bold text-purple-800">Função e Trabalho</h3>
+    <p>A Linha das Bruxas atua na manipulação das energias da natureza, na magia, na limpeza profunda, no afastamento de negatividades e na restauração da harmonia espiritual. Trabalham com “mistérios”, elementos naturais, ervas, fogo, água, minerais e correntes energéticas sutis.</p>
 
-    <p>
-      A Linha das Bruxas na Umbanda é uma falange espiritual composta por bruxos, bruxas,
-      feiticeiras, magos e magas que trabalham diretamente com a manipulação das energias
-      naturais. Embora seja uma linha rara e não encontrada em muitos terreiros, possui forte
-      ligação com a magia ancestral e com práticas energéticas profundas.
-    </p>
-
-    <p>
-      Apesar de popularmente associada à magia negativa, dentro da Umbanda essa linha atua
-      sempre para o bem, mesmo quando lida com pedidos que envolvem desmanches, cortes de
-      demandas ou limpezas espirituais profundas.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Composição</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Bruxas e bruxos</li>
-      <li>Feiticeiras e magos</li>
-      <li>Magas e estudiosos da alta magia</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Função e Trabalho</h3>
-    <p>
-      A Linha das Bruxas atua na manipulação das energias da natureza, na magia,
-      na limpeza profunda, no afastamento de negatividades e na restauração da harmonia
-      espiritual. Trabalham com “mistérios”, elementos naturais, ervas, fogo, água,
-      minerais e correntes energéticas sutis.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Origem</h3>
-    <p>
-      Os espíritos dessa linha possuem origens variadas, muitas vezes ligados à alta magia,
-      tradições antigas, escolas iniciáticas e conhecimentos ocultos. Na Umbanda, seu
-      aparecimento foi registrado em giras de Xangô comandadas pelo Caboclo Sete Montanhas.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Regência</h3>
-    <p>
-      A regência não é única — a Linha das Bruxas é conduzida por um colegiado espiritual,
-      composto por espíritos elevados como:
-    </p>
-
-    <ul class="list-disc pl-6 space-y-1">
-      <li>São Bento</li>
-      <li>São Lázaro</li>
-      <li>São Roque</li>
-      <li>São Cipriano</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Na Cultura Popular e Ficção</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li><strong>Rainha das Bruxas:</strong> a governante da Floresta das Bruxas e mãe de todas.</li>
-      <li><strong>Hierarquia:</strong> bruxa padrão, bruxa Tia (mais velha), bruxa Avó (muito antiga e poderosa).</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Outras Tradições Relacionadas</h3>
-    <p>
-      A Linha das Bruxas dialoga simbolicamente com tradições mágicas em geral:
-    </p>
-
-    <ul class="list-disc pl-6 space-y-1">
-      <li><strong>Coven:</strong> grupos de bruxas reunidas em rituais.</li>
-      <li><strong>Alta Sacerdotisa e Alto Sacerdote:</strong> líderes femininos e masculinos.</li>
-      <li><strong>Ialorixá / Babalorixá:</strong> líderes de casas espirituais.</li>
-      <li><strong>Iaquequerê:</strong> segunda sacerdotisa na hierarquia.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">A Linha das Bruxas na Umbanda</h3>
-    <p>
-      Dentro da Umbanda, essa linha é respeitada como uma falange especializada em mistérios e
-      manipulação energética profunda, atuando sempre com ética, disciplina e a serviço da luz.
-    </p>
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('bruxas').close()" 
-        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-        Fechar
-    </button>
-  </div>
-</dialog>
+    <h3 class="text-xl font-bold text-purple-800">Regência</h3>
+    <p>A regência não é única — a Linha das Bruxas é conduzida por um colegiado espiritual, composto por espíritos elevados como São Bento, São Lázaro, São Roque e São Cipriano.</p>
+</x-modal-premium>
 
 <!-- Linha da Pombagira Mirim -->
-<dialog id='mirim' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-red-600">Linha da Pombagira Mirim</h2>
+<x-modal-premium 
+    id="mirim" 
+    title="Pombagira Mirim" 
+    subtitle="Pureza e Força da Esquerda" 
+    icon="fa-solid fa-child" 
+    headerGradient="linear-gradient(135deg, #e11d48 0%, #9f1239 100%)"
+>
+    <p>A Linha da Pombagira Mirim na Umbanda representa entidades espirituais com energia jovem, alegre, travessa e extremamente protetora. Elas trabalham na esquerda ao lado dos Exus Mirins, mas possuem uma vibração mais leve e infantil, apesar de igualmente poderosa.</p>
+    <p>Essas entidades têm a missão de desfazer “nós” energéticos, revelar intenções ocultas, cortar negatividades e trazer alegria, abertura de caminhos e espontaneidade para quem as busca.</p>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha da Pombagira Mirim na Umbanda representa entidades espirituais com energia jovem,
-      alegre, travessa e extremamente protetora. Elas trabalham na esquerda ao lado dos Exus Mirins,
-      mas possuem uma vibração mais leve e infantil, apesar de igualmente poderosa.
-    </p>
-
-    <p>
-      Essas entidades têm a missão de desfazer “nós” energéticos, revelar intenções ocultas,
-      cortar negatividades e trazer alegria, abertura de caminhos e espontaneidade para quem as busca.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-red-600">Características da Pombagira Mirim</h3>
+    <h3 class="text-xl font-bold text-rose-800">Funções Principais</h3>
     <ul class="list-disc pl-6 space-y-1">
-      <li><strong>Energia:</strong> Jovial, brincalhona, viva, leve e encantada.</li>
-      <li><strong>Personalidade:</strong> Travessas, espertas e rápidas, mas sempre protetoras.</li>
-      <li><strong>Força espiritual:</strong> Atuam com grande poder nos trabalhos de esquerda.</li>
+        <li>Desfazer trabalhos negativos e demandas complexas.</li>
+        <li>Simplificar situações complicadas (“desenrolar a vida”).</li>
+        <li>Proteger contra más intenções e influências espirituais ruins.</li>
+        <li>Revelar a verdadeira face das pessoas e ambientes.</li>
     </ul>
 
-    <h3 class="text-xl font-semibold mt-4 text-red-600">Funções</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Desfazer trabalhos negativos e demandas.</li>
-      <li>Simplificar situações complicadas (“desenrolar a vida”).</li>
-      <li>Revelar intenções negativas de pessoas e ambientes.</li>
-      <li>Proteger contra más intenções e influências espirituais ruins.</li>
-      <li>Ajudar na realização de desejos quando a intenção é positiva.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-red-600">Pombagira Mirim x Pombagira Adulta</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li><strong>Pombagira Mirim:</strong> Energia infantil, encantada, leve; muitas nunca encarnaram.</li>
-      <li><strong>Pombagira Adulta:</strong> Energia madura, sensual, sábia; trabalha emoções e libertação.</li>
-    </ul>
-
-    <p>
-      Apesar da alegria e inocência, as Pombagiras Mirins conhecem os mistérios da esquerda e atuam com grande
-      precisão espiritual, mas sem a carga emocional das Pombagiras adultas.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-red-600">Semelhança com os Erês</h3>
-    <p>
-      São frequentemente comparadas aos Erês, por sua energia infantil e brincalhona. No entanto, suas funções
-      são diferentes: enquanto os Erês atuam principalmente no equilíbrio emocional e na pureza, a Pombagira Mirim
-      atua dentro da linha da esquerda, lidando com revelações, proteção e cortes energéticos.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-red-600">Rituais e Oferendas</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li><strong>Oferendas:</strong> Doces coloridos, balas, suspiros, cocadas, refrigerantes.</li>
-      <li><strong>Flores:</strong> Rosas, cravos e flores alegres.</li>
-      <li><strong>Cores:</strong> Cores vibrantes e infantis.</li>
-      <li><strong>Pontos cantados:</strong> Cantos alegres que exaltam sua alegria e proteção.</li>
-    </ul>
-
-    <p>
-      As oferendas são feitas com elementos alegres e coloridos para acompanhar sua vibração infantil e leve.
-    </p>
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('mirim').close()" 
-        class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+    <h3 class="text-xl font-bold text-rose-800">Rituais</h3>
+    <p>Suas oferendas costumam incluir doces coloridos, balas, suspiros, cocadas e refrigerantes. As cores são vibrantes e a energia é de celebração e proteção constante.</p>
+</x-modal-premium>
 
 <!-- Linha das Almas -->
-<dialog id='almas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-purple-700">Linha das Almas</h2>
+<x-modal-premium 
+    id="almas" 
+    title="Linha das Almas" 
+    subtitle="Mistério, Elevação e Transição" 
+    icon="fa-solid fa-skull" 
+    headerGradient="linear-gradient(135deg, #334155 0%, #0f172a 100%)"
+>
+    <p>A Linha das Almas na Umbanda é composta por espíritos dedicados ao resgate, auxílio e encaminhamento de almas recém-desencarnadas, conduzindo-as aos planos espirituais superiores. É uma linha séria, sábia e profundamente ligada ao processo de transição entre a vida e a morte.</p>
+    <p>Suas entidades trabalham para ajudar espíritos que ainda estão presos à matéria, ao sofrimento ou à confusão pós-desencarne. Pretos Velhos, Caboclos, crianças, Exus e Pombagiras podem atuar nessa linha sob a regência de Obaluaiyê, Omulu e Nanã.</p>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha das Almas na Umbanda é composta por espíritos dedicados ao resgate,
-      auxílio e encaminhamento de almas recém-desencarnadas, conduzindo-as aos planos
-      espirituais superiores. É uma linha séria, sábia e profundamente ligada ao processo
-      de transição entre a vida e a morte.
-    </p>
-
-    <p>
-      Suas entidades trabalham para ajudar espíritos que ainda estão presos à matéria,
-      ao sofrimento ou à confusão pós-desencarne. Pretos Velhos, Caboclos, crianças, Exus
-      e Pombagiras podem atuar nessa linha.
-    </p>
-
-    <p>
-      Seus trabalhos são regidos por poderosos Orixás ligados à transformação, cura e
-      transmutação: <strong>Omulu, Nanã e Obaluaiyê</strong>.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">Características da Linha das Almas</h3>
-
+    <h3 class="text-xl font-bold text-slate-800">Características</h3>
     <ul class="list-disc pl-6 space-y-1">
-      <li>
-        <strong>Função principal:</strong> Resgate e encaminhamento de espíritos
-        recém-desencarnados, ajudando-os a se desvincular da matéria e a encontrar
-        caminhos de evolução.
-      </li>
-
-      <li>
-        <strong>Entidades:</strong> Espíritos antigos, experientes e sábios, com grande
-        grau de evolução, preparados para lidar com os desafios da transição entre
-        planos.
-      </li>
-
-      <li>
-        <strong>Atuação:</strong> Trabalham na compreensão do processo da vida e da morte,
-        auxiliando tanto no momento da desencarnação quanto no retorno à matéria.
-      </li>
-
-      <li>
-        <strong>Pretos Velhos:</strong> São os principais representantes, trazendo cura,
-        conselhos e acolhimento.
-      </li>
-
-      <li>
-        <strong>Caboclos e crianças:</strong> Podem atuar em funções específicas dentro da linha.
-      </li>
-
-      <li>
-        <strong>Exus e Pombagiras:</strong> Também trabalham na Linha das Almas, especialmente
-        quando se trata de resgate, lei e reintegração espiritual.
-      </li>
-
-      <li>
-        <strong>Orixás regentes:</strong> Omulu, Nanã e Obaluaiyê, responsáveis pela cura,
-        transformação e pelo ciclo da vida e da morte.
-      </li>
-
-      <li>
-        <strong>Trabalho espiritual:</strong> A Linha das Almas recolhe espíritos perdidos,
-        sofredores ou desorientados, encaminhando-os para hospitais espirituais, escolas
-        e colônias de aprendizado.
-      </li>
+        <li><strong>Missão:</strong> Encaminhamento de espíritos sofredores para hospitais e escolas espirituais.</li>
+        <li><strong>Sapiência:</strong> Espíritos antigos e experientes com alto grau de evolução.</li>
+        <li><strong>Cura:</strong> Atuam na cura de doenças da alma e na transmutação de energias densas.</li>
     </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-purple-700">A Importância na Umbanda</h3>
-
-    <p>
-      A Linha das Almas tem papel essencial dentro da Umbanda, pois atua diretamente no
-      processo de evolução espiritual dos desencarnados, ajudando-os a superar o apego à
-      matéria.
-    </p>
-
-    <p>
-      É uma linha de amor, cura profunda, acolhimento e transmutação.
-    </p>
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('almas').close()"
-            class="px-6 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800">
-      Fechar
-    </button>
-  </div>
-</dialog>
+</x-modal-premium>
 
 <!-- Linha das Ondinas -->
-<dialog id='ondinas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-blue-700">Linha das Ondinas na Umbanda</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      Na Umbanda, as Ondinas são entidades elementais da água, vinculadas à Linha das
-      Sereias e regidas principalmente por <strong>Iemanjá</strong> e <strong>Oxum</strong>.
-      Manifestam-se com aparências variadas — desde belas sereias até guerreiras
-      aquáticas — atuando especialmente no campo emocional, energético e na proteção
-      espiritual.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-blue-700">Características e Trabalho Espiritual</h3>
-
+<x-modal-premium 
+    id="ondinas" 
+    title="Linha das Ondinas" 
+    subtitle="Força das Águas • Purificação Emocional" 
+    icon="fa-solid fa-water" 
+    headerGradient="linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)"
+>
+    <p>Na Umbanda, as Ondinas são entidades elementais da água, vinculadas à Linha das Sereias e regidas principalmente por Iemanjá e Oxum. Manifestam-se com aparências variadas — desde belas sereias até guerreiras aquáticas — atuando especialmente no campo emocional, energético e na proteção espiritual.</p>
+    <h3 class="text-xl font-bold text-blue-800">Trabalho Espiritual</h3>
     <ul class="list-disc pl-6 space-y-1">
-      <li>
-        <strong>Origem:</strong> São seres elementais ligados à água, semelhantes às
-        ninfas e espíritos aquáticos presentes na mitologia e alquimia.
-      </li>
-
-      <li>
-        <strong>Regência:</strong> Trabalham sob a Linha das Águas, regida por Iemanjá,
-        Oxum e, em alguns casos, Nanã.
-      </li>
-
-      <li>
-        <strong>Manifestação:</strong> Podem surgir como seres de natureza aquática,
-        com cauda de sereia, ou como espíritos femininos ligados ao movimento das águas.
-      </li>
-
-      <li>
-        <strong>Trabalho espiritual:</strong> Atuam na purificação emocional, cura de
-        traumas afetivos, equilíbrio da autoestima, cuidado com crianças e auxílio nos
-        processos de fertilidade.
-      </li>
-
-      <li>
-        <strong>Aparência:</strong> Variam entre figuras tranquilas e delicadas e
-        guerreiras das ondas, irradiando força e serenidade.
-      </li>
-
-      <li>
-        <strong>Cores:</strong> Azul claro, branco (Iemanjá), amarelo e dourado (Oxum).
-      </li>
-
-      <li>
-        <strong>Oferendas:</strong> Flores, conchas, espelhos, perfumes, mel e itens
-        que remetam ao mar ou às águas doces.
-      </li>
+        <li>Purificação emocional e cura de traumas afetivos.</li>
+        <li>Equilíbrio da autoestima e cuidado com crianças.</li>
+        <li>Auxílio nos processos de fertilidade e renovação.</li>
     </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-blue-700">Relação com os Elementos</h3>
-
-    <ul class="list-disc pl-6 space-y-1">
-      <li>
-        <strong>Água:</strong> Elemento primordial das Ondinas, representa purificação,
-        emoção, intuição e acolhimento.
-      </li>
-
-      <li>
-        <strong>Desequilíbrio:</strong> A poluição das águas e o desequilíbrio emocional
-        humano afetam diretamente a força dessas entidades.
-      </li>
-
-      <li>
-        <strong>Saúde espiritual:</strong> Ondinas também podem ser afetadas por
-        vibrações densas — semelhante ao estado emocional dos médiuns e consulentes.
-      </li>
-
-      <li>
-        <strong>Ambiente:</strong> São entidades extremamente sensíveis à limpeza.
-        Ambientes sujos, caóticos ou desorganizados dificultam sua manifestação.
-      </li>
-    </ul>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('ondinas').close()"
-            class="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800">
-      Fechar
-    </button>
-  </div>
-</dialog>
+</x-modal-premium>
 
 <!-- Linha das Pretas Velhas -->
-<dialog id='pretas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-amber-800">Linha das Pretas Velhas na Umbanda</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      As Pretas Velhas são entidades de profunda luz na Umbanda, manifestando-se como
-      anciãs africanas que simbolizam a sabedoria, humildade, resistência e o amor de
-      nossos ancestrais que viveram os tempos da escravidão no Brasil. 
-      São espíritos que acolhem, aconselham, curam e ensinam, trazendo paz e equilíbrio
-      espiritual aos consulentes.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-amber-800">Características e Ensinamentos</h3>
-
-    <ul class="list-disc pl-6 space-y-2">
-
-      <li>
-        <strong>Sabedoria ancestral:</strong>
-        Representam a experiência acumulada de muitas vidas, inclusive a vivência da escravidão,
-        oferecendo conselhos com paciência, calma e doçura.
-      </li>
-
-      <li>
-        <strong>Humildade e generosidade:</strong>
-        Inspiram fé, perdão, esperança e amor ao próximo, mostrando a força da simplicidade.
-      </li>
-
-      <li>
-        <strong>Cura e proteção:</strong>
-        Trabalham com benzimentos, banhos de ervas, defumações e outras “mirongas” para curar
-        dores emocionais, espirituais e afastar energias negativas.
-      </li>
-
-      <li>
-        <strong>Símbolos e representações:</strong>
-        São retratadas com bengalas, cachimbos, terços, rosários, saias longas e panos na cabeça,
-        fumando ervas para limpar o ambiente.
-      </li>
-
-      <li>
-        <strong>Acolhimento:</strong>
-        Recebem todos como uma avó amorosa, com compreensão, carinho e proteção.
-      </li>
-
+<x-modal-premium 
+    id="pretas" 
+    title="Linha das Pretas Velhas" 
+    subtitle="Sabedoria • Humildade • Amor" 
+    icon="fa-solid fa-hand-holding-heart" 
+    headerGradient="linear-gradient(135deg, #78350f 0%, #451a03 100%)"
+>
+    <p>As Pretas Velhas são entidades de profunda luz na Umbanda, manifestando-se como anciãs africanas que simbolizam a sabedoria, humildade, resistência e o amor de nossos ancestrais. São espíritos que acolhem, aconselham, curam e ensinam, trazendo paz e equilíbrio espiritual.</p>
+    <h3 class="text-xl font-bold text-amber-800">Características</h3>
+    <ul class="list-disc pl-6 space-y-1">
+        <li><strong>Sabedoria ancestral:</strong> Experiência acumulada de muitas vidas.</li>
+        <li><strong>Cura e proteção:</strong> Benzimentos, banhos de ervas e defumações.</li>
+        <li><strong>Acolhimento:</strong> Recebem todos como uma avó amorosa.</li>
     </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-amber-800">Como se Conectar</h3>
-
-    <ul class="list-disc pl-6 space-y-2">
-
-      <li>
-        <strong>Com o coração aberto:</strong>
-        A conexão acontece por meio da humildade, escuta atenta e entrega de fé.
-      </li>
-
-      <li>
-        <strong>Oferendas:</strong>
-        Gostam de café preto, chá, bolo de fubá, fumo e, sobretudo, da gratidão sincera.
-      </li>
-
-      <li>
-        <strong>Rituais:</strong>
-        A ligação com a Preta Velha é fortalecida em orações, firmezas e trabalhos espirituais
-        conduzidos com respeito e devoção.
-      </li>
-
-    </ul>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('pretas').close()"
-            class="px-6 py-2 bg-amber-800 text-white rounded-lg hover:bg-amber-900">
-      Fechar
-    </button>
-  </div>
-</dialog>
+</x-modal-premium>
 
 <!-- Linha das Sereias -->
-<dialog id='sereias' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-cyan-700">Linha das Sereias na Umbanda</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      As Sereias são seres naturais, espíritos que nunca encarnaram e que atuam como forças
-      elementais da água, trazendo limpeza, purificação e harmonização espiritual. 
-      Elas pertencem ao mistério “Sereia” da Umbanda Sagrada e trabalham com grande poder 
-      energético, atuando sobre emoções, pensamentos e vibrações.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-cyan-700">Regência Espiritual</h3>
-
-    <ul class="list-disc pl-6 space-y-2">
-
-      <li><strong>Sereias (atuais):</strong> Regidas por Yemanjá, são seres naturais puramente aquáticos.</li>
-
-      <li><strong>Ondinas ou antigas sereias:</strong> Mais velhas e profundas, regidas por Nanã Buruquê.</li>
-
-      <li><strong>Encantadas elementais aquáticas:</strong> Regidas por Oxum, de vibração doce e amorosa.</li>
-
-    </ul>
-
-    <p>
-      As três mães d'água — Yemanjá, Oxum e Nanã — regem todo o mistério das sereias.
-      Embora incorporem com os cantos de Yemanjá, podem responder igualmente a cânticos
-      de Oxum e Nanã, dançando de forma mais rápida (Oxum) ou mais lenta (Nanã).
-    </p>
-
-    <h3 class="text-xl font-semibold mt-4 text-cyan-700">Natureza e Função</h3>
-
-    <ul class="list-disc pl-6 space-y-2">
-
-      <li>
-        <strong>Seres naturais:</strong>
-        Como nunca encarnaram, são classificadas como espíritos da natureza e possuem
-        forte poder energético.
-      </li>
-
-      <li>
-        <strong>Poder de limpeza:</strong>
-        Realizam purificação e descarga de energias negativas com grande intensidade.
-      </li>
-
-      <li>
-        <strong>Comunicação:</strong>
-        Não falam; emitem um canto lamuriento, que é na verdade um “mantra aquático”
-        capaz de dissolver formas-pensamento, cargas emocionais e miasmas espirituais.
-      </li>
-
-      <li>
-        <strong>Atuação:</strong>
-        São excelentes para neutralizar magias negativas, afastar obsessores e curar
-        ambientes, famílias e relações.
-      </li>
-
-      <li>
-        <strong>Pouco solicitadas:</strong>
-        Embora muito poderosas, são raramente chamadas para trabalhos de natureza,
-        mas deveriam ser mais estudadas e utilizadas pelos umbandistas.
-      </li>
-
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-4 text-cyan-700">Oferendas</h3>
-
-    <p>Devem ser levadas ao mar, rios, lagos ou cachoeiras:</p>
-
-    <ul class="list-disc pl-6 space-y-2">
-      <li>Rosas brancas</li>
-      <li>Velas brancas, azuis, amarelas e lilases</li>
-      <li>Champanhe</li>
-      <li>Frutas em calda</li>
-      <li>Licores</li>
-    </ul>
-
-    <p class="italic text-cyan-700 font-semibold">
-      Salve as Sereias! Que suas águas limpem, curem e tragam harmonia a todos nós.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('sereias').close()"
-            class="px-6 py-2 bg-cyan-700 text-white rounded-lg hover:bg-cyan-800">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="sereias" 
+    title="Linha das Sereias" 
+    subtitle="Mistério das Águas • Encanto e Purificação" 
+    icon="fa-solid fa-fish" 
+    headerGradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
+>
+    <p>As Sereias são seres naturais, forças elementais da água que trazem limpeza, purificação e harmonização espiritual. Atuam sobre emoções, pensamentos e vibrações, utilizando seus cantos sagrados para dissolver negatividades.</p>
+    <h3 class="text-xl font-bold text-cyan-800">Função</h3>
+    <p>Realizam purificação e descarga de energias negativas com grande intensidade, sendo excelentes para neutralizar magias negativas e curar ambientes.</p>
+</x-modal-premium>
 
 <!-- Linha dos Baianos -->
 <dialog id='baianos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
@@ -1322,658 +902,123 @@
 </dialog>
 
 <!-- Linha das Crianças -->
-<dialog id='criancas' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-pink-600">Linha das Crianças</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha das Crianças na Umbanda, também chamada de Ibejis, Erês ou Ibeijada, 
-      representa espíritos infantis que trazem alegria, pureza, leveza e renovação espiritual.
-      Suas manifestações são docemente infantis, mas carregam profunda sabedoria.
-    </p>
-
-    <p>
-      Esses espíritos atuam na cura emocional, no equilíbrio energético, na limpeza de tristezas, 
-      medos e angústias, utilizando elementos simples como doces, guaraná e brincadeiras simbólicas.
-    </p>
-
-    <h3 class="text-xl font-semibold text-pink-600">Características e Funções</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Alegria e leveza no terreiro</li>
-      <li>Sabedoria pura e mensagens diretas</li>
-      <li>Purificação emocional por meio de doces e energias infantis</li>
-      <li>Atuam como mensageiros dos Orixás</li>
-      <li>Manifestam-se com personalidades diversas (choronas, manhosas, travessas, agitadas)</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-pink-600">Simbologia e Conexões</h3>
-    <p>
-      São associados a São Cosme e Damião e a figuras infantis do imaginário brasileiro.
-      Representam a pureza espiritual e a alegria divina.
-    </p>
-
-    <h3 class="text-xl font-semibold text-pink-600">Como Interagir</h3>
-    <p>
-      Basta abrir o coração, se permitir brincar, sorrir e aceitar doces — ações simbólicas 
-      que facilitam a limpeza espiritual promovida pelos Erês.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('criancas').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="criancas" 
+    title="Linha das Crianças" 
+    subtitle="Alegria, Pureza e Renovação" 
+    icon="fa-solid fa-child-reaching" 
+    headerGradient="linear-gradient(135deg, #db2777 0%, #9d174d 100%)"
+>
+    <p>A Linha das Crianças (Ibeji, Erês) traz a energia da alegria pura. Atuam na limpeza de tristezas, medos e angústias, renovando as esperanças e a leveza espiritual.</p>
+    <h3 class="text-xl font-bold text-pink-800">Atuação</h3>
+    <p>Utilizam elementos simples como doces e brincadeiras para promover curas emocionais profundas e desobstruir caminhos estagnados.</p>
+</x-modal-premium>
 
 <!-- Linha de Exu Mirim -->
-<dialog id='mirim' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-red-600">Linha de Exu Mirim</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha de Exu Mirim é uma linha da esquerda na Umbanda composta por entidades 
-      que se manifestam como crianças ou adolescentes espirituais, muitas vezes irreverentes e travessas.
-      Representam forças de transformação rápida, quebra de demandas e “desenrolos”.
-    </p>
-
-    <p>
-      Apesar da aparência infantil, possuem profundo conhecimento das energias negativas e sabem 
-      desfazer amarrações, magias e bloqueios, restaurando o equilíbrio astral.
-    </p>
-
-    <h3 class="text-xl font-semibold text-red-600">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Trabalham desfazendo demandas e magias negativas</li>
-      <li>Personalidade travessa, irreverente e sincera</li>
-      <li>Podem ser espíritos encarnados ou encantados</li>
-      <li>Ajudam a ativar força pessoal e coragem</li>
-      <li>Promovem limpezas espirituais profundas</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-red-600">Simbologia</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Cores: preto e vermelho</li>
-      <li>Saudação: <strong>Laroyê Exu Mirim!</strong></li>
-    </ul>
-
-    <p>
-      São extremamente eficazes quando trabalhados com doutrina e respeito, apesar de serem alvo de preconceito.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('exu-mirim').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="exumirim" 
+    title="Linha de Exu Mirim" 
+    subtitle="Desenrolo e Proteção de Esquerda" 
+    icon="fa-solid fa-skull-crossbones" 
+    headerGradient="linear-gradient(135deg, #dc2626 0%, #991b1b 100%)"
+>
+    <p>Exu Mirim é uma força de transformação rápida. Atuam desfazendo demandas, magias negativas e "nós" que impedem o progresso material e espiritual.</p>
+    <h3 class="text-xl font-bold text-red-800">Missão</h3>
+    <p>Apesar da irreverência, são guardiões poderosos que revelam intenções ocultas e promovem limpezas astrais pesadas.</p>
+</x-modal-premium>
 
 <!-- Linha de Exu -->
-<dialog id='exu' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-red-700">Linha de Exu</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha de Exu na Umbanda é composta por espíritos guardiões que atuam 
-      como mensageiros dos Orixás, protetores, abridores de caminhos e 
-      responsáveis por desfazer demandas espirituais.
-    </p>
-
-    <p>
-      Diferente da visão distorcida popular, Exu é um espírito de luz na Umbanda, 
-      disciplinado e atuante na manutenção da ordem espiritual.
-    </p>
-
-    <h3 class="text-xl font-semibold text-red-700">Funções Principais</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Proteção dos terreiros</li>
-      <li>Abertura de caminhos</li>
-      <li>Desmanche de demandas</li>
-      <li>Equilíbrio energético</li>
-      <li>Resolução de problemas práticos (trabalho, amor, vida cotidiana)</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-red-700">Distinções Importantes</h3>
-    <p>
-      Exu não é quiumba. Quiumbas são espíritos zombeteiros, enquanto Exu é servidor da luz.
-      Trabalham com firmeza e foco, mas sempre dentro da lei espiritual.
-    </p>
-
-    <h3 class="text-xl font-semibold text-red-700">Oferendas</h3>
-    <p>
-      Seu principal alimento ritual é o padê, composto por farinha, dendê, marafo e pimenta.
-      Cada templo pode ter variações tradicionais.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('exu').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="exu" 
+    title="Linha de Exu" 
+    subtitle="Guardião dos Caminhos" 
+    icon="fa-solid fa-fire-flame-curved" 
+    headerGradient="linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%)"
+>
+    <p>Os Exus são os grandes guardiões e mensageiros. Atuam na proteção dos terreiros, na abertura de caminhos e no desmanche de magias negativas, mantendo o equilíbrio entre os planos.</p>
+    <h3 class="text-xl font-bold text-red-900">Função</h3>
+    <p>São os executores da lei espiritual na terra, resolvendo problemas práticos e afastando influências densas com disciplina e foco.</p>
+</x-modal-premium>
 
 <!-- Linha de Janaína -->
-<dialog id='janaina' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-blue-600">Linha de Janaína</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha de Janaína na Umbanda reúne manifestações espirituais associadas a Iemanjá,
-      à Cabocla Janaína e às Erês Janaína. Cada uma expressa uma força diferente 
-      ligada às águas, à intuição e ao amor.
-    </p>
-
-    <h3 class="text-xl font-semibold text-blue-600">Iemanjá – Rainha do Mar</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Orixá das águas salgadas</li>
-      <li>Representação da maternidade e proteção</li>
-      <li>Conectada ao amor, calma e equilíbrio</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-blue-600">Cabocla Janaína</h3>
-    <p>
-      Guia amorosa, sábia e direta, que atua nas linhas de Iemanjá ou Oxum. 
-      Trabalha pela caridade, justiça e proteção.
-    </p>
-
-    <h3 class="text-xl font-semibold text-blue-600">Erê Janaína</h3>
-    <p>
-      Manifestação infantil com grande sensibilidade emocional, ligada às águas e ao amor.
-      Apreciam doces, guaraná, bonecas e cores suaves.
-    </p>
-
-    <h3 class="text-xl font-semibold text-blue-600">Oferendas</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Rosas, perfumes, espelhos, frutas</li>
-      <li>Velas azul-claras e brancas</li>
-      <li>Oferendas na beira do rio ou mar</li>
-    </ul>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('janaina').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<!-- Linha de Janaína -->
+<x-modal-premium 
+    id="janaina" 
+    title="Linha de Janaína" 
+    subtitle="Força e Mistério das Águas" 
+    icon="fa-solid fa-water" 
+    headerGradient="linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)"
+>
+    <p>Reúne a força de Iemanjá e das caboclas das águas. Atua com grande sensibilidade, promovendo o acolhimento maternal e a cura emocional profunda para todos os aflitos.</p>
+</x-modal-premium>
 
 <!-- Linha dos Marinheiros -->
-<dialog id='marinheiros' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-blue-700">Linha dos Marinheiros</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Marinheiros na Umbanda é formada por espíritos que em vida foram
-      marujos, pescadores, navegadores ou piratas. Trabalham na linha de Iemanjá 
-      e atuam em limpeza espiritual, descarrego, equilíbrio emocional e firmeza mediúnica.
-    </p>
-
-    <p>
-      São conhecidos pelo balanço característico, simbolizando o movimento do mar
-      e a oscilação emocional humana.
-    </p>
-
-    <h3 class="text-xl font-semibold text-blue-700">Características e Trabalhos</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Descarrego e limpeza profunda</li>
-      <li>Quebra de demandas</li>
-      <li>Trabalho emocional e sentimental</li>
-      <li>Apoio no desenvolvimento mediúnico</li>
-      <li>Conexão com a calunga grande (mar)</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-blue-700">Linha de Piratas</h3>
-    <p>
-      Trabalham o “porão emocional”, limpando sentimentos esquecidos e trazendo
-      à tona potenciais e força interior.
-    </p>
-
-    <h3 class="text-xl font-semibold text-blue-700">Aparência</h3>
-    <p>
-      Podem se apresentar com bandanas, brincos, faixas ou aspecto de marinheiro tradicional,
-      dependendo de sua história espiritual.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('marinheiros').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="marinheiros" 
+    title="Linha dos Marinheiros" 
+    subtitle="Equilíbrio nas Ondas da Vida" 
+    icon="fa-solid fa-anchor" 
+    headerGradient="linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%)"
+>
+    <p>Espíritos que trabalham com o elemento água para o descarrego e a limpeza profunda. O seu balanço simboliza o movimento constante da vida e a superação das tempestades emocionais.</p>
+</x-modal-premium>
 
 <!-- Linha de Ogum -->
-<dialog id='ogum' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-red-700">Linha de Ogum</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      Ogum na Umbanda é o Orixá da guerra, da lei, do trabalho, da tecnologia e da abertura de caminhos.
-      Ele é sincretizado com São Jorge e representa coragem, ordem e determinação.
-    </p>
-
-    <p>
-      É o grande guerreiro espiritual que combate injustiças, afasta demandas e fortalece 
-      aqueles que precisam vencer batalhas internas e externas.
-    </p>
-
-    <h3 class="text-xl font-semibold text-red-700">Características e Domínios</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Força, coragem e disciplina</li>
-      <li>Estradas, caminhos e encruzilhadas</li>
-      <li>Metalurgia, ferro, armas e tecnologia</li>
-      <li>Lei, ordem e justiça</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-red-700">Culto</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Dia: Terça-feira</li>
-      <li>Cores: vermelho, azul-marinho ou verde</li>
-      <li>Saudação: <strong>Ogum Iê!</strong> / <strong>Patakori Ogum!</strong></li>
-      <li>Comidas: inhame assado com dendê, feijão fradinho, cará, feijoada, cerveja branca</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-red-700">Falanges de Ogum</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Ogum Matinata (Guerreiro)</li>
-      <li>Ogum Beira-Mar</li>
-      <li>Ogum de Lei</li>
-      <li>Ogum Rompe-Mato</li>
-      <li>Ogum Megê</li>
-      <li>Ogum Sete Espadas</li>
-      <li>Ogum Sete Ondas</li>
-    </ul>
-
-    <p>
-      Seus filhos são valentes, objetivos e intensos, podendo ser impulsivos quando desequilibrados.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('ogum').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="ogum" 
+    title="Linha de Ogum" 
+    subtitle="Vencedor de Demandas • Caminhos e Lei" 
+    icon="fa-solid fa-shield-halved" 
+    headerGradient="linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%)"
+>
+    <p>Ogum é o Orixá da coragem e da ordem. Suas falanges atuam na linha de frente, protegendo os filhos contra investidas negativas e abrindo as estradas para o sucesso e a paz.</p>
+</x-modal-premium>
 
 <!-- Linha de Pombagira -->
-<dialog id='pombagira' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-pink-700">Linha de Pombagira</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      As Pombagiras na Umbanda são guardiãs que trabalham na linha da esquerda ao lado dos Exus.
-      Representam poder feminino, independência, autoestima, sensualidade equilibrada e força emocional.
-    </p>
-
-    <p>
-      Sua atuação é voltada à cura emocional, quebra de demandas, proteção e resolução de conflitos amorosos.
-    </p>
-
-    <h3 class="text-xl font-semibold text-pink-700">Exemplos de Linhas</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Pombagiras de Ogum – firmes e protetoras</li>
-      <li>Pombagiras de Iansã – fortes e guerreiras</li>
-      <li>Pombagiras de Oxum / Iemanjá – ligadas ao amor e à água</li>
-      <li>Pombagiras de Omolu – ligadas à cura e ao cemitério</li>
-      <li>Pombagiras Ciganas – intuitivas e sábias</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-pink-700">Trabalhos</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Quebra de demandas e limpezas profundas</li>
-      <li>Auxílio no amor, autoestima e relações</li>
-      <li>Destrave de padrões emocionais</li>
-      <li>Empoderamento pessoal</li>
-    </ul>
-
-    <p>
-      Apesar do preconceito, são entidades de extrema luz e disciplina dentro da lei maior.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('pombagira').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium 
+    id="pombagira" 
+    title="Linha de Pombagira" 
+    subtitle="Empoderamento e Transmutação" 
+    icon="fa-solid fa-chess-queen" 
+    headerGradient="linear-gradient(135deg, #be123c 0%, #881337 100%)"
+>
+    <p>As Pombagiras atuam no equilíbrio das emoções, na autoestima e na transmutação de baixas vibrações em força pessoal. São guardiãs poderosas da liberdade e da alegria de viver.</p>
+</x-modal-premium>
 
 <!-- Linha do Oriente - Composição -->
-<dialog id='oriente' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-amber-600">Linha do Oriente – Composição</h2>
+<x-modal-premium id="oriente" title="Oriente / Mongóis" subtitle="Sabedoria Ancestral e Estratégia" icon="fa-solid fa-landmark" headerGradient="linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)">
+    <p>Reúne espíritos sábios que trazem conhecimentos de cura, estratégia e justiça de antigas civilizações. Atuam na iluminação mental e no combate a demandas intelectuais e espirituais.</p>
+</x-modal-premium>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha do Oriente é formada por espíritos sábios de vários povos antigos e tradicionais.
-      Dentro dessa linha existe a Falange dos Mongóis, frequentemente mencionada, mas não como linha independente.
-    </p>
-
-    <h3 class="text-xl font-semibold text-amber-600">Falanges que a compõem</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Mongóis, chineses e japoneses</li>
-      <li>Egípcios</li>
-      <li>Indus e árabes</li>
-      <li>Ciganos</li>
-      <li>Maias, Astecas e Incas</li>
-      <li>Europeus sábios e guerreiros</li>
-      <li>Médicos, mestres e filósofos</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-amber-600">Características dos Mongóis</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Trabalhos de cura</li>
-      <li>Desmanche de demandas</li>
-      <li>Sabedoria xamânica</li>
-      <li>Aconselhamento estratégico</li>
-    </ul>
-
-    <p>
-      Um dos chefes mais conhecidos dessa linha é Pai Ory do Oriente, símbolo de sabedoria e iluminação.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('oriente').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
-
-<!-- Linha do Oriente -->
-<dialog id='orientecompleta' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-yellow-600">Linha do Oriente</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha do Oriente reúne espíritos sábios de diversas tradições antigas, como egípcios, hindus,
-      árabes, celtas, chineses e japoneses. Representam iluminação, cura espiritual e equilíbrio.
-    </p>
-
-    <h3 class="text-xl font-semibold text-yellow-600">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Buscam a evolução espiritual e a expansão da consciência</li>
-      <li>Atuam com meditação, cura energética e sabedoria ancestral</li>
-      <li>Regência de Oxalá e Xangô</li>
-      <li>Cores: amarelo, dourado, rosa e branco</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-yellow-600">Pontos de Culto</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Dia: Quinta-feira</li>
-      <li>Essências: alfazema, olibano, sândalo</li>
-      <li>Objetos: japamalas, velas coloridas e pedras como citrino</li>
-    </ul>
-
-    <p>
-      Seus guias são mestres, sábios, monges, médicos e filósofos, que atuam na cura e iluminação.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('orientecompleta').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<!-- Linha do Oriente Completa -->
+<x-modal-premium id="orientecompleta" title="Linha do Oriente" subtitle="Iluminação e Cura Universal" icon="fa-solid fa-sun" headerGradient="linear-gradient(135deg, #ca8a04 0%, #a16207 100%)">
+    <p>Formada por mestres, médicos e filósofos de diversas culturas antigas. Focam na evolução espiritual, expansão da consciência e equilíbrio energético através da paz e meditação.</p>
+</x-modal-premium>
 
 <!-- Linha dos Caboclos -->
-<dialog id='caboclos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-green-700">Linha dos Caboclos</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Caboclos reúne espíritos de origem indígena ou ligados à força da floresta.
-      São curadores, conselheiros e guerreiros espirituais extremamente sábios e fortes.
-    </p>
-
-    <p>
-      Trabalham com ervas, elementos naturais, passes de cura e orientações espirituais diretas.
-    </p>
-
-    <h3 class="text-xl font-semibold text-green-700">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Ligação profunda com a natureza</li>
-      <li>Uso de ervas e medicina natural</li>
-      <li>Sabedoria ancestral indígena</li>
-      <li>Força espiritual e coragem</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-green-700">Ritos e Oferendas</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Frutas, mel, vinho moscatel, coco</li>
-      <li>Ervas fortes como gengibre, cravo e arruda</li>
-      <li>Velas verdes, amarelas ou vermelhas</li>
-    </ul>
-
-    <p>
-      A saudação principal é <strong>“Okê, Caboclo!”</strong>
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('caboclos').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium id="caboclos" title="Linha dos Caboclos" subtitle="Força das Matas e Sabedoria" icon="fa-solid fa-feather-pointed" headerGradient="linear-gradient(135deg, #15803d 0%, #166534 100%)">
+    <p>Guerreiros da luz que utilizam a força da natureza para a caridade. Mestres no uso das ervas e nos passes de limpeza, trazem firmeza e paciência para os desafios diários.</p>
+</x-modal-premium>
 
 <!-- Linha dos Cangaceiros -->
-<dialog id='cangaceiros' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-yellow-700">Linha dos Cangaceiros</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Cangaceiros na Umbanda representa guerreiros espirituais marcados pela bravura,
-      justiça e resistência. São espíritos que simbolizam a luta do povo do sertão contra as
-      injustiças e dificuldades da vida.
-    </p>
-
-    <p>
-      Atuam como protetores, fortalecendo seus médiuns e consulentes para superar desafios,
-      injustiças e opressões.
-    </p>
-
-    <h3 class="text-xl font-semibold text-yellow-700">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Força, coragem e honra</li>
-      <li>Proteção contra injustiças</li>
-      <li>Espíritos guerreiros e firmes</li>
-      <li>Energia do sertão e da resistência</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-yellow-700">Exemplos de Entidades</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Zé do Cangaço</li>
-      <li>Severino</li>
-      <li>Maria Bonita</li>
-      <li>Maria do Cangaço</li>
-      <li>Corisco</li>
-      <li>Zé Bacamarte</li>
-    </ul>
-
-    <p>
-      Sua mensagem central é a luta por justiça, coragem e lealdade.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('cangaceiros').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium id="cangaceiros" title="Linha dos Cangaceiros" subtitle="Justiça e Bravura do Sertão" icon="fa-solid fa-gun" headerGradient="linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%)">
+    <p>Entidades que representam a resistência e a honra. Atuam contra injustiças e opressões, fortalecendo a vontade e a coragem daqueles que lutam por seus direitos e ideais.</p>
+</x-modal-premium>
 
 <!-- Linha dos Encantados -->
-<dialog id='encantados' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-teal-700">Linha dos Encantados</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Encantados representa espíritos que não passaram pelo processo tradicional 
-      da morte, mas se "encantaram", tornando-se seres que transitam entre o plano físico e espiritual.
-    </p>
-
-    <p>
-      Habitantes das matas, rios, mares e montanhas, carregam forte ligação com os elementos
-      da natureza, atuando com profundo conhecimento energético.
-    </p>
-
-    <h3 class="text-xl font-semibold text-teal-700">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Ligação direta com a natureza</li>
-      <li>Sabedoria ancestral e intuitiva</li>
-      <li>Curas espirituais e limpezas profundas</li>
-      <li>Energia alegre ou introspectiva, conforme o elemento</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-teal-700">Manifestações</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Incorporação em médiuns</li>
-      <li>Sonhos e visões</li>
-      <li>Presenças sutis na natureza</li>
-    </ul>
-
-    <p>
-      Os Encantados ensinam respeito à natureza, responsabilidade espiritual e equilíbrio.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('encantados').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<x-modal-premium id="encantados" title="Linha dos Encantados" subtitle="Mistérios da Natureza Viva" icon="fa-solid fa-leaf" headerGradient="linear-gradient(135deg, #15803d 0%, #166534 100%)">
+    <p>Seres da natureza que transitam entre os mundos. Ensinam o respeito à todas as formas de vida e o equilíbrio com os elementos fundamentais da criação.</p>
+</x-modal-premium>
 
 <!-- Linha dos Freis -->
-<dialog id='freis' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-stone-700">Linha dos Freis</h2>
+<x-modal-premium id="freis" title="Linha dos Freis" subtitle="Humildade, Caridade e Oração" icon="fa-solid fa-cross" headerGradient="linear-gradient(135deg, #78350f 0%, #451a03 100%)">
+    <p>Trabalham sob a luz de São Francisco, irradiando amor e compaixão. Atuam especialmente na desobsessão e na cura espiritual pelo poder da fé e da oração sincera.</p>
+</x-modal-premium>
 
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Freis, também chamada Linha de São Francisco, reúne espíritos como freis,
-      padres, frades e freiras que trabalham com cura, caridade, desobsessão e elevação espiritual.
-    </p>
-
-    <p>
-      A energia dessa linha é marcada pela humildade, amor ao próximo, simplicidade e profunda
-      compaixão pelos necessitados.
-    </p>
-
-    <h3 class="text-xl font-semibold text-stone-700">Características Principais</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Cura espiritual e física</li>
-      <li>Transformação interior</li>
-      <li>Proteção da natureza e dos animais</li>
-      <li>Caridade e acolhimento</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-stone-700">Regência</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Oxalá</li>
-      <li>Oxum</li>
-      <li>Oxóssi</li>
-    </ul>
-
-    <p>
-      São Francisco de Assis é sincretizado com Xangô, representando equilíbrio, justiça,
-      retidão e amor universal.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('freis').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
-
-<!-- Linha dos Pretos-Velhos -->
-<dialog id='pretos' class="rounded-xl p-6 w-full max-w-3xl backdrop:bg-black/50">
-  <h2 class="text-3xl font-bold mb-4 text-gray-800">Linha dos Pretos-Velhos</h2>
-
-  <div class="text-gray-700 leading-relaxed space-y-4 max-h-[70vh] overflow-y-auto pr-3">
-
-    <p>
-      A Linha dos Pretos-Velhos representa ancestrais africanos sábios, que viveram como escravizados
-      e, após sua evolução espiritual, retornam para auxiliar com amor, humildade e paciência.
-    </p>
-
-    <p>
-      São considerados grandes conselheiros, curadores e mestres da simplicidade.
-    </p>
-
-    <h3 class="text-xl font-semibold text-gray-800">Características</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Humildade e serenidade</li>
-      <li>Sabedoria acumulada pela vida dura</li>
-      <li>Fala mansa e paciência infinita</li>
-      <li>Curas com ervas, benzimentos e defumações</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-gray-800">Símbolos e Elementos</h3>
-    <ul class="list-disc pl-6 space-y-1">
-      <li>Cachimbo</li>
-      <li>Rosário e orações</li>
-      <li>Café preto, bolo de fubá e garapa</li>
-      <li>Ervas simples e sagradas</li>
-    </ul>
-
-    <p>
-      Sua data comemorativa é 13 de maio, marcando a abolição da escravatura.
-    </p>
-
-  </div>
-
-  <div class="text-center mt-6">
-    <button onclick="document.getElementById('pretos').close()" 
-      class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">
-      Fechar
-    </button>
-  </div>
-</dialog>
+<!-- Linha dos Pretos Velhos -->
+<x-modal-premium id="pretos" title="Linha dos Pretos-Velhos" subtitle="Paciência, Amor e Redenção" icon="fa-solid fa-pipe-smoking" headerGradient="linear-gradient(135deg, #1f2937 0%, #111827 100%)">
+    <p>Os grandes mestres da Umbanda. Com humildade e paciência, oferecem os conselhos mais profundos e as curas mais ternas através de seus benzimentos e sabedoria infinita.</p>
+</x-modal-premium>
 
     </div>
 @endsection

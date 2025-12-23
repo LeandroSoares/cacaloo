@@ -3,7 +3,70 @@
 @section('title', 'Portal da Casa')
 
 @section('content')
-<div class="space-y-6">
+<style>
+    .portal-hero {
+        background: linear-gradient(135deg, #1B4332 0%, #2E7D32 100%) !important;
+        border-radius: 2rem !important;
+        padding: 3rem !important;
+        color: white !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+        margin-bottom: 2rem !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portal-hero::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: rgba(212, 175, 55, 0.1);
+        border-radius: 50%;
+        filter: blur(60px);
+    }
+
+    .nav-card {
+        background: white !important;
+        border-radius: 1.5rem !important;
+        padding: 2rem !important;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        border: 1px solid #F3F4F6 !important;
+        height: 100%;
+        text-decoration: none !important;
+    }
+
+    .nav-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05) !important;
+        border-color: #E5E7EB !important;
+    }
+
+    .nav-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .quote-card {
+        background: white !important;
+        border-radius: 2rem !important;
+        padding: 3rem !important;
+        border-left: 8px solid #D4AF37 !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+    }
+</style>
+
+<div class="space-y-8 pb-12">
     <!-- Saudação Espiritual -->
     <div class="user-card animate-fade-in-up">
         <div class="flex items-center space-x-4 p-6">
@@ -12,7 +75,7 @@
             </div>
             <div>
                 <h2 class="text-2xl font-bold" style="color: var(--text-primary);">
-                    Axé, {{ Auth::user()->name }}!
+                    Axé, Administrador do Sistema!
                 </h2>
                 <p style="color: var(--text-secondary);" class="text-lg">
                     Bem-vindo(a) à sua jornada espiritual
@@ -20,129 +83,80 @@
             </div>
         </div>
     </div>
+ 
 
     <!-- Cards de Navegação -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Meus Dados -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.meus-dados') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--oxossi-main);">
-                        <span class="text-white text-xl">👤</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Meus Dados
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Gerencie suas informações pessoais e espirituais
-                </p>
-            </a>
-        </div>
+        <a href="{{ route('user.meus-dados') }}" class="nav-card">
+            <div class="nav-icon" style="background: #2E7D32;">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Meus Dados</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Gerencie suas informações cadastrais e religiosas.</p>
+        </a>
 
         <!-- Histórico Mediúnico -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.medium-history') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--gold-main);">
-                        <span class="text-white text-xl">📜</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Histórico Mediúnico
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Acompanhe sua evolução e desenvolvimentos espirituais
-                </p>
-            </a>
-        </div>
-
-        <!-- Perfil -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('profile.edit') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--forest-main);">
-                        <span class="text-white text-xl">⚙️</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Configurações
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Edite seu perfil e preferências do sistema
-                </p>
-            </a>
-        </div>
-
+        <a href="{{ route('user.medium-history') }}" class="nav-card">
+            <div class="nav-icon" style="background: #D4AF37;">
+                <i class="fa-solid fa-scroll"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Jornada Espiritual</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Acompanhe sua evolução e atendimentos na casa.</p>
+        </a>
 
         <!-- Orientações Casa -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.orientacoes-casa') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--forest-main);">
-                        <span class="text-white text-xl">🏠</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Orientações Casa
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Acesse as orientações da Casa
-                </p>
-            </a>
-        </div>
+        <a href="{{ route('user.orientacoes-casa') }}" class="nav-card">
+            <div class="nav-icon" style="background: #1e3a8a;">
+                <i class="fa-solid fa-house-chimney-medical"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Orientações Casa</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Normas, diretrizes e mandamentos do nosso solo sagrado.</p>
+        </a>
 
         <!-- Guias -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.guias') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--oxossi-main);">
-                        <span class="text-white text-xl">🕊️</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Guias
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Conheça os guias espirituais
-                </p>
-            </a>
-        </div>
+        <a href="{{ route('user.guias') }}" class="nav-card">
+            <div class="nav-icon" style="background: #15803d;">
+                <i class="fa-solid fa-dove"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">As Sete Linhas</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Conheça as falanges e os guias que regem os trabalhos.</p>
+        </a>
 
         <!-- Lendas -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.lendas') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--gold-main);">
-                        <span class="text-white text-xl">📖</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Lendas do Folclore Brasileiro
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Histórias do Folclore Brasileiro
-                </p>
-            </a>
-        </div>
+        <a href="{{ route('user.lendas') }}" class="nav-card">
+            <div class="nav-icon" style="background: #B45309;">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Folclore & Lendas</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">A riqueza dos mitos e lendas da nossa terra Brasil.</p>
+        </a>
 
-                 
+        <!-- Orixás -->
+        <a href="{{ route('user.orixas') }}" class="nav-card">
+            <div class="nav-icon" style="background: #e11d48;">
+                <i class="fa-solid fa-sun"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Divinos Orixás</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Conheça as forças regentes da natureza e do terreiro.</p>
+        </a>
+
         <!-- Orientações Médiuns -->
-        <div class="card card--user group cursor-pointer hover:shadow-lg transition-all duration-300">
-            <a href="{{ route('user.orientacoes-mediuns') }}" class="block">
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: var(--forest-main);">
-                        <span class="text-white text-xl">🙏</span>
-                    </div>
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
-                        Orientações Médiuns
-                    </h3>
-                </div>
-                <p style="color: var(--text-secondary);" class="text-sm">
-                    Diretrizes para o desenvolvimento mediúnico
-                </p>
-            </a>
-        </div>
+        <a href="{{ route('user.orientacoes-mediuns') }}" class="nav-card">
+            <div class="nav-icon" style="background: #4338CA;">
+                <i class="fa-solid fa-hands-praying"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Conduta & Preparo</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Dicas e obrigações para o desenvolvimento mediúnico.</p>
+        </a>
+        <!-- Orixás -->
+        <a href="{{ route('user.orixas') }}" class="nav-card">
+            <div class="nav-icon" style="background: #4338CA;">
+                <i class="fa-solid fa-hands-praying"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Orixás</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Conheça as entidades que regem os trabalhos.</p>
+        </a>
     </div>
 
     <!-- Mensagem Inspiradora -->
@@ -153,51 +167,28 @@
                     <span class="text-white text-lg">✨</span>
                 </div>
                 <div>
-                    @if($dailyMessage)
-                        <h4 class="font-semibold text-lg" style="color: var(--oxossi-main);">
-                            {{ $dailyMessage->title }}
-                        </h4>
-                        <p style="color: var(--text-secondary);" class="mt-2 italic whitespace-pre-line">
-                            "{{ $dailyMessage->message }}"
-                        </p>
-                        @if($dailyMessage->author)
-                            <p class="text-sm mt-3" style="color: var(--gold-main);">
-                                — {{ $dailyMessage->author }}
-                            </p>
-                        @endif
-                    @else
-                        <h4 class="font-semibold text-lg" style="color: var(--oxossi-main);">
-                            Pensamento do Dia
-                        </h4>
-                        <p style="color: var(--text-secondary);" class="mt-2 italic">
-                            "A verdadeira espiritualidade é a que nos faz mais humanos, mais compassivos e mais unidos.
-                            Que Oxóssi ilumine seus caminhos e Ogum lhe dê força para trilhá-los."
-                        </p>
-                        <p class="text-sm mt-3" style="color: var(--gold-main);">
-                            — Casa de Caridade Legião de Oxóssi e Ogum
-                        </p>
+                     @if($dailyMessage)
+                    <h4 class="text-2xl font-bold mb-4" style="color: #2E7D32;">{{ $dailyMessage->title }}</h4>
+                    <p class="text-xl text-gray-700 italic leading-relaxed whitespace-pre-line mb-6">
+                        {{ $dailyMessage->message }}
+                    </p>
+                    @if($dailyMessage->author)
+                        <div class="text-right text-gold-dark font-bold text-lg">— {{ $dailyMessage->author }}</div>
                     @endif
+                @else
+                    <h4 class="text-2xl font-bold mb-4" style="color: #2E7D32;">Sabedoria do Dia</h4>
+                    <p class="text-xl text-gray-700 italic leading-relaxed mb-6">
+                        "A mediunidade é uma oportunidade bendita de servir. Seja o canal da paz onde houver discórdia e da luz onde houver trevas."
+                    </p>
+                    <div class="text-right text-gold-dark font-bold text-lg">— Caboclo das Sete Encruzilhadas</div>
+                @endif
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Status de Conexão Espiritual -->
-    <div class="user-card">
-        <div class="p-6">
-            <h4 class="font-semibold text-lg mb-4" style="color: var(--text-primary);">
-                Conexão Espiritual
-            </h4>
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span style="color: var(--text-secondary);">Conectado com a casa</span>
-                </div>
-                <span class="text-sm" style="color: var(--text-secondary);">
-                    Última sincronização: {{ now()->format('d/m/Y H:i') }}
-                </span>
-            </div>
-        </div>
-    </div>
+
+
+     
 </div>
 @endsection

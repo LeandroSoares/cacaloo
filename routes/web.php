@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeCustomizationController;
+use \App\Http\Controllers\User\StaticPageController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
     Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
     Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
+    Route::get('/orixas', [\App\Http\Controllers\User\StaticPageController::class, 'orixas'])->name('user.orixas');
 
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
         ->name('user.medium-history');

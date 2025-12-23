@@ -1,297 +1,206 @@
 @extends('layouts.user')
 
+@section('title', 'Orientações do Médium')
+
 @section('content')
-    <div class="py-12">
-<div class="py-12 max-w-6xl mx-auto px-4">
+<style>
+    .medium-hero {
+        background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #4338CA 100%) !important;
+        border-radius: 2rem !important;
+        padding: 4rem 2rem !important;
+        color: white !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    }
 
-    <h1 class="text-3xl font-bold mb-8">Orientações do Médium</h1>
+    .medium-card {
+        background: white !important;
+        border-radius: 1.5rem !important;
+        border: 1px solid #E5E7EB !important;
+        padding: 2.5rem !important;
+        transition: all 0.4s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+    }
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    .medium-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+    }
 
-        <!-- Card 1 – Conduta do Médium -->
-        <div class="bg-white shadow-lg rounded-xl p-6 border">
-            <h2 class="text-xl font-bold mb-3">Conduta do Médium</h2>
-            <p class="text-gray-600 mb-4">
-                Diretrizes para que o médium mantenha equilíbrio emocional, disciplina espiritual,
-                respeito às entidades e postura adequada dentro e fora do templo.
+    .medium-icon-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 1.25rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .btn-medium {
+        margin-top: auto !important;
+        padding: 1rem 2rem !important;
+        border-radius: 1.25rem !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        font-size: 0.85rem !important;
+        border: none !important;
+        cursor: pointer !important;
+        color: white !important;
+    }
+
+    .premium-modal-header {
+        padding: 2.5rem !important;
+        color: white !important;
+        position: relative;
+    }
+
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .info-section {
+        background: #F9FAFB;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        border-left: 6px solid #4338CA;
+    }
+</style>
+
+<div class="py-6 px-4 animate-fade-in">
+    <!-- Hero Section -->
+    <div class="medium-hero">
+        <div class="relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">Caminhada <span style="color: #F4D365">Mediúnica</span></h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-3xl leading-relaxed">
+                A mediunidade é um compromisso sagrado com a caridade e a evolução espiritual. Siga as orientações para manter seu equilíbrio e sua conexão com a luz.
             </p>
-            <button onclick="document.getElementById('modal2').showModal()" 
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                Ler Mais
-            </button>
+        </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 – Conduta -->
+        <div class="medium-card" style="border-top: 8px solid #2563EB">
+            <div class="medium-icon-box" style="background: #EFF6FF; color: #2563EB">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Conduta do Médium</h3>
+            <span class="text-xs font-black text-blue-700 uppercase tracking-widest mb-4 block">Ética & Postura</span>
+            <p class="text-gray-600 mb-6 leading-relaxed">Diretrizes para o equilíbrio emocional, disciplina espiritual e postura adequada dentro e fora do templo.</p>
+            <button onclick="document.getElementById('modal2').showModal()" class="btn-medium shadow-lg active:scale-95" style="background: #2563EB">LER DIRETRIZES</button>
         </div>
 
-        <!-- Card 2 – Disciplina do Médium -->
-        <div class="bg-white shadow-lg rounded-xl p-6 border">
-            <h2 class="text-xl font-bold mb-3">Disciplina do Médium</h2>
-            <p class="text-gray-600 mb-4">
-                Conteúdo que explica as obrigações espirituais, horários, respeito às hierarquias
-                e importância da disciplina para o desenvolvimento mediúnico.
-            </p>
-            <button onclick="document.getElementById('modal3').showModal()" 
-                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
-                Ler Mais
-            </button>
+        <!-- Card 2 – Disciplina -->
+        <div class="medium-card" style="border-top: 8px solid #059669">
+            <div class="medium-icon-box" style="background: #ECFDF5; color: #059669">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Disciplina Ritualística</h3>
+            <span class="text-xs font-black text-green-700 uppercase tracking-widest mb-4 block">Regras & Hierarquia</span>
+            <p class="text-gray-600 mb-6 leading-relaxed">Obrigações espirituais, horários, respeito às hierarquias e a importância da ordem no desenvolvimento.</p>
+            <button onclick="document.getElementById('modal3').showModal()" class="btn-medium shadow-lg active:scale-95" style="background: #059669">LER REGRAS</button>
         </div>
 
-        <!-- Card 3 – Preparação do Médium -->
-        <div class="bg-white shadow-lg rounded-xl p-6 border">
-            <h2 class="text-xl font-bold mb-3">Preparação do Médium antes dos Trabalhos</h2>
-            <p class="text-gray-600 mb-4">
-                Recomendações sobre banho de descarrego, alimentação, limpeza energética,
-                mentalização e cuidados essenciais antes dos trabalhos espirituais.
-            </p>
-            <button onclick="document.getElementById('modal4').showModal()" 
-                class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
-                Ler Mais
-            </button>
+        <!-- Card 3 – Preparação -->
+        <div class="medium-card" style="border-top: 8px solid #DC2626">
+            <div class="medium-icon-box" style="background: #FEF2F2; color: #DC2626">
+                <i class="fa-solid fa-vial-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Preparação Espiritual</h3>
+            <span class="text-xs font-black text-red-700 uppercase tracking-widest mb-4 block">Limpeza & Preparo</span>
+            <p class="text-gray-600 mb-6 leading-relaxed">Banhos de descarrego, alimentação, limpeza energética e cuidados essenciais antes dos trabalhos.</p>
+            <button onclick="document.getElementById('modal4').showModal()" class="btn-medium shadow-lg active:scale-95" style="background: #DC2626">LER PREPARO</button>
         </div>
 
     </div>
 </div>
 
-<!-- MODAIS (Conteúdo Completo) -->
+<!-- MODAIS -->
 
-<!-- Modal 1 -->
-<dialog id="modal2" class="p-0 rounded-xl w-11/12 md:w-2/3">
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Conduta do Médium</h2>
-        <p class="text-gray-700 leading-relaxed">
-<p class="text-gray-700 leading-relaxed space-y-4">
-
-    <strong class="text-lg">Conduta do Médium</strong><br><br>
-
-    A conduta e o cuidado dos médiuns da Casa de Caridade envolvem ética, disciplina, respeito 
-    e preparo contínuo, tanto dentro quanto fora do terreiro. A mediunidade é um compromisso 
-    sagrado e uma ferramenta para a caridade.<br><br>
-
-    <strong class="text-lg">Condutas no Terreiro</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Realizar as firmezas espirituais:</strong> Trabalhar com a proteção do Anjo da Guarda (direita)
-        e Trindade da Esquerda, fortalecendo a defesa energética antes dos trabalhos.</li>
-
-        <li><strong>Respeito e silêncio:</strong> Manter postura de profundo respeito ao local sagrado, aos guias espirituais,
-        dirigentes e outros médiuns. Evitar conversas paralelas, fofocas, brincadeiras ou agitação.</li>
-
-        <li><strong>Assiduidade e pontualidade:</strong> Cumprir a frequência às giras e chegar no horário estabelecido 
-        para o preparo inicial.</li>
-
-        <li><strong>Vestimenta adequada:</strong> Usar roupas apropriadas, geralmente brancas e limpas, conforme regras
-        do terreiro.</li>
-
-        <li><strong>Disciplina na corrente:</strong> Seguir orientações do dirigente e guias, mantendo harmonia
-        e concentração da corrente mediúnica.</li>
-
-        <li><strong>Postura durante a incorporação:</strong> Tratar o trabalho com seriedade, permitindo manifestação 
-        digna das entidades, sem exageros ou exibição.</li>
-
-        <li><strong>Dormir adequadamente:</strong> Garantir descanso suficiente para corpo e mente estarem equilibrados.</li>
-
-        <li><strong>Alimentação equilibrada:</strong> Optar por refeições leves e evitar carnes vermelhas, gorduras
-        e alimentos pesados.</li>
-
-        <li><strong>Evitar álcool e substâncias:</strong> Substâncias alteradoras podem prejudicar a sintonia espiritual.</li>
-
-        <li><strong>Abstenção sexual nas últimas 24 horas:</strong> Preserva a energia vital do médium.</li>
-
-        <li><strong>Evitar excessos:</strong> Moderar atividades físicas ou situações desgastantes energeticamente.</li>
-
-        <li><strong>Práticas espirituais de preparo:</strong> Realizar preces, banhos de limpeza, meditação ou momentos
-        de silêncio antes da gira.</li>
-    </ul><br>
-
-    <strong class="text-lg">Cuidados e Preparo Pessoal</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Equilíbrio emocional:</strong> Manter a mente calma e evitar situações estressantes antes dos trabalhos.</li>
-
-        <li><strong>Estudo contínuo:</strong> A Umbanda exige estudo constante: fundamentos, Orixás, entidades, rituais
-        e autoconhecimento.</li>
-
-        <li><strong>Cuidado com as guias:</strong> Tratar colares e acessórios rituais com respeito, guardando-os 
-        adequadamente e evitando que outras pessoas os manuseiem.</li>
-
-        <li><strong>Oração e elevação espiritual:</strong> Manter rotina de prece e conexão com o anjo de guarda e guias,
-        fortalecendo proteção e sintonia.</li>
-    </ul><br>
-
-    Essas práticas garantem que o médium esteja física, mental e espiritualmente preparado, preservando proteção,
-    concentração e eficácia dos trabalhos espirituais, além de manter a harmonia energética da casa.<br><br>
-
-    <strong class="text-lg">Conduta Fora do Terreiro</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Moralidade e ética:</strong> Manter conduta reta e justa em todos os momentos, refletindo os princípios 
-        da Umbanda: caridade, fraternidade e moralidade.</li>
-
-        <li><strong>Discrição:</strong> Nunca usar a mediunidade para autopromoção, vantagens pessoais ou previsões 
-        irresponsáveis. A mediunidade é para servir, não para alimentar o ego.</li>
-    </ul><br>
-
-    Em resumo, a responsabilidade do médium vai além do momento da incorporação, sendo um compromisso de vida
-    com a espiritualidade e com a prática da caridade.
-
-</p>
-
-        </p>
-        <button onclick="document.getElementById('modal2').close()" 
-                class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
-            Fechar
-        </button>
-        </dialog>
-        
-<!-- Modal 2 -->
-<dialog id="modal3" class="p-0 rounded-xl w-11/12 md:w-2/3">
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Disciplina do Médium </h2>
-        <p class="text-gray-700 leading-relaxed">
-
-<p class="text-gray-700 leading-relaxed space-y-4">
-
-    <strong class="text-lg">Disciplina do Médium de Umbanda</strong><br><br>
-
+<!-- Modal 1 - Conduta -->
+<x-modal-premium 
+    id="modal2" 
+    title="Conduta do Médium" 
+    subtitle="Compromisso e Ética Espiritual" 
+    icon="fa-solid fa-user-check" 
+    headerGradient="linear-gradient(135deg, #2563EB 0%, #1e3a8a 100%)"
+>
+    <div class="info-section">
+        <p>A mediunidade é um compromisso sagrado. A conduta do médium reflete sua sintonia com a espiritualidade superior.</p>
+    </div>
+    
+    <h3 class="text-2xl font-bold text-blue-900">Dentro do Terreiro</h3>
     <ul class="list-disc pl-6 space-y-3">
-
-        <li><strong>Horário:</strong> Todos os médiuns devem chegar às giras de desenvolvimento com pelo menos 
-        10 minutos de antecedência do horário oficial de início.</li>
-
-        <li><strong>Saudação ao chegar:</strong> Ao entrar na Casa de Caridade, o médium deve saudar a 
-        casa dos Pretos-Velhos e a casa dos Compadres, pedindo:
-            <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li>permissão para entrar no terreiro;</li>
-                <li>proteção durante os trabalhos;</li>
-                <li>que energias negativas sejam dissipadas.</li>
-            </ul>
-        Após isso, deve dirigir-se diretamente ao vestiário, evitando conversas, distrações ou assuntos pessoais.</li>
-
-        <li><strong>Silêncio no vestiário:</strong> O ambiente deve ser de recolhimento e oração. Conversas, 
-        discussões ou comentários não são permitidos, salvo se autorizados pela Casa.</li>
-
-        <li><strong>Respeito ao Congá:</strong> Ao se encaminhar ao Congá, manter postura respeitosa e seguir 
-        o ritual estabelecido pela Coordenação.</li>
-
-        <li><strong>Proibição de álcool:</strong> Nos dias de gira, é proibido o uso de bebidas alcoólicas. A energia 
-        do médium sob efeito de álcool é negativa e interfere no campo espiritual.</li>
-
-        <li><strong>Higiene pessoal e espiritual:</strong> O médium deve comparecer limpo, física, mental e 
-        energeticamente. Isso inclui vestimentas brancas e ritualísticas limpas.</li>
-
-        <li><strong>Conduta das médiuns:</strong> Maquiagens, esmaltes e adornos devem ser evitados. 
-        Se houver maquiagem, deve ser removida antes dos trabalhos.</li>
-
-        <li><strong>Ciclo menstrual:</strong> Médiums femininas podem participar das giras normalmente durante o período menstrual.</li>
-
-        <li><strong>Respeito às hierarquias:</strong> Caso o médium fique descontente com algo, deve procurar o dirigente, 
-        conversando diretamente e com humildade.</li>
-
-        <li><strong>Faltas não justificadas:</strong> A ausência consecutiva sem justificativa (conforme estatuto) pode resultar 
-        em afastamento da corrente mediúnica.</li>
-
-        <li><strong>Comportamentos negativos:</strong> O médium que causar intrigas, escândalos ou promover desunião 
-        entre irmãos será desligado da corrente e do quadro social.</li>
-
-        <li><strong>Vestimenta ritualística:</strong> A roupa ritual possui modelo definido pela Casa e deve ser usada sempre limpa, 
-        passada e sem desleixo.</li>
-
-        <li><strong>Agenda de passes:</strong> Na entrada da Casa, haverá uma agenda com os nomes dos que tomarão passe. 
-        O médium deve cumprir seu compromisso.</li>
-
-        <li><strong>Ausências comunicadas:</strong> Caso o médium não possa comparecer, deve avisar a Mãe Sandra, 
-        para que seu nome seja retirado da agenda e evitar transtornos com consulentes.</li>
-
+        <li><strong>Silêncio e Respeito:</strong> Ambiente de oração constante. Evite conversas paralelas.</li>
+        <li><strong>Assiduidade:</strong> Sua presença fortalece a corrente mediúnica.</li>
+        <li><strong>Postura:</strong> Mantenha a dignidade durante a incorporação, sem exibicionismos.</li>
     </ul>
 
-</p>
+    <h3 class="text-2xl font-bold text-blue-900">Fora do Terreiro</h3>
+    <ul class="list-disc pl-6 space-y-3">
+        <li><strong>Moralidade:</strong> Seja um exemplo de retidão em sua vida cotidiana.</li>
+        <li><strong>Discrição:</strong> Não use o nome da casa ou sua mediunidade para vantagens pessoais.</li>
+    </ul>
+</x-modal-premium>
 
-        </p>
-        <button onclick="document.getElementById('modal3').close()" 
-                class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
-            Fechar
-        </button>
+<!-- Modal 2 - Disciplina -->
+<x-modal-premium 
+    id="modal3" 
+    title="Disciplina Ritualística" 
+    subtitle="Regras e Hierarquia Sagrada" 
+    icon="fa-solid fa-list-check" 
+    headerGradient="linear-gradient(135deg, #059669 0%, #064e3b 100%)"
+>
+    <div class="info-section">
+        <p>A disciplina é o pilar que sustenta a ordem e a segurança dos trabalhos espirituais.</p>
     </div>
-</dialog>
-        <!-- Modal 3 -->
-<dialog id="modal4" class="p-0 rounded-xl w-11/12 md:w-2/3">
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Preparação do Médium </h2>
-        <p class="text-gray-700 leading-relaxed">
 
-<p class="text-gray-700 leading-relaxed space-y-4">
-
-    <strong class="text-lg">Preparação do Médium antes dos Trabalhos Mediúnicos</strong><br><br>
-
-    A preparação do médium antes de ir para o terreiro é fundamental para garantir harmonia energética,
-    concentração e receptividade espiritual. Os cuidados começam, geralmente, 12 horas antes da gira e envolvem
-    práticas físicas, comportamentais e espirituais.<br><br>
-
-    <strong class="text-lg">Preparação Física e Comportamental</strong><br><br>
-
-    <strong>Preceitos (Abstinências):</strong><br>
-    Os preceitos mais comuns na Casa de Caridade incluem a abstinência de:
-
-    <ul class="list-disc pl-6 space-y-2 mt-2">
-        <li><strong>Carne vermelha:</strong> Possui energia mais densa e interfere na vibração sutil necessária ao contato espiritual.</li>
-        <li><strong>Bebidas alcoólicas:</strong> Prejudicam a clareza mental e a concentração.</li>
-        <li><strong>Atividade sexual:</strong> A energia sexual deve ser preservada antes da gira, pois influencia diretamente a incorporação.</li>
-        <li><strong>Locais de baixa vibração:</strong> Evitar ambientes promíscuos ou energeticamente densos no dia da gira.</li>
+    <h3 class="text-2xl font-bold text-green-900">Horários e Presença</h3>
+    <ul class="list-disc pl-6 space-y-3">
+        <li><strong>Pontualidade:</strong> Chegar com antecedência para preparação pessoal.</li>
+        <li><strong>Saudação:</strong> Respeitar os pontos de força (Porteira, Congá) ao entrar.</li>
     </ul>
 
-    <ul class="list-disc pl-6 space-y-2 mt-4">
-        <li><strong>Alimentação leve:</strong> Optar por refeições leves e de fácil digestão.</li>
-        <li><strong>Higiene pessoal:</strong> Estar limpo é sinal de respeito com a casa e com os guias espirituais.</li>
-        <li><strong>Vestuário:</strong> Usar roupas limpas e claras (preferencialmente brancas) ou vestimentas ritualísticas da casa.</li>
-    </ul><br>
+    <h3 class="text-2xl font-bold text-green-900">Hierarquia</h3>
+    <ul class="list-disc pl-6 space-y-3">
+        <li><strong>Obediência:</strong> Seguir as orientações dos dirigentes e guias chefes.</li>
+        <li><strong>União:</strong> Evitar fofocas ou intrigas que desestabilizem a corrente.</li>
+    </ul>
+</x-modal-premium>
 
-    <strong class="text-lg">Preparação Mental e Espiritual</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Introspecção e serenidade:</strong> Manter a mente calma, evitando discussões, fofocas ou situações estressantes.</li>
-        <li><strong>Oração e meditação:</strong> Dedicar tempo para orar e meditar, mantendo o pensamento alinhado aos propósitos da gira.</li>
-    </ul><br>
-
-    <strong class="text-lg">Firmezas das Forças Espirituais</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Firmeza do Anjo de Guarda:</strong> 1 vela branca.</li>
-
-        <li><strong>Firmeza da Direita:</strong><br>
-            Formar um triângulo com 3 velas da cor dos seus Orixás (ou brancas, se não souber quais são).
-        </li>
-
-        <li><strong>Firmeza da Esquerda:</strong><br>
-            Triângulo com 3 velas preta/vermelha para Guardião, Guia Chefe e Pombagira.
-        </li>
-    </ul><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Banhos de ervas:</strong> Banhos de limpeza e harmonização (arruda, alecrim, guiné etc.) ajudam a purificar o campo áurico.</li>
-
-        <li><strong>Banho de Amaci:</strong> Preparado com ervas específicas, aplicado na cabeça. Indicado para médiuns em desenvolvimento ou já prontos.</li>
-
-        <li><strong>Conexão com os guias:</strong> Desde casa, o médium deve sintonizar-se com seus guias e Orixás, firmando a intenção de servir.</li>
-    </ul><br>
-
-    <strong class="text-lg">Ao Chegar no Terreiro</strong><br><br>
-
-    <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Pontualidade:</strong> Chegar cedo demonstra respeito e permite o ajuste energético antes do início.</li>
-
-        <li><strong>Saudação à casa:</strong> Cumprimentar tronqueira, Congá e membros da Casa com respeito e humildade.</li>
-
-        <li><strong>Silêncio e concentração:</strong> Evitar conversas paralelas e manter foco no trabalho espiritual.</li>
-    </ul><br>
-
-    Essas práticas visam purificar e elevar as vibrações do médium, facilitando a incorporação harmônica e a realização
-    do trabalho de caridade com a luz e a força das entidades espirituais.
-
-</p>
-
-        </p>
-        <button onclick="document.getElementById('modal4').close()" 
-                class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
-            Fechar
-        </button>
+<!-- Modal 3 - Preparação -->
+<x-modal-premium 
+    id="modal4" 
+    title="Preparação Espiritual" 
+    subtitle="Limpeza e Fortalecimento Energético" 
+    icon="fa-solid fa-vial-circle-check" 
+    headerGradient="linear-gradient(135deg, #DC2626 0%, #991B1B 100%)"
+>
+    <div class="info-section">
+        <p>O preparo começa horas antes do trabalho, purificando o corpo e elevando a mente.</p>
     </div>
-</dialog>
+
+    <h3 class="text-2xl font-bold text-red-900">Corpo Físico</h3>
+    <ul class="list-disc pl-6 space-y-3">
+        <li><strong>Alimentação:</strong> Evitar carnes pesadas e bebidas alcoólicas antes da gira.</li>
+        <li><strong>Descanso:</strong> Estar descansado para manter a concentração necessária.</li>
+    </ul>
+
+    <h3 class="text-2xl font-bold text-red-900">Corpo Energético</h3>
+    <ul class="list-disc pl-6 space-y-3">
+        <li><strong>Banhos:</strong> Realizar os banhos de ervas recomendados pela casa.</li>
+        <li><strong>Velas:</strong> Firmar seu anjo de guarda e proteções conforme orientação.</li>
+    </ul>
+</x-modal-premium>
+
 @endsection

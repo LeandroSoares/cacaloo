@@ -1,105 +1,167 @@
 @extends('layouts.user')
 
+@section('title', 'Orientações da Casa')
+
 @section('content')
-    <div class="py-12">
-<div class="py-12 max-w-6xl mx-auto px-4">
+<style>
+    .orientacao-hero {
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%) !important;
+        border-radius: 2rem !important;
+        padding: 4rem 2rem !important;
+        color: white !important;
+        margin-bottom: 3rem !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
 
-    <h1 class="text-3xl font-bold mb-8">Orientações da Casa</h1>
+    .orientacao-card {
+        background: white !important;
+        border-radius: 1.5rem !important;
+        border: 1px solid #E5E7EB !important;
+        padding: 2.5rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    .orientacao-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
 
-        <!-- Card 1 – Mandamentos da Casa -->
-        <div class="bg-white shadow-lg rounded-xl p-6 border">
-            <h2 class="text-xl font-bold mb-3">Mandamentos da Casa </h2>
-            <p class="text-gray-600 mb-4">
-                Conjunto de responsabilidades e princípios que orientam o médium dentro da casa espiritual,
-                enfatizando respeito, comprometimento, humildade e conduta exemplar.
-            </p>
-            <button onclick="document.getElementById('modal1').showModal()" 
-                class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
-                Ler Mais
-            </button>
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #EEF2FF;
+        color: #4338CA;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .btn-ler-mais {
+        background: #4338CA !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border-radius: 1rem !important;
+        font-weight: 700 !important;
+        transition: all 0.3s ease !important;
+        margin-top: auto;
+        text-align: center;
+    }
+
+    .btn-ler-mais:hover {
+        background: #3730A3 !important;
+        transform: scale(1.02) !important;
+    }
+
+    .modal-header-orientacao {
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%) !important;
+        padding: 2.5rem !important;
+        color: white !important;
+    }
+
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    }
+</style>
+
+<div class="py-6 px-4">
+    <div class="orientacao-hero">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up">Diretrizes <span style="color: var(--gold-main)">Sagradas</span></h1>
+        <p class="text-lg opacity-90 max-w-2xl animate-fade-in-up" style="animation-delay: 0.2s">Relacionamos aqui os princípios e mandamentos que norteiam nossa caminhada espiritual com disciplina, amor e caridade.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mandamento 1 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-hands-praying"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">1. Honrar a Umbanda</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Respeitar a tradição, rituais, símbolos e ensinamentos. O médium deve manter a fé, a devoção e a conexão espiritual com os Orixás e Guias.</p>
         </div>
 
+        <!-- Mandamento 2 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-heart"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">2. Amar e Servir</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Praticar a caridade verdadeira sem recompensas. Cada gesto deve refletir amor e solidariedade, oferecendo auxílio a todos que buscam orientação.</p>
+        </div>
+
+        <!-- Mandamento 3 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-sitemap"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">3. Respeitar a Hierarquia</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Honrar guias espirituais, mentores e dirigentes. Seguir suas orientações é essencial para garantir a segurança nos trabalhos mediúnicos.</p>
+        </div>
+
+        <!-- Mandamento 4 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-sparkles"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">4. Pureza de Intenção</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Agir com sinceridade e fé. Nenhum trabalho deve ser feito por vaidade ou interesse pessoal. A mediunidade é serviço, não poder.</p>
+        </div>
+
+        <!-- Mandamento 5 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-user-secret"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">5. Sigilo e Respeito</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Manter confidencialidade absoluta sobre tudo o que recebe nos atendimentos. Respeitar a privacidade do assistido é uma obrigação ética.</p>
+        </div>
+
+        <!-- Mandamento 6 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-book-open"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">6. Estudo e Evolução</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Dedicar-se ao aprendizado constante dos fundamentos e ao crescimento moral. A mediunidade exige responsabilidade e disciplina.</p>
+        </div>
+
+        <!-- Mandamento 7 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-church"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">7. Zelar pelo Espaço</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Contribuir para a harmonia e limpeza física e energética do templo. Cada ambiente deve ser tratado com reverência e cuidado.</p>
+        </div>
+
+        <!-- Mandamento 8 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-comments"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">8. Paciência e Compaixão</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Atender assistidos com escuta ativa e empatia. Transmitir conforto, esperança e equilíbrio para as dores de quem busca ajuda.</p>
+        </div>
+
+        <!-- Mandamento 9 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-infinity"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">9. Servir com Consistência</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">A dedicação reflete-se na vida diária. Demonstrar compromisso constante com a evolução própria e a ajuda ao próximo.</p>
+        </div>
+
+        <!-- Mandamento 10 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-shield-virus"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">10. Evitar Abusos</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Jamais usar a mediunidade para benefício próprio ou manipulação. O poder mediúnico é guiado sempre pela ética e pelo amor.</p>
+        </div>
+
+        <!-- Mandamento 11 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-leaf"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">11. Cultivar a Humildade</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Reconhecer limitações. A humildade fortalece a conexão com os guias e evita o orgulho espiritual no exercício mediúnico.</p>
+        </div>
+
+        <!-- Mandamento 12 -->
+        <div class="orientacao-card">
+            <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">12. Harmonia e Unidade</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Atuar pelo bem coletivo, evitando conflitos. A harmonia entre médiuns e assistidos é vital para a fluidez das energias positivas.</p>
+        </div>
     </div>
 </div>
-
-<!-- MODAIS (Conteúdo Completo) -->
-
-<!-- Modal 1 -->
-<dialog id="modal1" class="p-0 rounded-xl w-11/12 md:w-2/3">
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Mandamentos da Casa </h2>
-        <p class="text-gray-700 leading-relaxed">
-<p class="text-gray-700 leading-relaxed space-y-4">
-
-    <strong class="text-lg">Mandamentos dos Médiuns e da Casa de Caridade</strong><br><br>
-
-    <strong>1. Honrar a Umbanda, os Orixás e Guias Espirituais</strong><br>
-    Respeitar a tradição, os rituais, os símbolos e os ensinamentos da Umbanda é fundamental. 
-    O médium deve manter a fé, a devoção e a conexão espiritual, reconhecendo a força dos Orixás 
-    e entidades que conduzem os trabalhos.<br><br>
-
-    <strong>2. Amar e Servir com Caridade</strong><br>
-    O médium deve praticar a caridade verdadeira, sem esperar recompensas materiais ou 
-    reconhecimento. Cada gesto, palavra ou ação deve refletir amor e solidariedade. Servir é 
-    doar-se com humildade, oferecendo auxílio aos necessitados, enfermos, aflitos e a todos que 
-    buscam orientação espiritual.<br><br>
-
-    <strong>3. Respeitar a Hierarquia Espiritual</strong><br>
-    O médium deve honrar seus guias espirituais, mentores e dirigentes da Casa de Caridade, 
-    reconhecendo sua experiência e sabedoria. Seguir suas orientações é essencial para evitar 
-    erros e garantir a segurança nos trabalhos mediúnicos.<br><br>
-
-    <strong>4. Cultivar a Pureza de Intenção</strong><br>
-    Todas as ações do médium devem ser realizadas com sinceridade, honestidade e fé. Nenhum 
-    trabalho deve ser feito por vaidade, ego ou interesse pessoal. A mediunidade é instrumento 
-    de auxílio, não de poder.<br><br>
-
-    <strong>5. Preservar o Sigilo e o Respeito</strong><br>
-    O médium deve manter confidencialidade absoluta sobre tudo que ouve, vê ou recebe nos 
-    atendimentos espirituais. Respeitar a privacidade do assistido é obrigação ética e espiritual.<br><br>
-
-    <strong>6. Estudar e Buscar Evolução</strong><br>
-    O médium deve dedicar-se ao aprendizado constante dos rituais e fundamentos da Umbanda, 
-    assim como ao próprio crescimento moral e espiritual. A mediunidade exige responsabilidade, 
-    conhecimento e disciplina.<br><br>
-
-    <strong>7. Zelar pelo Espaço Sagrado</strong><br>
-    A Casa de Caridade é um templo de luz. O médium deve contribuir para a harmonia, limpeza 
-    física e energética, respeitando rituais, instrumentos e símbolos. Cada ambiente deve ser 
-    tratado com reverência.<br><br>
-
-    <strong>8. Praticar a Paciência e a Compaixão</strong><br>
-    O médium deve atender assistidos com escuta ativa, paciência e empatia. Cada pessoa chega 
-    com dores e necessidades diferentes, cabendo ao médium transmitir conforto, esperança e 
-    equilíbrio.<br><br>
-
-    <strong>9. Servir com Consistência</strong><br>
-    A dedicação do médium não se limita às giras ou rituais. Deve refletir-se na vida diária, 
-    demonstrando compromisso constante com a evolução própria e ajuda ao próximo.<br><br>
-
-    <strong>10. Evitar Abusos e Atos Negativos</strong><br>
-    O médium jamais deve usar a mediunidade para benefício próprio, manipulação ou vingança. 
-    O poder mediúnico é para o bem, sempre guiado pela ética, moral, amor e caridade.<br><br>
-
-    <strong>11. Cultivar a Humildade</strong><br>
-    O médium deve reconhecer suas limitações, entendendo que a mediunidade é instrumento de 
-    auxílio, não de superioridade. A humildade fortalece a conexão com os guias e evita o orgulho 
-    espiritual.<br><br>
-
-    <strong>12. Trabalhar pela Harmonia e Unidade</strong><br>
-    O médium deve atuar pelo bem coletivo, evitando conflitos e divisões. A harmonia entre 
-    médiuns e assistidos é essencial para que a energia flua de forma positiva.<br><br>
-
-</p>
-
-        </p>
-        <button onclick="document.getElementById('modal1').close()" 
-                class="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg">
-            Fechar
-        </button>
-    </div>
-</dialog>
-
+ 
 @endsection
