@@ -34,3 +34,4 @@ exemplos/*
 
 deploy-stg
 deploy-stg.pub
+*.docx
