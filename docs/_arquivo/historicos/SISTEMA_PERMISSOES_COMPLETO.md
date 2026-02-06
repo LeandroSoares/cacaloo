@@ -538,7 +538,7 @@ class RolesAndPermissionsSeeder extends Seeder
             ['email' => 'admin@cacaloo.com.br'],
             [
                 'name' => 'Administrador do Sistema',
-                'password' => Hash::make('cacaloo@admin123')
+                'password' => Hash::make(env('ADMIN_INITIAL_PASSWORD', 'ALTERE_ESTA_SENHA'))
             ]
         );
         $adminUser->assignRole(['sysadmin', 'admin', 'manager', 'user']);
