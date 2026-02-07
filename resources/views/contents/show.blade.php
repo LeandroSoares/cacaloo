@@ -9,7 +9,7 @@
         <div class="absolute inset-0 bg-gray-900/40"></div> <!-- Overlay escuro suave -->
     </div>
 
-    <div class="relative max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="relative max-w-4xl mx-auto pt-28 pb-12 px-4 sm:px-6 lg:px-8">
         <article class="prose prose-lg prose-indigo mx-auto bg-white p-6 sm:p-10 rounded-lg shadow-sm">
             <header class="mb-8 border-b pb-8">
                 <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl text-center">
