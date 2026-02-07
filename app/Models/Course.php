@@ -11,8 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property bool $active
  * @property string|null $description
  */
+use App\Models\Traits\CacheableModel;
+
 class Course extends Model
 {
+    use CacheableModel;
+
     protected $fillable = [
         'name',
         'active',

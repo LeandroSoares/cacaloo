@@ -47,7 +47,7 @@ class InitiatedOrishaForm extends Component
 
     public function loadAvailableOrishas()
     {
-        $this->availableOrishas = Orisha::orderBy('name')->get()->toArray();
+        $this->availableOrishas = Orisha::getAllCached()->toArray();
     }
 
     public function save()

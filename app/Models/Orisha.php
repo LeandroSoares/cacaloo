@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use App\Models\Traits\CacheableModel;
+
 /**
  * @property int $id
  * @property string $name
@@ -15,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Orisha extends Model
 {
+    use CacheableModel;
+
     protected $fillable = [
         'name',
         'description',
