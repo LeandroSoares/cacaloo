@@ -27,6 +27,13 @@
     <form id="home-customization-form" action="{{ route('admin.home-customization.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
+        <!-- Datalist para sugestões de links -->
+        <datalist id="public-links-list">
+            @foreach($publicContents as $content)
+                <option value="{{ $content['url'] }}">{{ $content['title'] }}</option>
+            @endforeach
+        </datalist>
+
         <!-- Seção Hero -->
         <div class="admin-card">
             <div class="p-6">
@@ -193,6 +200,21 @@
                                     <option value="leaf" {{ ($card['icon'] ?? '') == 'leaf' ? 'selected' : '' }}>🌿 Folha</option>
                                     <option value="sun" {{ ($card['icon'] ?? '') == 'sun' ? 'selected' : '' }}>☀️ Sol</option>
                                 </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    Link / URL (Opcional)
+                                </label>
+                                <div class="relative">
+                                    <input type="url"
+                                           name="about_cards[{{ $index }}][link_url]"
+                                           value="{{ $card['link_url'] ?? '' }}"
+                                           placeholder="https://... ou selecione uma página"
+                                           list="public-links-list"
+                                           class="w-full rounded border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                    <p class="text-xs text-gray-500 mt-1">Comece a digitar para ver sugestões de artigos públicos.</p>
+                                </div>
                             </div>
 
                             <div>
@@ -399,6 +421,11 @@ function addCard() {
                 '<option value="leaf">🌿 Folha</option>' +
                 '<option value="sun">☀️ Sol</option>' +
             '</select>' +
+        '</div>' +
+        '<div>' +
+            '<label class="block text-sm font-medium text-gray-700 mb-1">Link / URL (Opcional)</label>' +
+            '<input type="url" name="about_cards[' + cardIndex + '][link_url]" placeholder="https://... ou selecione uma página" list="public-links-list" class="w-full rounded border-gray-300 focus:border-blue-500 focus:ring-blue-500">' +
+            '<p class="text-xs text-gray-500 mt-1">Sugestões disponíveis</p>' +
         '</div>' +
         '<div>' +
             '<label class="block text-sm font-medium text-gray-700 mb-1">Ordem</label>' +

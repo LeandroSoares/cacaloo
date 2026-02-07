@@ -14,7 +14,8 @@ class HomeCustomizationController extends Controller
 {
     public function __construct(
         private readonly HomeContentService $homeContentService
-    ) {}
+    ) {
+    }
 
     /**
      * Exibe a tela de customização da homepage
@@ -23,7 +24,19 @@ class HomeCustomizationController extends Controller
     {
         $homeData = $this->homeContentService->getHomeContent();
 
-        return view('admin.home-customization.index', compact('homeData'));
+        // Buscar conteúdos públicos para sugestão de link
+        $publicContents = \App\Models\Content::published()
+            ->where('visibility', \App\Enums\ContentVisibility::PUBLIC)
+            ->select('title', 'slug')
+            ->get()
+            ->map(function ($content) {
+                return [
+                    'title' => $content->title,
+                    'url' => route('public.content', $content->slug)
+                ];
+            });
+
+        return view('admin.home-customization.index', compact('homeData', 'publicContents'));
     }
 
     /**
@@ -48,6 +61,7 @@ class HomeCustomizationController extends Controller
             'about_cards.*.title' => 'required|string|max:255',
             'about_cards.*.content' => 'nullable|string',
             'about_cards.*.icon' => 'nullable|string|max:100',
+            'about_cards.*.link_url' => 'nullable|url|max:2048',
 
             // Events section
             'events_title' => 'required|string|max:255',
@@ -90,6 +104,7 @@ class HomeCustomizationController extends Controller
                         'title' => $cardData['title'],
                         'content' => $cardData['content'] ?? null,
                         'icon' => $cardData['icon'] ?? null,
+                        'link_url' => $cardData['link_url'] ?? null,
                         'sort_order' => $index,
                         'is_visible' => true,
                     ]);

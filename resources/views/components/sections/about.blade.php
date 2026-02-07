@@ -40,11 +40,23 @@ $isVisible = $content['is_visible'] ?? true;
                 x-transition:enter-start="opacity-0 translate-y-8"
                 x-transition:enter-end="opacity-100 translate-y-0"
             >
-                <x-ui.card
-                    :icon="$card['icon'] ?? 'star'"
-                    :title="$card['title']"
-                    :text="$card['content']"
-                />
+                @if(isset($card['link_url']) && !empty($card['link_url']))
+                    <a href="{{ $card['link_url'] }}" target="_blank" class="block h-full group">
+                        <x-ui.card
+                            :icon="$card['icon'] ?? 'star'"
+                            :title="$card['title']"
+                            :text="$card['content']"
+                            class="h-full transition-transform duration-300 group-hover:-translate-y-1"
+                        />
+                    </a>
+                @else
+                    <x-ui.card
+                        :icon="$card['icon'] ?? 'star'"
+                        :title="$card['title']"
+                        :text="$card['content']"
+                        class="h-full"
+                    />
+                @endif
             </div>
             @endforeach
 
