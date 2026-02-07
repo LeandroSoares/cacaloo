@@ -16,6 +16,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+    @stack('styles')
 </head>
 <body class="h-full font-sans antialiased sysadmin-area" style="background: var(--bg-primary);">
     <div class="min-h-full">
@@ -140,5 +142,7 @@
             </div>
         </footer>
     </div>
+    @livewireScripts
+    @stack('scripts')
 </body>
 </html>

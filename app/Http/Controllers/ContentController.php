@@ -38,6 +38,25 @@ class ContentController extends Controller
             ->where('visibility', ContentVisibility::PRIVATE)
             ->firstOrFail();
 
-        return view('contents.show', compact('content'));
+        // Alterado para view privada (com layout de dashboard)
+        return view('contents.show-private', compact('content'));
+    }
+
+    /**
+     * Lista conteúdos do portal (Privados)
+     * Rota: /portal/artigos
+     */
+    public function portalIndex()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $contents = Content::published()
+            ->where('visibility', ContentVisibility::PRIVATE)
+            ->orderBy('published_at', 'desc')
+            ->paginate(12);
+
+        return view('contents.index-portal', compact('contents'));
     }
 }

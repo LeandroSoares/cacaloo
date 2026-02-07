@@ -14,7 +14,7 @@ class PermissionController extends Controller
      */
     public function index(): View
     {
-        $permissions = Permission::all();
+        $permissions = Permission::with('roles')->get();
         return view('sysadmin.permissions.index', compact('permissions'));
     }
 

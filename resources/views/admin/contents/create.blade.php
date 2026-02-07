@@ -35,11 +35,11 @@
                     <label for="slug" class="block text-sm font-medium text-gray-700">Slug (URL)</label>
                     <div class="mt-1 flex rounded-md shadow-sm">
                         <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                            {{ config('app.url') }}/
+                            {{ config('app.url') }}/c/
                         </span>
                         <input type="text" name="slug" id="slug" value="{{ old('slug') }}" required class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300">
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">Sugerido: <span id="slug-suggestion" class="font-mono"></span></p>
+                    <p class="mt-2 text-sm text-gray-500">Link Final: <span class="font-mono text-xs">{{ config('app.url') }}/c/<span id="slug-preview"></span></span></p>
                 </div>
 
                 <!-- Tipo -->
@@ -122,7 +122,7 @@
         const slugInput = document.getElementById('slug');
         if (!slugInput.value || slugInput.dataset.touched !== 'true') {
             slugInput.value = slug;
-            document.getElementById('slug-suggestion').textContent = slug;
+            document.getElementById('slug-preview').textContent = slug;
         }
     });
 

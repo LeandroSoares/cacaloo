@@ -17,6 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    @stack('styles')
     <style>[x-cloak] { display: none !important; }</style>
 </head>
 <body class="h-full font-sans antialiased bg-gray-50">
@@ -238,7 +239,7 @@
                         <div class="flex items-center">
                             <i class="fas fa-shield-alt mr-2"></i>
                             <span class="text-sm">
-                                Área restrita para administradores. Todas as ações são registradas para auditoria.
+                                Área restrita para administradores.
                             </span>
                         </div>
                     </div>
@@ -260,5 +261,6 @@
         class="lg:hidden fixed inset-0 z-40 bg-gray-600 bg-opacity-75"
         @click="sidebarOpen = false"></div>
     @livewireScripts
+    @stack('scripts')
 </body>
 </html>

@@ -129,12 +129,16 @@ Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix(
 
 // Rotas de Conteúdo (CMS)
 // Privado (Portal)
+Route::get('/portal/artigos', [\App\Http\Controllers\ContentController::class, 'portalIndex'])
+    ->name('portal.articles')
+    ->middleware('auth');
+
 Route::get('/portal/{slug}', [\App\Http\Controllers\ContentController::class, 'showPrivate'])
     ->name('portal.content')
     ->where('slug', '[a-z0-9\-]+');
 
-// Público (Root) - DEVE SER A ÚLTIMA ROTA para não conflitar
-Route::get('/{slug}', [\App\Http\Controllers\ContentController::class, 'showPublic'])
+// Público (Prefixo /c/ para evitar conflitos com rotas de sistema como /login)
+Route::get('/c/{slug}', [\App\Http\Controllers\ContentController::class, 'showPublic'])
     ->name('public.content')
     ->where('slug', '[a-z0-9\-]+');
 

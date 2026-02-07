@@ -37,12 +37,12 @@ class ContentSeeder extends Seeder
                 if ($file->getExtension() !== 'txt')
                     continue;
 
-                $this->createContent($file, ContentType::TRABALHO);
+                $this->createContent($file, ContentType::TRABALHO, ContentVisibility::PRIVATE);
             }
         }
     }
 
-    private function createContent($file, ContentType $type)
+    private function createContent($file, ContentType $type, ContentVisibility $contentVisibility = ContentVisibility::PUBLIC)
     {
         $filename = $file->getFilenameWithoutExtension();
         $title = Str::title(str_replace('-', ' ', $filename));
@@ -59,7 +59,7 @@ class ContentSeeder extends Seeder
                 'title' => $title,
                 'body' => $htmlBody,
                 'type' => $type,
-                'visibility' => ContentVisibility::PUBLIC , // Padrão público
+                'visibility' => $contentVisibility,
                 'published_at' => now(),
                 'is_active' => true,
             ]
