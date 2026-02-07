@@ -14,29 +14,32 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Rota de teste para envio de email
-Route::get('/test-email', function () {
-    Mail::to('test@example.com')->send(new TestEmail());
-    return 'Email enviado com sucesso! Verifique o MailHog em: <a href="http://localhost:8025" target="_blank">http://localhost:8025</a>';
-});
-
-// Rota temporária para verificar papéis e permissões
-Route::get('/check-roles-permissions', function () {
-    $roles = \Spatie\Permission\Models\Role::all();
-    $permissions = \Spatie\Permission\Models\Permission::all();
-
-    $roleData = $roles->map(function ($role) {
-        return [
-            'name' => $role->name,
-            'permissions' => $role->permissions->pluck('name'),
-        ];
+// Rotas de desenvolvimento (apenas local)
+if (app()->environment('local')) {
+    // Rota de teste para envio de email
+    Route::get('/test-email', function () {
+        Mail::to('test@example.com')->send(new TestEmail());
+        return 'Email enviado com sucesso! Verifique o MailHog em: <a href="http://localhost:8025" target="_blank">http://localhost:8025</a>';
     });
 
-    return [
-        'roles' => $roleData,
-        'permissions' => $permissions->pluck('name'),
-    ];
-});
+    // Rota de debug para verificar papéis e permissões
+    Route::get('/check-roles-permissions', function () {
+        $roles = \Spatie\Permission\Models\Role::all();
+        $permissions = \Spatie\Permission\Models\Permission::all();
+
+        $roleData = $roles->map(function ($role) {
+            return [
+                'name' => $role->name,
+                'permissions' => $role->permissions->pluck('name'),
+            ];
+        });
+
+        return [
+            'roles' => $roleData,
+            'permissions' => $permissions->pluck('name'),
+        ];
+    });
+}
 
 // Área do Usuário (comum)
 Route::middleware(['auth', 'verified'])->group(function () {
