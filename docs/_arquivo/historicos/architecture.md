@@ -1,1 +1,0 @@
-dns (registro.br) -> cloudflare (DNS routing and ssl) -> server (saninternet)
