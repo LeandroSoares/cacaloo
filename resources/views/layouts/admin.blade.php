@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
     <style>[x-cloak] { display: none !important; }</style>
 </head>
 <body class="h-full font-sans antialiased bg-gray-50">
@@ -251,6 +252,6 @@
         x-transition:leave-end="opacity-0"
         class="lg:hidden fixed inset-0 z-40 bg-gray-600 bg-opacity-75"
         @click="sidebarOpen = false"></div>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    @livewireScripts
 </body>
 </html>

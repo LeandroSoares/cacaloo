@@ -1,8 +1,5 @@
-import Alpine from "alpinejs";
-
-window.Alpine = Alpine;
-
-Alpine.start();
+// Alpine.js é injetado automaticamente pelo Livewire 3
+// Não importar manualmente para evitar conflitos
 
 // Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
