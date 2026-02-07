@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
                 // 3. Conteúdo e configurações
             HomeSectionsSeeder::class,
+            ContentSeeder::class, // Conteúdos institucionais e trabalhos
             CoursesSeeder::class,
             MysteriesSeeder::class,
             DailyMessageSeeder::class,

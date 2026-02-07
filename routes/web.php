@@ -92,6 +92,9 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     Route::patch('daily-messages/{dailyMessage}/toggle-active', [\App\Http\Controllers\Admin\DailyMessageController::class, 'toggleActive'])->name('daily-messages.toggle-active');
     Route::post('daily-messages-cache/clear', [\App\Http\Controllers\Admin\DailyMessageController::class, 'clearCache'])->name('daily-messages.clear-cache');
 
+    // Gerenciador de Conteúdos (CMS)
+    Route::resource('contents', \App\Http\Controllers\Admin\ContentController::class);
+
     // Adicione aqui outras rotas administrativas
 });
 
@@ -124,4 +127,16 @@ Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix(
     // Adicione aqui outras rotas de sysadmin
 });
 
+// Rotas de Conteúdo (CMS)
+// Privado (Portal)
+Route::get('/portal/{slug}', [\App\Http\Controllers\ContentController::class, 'showPrivate'])
+    ->name('portal.content')
+    ->where('slug', '[a-z0-9\-]+');
+
+// Público (Root) - DEVE SER A ÚLTIMA ROTA para não conflitar
+Route::get('/{slug}', [\App\Http\Controllers\ContentController::class, 'showPublic'])
+    ->name('public.content')
+    ->where('slug', '[a-z0-9\-]+');
+
 require __DIR__ . '/auth.php';
+
