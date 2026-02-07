@@ -1,8 +1,4 @@
 {
-  "_module.esm-CJ7ePfyg.js": {
-    "file": "assets/module.esm-CJ7ePfyg.js",
-    "name": "module.esm"
-  },
   "resources/css/app.css": {
     "file": "assets/app-B5cM93Ec.css",
     "src": "resources/css/app.css",
@@ -12,21 +8,15 @@
     ]
   },
   "resources/js/alpine.js": {
-    "file": "assets/alpine-BVV8l8uh.js",
+    "file": "assets/alpine-zlGtfunP.js",
     "name": "alpine",
     "src": "resources/js/alpine.js",
-    "isEntry": true,
-    "imports": [
-      "_module.esm-CJ7ePfyg.js"
-    ]
+    "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-BKQ4WMEn.js",
+    "file": "assets/app-BOXwkH7X.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "imports": [
-      "_module.esm-CJ7ePfyg.js"
-    ]
+    "isEntry": true
   }
 }
