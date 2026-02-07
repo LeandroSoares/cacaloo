@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use App\Enums\ContentVisibility;
+
 class Event extends Model
 {
     use HasFactory;
@@ -18,6 +20,7 @@ class Event extends Model
         'location',
         'event_date',
         'event_end_date',
+        'visibility', // Adicionado
         'is_featured',
         'is_visible',
         'status',
@@ -28,6 +31,7 @@ class Event extends Model
     protected $casts = [
         'event_date' => 'datetime',
         'event_end_date' => 'datetime',
+        'visibility' => ContentVisibility::class, // Adicionado
         'is_featured' => 'boolean',
         'is_visible' => 'boolean',
         'custom_data' => 'array',

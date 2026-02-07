@@ -60,6 +60,7 @@ class HomeContentService
         $section = HomeSection::getByKey('events');
         $events = Event::visible()
             ->published()
+            ->where('visibility', \App\Enums\ContentVisibility::PUBLIC) // Apenas públicos
             ->upcoming()
             ->ordered()
             ->limit(3)

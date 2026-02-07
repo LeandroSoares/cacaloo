@@ -120,6 +120,13 @@
                         <i class="fas fa-comment-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
                         Mensagens do Dia
                     </a>
+
+                    <a href="{{ route('admin.events.index') }}"
+                       class="group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200
+                              {{ request()->routeIs('admin.events.*') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-calendar-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
+                        Agenda & Giras
+                    </a>
                 </div>
 
                 <!-- Customização -->

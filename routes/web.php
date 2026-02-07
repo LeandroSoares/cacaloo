@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeCustomizationController;
+use App\Http\Controllers\Admin\EventController;
 use \App\Http\Controllers\User\StaticPageController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
@@ -76,6 +77,9 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     Route::resource('invitations', InvitationController::class)->except(['edit', 'update']);
     Route::post('invitations/{invitation}/resend', [InvitationController::class, 'resend'])->name('invitations.resend');
     Route::patch('invitations/{invitation}/cancel', [InvitationController::class, 'cancel'])->name('invitations.cancel');
+
+    // Eventos
+    Route::resource('events', EventController::class);
 
     // Customização da Homepage
     Route::get('home-customization', [HomeCustomizationController::class, 'index'])->name('home-customization.index');

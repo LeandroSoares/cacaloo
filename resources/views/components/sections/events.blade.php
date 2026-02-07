@@ -17,44 +17,19 @@ $isVisible = $content['is_visible'] ?? true;
             :subtitle="$subtitle"
         />
 
-        <!-- Events List -->
-        <div
-            x-data="{
-                events: [
-                    {
-                        day: '25',
-                        month: 'OUT',
-                        title: 'Gira de Caboclos',
-                        time: 'Sexta-feira às 20h00',
-                        description: 'Trabalho espiritual com os Caboclos da mata, entidades de Oxóssi que trazem mensagens de força e sabedoria.',
-                        show: false
-                    },
-                    {
-                        day: '28',
-                        month: 'OUT',
-                        title: 'Gira de Pretos-Velhos',
-                        time: 'Segunda-feira às 20h00',
-                        description: 'Trabalho de caridade e aconselhamento com os sábios Pretos-Velhos, que trazem paz e conforto espiritual.',
-                        show: false
-                    },
-                    {
-                        day: '01',
-                        month: 'NOV',
-                        title: 'Gira de Exú',
-                        time: 'Sexta-feira às 20h00',
-                        description: 'Trabalho de limpeza espiritual e abertura de caminhos com os guardiões Exús.',
-                        show: false
-                    }
-                ]
-            }"
-            x-init="events.forEach((event, i) => {
-                setTimeout(() => event.show = true, i * 150);
-            })"
-            class="max-w-4xl mx-auto mt-12 space-y-6"
-        >
-            <template x-for="(event, index) in events" :key="index">
+        <div class="max-w-4xl mx-auto mt-12 space-y-6">
+            @forelse($events as $event)
+                @php
+                    // Parse da data para exibir dia e mês separados
+                    $date = \Carbon\Carbon::createFromFormat('d/m/Y H:i', $event['event_date']);
+                    $day = $date->format('d');
+                    $month = strtoupper($date->translatedFormat('M'));
+                @endphp
                 <article
-                    x-show="event.show"
+                    x-data="{ show: false }"
+                    x-init="setTimeout(() => show = true, {{ $loop->index * 150 }})"
+                    x-show="show"
+                    x-cloak
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 translate-x-8"
                     x-transition:enter-end="opacity-100 translate-x-0"
@@ -62,18 +37,27 @@ $isVisible = $content['is_visible'] ?? true;
                 >
                     <!-- Date Badge -->
                     <div class="flex-shrink-0 w-full sm:w-20 h-20 bg-oxossi text-white rounded-lg flex flex-col items-center justify-center">
-                        <span class="text-3xl font-bold leading-none" x-text="event.day"></span>
-                        <span class="text-xs font-semibold uppercase mt-1" x-text="event.month"></span>
+                        <span class="text-3xl font-bold leading-none">{{ $day }}</span>
+                        <span class="text-xs font-semibold uppercase mt-1">{{ $month }}</span>
                     </div>
 
                     <!-- Event Info -->
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2 font-sans" x-text="event.title"></h3>
-                        <p class="text-ogum font-semibold mb-3" x-text="event.time"></p>
-                        <p class="text-gray-600 leading-relaxed" x-text="event.description"></p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 font-sans">{{ $event['title'] }}</h3>
+                        <p class="text-ogum font-semibold mb-3">
+                            {{ $date->translatedFormat('l') }} às {{ $date->format('H:i') }}
+                            @if(!empty($event['location']))
+                                <span class="text-gray-500 font-normal text-sm ml-2">• {{ $event['location'] }}</span>
+                            @endif
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">{{ $event['description'] }}</p>
                     </div>
                 </article>
-            </template>
+            @empty
+                <div class="text-center py-12 bg-gray-50 rounded-lg">
+                    <p class="text-gray-500">Nenhum evento programado para os próximos dias.</p>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
