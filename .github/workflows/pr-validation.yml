@@ -1,6 +1,8 @@
 name: PR Validation
 
 on:
+  push:
+    branches: [ "feat/*", "fix/*", "chore/*" ]
   pull_request:
     branches: [ "main", "master" ]
 
