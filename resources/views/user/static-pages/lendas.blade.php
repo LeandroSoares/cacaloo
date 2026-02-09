@@ -232,67 +232,160 @@
 <!-- MODAIS -->
 <x-modal-premium id="modalFulozinha" title="Comadre Fulozinha" subtitle="Guardiã Ancestral da Mata" icon="fa-solid fa-leaf" headerGradient="linear-gradient(135deg, #059669 0%, #064e3b 100%)">
     <p>A lenda da Comadre Fulozinha é uma figura do folclore nordestino que protege a mata, descrita como uma entidade feminina com longos cabelos negros, que pode ser tanto brincalhona quanto vingativa.</p>
-    <p>As histórias mais populares contam que ela era uma índia que se perdeu na floresta e morreu, passando a proteger a natureza após um encontro com as árvores. Ela prega peças em quem desrespeita a floresta, mas ajuda aqueles que a respeitam.</p>
+    <p>As histórias mais populares contam que ela era uma índia que se perdeu na floresta e morreu, passando a proteger a natureza após um encontro com as árvores.</p>
+	<p>Ela prega peças em quem desrespeita a floresta, como lenhadores e caçadores, mas também ajuda aqueles que a respeitam, que por isso lhe deixam oferendas como fumo ou mel.</p>
+    <p><strong>Origem:</strong> Existem diferentes versões sobre sua origem, mas uma das mais comuns é a de uma menina ou índia que se perdeu na mata e morreu. A lenda diz que ela vive na floresta para proteger as árvores e os animais.</p>
     <p><strong>Aparência:</strong> É descrita como uma jovem com longos cabelos negros, adornada com folhas e ramos.</p>
-    <p><strong>Poderes:</strong> Ela é conhecida por sua agilidade e inteligência, podendo confundir quem entra na mata sem licença.</p>
+	<p><strong>Comportamento:</strong> Seu comportamento é ambíguo: ela pode ser amiga dos animais e pregar peças neles, mas também pode ser severa com humanos que desrespeitam a natureza. Para se proteger de sua fúria, as pessoas deixam oferendas de fumo, mel ou comida em troncos de árvores.</p>
+	<p><strong>Poderes:</strong> Ela é conhecida por sua agilidade e inteligência, podendo confundir quem entra na mata sem licença.</p>
+	<p><strong>Variações:</strong> Em algumas regiões, ela é conhecida como "Flor do Mato" ou "Mãe da Mata". A lenda também é cultuada em algumas religiões como a Jurema Sagrada.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalIara" title="Iara – Mãe D’Água" subtitle="A Senhora dos Rios" icon="fa-solid fa-water" headerGradient="linear-gradient(135deg, #2563EB 0%, #1e3a8a 100%)">
     <p>A lenda da Iara, também conhecida como Mãe-d'Água, conta a história de uma linda sereia do folclore brasileiro que vive nos rios, principalmente na Amazônia.</p>
-    <p>Sua origem é a de uma índia guerreira que, após fugir de seus irmãos ciumentos, foi jogada em um rio pelo próprio pai, sendo salva pelos peixes e transformada em sereia pela lua cheia.</p>
-    <p>Com seu canto e beleza hipnotizantes, ela atrai homens para o fundo d'água, onde eles desaparecem para sempre.</p>
+    <p>Sua origem é a de uma índia guerreira que, após fugir de seus irmãos ciumentos, foi jogada em um rio pelo próprio pai, sendo salva pelos peixes e transformada em sereia pela lua cheia. Com seu canto e beleza hipnotizantes, ela atrai homens para o fundo d'água, onde eles desaparecem para sempre</p>
+	<p><strong>A origem da lenda</strong></p>
+    <p><strong>Origem indígena:</strong> A versão mais conhecida da lenda descreve Iara como uma índia guerreira, filha de um pajé, que era elogiada por sua coragem e beleza.</p>
+	<p><strong>Fuga e transformação:</strong> Após matar seus irmãos para se defender, ela fugiu para a mata. Seu pai a encontrou e, como castigo, a jogou em um rio. Os peixes a salvaram, e na noite de lua cheia, ela foi transformada em uma sereia.</p>
+	<p><strong>Origem europeia:</strong> Outras interpretações sugerem que a lenda tem elementos europeus, como a sereia da mitologia grega, que foram misturados com elementos indígenas durante a colonização portuguesa.</p>
+	<p><strong>A lenda na prática</strong></p>
+    <p><strong>Atração mortal:</strong> A Iara encanta os homens com sua beleza e seu canto irresistível, atraindo-os para o fundo dos rios.</p>
+	<p><strong>Salva-vidas dos animais:</strong> Em algumas versões, a lenda é apresentada de forma mais branda, onde Iara é uma protetora dos rios e dos animais.</p>
+	<p><strong>Protetora das águas:</strong> Ela também é conhecida como Mãe-d'Água e é vista como protetora dos rios e da vida aquática.</p>
+	<p><strong>A aparência:</strong> A descrição da Iara varia. Algumas versões a retratam como uma sereia loira de olhos azuis, enquanto outras a descrevem com pele parda e olhos e cabelos escuros, como os das índias da Amazônia.</p>
+	<p><strong>Como se proteger da Iara</strong></p>
+	<p>Para se proteger do encanto da Iara, as lendas sugerem fechar os olhos e tapar os ouvidos para não ouvir seu canto.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalMula" title="Mula Sem Cabeça" subtitle="A Maldição Flamejante" icon="fa-solid fa-horse" headerGradient="linear-gradient(135deg, #EA580C 0%, #9a3412 100%)">
     <p>A lenda da Mula sem Cabeça é um mito do folclore brasileiro sobre uma mulher amaldiçoada que se transforma em uma mula flamejante sem cabeça.</p>
-    <p>A punição vem de um pecado considerado grave, geralmente um relacionamento com um padre. A criatura assusta as pessoas com seu relincho estrondoso e o fogo que substitui sua cabeça.</p>
+    <p>Essa punição ocorre, tradicionalmente, por um pecado grave, como um relacionamento com um padre.</p>
     <p>Ela galopa de forma descontrolada, marcando o fim da transformação somente quando o galo canta pela terceira vez.</p>
+	<p>A criatura assusta as pessoas com seu relincho alto, aparência de fogo no lugar da cabeça e cascos que fazem barulho, geralmente correndo pela mata nas noites de quinta para sexta-feira.</p>
+	<p><strong>Origem:</strong> A lenda é frequentemente vista como um conto moral para reforçar os valores da época. A maldição é uma punição para mulheres que se relacionavam com padres.</p>
+    <p><strong>Aparência:</strong> É uma mula de cor preta ou marrom que não tem cabeça, mas sim uma tocha de fogo em seu lugar. Seus cascos costumam ter ferraduras de aço ou prata.</p>
+	<p><strong>Comportamento:</strong> A mula galopa furiosamente, solta relinchos assustadores que se ouvem a quilômetros e às vezes emite gemidos humanos.</p>
+	<p><strong>Maldição e cura:</strong> A maldição ocorre principalmente nas noites de quinta para sexta-feira e a mulher só volta a sua forma humana quando o galo canta pela terceira vez.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalVitoriaRegia" title="Vitória-Régia" subtitle="A Estrela das Águas" icon="fa-solid fa-spa" headerGradient="linear-gradient(135deg, #9333EA 0%, #581c87 100%)">
-    <p>A lenda da vitória-régia conta a história da índia Naiá, que se apaixonou por Jaci, a Lua, e desejava se transformar em estrela para viver ao lado dele no céu.</p>
-    <p>Uma noite, ao ver o reflexo da Lua nas águas calmas de um lago, acreditou que Jaci estava ali e se lançou para alcançá-lo. Naiá se afogou, sem conseguir voltar à superfície.</p>
-    <p>Comovido pelo sacrifício da jovem, Jaci a transformou na vitória-régia, uma das mais belas plantas aquáticas, cujas flores se abrem à noite como estrelas sobre os rios.</p>
+    <p>A lenda da vitória-régia conta a história da índia Naiá, que se apaixonou por Jaci (a Lua) e desejou se transformar em estrela para viver ao lado dele no céu.</p>
+    <p>Uma noite, ao ver o reflexo da Lua na água, ela se jogou no lago, mas, em vez de alcançar a Lua, afogou-se. Comovido, Jaci a transformou na vitória-régia, a "estrela das águas", cuja flor desabrocha à noite.</p>
+    <p><strong>A índia Naiá:</strong> Era uma jovem índia que se apaixonou pela Lua, um deus na mitologia indígena.</p>
+    <p><strong>O desejo:</strong> Ela ansiava por ser transformada em estrela para poder morar com Jaci no céu.</p>
+	<p><strong>A tragédia:</strong> Em uma noite de verão, ao ver o reflexo da Lua na água, ela acreditou que o deus estava ali e mergulhou no lago. Ela não conseguiu mais sair e se afogou.</p>
+	<p><strong>A transformação:</strong> Comovido com o sacrifício de Naiá, Jaci a transformou na vitória-régia, uma planta aquática.</p>
+	<p><strong>O significado:</strong> A flor da vitória-régia é conhecida como a "estrela das águas". Ela abre à noite e desabrocha ao amanhecer, como uma homenagem a Naiá.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalBoitata" title="Boitatá" subtitle="A Cobra de Fogo" icon="fa-solid fa-fire" headerGradient="linear-gradient(135deg, #DC2626 0%, #7f1d1d 100%)">
-    <p>Boitatá é uma lenda do folclore brasileiro que significa “cobra de fogo”. A criatura é descrita como uma grande serpente flamejante que protege as florestas e os animais.</p>
-    <p>Com olhos luminosos e corpo em chamas, o Boitatá assusta caçadores e invasores que ameaçam a natureza. Em algumas versões, ele pode assumir a forma de uma chama errante que confunde aqueles que tentam destruir a mata.</p>
+    <p>Boitatá é uma lenda do folclore brasileiro, originária do tupi-guarani (que significa "cobra de fogo"), de uma grande serpente de fogo que protege as florestas e os animais.</p>
+    <p>A criatura, com olhos luminosos e corpo flamejante, assusta invasores como caçadores e lenhadores que ameaçam a natureza.</p>
+	<p>Em algumas versões, pode se transformar em uma chama errante para confundir os destruidores de matas.</p>
+	<p><strong>Origem:</strong> A lenda tem origem indígena e o nome deriva de "boi" (cobra) e "tatá" (fogo).</p>
+    <p><strong>Função:</strong> É vista como a guardiã das matas e do meio ambiente, protegendo-os contra os incêndios provocados por ações humanas.</p>
+	<p><strong>Características:</strong> É descrita como uma serpente gigantesca com olhos que brilham intensamente e um corpo coberto de fogo.</p>
+	<p><strong>Capacidades:</strong> Além de ser uma cobra de fogo, pode se transformar em uma chama para se mover rapidamente pelos campos, enganando e afugentando intrusos.</p>
+	<p><strong>Variações:</strong> Algumas lendas, como a de Padre Anchieta, se referem ao "baetatá" como uma entidade assustadora que pode matar sem motivo aparente, sendo a lenda do fogo-fátuo, que pode estar ligada à decomposição de matéria orgânica, uma possível explicação para a origem do mito.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalBoto" title="Boto Cor-de-Rosa" subtitle="O Sedutor das Águas" icon="fa-solid fa-hat-cowboy" headerGradient="linear-gradient(135deg, #DB2777 0%, #831843 100%)">
-    <p>A lenda do boto cor-de-rosa narra a história de um boto encantado capaz de assumir a forma de um homem charmoso e sedutor durante noites de lua cheia.</p>
-    <p>Ele sai do rio, vai até as festas, dança e conquista mulheres. Antes do amanhecer, ele deve retornar à forma animal nas águas profundas, sempre usando um chapéu para esconder a narina no topo da cabeça.</p>
+    <p>A lenda do boto cor-de-rosa é uma história do folclore brasileiro, principalmente da região amazônica, sobre um boto que se transforma em um homem charmoso e sedutor em noites de lua cheia.</p>
+    <p>Ele sai do rio para dançar em festas, conquista mulheres para engravidá-las, mas foge ao amanhecer, retornando ao rio e desaparecendo para sempre.</p>
+	<p><strong>Transformação:</strong> O boto se transforma em um homem bonito, elegante e sedutor, que frequentemente usa um chapéu para esconder a narina em sua cabeça, um detalhe que revela sua verdadeira natureza.</p>
+    <p><strong>Objetivo:</strong> A principal intenção do boto na forma humana é seduzir as mulheres para engravidá-las.</p>
+	<p><strong>O mistério do pai:</strong> As crianças nascidas dessas uniões acabam sendo filhas de um pai desconhecido, e a lenda é usada para justificar essas gravidezes, especialmente quando a mãe não pode ou não quer revelar a identidade do pai.</p>
+	<p><strong>O retorno ao rio:</strong> Ao amanhecer, o homem-boto volta para o rio, retorna à sua forma de animal e desaparece, deixando a mulher grávida.</p>
+	<p><strong>Consequências:</strong> Em algumas versões, o boto pode ser agressivo com os homens que tentam se aproximar de suas parceiras, ou ainda mais misterioso, pode ser protetor dos pescadores em certas histórias.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalCabocloAgua" title="Caboclo D’Água" subtitle="Guardião Sombrio dos Rios" icon="fa-solid fa-water" headerGradient="linear-gradient(135deg, #1E40AF 0%, #1e3a8a 100%)">
-    <p>Espírito das águas, conhecido por habitar as profundezas do Rio São Francisco. Ele é descrito como um ser musculoso com pele extremamente dura, quase impenetrável.</p>
-    <p>Pescadores e navegantes o temem e o respeitam, muitas vezes oferecendo fumo para acalmá-lo ou pintando estrelas nos barcos para se proteger de sua força.</p>
+    <p>A lenda do Caboclo d'Água é um conto do folclore brasileiro, especialmente popular nas margens do Rio São Francisco, sobre um espírito protetor e malévolo das águas.</p>
+    <p>Ele é descrito como um ser com pele dura, que pode virar barcos, afogar banhistas e afugentar peixes.</p>
+	<p>Como forma de se proteger, pescadores e navegantes usam estrelas pintadas no casco das embarcações ou carrancas para afastar o Caboclo d'Água e outros maus espíritos.</p>
+	<p><strong>Características do Caboclo d'Água</strong></p>
+    <p><strong>Aparência:</strong> Possui pele dura e impenetrável, podendo ser descrito como musculoso e com escamas misturadas à pele.</p>
+	<p><strong>Habitat:</strong> Vive nas profundezas dos rios, protegendo o leito, mas também pode se afastar para as margens.</p>
+	<p><strong>Poderes:</strong></p>
+	<p>Virar barcos e canoas.</p>
+	<p>Afogar pessoas.</p>
+	<p>Afugentar peixes.</p>
+	<p>Assustar pescadores e navegantes com seus ruídos.</p>
+	<p><strong>Proteção:</strong></p>
+	<p>Pintar estrelas no casco dos barcos.</p>
+	<p>Usar carrancas na proa das embarcações.</p>
+	<p>Oferecer fumo para acalmá-lo.</p>
+    <p><strong>Outras histórias:</strong></p>
+	<p>Algumas versões do mito dizem que ele guarda uma gruta cheia de ouro.</p>
+	<p>Em algumas cidades, ele se tornou um símbolo de medo para quem vive à beira d'água.</p>
+	<p><strong>Variações da lenda</strong> Em algumas versões, a lenda é apresentada de forma mais branda, onde Iara é uma protetora dos rios e dos animais.</p>
+	<p>A lenda do Caboclo d'Água varia de acordo com a região.</p>
+	<p>Ele é também conhecido por outros nomes, como Bicho-d'água, Negro-d'água, ou Moleque-d'água</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalCaipora" title="Caipora" subtitle="Guardiã Protetora das Matas" icon="fa-solid fa-paw" headerGradient="linear-gradient(135deg, #059669 0%, #064e3b 100%)">
-    <p>Caipora é um importante espírito protetor das florestas. Ela aparece montada em um queixada (porco-do-mato) e pune caçadores que não respeitam a natureza ou matam além do necessário.</p>
-    <p>Dizem que ela aceita oferendas de fumo e cachaça em troca de segurança na mata e sorte na caça sustentável.</p>
+    <p>Caipora é uma figura do folclore brasileiro, um espírito protetor das matas e animais, frequentemente descrito como um ser que protege a floresta de caçadores excessivos.</p>
+    <p>A origem do nome vem do tupi-guarani "caapora", que significa "morador do mato".</p>
+	<p>Sua aparência varia conforme a região, podendo ser uma índia de cabelos vermelhos, um anão peludo ou outra forma de guardião, e é conhecida por pregar peças ou amedrontar.</p>
+	<p><strong>Origem e Significado:</strong> A palavra vem do tupi-guarani "caapora" ("habitante do mato") e a lenda tem raízes antigas no Brasil, sendo considerada por alguns folcloristas como uma variação do Curupira.</p>
+    <p><strong>Função:</strong> Proteger a floresta e seus animais, agindo contra caçadores que matam mais do que o necessário. Em algumas versões, é também um guardião da vida selvagem em geral.</p>
+	<p><strong>Aparência:</strong> As descrições variam bastante:</p>
+	<p>Uma jovem índia com cabelos avermelhados e orelhas pontudas.</p>
+	<p>Um anão peludo com pelos verdes.</p>
+	<p>Um ser masculino, atarracado e peludo, que monta um queixada (porco-do-mato).</p>
+	<p><strong>Poderes e Comportamento:</strong> Pode se manifestar para confundir ou aterrorizar caçadores. Em algumas lendas, pode se mostrar violenta, mas também aceita oferendas como fumo e álcool, especialmente se o caçador demonstrar respeito pela natureza.</p>
+	<p><strong>Sinônimos e Variações:</strong> Dependendo da região, pode ser conhecida por outros nomes como Curupira, Pai-do-Mato, Dona-das-Folhas, e há versões femininas como Comadre Fulosinha, especialmente no Nordeste. A expressão "encaiporado" é usada para se referir a alguém que está tendo um período de azar ou infelicidade.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalCuca" title="Cuca" subtitle="Bruxa Temível do Folclore" icon="fa-solid fa-hat-wizard" headerGradient="linear-gradient(135deg, #7E22CE 0%, #4c1d95 100%)">
-    <p>A Cuca é uma bruxa com cabeça de jacaré que rapta crianças desobedientes. Ela é poderosa, faz feitiços em sua caverna e só dorme uma vez a cada sete anos.</p>
-    <p>Sua lenda é usada para ensinar disciplina aos pequenos, sendo uma das figuras mais marcantes do imaginário popular brasileiro.</p>
+    <p>A lenda da Cuca é uma figura do folclore brasileiro, popularizada por Monteiro Lobato, que representa uma bruxa assustadora com cabeça de jacaré.</p>
+    <p>Ela é conhecida por roubar crianças desobedientes que não querem dormir.</p>
+	<p>A lenda era usada antigamente para amedrontar as crianças, dizendo que a Cuca as pegaria se não obedecessem aos pais ou não fossem para a cama na hora.</p>
+	<p><strong>Origem e características da Cuca</strong></p>
+	<p><strong>Origem:</strong> A lenda tem origens ibéricas, com a figura do "Coco" ou "Coca", que aterrorizava crianças em Portugal e Espanha.</p>
+    <p><strong>Aparência:</strong> Inicialmente, a descrição da Cuca era a de uma velha bruxa corcunda, com pele rugosa e cabelos brancos. A versão mais famosa, popularizada por Monteiro Lobato, a retrata como uma bruxa velha com a face de um jacaré, unhas longas e cabelos loiros.</p>
+	<p><strong>Poderes:</strong> A Cuca é descrita como sendo muito poderosa e má, capaz de se transformar em outros animais, como a coruja e a borboleta, para se aproximar das crianças.</p>
+	<p><strong>Sono:</strong> A lenda afirma que a Cuca dorme apenas uma vez a cada sete anos, por isso, está sempre acordada e pronta para pegar as crianças que não obedecem.</p>
+	<p><strong>Caverna:</strong> Acredita-se que ela viva em uma caverna, onde prepara suas poções mágicas e feitiços durante a noite.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalCurupira" title="Curupira" subtitle="Guardião das Florestas" icon="fa-solid fa-shoe-prints" headerGradient="linear-gradient(135deg, #059669 0%, #064e3b 100%)">
-    <p>O Curupira é um menino de cabelos vermelhos e pés virados para trás. Essa característica única serve para confundir caçadores, cujas pegadas indicam a direção oposta.</p>
-    <p>Ele é o mestre das trilhas e protege a fauna e a flora com assobios e ilusões que desorientam quem entra na mata com más intenções.</p>
+    <p>Curupira é uma figura mítica do folclore brasileiro, conhecido como o protetor das florestas e dos animais.</p>
+    <p>Ele é retratado como um menino ou anão de cabelos vermelhos e dentes afiados, sendo sua característica mais marcante os pés virados para trás.</p>
+	<p>Essa particularidade serve para confundir caçadores, pois suas pegadas indicam uma direção contrária à que ele realmente segue.</p>
+	<p><strong>Função:</strong> Ele pune caçadores e desmatadores que agridem a natureza, sendo considerado o guardião da floresta e um protetor dos animais.</p>
+    <p><strong>Habilidades:</strong> O Curupira usa truques e ilusões para afastar intrusos, como imitar sons de animais, criar caminhos falsos e produzir assobios agudos para desorientar e assustar as pessoas.</p>
+	<p><strong>Origem:</strong> A lenda tem origem indígena e o nome é interpretado do tupi como "corpo de menino" ou "coberto de pústulas", dependendo da fonte. A primeira menção escrita da lenda data de 1560, por conta de uma carta do padre José de Anchieta.</p>
+	<p><strong>Características:</strong> Além dos pés virados para trás, Curupira é descrito com cabelos ruivos ou em chamas e dentes afiados. Ele pode ser seduzido ou despistado por oferendas, como iguarias, ou distrações.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalLobisomem" title="Lobisomem" subtitle="A Maldição da Lua Cheia" icon="fa-solid fa-wolf-pack-battalion" headerGradient="linear-gradient(135deg, #1F2937 0%, #111827 100%)">
-    <p>A lenda fala de um homem que se transforma em fera durante a lua cheia. No Brasil, diz-se que o sétimo filho homem de uma família carrega essa maldição.</p>
-    <p>Ele vaga entre cemitérios e encruzilhadas em noites sombrias, retornando à forma humana somente ao amanhecer ou com o canto do galo.</p>
+    <p>A lenda do lobisomem é uma história folclórica mundialmente conhecida sobre um homem que se transforma em um ser parte homem e parte lobo durante as noites de lua cheia, um fenômeno chamado licantropia.</p>
+    <p>As lendas têm variações regionais, mas uma versão popular no Brasil conta que o homem amaldiçoado é o sétimo ou oitavo filho homem de uma família.</p>
+	<p><strong>Origem da lenda</strong></p>
+    <p><strong>Mitologia grega:</strong> O termo "licantropia" tem origem na mitologia grega, com a lenda do rei Lycaon, que foi transformado em lobo por Zeus como punição.</p>
+	<p><strong>Transmissão europeia:</strong> A lenda foi trazida para o Brasil pelos colonizadores portugueses, com origens que remontam a histórias europeias.</p>
+	<p><strong>Metáfora:</strong> Alguns estudiosos sugerem que a lenda pode ter sido uma metáfora para os jovens que se tornavam guerreiros ferozes em sociedades antigas.</p>
+	<p><strong>Variações populares no Brasil</strong></p>
+    <p><strong>Maldição do sétimo ou oitavo filho:</strong> A lenda conta que se uma família tem sete filhas mulheres, o oitavo filho homem amaldiçoado se transforma em lobisomem após completar 13 anos.</p>
+	<p><strong>Transformação:</strong> O homem se esfrega no chão para se transformar em um lobo grande e peludo, com garras e presas.</p>
+	<p><strong>Ciclo:</strong> Ele precisa visitar sete cemitérios antes do amanhecer para poder voltar à forma humana.</p>
+	<p><strong>Aparência:</strong> Alguns dizem que o homem branco se transforma em lobo preto, e vice-versa.</p>
+	<p><strong>Comportamento:</strong> O lobisomem só ataca quando é ameaçado.</p>
+	<p><strong>Como se proteger</strong></p>
+    <p><strong>Oração:</strong> Reza-se três Ave-Marias para se proteger se alguém se deparar com um lobisomem no caminho.</p>
+	<p><strong>Ataque:</strong> Para quebrar a maldição, é preciso bater forte na cabeça do lobisomem sem ser percebido.</p>
+	<p><strong>Atenção:</strong> Se uma gota de sangue do lobisomem cair na pessoa, ela também se transforma em lobisomem.</p>
 </x-modal-premium>
 
 <x-modal-premium id="modalSaci" title="Saci-Pererê" subtitle="O Travesso das Matas" icon="fa-solid fa-hat-wizard" headerGradient="linear-gradient(135deg, #B91C1C 0%, #7f1d1d 100%)">
-    <p>O Saci é um menino de uma perna só, negro, que usa um gorro vermelho mágico e fuma cachimbo. Ele é famoso por suas travessuras, como trançar a crina dos cavalos e esconder objetos.</p>
-    <p>Ele se locomove dentro de redemoinhos de vento e pode ser capturado se alguém conseguir tirar seu gorro ou prendê-lo em uma garrafa.</p>
+    <p>Segundo o folclore brasileiro, o Saci-Pererê é o responsável por trançar a crina dos cavalos. No entanto, uma explicação mais científica aponta que animais como morcegos e corujas podem, acidentalmente, emaranhar a crina ao pousarem nela, o que acaba formando os nós e tranças.</p>
+    <p><strong>Lendas e folclore</strong></p>
+    <p><strong>Saci-Pererê:</strong> Na cultura popular, é atribuída a travessura do Saci fazer tranças e nós na crina dos cavalos, geralmente nas noites de lua nova.</p>
+	<p><strong>Caipora:</strong> Outra lenda que envolve as tranças na crina dos cavalos é a da Caipora.</p>
+	<p><strong>Bruxas:</strong> Em algumas histórias, até mesmo bruxas são mencionadas como sendo responsáveis pelas tranças, especialmente quando elas aparecem emaranhadas de forma quase impossível de desfazer.</p>
+	<p><strong>Explicações científicas</strong></p>
+    <p><strong>Morcegos:</strong> Morcegos, especialmente os hematófagos, podem pousar na crina do cavalo para se alimentar do sangue. Ao fazer isso, podem emaranhar os pelos.</p>
+	<p><strong>Corujas:</strong> Corujas também podem pousar na crina do cavalo para observar o pasto. Ao fazer isso, suas patinhas podem acabar emaranhando os pelos.</p>
 </x-modal-premium>
-
 @endsection
