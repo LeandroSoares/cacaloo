@@ -230,6 +230,7 @@
 </div>
 
 <!-- MODAIS -->
+
 <x-modal-premium id="modalFulozinha" title="Comadre Fulozinha" subtitle="Guardiã Ancestral da Mata" icon="fa-solid fa-leaf" headerGradient="linear-gradient(135deg, #059669 0%, #064e3b 100%)">
     <p>A lenda da Comadre Fulozinha é uma figura do folclore nordestino que protege a mata, descrita como uma entidade feminina com longos cabelos negros, que pode ser tanto brincalhona quanto vingativa.</p>
     <p>As histórias mais populares contam que ela era uma índia que se perdeu na floresta e morreu, passando a proteger a natureza após um encontro com as árvores.</p>
