@@ -9,13 +9,21 @@ use Livewire\Component;
 class HeadOrishaForm extends Component
 {
     public ?string $ancestor = null;
+
     public ?string $front = null;
+
     public ?string $frontTogether = null;
+
     public ?string $adjunct = null;
+
     public ?string $adjunctTogether = null;
+
     public ?string $leftSide = null;
+
     public ?string $leftSideTogether = null;
+
     public ?string $rightSide = null;
+
     public ?string $rightSideTogether = null;
 
     private const STRING_VALIDATION = 'nullable|string|max:255';

@@ -14,7 +14,7 @@ enum MediumType: string
      */
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::INICIANTE => 'Médium Iniciante',
             self::DESENVOLVIDO => 'Médium Desenvolvido',
             self::PAI_MAE_PEQUENO => 'Pai/Mãe Pequeno(a)',

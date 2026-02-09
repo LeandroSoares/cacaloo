@@ -35,7 +35,7 @@ class ArrayHelperTest extends TestCase
             'email' => '',
             'age' => 30,
             'address' => null,
-            'phone' => '123456789'
+            'phone' => '123456789',
         ];
 
         $result = ArrayHelper::filterEmpty($array);
@@ -43,7 +43,7 @@ class ArrayHelperTest extends TestCase
         $expected = [
             'name' => 'John',
             'age' => 30,
-            'phone' => '123456789'
+            'phone' => '123456789',
         ];
 
         $this->assertEquals($expected, $result);
@@ -59,10 +59,10 @@ class ArrayHelperTest extends TestCase
                 'name' => 'John',
                 'address' => [
                     'city' => 'New York',
-                    'country' => 'USA'
-                ]
+                    'country' => 'USA',
+                ],
             ],
-            'status' => 'active'
+            'status' => 'active',
         ];
 
         // Chave simples
@@ -89,7 +89,7 @@ class ArrayHelperTest extends TestCase
     {
         $array = [1, 2, 3, 4, 5];
 
-        $result = ArrayHelper::map($array, fn($value) => $value * 2);
+        $result = ArrayHelper::map($array, fn ($value) => $value * 2);
 
         $this->assertEquals([2, 4, 6, 8, 10], $result);
     }

@@ -26,7 +26,7 @@ class MysteryRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:mysteries,name,' . $mysteryId
+                'unique:mysteries,name,'.$mysteryId,
             ],
             'description' => 'nullable|string',
             'active' => 'boolean',

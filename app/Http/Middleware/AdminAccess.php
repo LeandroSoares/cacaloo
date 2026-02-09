@@ -14,7 +14,7 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->hasRole(['admin', 'sysadmin'])) {
+        if (! Auth::check() || ! Auth::user()->hasRole(['admin', 'sysadmin'])) {
             return redirect()->route('dashboard')->with('error', 'Acesso não autorizado à área administrativa.');
         }
 

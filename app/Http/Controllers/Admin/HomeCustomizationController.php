@@ -3,19 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Services\HomeContentService;
-use App\Models\HomeSection;
 use App\Models\HomeSectionCard;
-use Illuminate\Http\Request;
+use App\Services\HomeContentService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomeCustomizationController extends Controller
 {
     public function __construct(
         private readonly HomeContentService $homeContentService
-    ) {
-    }
+    ) {}
 
     /**
      * Exibe a tela de customização da homepage
@@ -32,7 +30,7 @@ class HomeCustomizationController extends Controller
             ->map(function ($content) {
                 return [
                     'title' => $content->title,
-                    'url' => route('public.content', $content->slug)
+                    'url' => route('public.content', $content->slug),
                 ];
             });
 
@@ -98,7 +96,7 @@ class HomeCustomizationController extends Controller
 
             // Add new cards
             foreach ($request->about_cards as $index => $cardData) {
-                if (!empty($cardData['title'])) {
+                if (! empty($cardData['title'])) {
                     HomeSectionCard::create([
                         'home_section_id' => $aboutSection->id,
                         'title' => $cardData['title'],

@@ -26,7 +26,7 @@ class OrishaRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:orishas,name,' . $orishaId
+                'unique:orishas,name,'.$orishaId,
             ],
             'type_orisha' => 'nullable|string|max:255',
             'throne' => 'nullable|string|max:255',

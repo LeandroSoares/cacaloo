@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\HomeSection;
 use App\Models\Event;
-use Illuminate\Support\Collection;
+use App\Models\HomeSection;
 use Illuminate\Support\Facades\Cache;
 
 class HomeContentService
@@ -43,7 +42,7 @@ class HomeContentService
         return [
             'title' => $section?->title ?? 'Sobre Nossa Casa',
             'subtitle' => $section?->subtitle ?? 'Conheça nossa missão e história',
-            'cards' => $cards->map(fn($card) => [
+            'cards' => $cards->map(fn ($card) => [
                 'title' => $card->title,
                 'content' => $card->content,
                 'image' => $card->image,
@@ -69,7 +68,7 @@ class HomeContentService
         return [
             'title' => $section?->title ?? 'Próximos Eventos',
             'subtitle' => $section?->subtitle ?? 'Participe de nossas atividades',
-            'events' => $events->map(fn($event) => [
+            'events' => $events->map(fn ($event) => [
                 'title' => $event->title,
                 'description' => $event->description,
                 'image' => $event->image,

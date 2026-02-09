@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 class InvitationAccessTest extends TestCase
 {
@@ -43,7 +43,7 @@ class InvitationAccessTest extends TestCase
     public function test_sysadmin_can_access_invitations_area(): void
     {
         // Verificando se a role sysadmin existe
-        if (!Role::where('name', 'sysadmin')->exists()) {
+        if (! Role::where('name', 'sysadmin')->exists()) {
             Role::create(['name' => 'sysadmin']);
         }
 

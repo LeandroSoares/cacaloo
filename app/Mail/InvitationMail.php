@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Models\Invitation;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -27,7 +26,7 @@ class InvitationMail extends Mailable
         return $this
             ->subject('Convite para participar do sistema Cacaloo')
             ->view('emails.invitation', [
-                'invitation' => $this->invitation
+                'invitation' => $this->invitation,
             ]);
     }
 }

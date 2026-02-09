@@ -6,17 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
-use Illuminate\Support\Carbon;
 
 class Invitation extends Model
 {
     use HasFactory;
+
     /**
      * Status possíveis para um convite
      */
     public const STATUS_PENDING = 'pending';
+
     public const STATUS_ACCEPTED = 'accepted';
+
     public const STATUS_EXPIRED = 'expired';
+
     public const STATUS_CANCELLED = 'cancelled';
 
     /**
@@ -113,6 +116,7 @@ class Invitation extends Model
 
         if ($this->expires_at->isPast() && $this->status !== self::STATUS_EXPIRED) {
             $this->markAsExpired();
+
             return false;
         }
 
@@ -165,7 +169,7 @@ class Invitation extends Model
         parent::boot();
 
         static::creating(function ($invitation) {
-            if (!$invitation->expires_at) {
+            if (! $invitation->expires_at) {
                 $invitation->expires_at = now()->addDays(self::DEFAULT_EXPIRATION_DAYS);
             }
         });

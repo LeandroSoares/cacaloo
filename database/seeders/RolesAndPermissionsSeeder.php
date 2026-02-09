@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\PermissionRegistrar;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -29,7 +28,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'user.delete',
         ];
 
-                // Permissões de convites
+        // Permissões de convites
         $invitePermissions = [
             'invite.view',
             'invite.create',
@@ -69,7 +68,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'role.delete',
         ];
 
-                // Permissões de atribuição de papéis
+        // Permissões de atribuição de papéis
         $roleAssignmentPermissions = [
             'role.assign.sysadmin', // Apenas sysadmin pode atribuir papel de sysadmin
             'role.assign.admin',
@@ -109,7 +108,7 @@ class RolesAndPermissionsSeeder extends Seeder
             [
                 'role.assign.admin',
                 'role.assign.manager',
-                'role.assign.user'
+                'role.assign.user',
             ]
         ));
 

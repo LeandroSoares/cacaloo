@@ -6,10 +6,6 @@ class FormatHelper
 {
     /**
      * Formata um número como moeda brasileira.
-     *
-     * @param float $value
-     * @param bool $showSymbol
-     * @return string
      */
     public static function currency(float $value, bool $showSymbol = true): string
     {
@@ -20,21 +16,14 @@ class FormatHelper
 
     /**
      * Formata um número como porcentagem.
-     *
-     * @param float $value
-     * @param int $decimals
-     * @return string
      */
     public static function percentage(float $value, int $decimals = 2): string
     {
-        return number_format($value, $decimals, ',', '.') . '%';
+        return number_format($value, $decimals, ',', '.').'%';
     }
 
     /**
      * Formata um número de telefone brasileiro.
-     *
-     * @param string $phone
-     * @return string
      */
     public static function phone(string $phone): string
     {
@@ -83,9 +72,6 @@ class FormatHelper
 
     /**
      * Formata um CPF.
-     *
-     * @param string $cpf
-     * @return string
      */
     public static function cpf(string $cpf): string
     {
@@ -106,9 +92,6 @@ class FormatHelper
 
     /**
      * Formata um CNPJ.
-     *
-     * @param string $cnpj
-     * @return string
      */
     public static function cnpj(string $cnpj): string
     {
@@ -130,17 +113,12 @@ class FormatHelper
 
     /**
      * Formata uma data para o formato brasileiro.
-     *
-     * @param string $date
-     * @param string $fromFormat
-     * @param string $toFormat
-     * @return string
      */
     public static function date(string $date, string $fromFormat = 'Y-m-d', string $toFormat = 'd/m/Y'): string
     {
         $dateTime = \DateTime::createFromFormat($fromFormat, $date);
 
-        if (!$dateTime) {
+        if (! $dateTime) {
             return $date;
         }
 

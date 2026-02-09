@@ -2,18 +2,21 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Services\CrowningService;
-
+use Livewire\Component;
 
 class CrowningForm extends Component
 {
     private const MAX_LENGTH = 255;
 
     public string $start_date = '';
+
     public string $end_date = '';
+
     public string $guide_name = '';
+
     public string $priest_name = '';
+
     public string $temple_name = '';
 
     public function mount()
@@ -33,9 +36,9 @@ class CrowningForm extends Component
         return [
             'start_date' => ['nullable', 'date'],
             'end_date' => ['nullable', 'date'],
-            'guide_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
-            'priest_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
-            'temple_name' => ['nullable', 'string', 'max:' . self::MAX_LENGTH],
+            'guide_name' => ['nullable', 'string', 'max:'.self::MAX_LENGTH],
+            'priest_name' => ['nullable', 'string', 'max:'.self::MAX_LENGTH],
+            'temple_name' => ['nullable', 'string', 'max:'.self::MAX_LENGTH],
         ];
     }
 

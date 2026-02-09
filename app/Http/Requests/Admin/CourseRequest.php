@@ -26,7 +26,7 @@ class CourseRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:courses,name,' . $courseId
+                'unique:courses,name,'.$courseId,
             ],
             'description' => 'nullable|string',
             'active' => 'boolean',

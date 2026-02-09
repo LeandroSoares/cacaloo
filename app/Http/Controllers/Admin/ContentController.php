@@ -7,7 +7,6 @@ use App\Enums\ContentVisibility;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 use Illuminate\Http\Request;
-use Illuminate\Validation\GenericRule;
 
 class ContentController extends Controller
 {
@@ -17,6 +16,7 @@ class ContentController extends Controller
     public function index()
     {
         $contents = Content::orderByDesc('created_at')->paginate(10);
+
         return view('admin.contents.index', compact('contents'));
     }
 
@@ -71,7 +71,7 @@ class ContentController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:contents,slug,' . $content->id,
+            'slug' => 'required|string|max:255|unique:contents,slug,'.$content->id,
             'body' => 'required|string',
             'type' => ['required', new \Illuminate\Validation\Rules\Enum(ContentType::class)],
             'visibility' => ['required', new \Illuminate\Validation\Rules\Enum(ContentVisibility::class)],

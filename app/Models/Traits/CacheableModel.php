@@ -51,6 +51,6 @@ trait CacheableModel
 
     private static function getCacheKey(): string
     {
-        return strtolower(class_basename(static::class)) . '.all';
+        return strtolower(class_basename(static::class)).'.all';
     }
 }

@@ -2,17 +2,22 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\User;
 use App\Models\EntityConsecration;
+use App\Models\User;
+use Livewire\Component;
 
 class EntityConsecrationForm extends Component
 {
     public User $user;
+
     public $consecrations = [];
+
     public $entity = null;
+
     public $name = null;
+
     public $date = null;
+
     public $editingId = null;
 
     protected $rules = [

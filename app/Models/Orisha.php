@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Traits\CacheableModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
-use App\Models\Traits\CacheableModel;
 
 /**
  * @property int $id

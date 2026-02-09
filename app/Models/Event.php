@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\ContentVisibility;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-
-use App\Enums\ContentVisibility;
 
 class Event extends Model
 {

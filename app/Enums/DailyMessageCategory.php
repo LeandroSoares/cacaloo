@@ -17,7 +17,7 @@ enum DailyMessageCategory: string
      */
     public function getLabel(): string
     {
-        return match($this) {
+        return match ($this) {
             self::REFLEXAO => 'Reflexão',
             self::ESPIRITUALIDADE => 'Espiritualidade',
             self::UMBANDA => 'Umbanda',
@@ -37,6 +37,7 @@ enum DailyMessageCategory: string
         foreach (self::cases() as $case) {
             $array[$case->value] = $case->getLabel();
         }
+
         return $array;
     }
 
@@ -50,6 +51,7 @@ enum DailyMessageCategory: string
                 return $case;
             }
         }
+
         return null;
     }
 }

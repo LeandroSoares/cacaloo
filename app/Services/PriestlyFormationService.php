@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\PriestlyFormation;
 use App\Http\Requests\PriestlyFormationRequest;
+use App\Models\PriestlyFormation;
 use Illuminate\Support\Facades\Auth;
 
 class PriestlyFormationService
@@ -12,12 +12,14 @@ class PriestlyFormationService
     {
         $data = $request->validated();
         $data['user_id'] = Auth::id();
+
         return PriestlyFormation::create($data);
     }
 
     public function update(PriestlyFormation $formation, PriestlyFormationRequest $request): PriestlyFormation
     {
         $formation->update($request->validated());
+
         return $formation;
     }
 

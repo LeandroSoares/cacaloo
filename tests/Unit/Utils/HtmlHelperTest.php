@@ -33,7 +33,7 @@ class HtmlHelperTest extends TestCase
             '<a href="https://example.com" class="btn" target="_blank">Example</a>',
             HtmlHelper::link('https://example.com', 'Example', [
                 'class' => 'btn',
-                'target' => '_blank'
+                'target' => '_blank',
             ])
         );
 
@@ -61,7 +61,7 @@ class HtmlHelperTest extends TestCase
             HtmlHelper::image('image.jpg', 'Image', [
                 'class' => 'thumbnail',
                 'width' => '100',
-                'height' => '100'
+                'height' => '100',
             ])
         );
 
@@ -111,43 +111,43 @@ class HtmlHelperTest extends TestCase
         $headers = ['Name', 'Age', 'Email'];
         $rows = [
             ['John', '30', 'john@example.com'],
-            ['Jane', '25', 'jane@example.com']
+            ['Jane', '25', 'jane@example.com'],
         ];
 
-        $expected = '<table>' .
-            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>' .
-            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>' .
-            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>' .
+        $expected = '<table>'.
+            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>'.
+            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>'.
+            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>'.
             '</table>';
 
         $this->assertEquals($expected, HtmlHelper::table($headers, $rows));
 
         // Tabela com atributos
-        $expected = '<table class="data-table" border="1">' .
-            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>' .
-            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>' .
-            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>' .
+        $expected = '<table class="data-table" border="1">'.
+            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>'.
+            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>'.
+            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>'.
             '</table>';
 
         $this->assertEquals(
             $expected,
             HtmlHelper::table($headers, $rows, [
                 'class' => 'data-table',
-                'border' => '1'
+                'border' => '1',
             ])
         );
 
         // Tabela sem cabeçalho
-        $expected = '<table>' .
-            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>' .
-            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>' .
+        $expected = '<table>'.
+            '<tbody><tr><td>John</td><td>30</td><td>john@example.com</td></tr>'.
+            '<tr><td>Jane</td><td>25</td><td>jane@example.com</td></tr></tbody>'.
             '</table>';
 
         $this->assertEquals($expected, HtmlHelper::table([], $rows));
 
         // Tabela sem linhas
-        $expected = '<table>' .
-            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>' .
+        $expected = '<table>'.
+            '<thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>'.
             '</table>';
 
         $this->assertEquals($expected, HtmlHelper::table($headers, []));

@@ -2,12 +2,11 @@
 
 namespace Tests\Feature\Livewire;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\LastTemple;
-use Livewire\Livewire;
 use App\Livewire\LastTempleForm;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class LastTempleFormTest extends TestCase
 {

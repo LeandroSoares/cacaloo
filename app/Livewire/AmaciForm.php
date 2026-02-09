@@ -2,17 +2,22 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\User;
 use App\Models\Amaci;
+use App\Models\User;
+use Livewire\Component;
 
 class AmaciForm extends Component
 {
     public User $user;
+
     public $amacis = [];
+
     public $type = null;
+
     public $observations = null;
+
     public $date = null;
+
     public $editingId = null;
 
     protected $rules = [

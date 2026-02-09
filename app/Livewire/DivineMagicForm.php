@@ -4,14 +4,16 @@ namespace App\Livewire;
 
 use App\Models\DivineMagic;
 use App\Models\MagicType;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class DivineMagicForm extends Component
 {
     public $user;
+
     public $divineMagics = [];
+
     public $availableMagicTypes = [];
+
     public $newMagic = [
         'magic_type_id' => '',
         'date' => '',
@@ -19,7 +21,9 @@ class DivineMagicForm extends Component
         'priest_name' => '',
         'observations' => '',
     ];
+
     public $editingMagic = null;
+
     public $isEditing = false;
 
     protected $rules = [

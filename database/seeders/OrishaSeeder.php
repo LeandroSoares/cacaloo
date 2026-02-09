@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Orisha;
+use Illuminate\Database\Seeder;
 
 class OrishaSeeder extends Seeder
 {
@@ -906,9 +906,9 @@ Coroa Divina, pois é um dos Tronos de Olorum, o Divino Criador. Atotô, meu pai
         }
 
         $this->command->info('Orixás criados com sucesso!');
-        $this->command->info('Total de Orixás: ' . count($orishas));
-        $this->command->info('Linha da Direita: ' . collect($orishas)->where('is_right', true)->where('is_left', false)->count());
-        $this->command->info('Linha da Esquerda: ' . collect($orishas)->where('is_left', true)->where('is_right', false)->count());
-        $this->command->info('Ambas as linhas: ' . collect($orishas)->where('is_right', true)->where('is_left', true)->count());
+        $this->command->info('Total de Orixás: '.count($orishas));
+        $this->command->info('Linha da Direita: '.collect($orishas)->where('is_right', true)->where('is_left', false)->count());
+        $this->command->info('Linha da Esquerda: '.collect($orishas)->where('is_left', true)->where('is_right', false)->count());
+        $this->command->info('Ambas as linhas: '.collect($orishas)->where('is_right', true)->where('is_left', true)->count());
     }
 }

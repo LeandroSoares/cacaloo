@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\HomeSection;
 use App\Models\HomeSectionCard;
+use Illuminate\Database\Seeder;
 
 class HomeSectionsSeeder extends Seeder
 {
@@ -89,10 +88,10 @@ class HomeSectionsSeeder extends Seeder
             [
                 'title' => 'Giras e Eventos',
                 'subtitle' => 'Confira nossa programação e participe conosco das giras e celebrações espirituais',
-                'content' => "Horários de funcionamento:\n" .
-                    "• Sextas-feiras: " . ($centroConfig['horarios']['sexta'] ?? '20h00 às 22h00') . "\n" .
-                    "• Giras especiais conforme calendário espiritual\n" .
-                    "• Consulte nossa programação mensal",
+                'content' => "Horários de funcionamento:\n".
+                    '• Sextas-feiras: '.($centroConfig['horarios']['sexta'] ?? '20h00 às 22h00')."\n".
+                    "• Giras especiais conforme calendário espiritual\n".
+                    '• Consulte nossa programação mensal',
                 'is_visible' => true,
                 'sort_order' => 3,
             ]
@@ -105,7 +104,7 @@ class HomeSectionsSeeder extends Seeder
         $contato = $centroConfig['contato'] ?? [];
         $redes = $centroConfig['redes_sociais'] ?? $centroConfig['redes'] ?? [];
 
-        $contactContent = "";
+        $contactContent = '';
 
         HomeSection::updateOrCreate(
             ['section_key' => 'contact'],

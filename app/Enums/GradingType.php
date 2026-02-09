@@ -13,7 +13,7 @@ enum GradingType: string
 
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::MEDIUM_DESENVOLVIMENTO => 'Médium em Desenvolvimento',
             self::MEDIUM_TRABALHO => 'Médium de Trabalho',
             self::MEDIUM_CURA => 'Médium de Cura',

@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class LastTemple extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'name',

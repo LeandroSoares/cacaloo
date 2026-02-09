@@ -14,7 +14,7 @@ class SysAdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->hasRole('sysadmin')) {
+        if (! Auth::check() || ! Auth::user()->hasRole('sysadmin')) {
             return redirect()->route('admin.dashboard')->with('error', 'Acesso não autorizado à área de sistema.');
         }
 

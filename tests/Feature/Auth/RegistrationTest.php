@@ -20,7 +20,7 @@ class RegistrationTest extends TestCase
             'invited_by' => $admin->id,
         ]);
 
-        $response = $this->get('/register?token=' . $invitation->token);
+        $response = $this->get('/register?token='.$invitation->token);
 
         $response->assertStatus(200);
     }

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use App\Models\User;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -17,6 +16,7 @@ class RoleController extends Controller
     public function index(): View
     {
         $roles = Role::with('permissions')->get();
+
         return view('sysadmin.roles.index', compact('roles'));
     }
 
@@ -26,6 +26,7 @@ class RoleController extends Controller
     public function create(): View
     {
         $permissions = Permission::all();
+
         return view('sysadmin.roles.create', compact('permissions'));
     }
 
@@ -52,6 +53,7 @@ class RoleController extends Controller
     public function edit(Role $role): View
     {
         $permissions = Permission::all();
+
         return view('sysadmin.roles.edit', compact('role', 'permissions'));
     }
 
@@ -61,7 +63,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|unique:roles,name,' . $role->id,
+            'name' => 'required|unique:roles,name,'.$role->id,
             'permissions' => 'required|array',
         ]);
 

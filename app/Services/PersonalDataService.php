@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\PersonalData;
 use App\Http\Requests\PersonalDataRequest;
+use App\Models\PersonalData;
 use Illuminate\Support\Facades\Auth;
 
 class PersonalDataService
@@ -12,12 +12,14 @@ class PersonalDataService
     {
         $data = $request->validated();
         $data['user_id'] = Auth::id();
+
         return PersonalData::create($data);
     }
 
     public function update(PersonalData $personalData, PersonalDataRequest $request): PersonalData
     {
         $personalData->update($request->validated());
+
         return $personalData;
     }
 

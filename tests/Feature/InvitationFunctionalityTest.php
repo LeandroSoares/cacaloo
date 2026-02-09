@@ -2,23 +2,21 @@
 
 namespace Tests\Feature;
 
+use App\Mail\InvitationMail;
 use App\Models\Invitation;
 use App\Models\User;
 use App\Services\InvitationService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
-use Tests\TestCase;
 use Spatie\Permission\Models\Role;
-use App\Mail\InvitationMail;
+use Tests\TestCase;
 
 class InvitationFunctionalityTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var \App\Models\User */
     private User $admin;
 
-    /** @var \App\Services\InvitationService */
     private InvitationService $invitationService;
 
     protected function setUp(): void
@@ -51,7 +49,7 @@ class InvitationFunctionalityTest extends TestCase
         $invitationData = [
             'name' => 'João da Silva',
             'email' => 'novo.usuario@example.com',
-            'expires_days' => 7
+            'expires_days' => 7,
         ];
 
         $response = $this->post(route('admin.invitations.store'), $invitationData);
@@ -61,7 +59,7 @@ class InvitationFunctionalityTest extends TestCase
             'name' => 'João da Silva',
             'email' => 'novo.usuario@example.com',
             'invited_by' => $this->admin->id,
-            'status' => Invitation::STATUS_PENDING
+            'status' => Invitation::STATUS_PENDING,
         ]);
 
         Mail::assertSent(InvitationMail::class, function ($mail) use ($invitationData) {
@@ -79,7 +77,7 @@ class InvitationFunctionalityTest extends TestCase
         $this->actingAs($this->admin);
 
         $invitationData = [
-            'expires_days' => 7
+            'expires_days' => 7,
         ];
 
         $response = $this->post(route('admin.invitations.store'), $invitationData);
@@ -89,7 +87,7 @@ class InvitationFunctionalityTest extends TestCase
             'email' => null,
             'whatsapp' => null,
             'invited_by' => $this->admin->id,
-            'status' => Invitation::STATUS_PENDING
+            'status' => Invitation::STATUS_PENDING,
         ]);
 
         // Não deve enviar email para convite anônimo

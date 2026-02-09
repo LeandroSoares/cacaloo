@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\PermissionRegistrar;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 class SysAdminSeed extends Seeder
@@ -22,7 +19,7 @@ class SysAdminSeed extends Seeder
                 'email' => 'admin@cacaloo.com.br',
                 'password' => Hash::make(env('SYSADMIN_PASSWORD', 'cacaloo@admin123')),
                 'is_active' => true,
-            ]
+            ],
         ];
         // Criar um usuário Sysadmin inicial
         foreach ($sysadminList as $sysadmin) {
@@ -34,16 +31,16 @@ class SysAdminSeed extends Seeder
                     'is_active' => $sysadmin['is_active'],
                 ]
             );
-            if (!$sysadmin->hasRole('sysadmin')) {
+            if (! $sysadmin->hasRole('sysadmin')) {
                 $sysadmin->assignRole('sysadmin');
             }
-            if (!$sysadmin->hasRole('admin')) {
+            if (! $sysadmin->hasRole('admin')) {
                 $sysadmin->assignRole('admin');
             }
-            if (!$sysadmin->hasRole('manager')) {
+            if (! $sysadmin->hasRole('manager')) {
                 $sysadmin->assignRole('manager');
             }
-            if (!$sysadmin->hasRole('user')) {
+            if (! $sysadmin->hasRole('user')) {
                 $sysadmin->assignRole('user');
             }
         }

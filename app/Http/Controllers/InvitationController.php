@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\InvitationRequest;
 use App\Models\Invitation;
 use App\Services\InvitationService;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 
 class InvitationController extends Controller
 {
@@ -31,6 +30,7 @@ class InvitationController extends Controller
     public function index(): View
     {
         $invitations = Invitation::with('inviter')->latest()->get();
+
         return view('admin.invitations.index', compact('invitations'));
     }
 
@@ -48,6 +48,7 @@ class InvitationController extends Controller
     public function show(Invitation $invitation): View
     {
         $invitation->load('inviter', 'acceptedBy');
+
         return view('admin.invitations.show', compact('invitation'));
     }
 
@@ -71,20 +72,20 @@ class InvitationController extends Controller
             // Mensagem dinâmica baseada no tipo de convite
             $message = 'Convite criado com sucesso';
             if ($invitation->name) {
-                $message .= ' para ' . $invitation->name;
+                $message .= ' para '.$invitation->name;
             } elseif ($invitation->email) {
-                $message .= ' e enviado para ' . $invitation->email;
+                $message .= ' e enviado para '.$invitation->email;
             } elseif ($invitation->whatsapp) {
-                $message .= ' para ' . $invitation->whatsapp;
+                $message .= ' para '.$invitation->whatsapp;
             } else {
                 $message = 'Convite anônimo criado com sucesso';
             }
 
             return redirect()->route('admin.invitations.index')
-                ->with('success', $message . '.');
+                ->with('success', $message.'.');
         } catch (\Exception $e) {
             return redirect()->route('admin.invitations.index')
-                ->with('error', 'Erro ao criar convite: ' . $e->getMessage());
+                ->with('error', 'Erro ao criar convite: '.$e->getMessage());
         }
     }
 
@@ -108,13 +109,13 @@ class InvitationController extends Controller
             $this->invitationService->resend($invitation);
 
             return redirect()->route('admin.invitations.index')
-                ->with('success', 'Convite reenviado com sucesso para ' . $invitation->email);
+                ->with('success', 'Convite reenviado com sucesso para '.$invitation->email);
         } catch (\InvalidArgumentException $e) {
             return redirect()->route('admin.invitations.index')
                 ->with('error', $e->getMessage());
         } catch (\Exception $e) {
             return redirect()->route('admin.invitations.index')
-                ->with('error', 'Erro ao reenviar convite: ' . $e->getMessage());
+                ->with('error', 'Erro ao reenviar convite: '.$e->getMessage());
         }
     }
 
@@ -133,7 +134,7 @@ class InvitationController extends Controller
                 ->with('error', $e->getMessage());
         } catch (\Exception $e) {
             return redirect()->route('admin.invitations.index')
-                ->with('error', 'Erro ao cancelar convite: ' . $e->getMessage());
+                ->with('error', 'Erro ao cancelar convite: '.$e->getMessage());
         }
     }
 }

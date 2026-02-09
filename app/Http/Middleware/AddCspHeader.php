@@ -17,7 +17,7 @@ class AddCspHeader
     {
         // Use native headers to ensure they are sent
         header("Content-Security-Policy: default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';");
-        header("X-CSP-Debug: true");
+        header('X-CSP-Debug: true');
 
         return $next($request);
     }

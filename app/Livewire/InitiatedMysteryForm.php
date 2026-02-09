@@ -4,20 +4,24 @@ namespace App\Livewire;
 
 use App\Models\InitiatedMystery;
 use App\Models\Mystery;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class InitiatedMysteryForm extends Component
 {
     public $user;
+
     public $initiatedMysteries = [];
+
     public $availableMysteries = [];
+
     public $newMystery = [
         'mystery_id' => '',
         'date' => '',
         'observations' => '',
     ];
+
     public $editingMystery = null;
+
     public $isEditing = false;
 
     protected $rules = [

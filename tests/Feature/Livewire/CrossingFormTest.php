@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Livewire;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\Crossing;
-use Livewire\Livewire;
 use App\Livewire\CrossingForm;
+use App\Models\Crossing;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class CrossingFormTest extends TestCase
 {

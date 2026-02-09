@@ -15,27 +15,30 @@ class ContentSeeder extends Seeder
     {
         $basePath = base_path('docs/conteudos');
 
-        if (!File::exists($basePath)) {
+        if (! File::exists($basePath)) {
             $this->command->warn("Diretório $basePath não encontrado. Pulando seed de conteúdos.");
+
             return;
         }
 
         // 1. Institucionais (Raiz)
         $files = File::files($basePath);
         foreach ($files as $file) {
-            if ($file->getExtension() !== 'txt')
+            if ($file->getExtension() !== 'txt') {
                 continue;
+            }
 
             $this->createContent($file, ContentType::INSTITUCIONAL);
         }
 
         // 2. Trabalhos Espirituais (Subpasta)
-        $trabalhosPath = $basePath . '/trabalhos';
+        $trabalhosPath = $basePath.'/trabalhos';
         if (File::exists($trabalhosPath)) {
             $files = File::files($trabalhosPath);
             foreach ($files as $file) {
-                if ($file->getExtension() !== 'txt')
+                if ($file->getExtension() !== 'txt') {
                     continue;
+                }
 
                 $this->createContent($file, ContentType::TRABALHO, ContentVisibility::PRIVATE);
             }
@@ -77,6 +80,7 @@ class ContentSeeder extends Seeder
 
         // Converte parágrafos de texto puro para HTML
         $paragraphs = explode("\n\n", $text);
-        return implode('', array_map(fn($p) => "<p>" . nl2br(trim($p)) . "</p>", $paragraphs));
+
+        return implode('', array_map(fn ($p) => '<p>'.nl2br(trim($p)).'</p>', $paragraphs));
     }
 }

@@ -6,9 +6,6 @@ class HtmlHelper
 {
     /**
      * Converte caracteres especiais em entidades HTML.
-     *
-     * @param string $string
-     * @return string
      */
     public static function escape(string $string): string
     {
@@ -17,11 +14,6 @@ class HtmlHelper
 
     /**
      * Cria um link HTML.
-     *
-     * @param string $url
-     * @param string $text
-     * @param array $attributes
-     * @return string
      */
     public static function link(string $url, string $text, array $attributes = []): string
     {
@@ -43,11 +35,6 @@ class HtmlHelper
 
     /**
      * Cria uma imagem HTML.
-     *
-     * @param string $src
-     * @param string $alt
-     * @param array $attributes
-     * @return string
      */
     public static function image(string $src, string $alt = '', array $attributes = []): string
     {
@@ -62,18 +49,13 @@ class HtmlHelper
             $html .= " {$escapedName}=\"{$escapedValue}\"";
         }
 
-        $html .= ">";
+        $html .= '>';
 
         return $html;
     }
 
     /**
      * Cria uma lista HTML.
-     *
-     * @param array $items
-     * @param string $type
-     * @param array $attributes
-     * @return string
      */
     public static function list(array $items, string $type = 'ul', array $attributes = []): string
     {
@@ -87,7 +69,7 @@ class HtmlHelper
             $html .= " {$escapedName}=\"{$escapedValue}\"";
         }
 
-        $html .= ">";
+        $html .= '>';
 
         foreach ($items as $item) {
             $escapedItem = self::escape($item);
@@ -101,15 +83,10 @@ class HtmlHelper
 
     /**
      * Cria uma tabela HTML.
-     *
-     * @param array $headers
-     * @param array $rows
-     * @param array $attributes
-     * @return string
      */
     public static function table(array $headers, array $rows, array $attributes = []): string
     {
-        $html = "<table";
+        $html = '<table';
 
         foreach ($attributes as $name => $value) {
             $escapedName = self::escape($name);
@@ -117,39 +94,39 @@ class HtmlHelper
             $html .= " {$escapedName}=\"{$escapedValue}\"";
         }
 
-        $html .= ">";
+        $html .= '>';
 
         // Cabeçalho
-        if (!empty($headers)) {
-            $html .= "<thead><tr>";
+        if (! empty($headers)) {
+            $html .= '<thead><tr>';
 
             foreach ($headers as $header) {
                 $escapedHeader = self::escape($header);
                 $html .= "<th>{$escapedHeader}</th>";
             }
 
-            $html .= "</tr></thead>";
+            $html .= '</tr></thead>';
         }
 
         // Linhas
-        if (!empty($rows)) {
-            $html .= "<tbody>";
+        if (! empty($rows)) {
+            $html .= '<tbody>';
 
             foreach ($rows as $row) {
-                $html .= "<tr>";
+                $html .= '<tr>';
 
                 foreach ($row as $cell) {
                     $escapedCell = self::escape($cell);
                     $html .= "<td>{$escapedCell}</td>";
                 }
 
-                $html .= "</tr>";
+                $html .= '</tr>';
             }
 
-            $html .= "</tbody>";
+            $html .= '</tbody>';
         }
 
-        $html .= "</table>";
+        $html .= '</table>';
 
         return $html;
     }

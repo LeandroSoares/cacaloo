@@ -6,9 +6,6 @@ class PasswordHelper
 {
     /**
      * Gera um hash seguro para uma senha.
-     *
-     * @param string $password
-     * @return string
      */
     public static function hash(string $password): string
     {
@@ -17,10 +14,6 @@ class PasswordHelper
 
     /**
      * Verifica se uma senha corresponde a um hash.
-     *
-     * @param string $password
-     * @param string $hash
-     * @return bool
      */
     public static function verify(string $password, string $hash): bool
     {
@@ -29,9 +22,6 @@ class PasswordHelper
 
     /**
      * Verifica se um hash precisa ser atualizado.
-     *
-     * @param string $hash
-     * @return bool
      */
     public static function needsRehash(string $hash): bool
     {
@@ -40,10 +30,6 @@ class PasswordHelper
 
     /**
      * Gera uma senha aleatória.
-     *
-     * @param int $length
-     * @param bool $includeSpecialChars
-     * @return string
      */
     public static function generate(int $length = 12, bool $includeSpecialChars = true): string
     {
@@ -65,9 +51,6 @@ class PasswordHelper
 
     /**
      * Avalia a força de uma senha.
-     *
-     * @param string $password
-     * @return int
      */
     public static function strength(string $password): int
     {
@@ -109,10 +92,6 @@ class PasswordHelper
 
     /**
      * Verifica se uma senha é segura.
-     *
-     * @param string $password
-     * @param int $minStrength
-     * @return bool
      */
     public static function isSecure(string $password, int $minStrength = 4): bool
     {
