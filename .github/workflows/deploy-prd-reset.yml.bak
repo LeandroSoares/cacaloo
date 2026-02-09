@@ -1,4 +1,4 @@
-name: Deploy to VPS Production (Inline SSH)
+name: Deploy to VPS Production - RESET
 
 on:
   workflow_dispatch:
