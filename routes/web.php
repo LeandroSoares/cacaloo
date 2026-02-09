@@ -18,28 +18,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Rotas de desenvolvimento (apenas local)
 if (app()->environment('local')) {
     // Rota de teste para envio de email
-    Route::get('/test-email', function () {
-        Mail::to('test@example.com')->send(new TestEmail());
-        return 'Email enviado com sucesso! Verifique o MailHog em: <a href="http://localhost:8025" target="_blank">http://localhost:8025</a>';
-    });
+    Route::get('/test-email', [\App\Http\Controllers\DebugController::class, 'testEmail']);
 
     // Rota de debug para verificar papéis e permissões
-    Route::get('/check-roles-permissions', function () {
-        $roles = \Spatie\Permission\Models\Role::all();
-        $permissions = \Spatie\Permission\Models\Permission::all();
-
-        $roleData = $roles->map(function ($role) {
-            return [
-                'name' => $role->name,
-                'permissions' => $role->permissions->pluck('name'),
-            ];
-        });
-
-        return [
-            'roles' => $roleData,
-            'permissions' => $permissions->pluck('name'),
-        ];
-    });
+    Route::get('/check-roles-permissions', [\App\Http\Controllers\DebugController::class, 'checkRolesPermissions']);
 }
 
 // Área do Usuário (comum)
@@ -66,9 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Rotas Administrativas
 Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Admin
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
     // Gerenciamento de Usuários
     Route::resource('users', UserController::class);
@@ -106,24 +86,13 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
 // Rotas SysAdmin - Super Administrador
 Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix('sysadmin')->name('sysadmin.')->group(function () {
     // Dashboard SysAdmin
-    Route::get('/dashboard', function () {
-        return view('sysadmin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\SysAdmin\DashboardController::class, 'index'])->name('dashboard');
 
     // Gerenciamento de Permissões
     Route::resource('permissions', PermissionController::class);
 
     // Logs do Sistema
-    Route::get('/system/logs', function () {
-        if (request()->has('download')) {
-            $logPath = storage_path('logs/laravel.log');
-            if (file_exists($logPath)) {
-                return response()->download($logPath, 'laravel-log-' . date('Y-m-d') . '.log');
-            }
-            return back()->with('error', 'Arquivo de log não encontrado.');
-        }
-        return view('sysadmin.system.logs');
-    })->name('system.logs');
+    Route::get('/system/logs', [\App\Http\Controllers\SysAdmin\DashboardController::class, 'logs'])->name('system.logs');
 
     // Gerenciamento de Papéis e Permissões
     Route::resource('roles', RoleController::class);

@@ -32,16 +32,14 @@
             <livewire:entity-consecration-form :user="auth()->user()" />
             <br>
             <livewire:amaci-form :user="auth()->user()" />
-            <!-- 
-                <br>
-                <livewire:religious-course-form :user="auth()->user()" />
-                <br>
-                <livewire:initiated-mystery-form :user="auth()->user()" />
-                <br>
-                <livewire:initiated-orisha-form :user="auth()->user()" />
-                <br>
-                <livewire:divine-magic-form :user="auth()->user()" />
-            -->
+            <br>
+            <livewire:religious-course-form :user="auth()->user()" />
+            <br>
+            <livewire:initiated-mystery-form :user="auth()->user()" />
+            <br>
+            <livewire:initiated-orisha-form :user="auth()->user()" />
+            <br>
+            <livewire:divine-magic-form :user="auth()->user()" />
             <br>
             <livewire:last-temple-form :user="auth()->user()" />
         </div>
