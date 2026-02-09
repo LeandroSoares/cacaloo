@@ -11,11 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property bool $active
  * @property string|null $description
  */
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Traits\CacheableModel;
 
 class Course extends Model
 {
-    use CacheableModel;
+    use HasFactory, CacheableModel;
 
     protected $fillable = [
         'name',

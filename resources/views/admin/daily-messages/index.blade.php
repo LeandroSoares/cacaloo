@@ -126,7 +126,7 @@
                                                 </a>
                                             </div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">
-                                                {{ Str::limit($message->content, 80) }}
+                                                {{ Str::limit($message->message, 80) }}
                                             </div>
                                         </div>
                                     </td>
@@ -242,7 +242,7 @@
                                     </a>
                                 </h3>
                                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                                    {{ Str::limit($message->content, 100) }}
+                                    {{ Str::limit($message->message, 100) }}
                                 </p>
                             </div>
                             <div class="flex items-center ml-4">

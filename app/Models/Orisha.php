@@ -21,10 +21,10 @@ class Orisha extends Model
 
     protected $fillable = [
         'name',
-        'description',
-        'text',
         'type_orisha',
         'throne',
+        'description',
+        'text',
         'oferings',
         'is_right',
         'is_left',

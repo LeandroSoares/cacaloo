@@ -409,7 +409,6 @@
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Curso</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instituição</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Período</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Certificado</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -418,19 +417,11 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $course->course->name ?? 'Não informado' }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $course->institution ?? 'Não informado' }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        {{ $course->start_date ? $course->start_date->format('d/m/Y') : 'Não informado' }}
-                                        @if($course->end_date)
-                                            até {{ $course->end_date->format('d/m/Y') }}
-                                        @else
+                                        {{ $course->date ? $course->date->format('d/m/Y') : 'Não informado' }}
+                                        @if(!$course->finished)
                                             (em andamento)
                                         @endif
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        @if($course->certificate)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Sim</span>
-                                        @else
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Não</span>
-                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

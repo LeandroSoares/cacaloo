@@ -1,9 +1,13 @@
 name: Deploy to VPS Production (Inline SSH)
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      reset:
+        description: 'Reset database'
+        required: true
+        default: 'false'
+        type: boolean
 
 jobs:
   deploy:
@@ -38,7 +42,13 @@ jobs:
                 curl -sS https://getcomposer.org/installer | php
             fi
             php composer.phar install --no-dev --optimize-autoloader --no-interaction
-            php artisan migrate --force
+
+            if [ "${{ inputs.reset }}" = "true" ]; then
+                php artisan migrate:fresh --seed --force
+            else
+                php artisan migrate --force
+            fi
+
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache

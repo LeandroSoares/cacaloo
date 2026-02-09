@@ -205,7 +205,7 @@
                         <!-- Right side actions -->
                         <div class="flex items-center space-x-4">
                             <span class="text-sm text-gray-500">
-                                Painel Administrativo
+                                Painel Administrativo <span class="text-xs text-gray-400 ml-1">v{{ config('app.version') }}</span>
                             </span>
                             @if(Auth::user()->hasRole('sysadmin'))
                                 <a href="{{ route('sysadmin.dashboard') }}"

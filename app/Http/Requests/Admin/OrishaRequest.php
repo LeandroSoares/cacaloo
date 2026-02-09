@@ -28,7 +28,11 @@ class OrishaRequest extends FormRequest
                 'max:255',
                 'unique:orishas,name,' . $orishaId
             ],
+            'type_orisha' => 'nullable|string|max:255',
+            'throne' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'text' => 'nullable|string',
+            'oferings' => 'nullable|string',
             'is_right' => 'boolean',
             'is_left' => 'boolean',
             'active' => 'boolean',

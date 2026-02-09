@@ -17,7 +17,13 @@ class ReligiousCourseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => \App\Models\User::factory(),
+            'course_id' => \App\Models\Course::factory(),
+            'date' => $this->faker->date(),
+            'finished' => $this->faker->boolean,
+            'has_initiation' => $this->faker->boolean,
+            'initiation_date' => $this->faker->date(),
+            'observations' => $this->faker->sentence,
         ];
     }
 }
