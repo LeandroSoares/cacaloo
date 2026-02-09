@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ReligiousCourse extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'course_id',

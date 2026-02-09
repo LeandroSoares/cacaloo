@@ -21,8 +21,8 @@ class DailyMessageController extends Controller
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('message', 'like', "%{$search}%")
-                  ->orWhere('author', 'like', "%{$search}%");
+                    ->orWhere('message', 'like', "%{$search}%")
+                    ->orWhere('author', 'like', "%{$search}%");
             });
         }
 
@@ -103,7 +103,7 @@ class DailyMessageController extends Controller
     public function toggleActive(DailyMessage $dailyMessage)
     {
         $dailyMessage->update([
-            'active' => !$dailyMessage->active
+            'active' => ! $dailyMessage->active,
         ]);
 
         $status = $dailyMessage->active ? 'ativada' : 'desativada';
@@ -116,7 +116,7 @@ class DailyMessageController extends Controller
      */
     public function clearCache()
     {
-        $cacheKey = 'daily_message_' . now()->toDateString();
+        $cacheKey = 'daily_message_'.now()->toDateString();
         cache()->forget($cacheKey);
 
         return back()->with('success', 'Cache da mensagem do dia limpo com sucesso!');

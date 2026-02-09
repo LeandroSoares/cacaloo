@@ -23,14 +23,14 @@ class RegisteredUserController extends Controller
         // Verifica se existe um token válido
         $token = $request->query('token');
 
-        if (!$token) {
+        if (! $token) {
             return redirect()->route('login')
                 ->with('error', 'Você precisa de um convite válido para se registrar.');
         }
 
         $invitation = Invitation::where('token', $token)->first();
 
-        if (!$invitation || !$invitation->isValid()) {
+        if (! $invitation || ! $invitation->isValid()) {
             return redirect()->route('login')
                 ->with('error', 'O convite é inválido ou expirou.');
         }
@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
         // Passa o token e o email para a view
         return view('auth.register', [
             'token' => $token,
-            'email' => $invitation->email
+            'email' => $invitation->email,
         ]);
     }
 
@@ -51,7 +51,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'token' => ['required', 'string'],
         ]);
@@ -61,7 +61,7 @@ class RegisteredUserController extends Controller
             ->where('email', $request->email)
             ->first();
 
-        if (!$invitation || !$invitation->isValid()) {
+        if (! $invitation || ! $invitation->isValid()) {
             return back()->withErrors([
                 'token' => 'O convite é inválido ou expirou.',
             ])->withInput();

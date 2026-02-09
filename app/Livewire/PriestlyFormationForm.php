@@ -2,17 +2,18 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-
-
 use App\Models\PriestlyFormation;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class PriestlyFormationForm extends Component
 {
     public $theology_start;
+
     public $theology_end;
+
     public $priesthood_start;
+
     public $priesthood_end;
 
     public function mount()

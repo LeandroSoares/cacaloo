@@ -2,25 +2,34 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-
-
 use App\Models\ReligiousInfo;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class ReligiousInfoForm extends Component
 {
     public $start_date;
+
     public $start_location;
+
     public $charity_house_start;
+
     public $charity_house_end;
+
     public $charity_house_observations;
+
     public $development_start;
+
     public $development_end;
+
     public $service_start;
+
     public $umbanda_baptism;
+
     public $cambone_experience = false; // Inicializar com false por padrão
+
     public $cambone_start_date;
+
     public $cambone_end_date;
 
     public function mount()
@@ -48,7 +57,7 @@ class ReligiousInfoForm extends Component
     public function updatedCamboneExperience($value)
     {
         // Se desmarcar o checkbox, limpar as datas relacionadas
-        if (!$value) {
+        if (! $value) {
             $this->cambone_start_date = null;
             $this->cambone_end_date = null;
         }

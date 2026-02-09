@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class InitiatedMystery extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'mystery_id',

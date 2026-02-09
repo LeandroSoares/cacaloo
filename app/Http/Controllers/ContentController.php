@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Enums\ContentVisibility;
 use App\Models\Content;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
@@ -29,7 +28,7 @@ class ContentController extends Controller
      */
     public function showPrivate(string $slug)
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             return redirect()->route('login');
         }
 
@@ -48,7 +47,7 @@ class ContentController extends Controller
      */
     public function portalIndex()
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             return redirect()->route('login');
         }
 

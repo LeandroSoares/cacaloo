@@ -26,7 +26,7 @@ class RoleServiceProviderTest extends TestCase
 
         // Testa a saída da diretiva
         $output = $roleDirective('admin');
-        $this->assertEquals("<?php if(auth()->check() && auth()->user()->hasRole(admin)): ?>", $output);
+        $this->assertEquals('<?php if(auth()->check() && auth()->user()->hasRole(admin)): ?>', $output);
 
         // Simula uma diretiva de permissão
         $permissionDirective = function ($permission) {
@@ -35,6 +35,6 @@ class RoleServiceProviderTest extends TestCase
 
         // Testa a saída da diretiva
         $output = $permissionDirective('view-users');
-        $this->assertEquals("<?php if(auth()->check() && auth()->user()->can(view-users)): ?>", $output);
+        $this->assertEquals('<?php if(auth()->check() && auth()->user()->can(view-users)): ?>', $output);
     }
 }

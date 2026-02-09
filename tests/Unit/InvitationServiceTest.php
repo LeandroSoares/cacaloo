@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Mail\InvitationMail;
 use App\Models\Invitation;
 use App\Models\User;
 use App\Services\InvitationService;
@@ -9,13 +10,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
-use App\Mail\InvitationMail;
 
 class InvitationServiceTest extends TestCase
 {
     use RefreshDatabase;
 
     private InvitationService $invitationService;
+
     private User $user;
 
     protected function setUp(): void

@@ -18,7 +18,7 @@ class MagicTypeController extends Controller
 
         // Pesquisa por nome
         if ($request->filled('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+            $query->where('name', 'like', '%'.$request->search.'%');
         }
 
         // Filtro por status ativo/inativo

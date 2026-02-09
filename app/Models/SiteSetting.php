@@ -32,7 +32,7 @@ class SiteSetting extends Model
     {
         $setting = static::byKey($key)->first();
 
-        if (!$setting) {
+        if (! $setting) {
             return $default;
         }
 

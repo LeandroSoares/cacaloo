@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Models\User;
 use App\Models\DailyMessage;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 class DailyMessageTest extends TestCase
 {
@@ -31,7 +31,7 @@ class DailyMessageTest extends TestCase
             'view daily messages',
             'create daily messages',
             'edit daily messages',
-            'delete daily messages'
+            'delete daily messages',
         ]);
 
         // Create admin user

@@ -16,7 +16,7 @@ trait HasMediumType
      */
     public function isMedium(): bool
     {
-        return !is_null($this->medium_type);
+        return ! is_null($this->medium_type);
     }
 
     /**

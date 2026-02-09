@@ -2,25 +2,37 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\User;
-use App\Models\WorkGuide;
+use Livewire\Component;
 
 class WorkGuideForm extends Component
 {
     public User $user;
+
     public $caboclo = null;
+
     public $cabocla = null;
+
     public $ogum = null;
+
     public $xango = null;
+
     public $baiano = null;
+
     public $baiana = null;
+
     public $preto_velho = null;
+
     public $preta_velha = null;
+
     public $marinheiro = null;
+
     public $ere = null;
+
     public $exu = null;
+
     public $pombagira = null;
+
     public $exu_mirim = null;
 
     public function mount(User $user)

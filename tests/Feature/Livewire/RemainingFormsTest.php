@@ -2,21 +2,19 @@
 
 namespace Tests\Feature\Livewire;
 
-use Tests\TestCase;
+use App\Livewire\DivineMagicForm;
+use App\Livewire\ForceCrossForm;
+use App\Livewire\HeadOrishaForm;
+use App\Livewire\InitiatedMysteryForm;
+use App\Livewire\InitiatedOrishaForm;
+use App\Livewire\PersonalDataForm;
+use App\Livewire\PriestlyFormationForm;
+use App\Livewire\ReligiousCourseForm;
+use App\Livewire\ReligiousInfoForm;
 use App\Models\User;
-use Livewire\Livewire;
-use App\Livewire\{
-    PersonalDataForm,
-    ReligiousInfoForm,
-    PriestlyFormationForm,
-    ForceCrossForm,
-    HeadOrishaForm,
-    DivineMagicForm,
-    InitiatedOrishaForm,
-    InitiatedMysteryForm,
-    ReligiousCourseForm
-};
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class RemainingFormsTest extends TestCase
 {

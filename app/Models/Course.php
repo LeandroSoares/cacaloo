@@ -2,21 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use App\Models\Traits\CacheableModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @property int $id
  * @property string $name
  * @property bool $active
  * @property string|null $description
  */
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Traits\CacheableModel;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
-    use HasFactory, CacheableModel;
+    use CacheableModel, HasFactory;
 
     protected $fillable = [
         'name',

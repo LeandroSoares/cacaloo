@@ -11,7 +11,7 @@ enum AssignmentType: string
 
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::OGA => 'Ogã',
             self::CAMBONE => 'Cambone',
             self::MEDIUM_TRABALHO => 'Médium de Trabalho',

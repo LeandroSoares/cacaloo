@@ -10,6 +10,7 @@ class StaticPageController extends Controller
     public function orixas()
     {
         $orishas = Orisha::getAllCached();
+
         return view('user.static-pages.orixas', compact('orishas'));
     }
 }

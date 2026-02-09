@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Middleware\CheckRole;
+use Illuminate\Support\ServiceProvider;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -35,7 +34,7 @@ class RoleServiceProvider extends ServiceProvider
         });
 
         Blade::directive('endrole', function () {
-            return "<?php endif; ?>";
+            return '<?php endif; ?>';
         });
 
         Blade::directive('permission', function ($permission) {
@@ -43,7 +42,7 @@ class RoleServiceProvider extends ServiceProvider
         });
 
         Blade::directive('endpermission', function () {
-            return "<?php endif; ?>";
+            return '<?php endif; ?>';
         });
 
         // Registrar gate para sysadmin

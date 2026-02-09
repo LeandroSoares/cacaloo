@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Admin;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 class UserControllerTest extends TestCase
 {
@@ -14,7 +14,7 @@ class UserControllerTest extends TestCase
 
     protected $admin;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -100,7 +100,7 @@ class UserControllerTest extends TestCase
             'email' => 'existente@exemplo.com',
         ]);
 
-        $response = $this->actingAs($this->admin)->get('/admin/users/' . $user->id . '/edit');
+        $response = $this->actingAs($this->admin)->get('/admin/users/'.$user->id.'/edit');
 
         $response->assertStatus(200);
         $response->assertViewIs('admin.users.edit');
@@ -121,7 +121,7 @@ class UserControllerTest extends TestCase
         // Buscar papéis disponíveis
         $role = Role::where('name', 'admin')->first();
 
-        $response = $this->actingAs($this->admin)->put('/admin/users/' . $user->id, [
+        $response = $this->actingAs($this->admin)->put('/admin/users/'.$user->id, [
             'name' => 'Usuário Atualizado',
             'email' => 'original@exemplo.com',
             'roles' => [$role->name],
@@ -149,7 +149,7 @@ class UserControllerTest extends TestCase
             'email' => 'excluir@exemplo.com',
         ]);
 
-        $response = $this->actingAs($this->admin)->delete('/admin/users/' . $user->id);
+        $response = $this->actingAs($this->admin)->delete('/admin/users/'.$user->id);
 
         $response->assertRedirect('/admin/users');
         $this->assertDatabaseHas('users', [
@@ -171,7 +171,7 @@ class UserControllerTest extends TestCase
         ]);
         $sysadmin->assignRole('sysadmin');
 
-        $response = $this->actingAs($this->admin)->delete('/admin/users/' . $sysadmin->id);
+        $response = $this->actingAs($this->admin)->delete('/admin/users/'.$sysadmin->id);
 
         $response->assertRedirect('/admin/users');
         $response->assertSessionHas('error', 'O usuário administrador do sistema não pode ser excluído.');

@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class InitiatedOrisha extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'orisha_id',

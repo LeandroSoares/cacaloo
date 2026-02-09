@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class MediumHistoryController extends Controller
 {
@@ -31,7 +30,7 @@ class MediumHistoryController extends Controller
             'religiousCourses.course',
             'initiatedMysteries.mystery',
             'initiatedOrishas.orisha',
-            'divineMagics.magicType'
+            'divineMagics.magicType',
         ]);
 
         // Calcula o progresso do preenchimento do histórico

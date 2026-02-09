@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Livewire;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\Amaci;
-use Livewire\Livewire;
 use App\Livewire\AmaciForm;
+use App\Models\Amaci;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class AmaciFormTest extends TestCase
 {

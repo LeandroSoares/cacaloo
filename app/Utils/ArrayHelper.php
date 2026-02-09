@@ -6,9 +6,6 @@ class ArrayHelper
 {
     /**
      * Verifica se um array é associativo.
-     *
-     * @param array $array
-     * @return bool
      */
     public static function isAssociative(array $array): bool
     {
@@ -21,22 +18,14 @@ class ArrayHelper
 
     /**
      * Filtra um array mantendo apenas os valores não vazios.
-     *
-     * @param array $array
-     * @return array
      */
     public static function filterEmpty(array $array): array
     {
-        return array_filter($array, fn($value) => !empty($value));
+        return array_filter($array, fn ($value) => ! empty($value));
     }
 
     /**
      * Obtém um valor de um array usando notação de ponto.
-     *
-     * @param array $array
-     * @param string $key
-     * @param mixed $default
-     * @return mixed
      */
     public static function get(array $array, string $key, mixed $default = null): mixed
     {
@@ -44,14 +33,14 @@ class ArrayHelper
             return $array[$key];
         }
 
-        if (!str_contains($key, '.')) {
+        if (! str_contains($key, '.')) {
             return $default;
         }
 
         $keys = explode('.', $key);
 
         foreach ($keys as $segment) {
-            if (!is_array($array) || !array_key_exists($segment, $array)) {
+            if (! is_array($array) || ! array_key_exists($segment, $array)) {
                 return $default;
             }
 
@@ -63,10 +52,6 @@ class ArrayHelper
 
     /**
      * Aplica uma função a cada elemento do array e retorna um novo array.
-     *
-     * @param array $array
-     * @param callable $callback
-     * @return array
      */
     public static function map(array $array, callable $callback): array
     {
@@ -75,10 +60,6 @@ class ArrayHelper
 
     /**
      * Converte um array para uma string delimitada.
-     *
-     * @param array $array
-     * @param string $delimiter
-     * @return string
      */
     public static function implode(array $array, string $delimiter = ', '): string
     {

@@ -26,7 +26,7 @@ class MagicTypeRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:magic_types,name,' . $magicTypeId
+                'unique:magic_types,name,'.$magicTypeId,
             ],
             'description' => 'nullable|string',
             'active' => 'boolean',

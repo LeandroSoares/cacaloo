@@ -6,9 +6,6 @@ class UrlHelper
 {
     /**
      * Verifica se uma URL é válida.
-     *
-     * @param string $url
-     * @return bool
      */
     public static function isValid(string $url): bool
     {
@@ -17,13 +14,10 @@ class UrlHelper
 
     /**
      * Obtém o esquema de uma URL.
-     *
-     * @param string $url
-     * @return string|null
      */
     public static function getScheme(string $url): ?string
     {
-        if (!self::isValid($url)) {
+        if (! self::isValid($url)) {
             return null;
         }
 
@@ -32,13 +26,10 @@ class UrlHelper
 
     /**
      * Obtém o host de uma URL.
-     *
-     * @param string $url
-     * @return string|null
      */
     public static function getHost(string $url): ?string
     {
-        if (!self::isValid($url)) {
+        if (! self::isValid($url)) {
             return null;
         }
 
@@ -47,13 +38,10 @@ class UrlHelper
 
     /**
      * Obtém o caminho de uma URL.
-     *
-     * @param string $url
-     * @return string|null
      */
     public static function getPath(string $url): ?string
     {
-        if (!self::isValid($url)) {
+        if (! self::isValid($url)) {
             return null;
         }
 
@@ -62,13 +50,10 @@ class UrlHelper
 
     /**
      * Obtém a query string de uma URL.
-     *
-     * @param string $url
-     * @return string|null
      */
     public static function getQuery(string $url): ?string
     {
-        if (!self::isValid($url)) {
+        if (! self::isValid($url)) {
             return null;
         }
 
@@ -77,10 +62,6 @@ class UrlHelper
 
     /**
      * Obtém um parâmetro da query string.
-     *
-     * @param string $url
-     * @param string $param
-     * @return string|null
      */
     public static function getQueryParam(string $url, string $param): ?string
     {
@@ -97,20 +78,16 @@ class UrlHelper
 
     /**
      * Constrói uma URL com parâmetros de query string.
-     *
-     * @param string $url
-     * @param array $params
-     * @return string
      */
     public static function buildQuery(string $url, array $params): string
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (! filter_var($url, FILTER_VALIDATE_URL)) {
             return $url;
         }
 
         $parsedUrl = parse_url($url);
 
-        if (!$parsedUrl) {
+        if (! $parsedUrl) {
             return $url;
         }
 
@@ -131,6 +108,6 @@ class UrlHelper
 
         $queryString = http_build_query($params);
 
-        return "{$scheme}://{$userinfo}{$host}{$port}{$path}" . ($queryString ? "?{$queryString}" : '') . $fragment;
+        return "{$scheme}://{$userinfo}{$host}{$port}{$path}".($queryString ? "?{$queryString}" : '').$fragment;
     }
 }

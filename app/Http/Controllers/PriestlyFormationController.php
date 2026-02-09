@@ -14,12 +14,14 @@ class PriestlyFormationController extends Controller
     {
         $formation = PriestlyFormation::where('user_id', Auth::id())->firstOrFail();
         $this->authorize('view', $formation);
+
         return new PriestlyFormationResource($formation);
     }
 
     public function store(PriestlyFormationRequest $request, PriestlyFormationService $service)
     {
         $formation = $service->store($request);
+
         return new PriestlyFormationResource($formation);
     }
 
@@ -28,6 +30,7 @@ class PriestlyFormationController extends Controller
         $formation = PriestlyFormation::where('user_id', Auth::id())->firstOrFail();
         $this->authorize('update', $formation);
         $formation = $service->update($formation, $request);
+
         return new PriestlyFormationResource($formation);
     }
 }

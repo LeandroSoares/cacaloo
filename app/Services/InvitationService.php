@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Invitation;
 use App\Mail\InvitationMail;
+use App\Models\Invitation;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Carbon;
 
 class InvitationService
 {
@@ -15,12 +14,11 @@ class InvitationService
      * Permite criar convites anônimos (sem email/whatsapp) ou com contato específico.
      * Veja: docs/especificacoes-features/convite-por-whatsapp.md
      *
-     * @param int $invitedBy ID do usuário que convida
-     * @param int $expirationDays Dias até expiração
-     * @param string|null $name Nome do convidado (opcional)
-     * @param string|null $email E-mail do convidado (opcional)
-     * @param string|null $whatsapp WhatsApp do convidado (opcional)
-     * @return Invitation
+     * @param  int  $invitedBy  ID do usuário que convida
+     * @param  int  $expirationDays  Dias até expiração
+     * @param  string|null  $name  Nome do convidado (opcional)
+     * @param  string|null  $email  E-mail do convidado (opcional)
+     * @param  string|null  $whatsapp  WhatsApp do convidado (opcional)
      */
     public function create(
         int $invitedBy,
@@ -86,7 +84,7 @@ class InvitationService
      */
     public function markAsAccepted(Invitation $invitation, ?int $userId = null): Invitation
     {
-        if (!$invitation->isValid()) {
+        if (! $invitation->isValid()) {
             throw new \InvalidArgumentException('Este convite não é válido para aceitação.');
         }
 

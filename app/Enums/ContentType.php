@@ -11,7 +11,7 @@ enum ContentType: string
 
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::INSTITUCIONAL => 'Institucional',
             self::TRABALHO => 'Trabalho Espiritual',
             self::LENDA => 'Lenda / História',

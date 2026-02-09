@@ -10,6 +10,7 @@ class CrowningService
     public function store(array $data): Crowning
     {
         $data['user_id'] = Auth::id();
+
         return Crowning::updateOrCreate(
             ['user_id' => Auth::id()],
             $data

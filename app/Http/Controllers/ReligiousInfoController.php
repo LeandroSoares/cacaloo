@@ -14,12 +14,14 @@ class ReligiousInfoController extends Controller
     {
         $religiousInfo = ReligiousInfo::where('user_id', Auth::id())->firstOrFail();
         $this->authorize('view', $religiousInfo);
+
         return new ReligiousInfoResource($religiousInfo);
     }
 
     public function store(ReligiousInfoRequest $request, ReligiousInfoService $service)
     {
         $religiousInfo = $service->store($request);
+
         return new ReligiousInfoResource($religiousInfo);
     }
 
@@ -28,6 +30,7 @@ class ReligiousInfoController extends Controller
         $religiousInfo = ReligiousInfo::where('user_id', Auth::id())->firstOrFail();
         $this->authorize('update', $religiousInfo);
         $religiousInfo = $service->update($religiousInfo, $request);
+
         return new ReligiousInfoResource($religiousInfo);
     }
 }
