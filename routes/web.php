@@ -76,6 +76,9 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     // Gerenciador de Conteúdos (CMS)
     Route::resource('contents', \App\Http\Controllers\Admin\ContentController::class);
 
+    // Categorias de Guias de Trabalho
+    Route::resource('work-guide-categories', \App\Http\Controllers\Admin\WorkGuideCategoryController::class);
+
     // Adicione aqui outras rotas administrativas
 });
 
@@ -111,4 +114,4 @@ Route::get('/c/{slug}', [\App\Http\Controllers\ContentController::class, 'showPu
     ->name('public.content')
     ->where('slug', '[a-z0-9\-]+');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
