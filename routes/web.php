@@ -1,16 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\HomeCustomizationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\InvitationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\HomeCustomizationController;
-use App\Http\Controllers\Admin\EventController;
-use \App\Http\Controllers\User\StaticPageController;
-use App\Mail\TestEmail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -79,9 +76,11 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     // Gerenciador de Conteúdos (CMS)
     Route::resource('contents', \App\Http\Controllers\Admin\ContentController::class);
 
+    // Categorias de Guias de Trabalho
+    Route::resource('work-guide-categories', \App\Http\Controllers\Admin\WorkGuideCategoryController::class);
+
     // Adicione aqui outras rotas administrativas
 });
-
 
 // Rotas SysAdmin - Super Administrador
 Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix('sysadmin')->name('sysadmin.')->group(function () {
@@ -116,4 +115,3 @@ Route::get('/c/{slug}', [\App\Http\Controllers\ContentController::class, 'showPu
     ->where('slug', '[a-z0-9\-]+');
 
 require __DIR__ . '/auth.php';
-

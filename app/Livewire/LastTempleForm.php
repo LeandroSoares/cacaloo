@@ -2,17 +2,21 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\User;
-use App\Models\LastTemple;
+use Livewire\Component;
 
 class LastTempleForm extends Component
 {
     public User $user;
+
     public $name = null;
+
     public $address = null;
+
     public $leader_name = null;
+
     public $function = null;
+
     public $exit_reason = null;
 
     public function mount(User $user)

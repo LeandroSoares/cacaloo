@@ -2,16 +2,19 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use App\Models\ForceCross;
 use App\Http\Requests\ForceCrossRequest;
+use App\Models\ForceCross;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class ForceCrossForm extends Component
 {
     public $top;
+
     public $bottom;
+
     public $left;
+
     public $right;
 
     public function mount()
@@ -27,7 +30,7 @@ class ForceCrossForm extends Component
 
     public function save()
     {
-        $data = $this->validate((new ForceCrossRequest())->rules());
+        $data = $this->validate((new ForceCrossRequest)->rules());
         ForceCross::updateOrCreate(
             ['user_id' => Auth::id()],
             array_merge($data, ['user_id' => Auth::id()])

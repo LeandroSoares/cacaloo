@@ -18,7 +18,7 @@ return [
         'cidade' => 'São Paulo',
         'estado' => 'SP',
         'cep' => '02478-060',
-        'completo' => 'Rua Ilhéus do Prata, 26 - Imirim - São Paulo - SP'
+        'completo' => 'Rua Ilhéus do Prata, 26 - Imirim - São Paulo - SP',
     ],
 
     'contato' => [

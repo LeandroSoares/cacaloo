@@ -50,7 +50,7 @@ class FileHelperTest extends TestCase
     public function test_make_directory()
     {
         // Cria um diretório temporário único
-        $tempDir = sys_get_temp_dir() . '/test_dir_' . uniqid();
+        $tempDir = sys_get_temp_dir().'/test_dir_'.uniqid();
 
         try {
             // Verifica se o diretório foi criado
@@ -61,7 +61,7 @@ class FileHelperTest extends TestCase
             $this->assertTrue(FileHelper::makeDirectory($tempDir));
 
             // Testa a criação de diretório aninhado
-            $nestedDir = $tempDir . '/nested/dir';
+            $nestedDir = $tempDir.'/nested/dir';
             $this->assertTrue(FileHelper::makeDirectory($nestedDir));
             $this->assertTrue(is_dir($nestedDir));
         } finally {
@@ -86,20 +86,17 @@ class FileHelperTest extends TestCase
 
     /**
      * Função auxiliar para remover um diretório recursivamente.
-     *
-     * @param string $dir
-     * @return bool
      */
     private function removeDirectory(string $dir): bool
     {
-        if (!is_dir($dir)) {
+        if (! is_dir($dir)) {
             return false;
         }
 
         $files = array_diff(scandir($dir), ['.', '..']);
 
         foreach ($files as $file) {
-            $path = $dir . '/' . $file;
+            $path = $dir.'/'.$file;
 
             if (is_dir($path)) {
                 $this->removeDirectory($path);

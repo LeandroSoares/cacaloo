@@ -2,16 +2,19 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\User;
-use App\Models\ForceCross;
+use Livewire\Component;
 
 class ForceCrossForm extends Component
 {
     public User $user;
+
     public $top = null;
+
     public $bottom = null;
+
     public $left = null;
+
     public $right = null;
 
     public function mount(User $user)

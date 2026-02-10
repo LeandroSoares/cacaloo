@@ -2,17 +2,22 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\User;
 use App\Models\Crossing;
+use App\Models\User;
+use Livewire\Component;
 
 class CrossingForm extends Component
 {
     public User $user;
+
     public $crossings = [];
+
     public $entity = null;
+
     public $date = null;
+
     public $purpose = null;
+
     public $editingId = null;
 
     protected $rules = [
@@ -83,7 +88,7 @@ class CrossingForm extends Component
             \Illuminate\Support\Facades\Log::info('Crossing assigned', [
                 'entity' => $this->entity,
                 'date' => $this->date,
-                'purpose' => $this->purpose
+                'purpose' => $this->purpose,
             ]);
 
             // Forçar re-renderização para atualizar os inputs

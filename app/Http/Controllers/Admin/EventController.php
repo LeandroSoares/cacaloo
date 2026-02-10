@@ -4,18 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
-
 use App\Services\HomeContentService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class EventController extends Controller
 {
     public function __construct(
         protected HomeContentService $homeContentService
-    ) {
-    }
+    ) {}
 
     /**
      * Display a listing of the resource.
@@ -23,6 +21,7 @@ class EventController extends Controller
     public function index(): View
     {
         $events = Event::orderBy('event_date', 'asc')->paginate(10);
+
         return view('admin.events.index', compact('events'));
     }
 

@@ -127,6 +127,13 @@
                         <i class="fas fa-calendar-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
                         Agenda & Giras
                     </a>
+
+                    <a href="{{ route('admin.work-guide-categories.index') }}"
+                       class="group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200
+                              {{ request()->routeIs('admin.work-guide-categories.*') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-hands mr-3 text-gray-400 group-hover:text-gray-300"></i>
+                        Categorias de Guias
+                    </a>
                 </div>
 
                 <!-- Customização -->
@@ -143,43 +150,6 @@
                     </a>
                 </div>
             </nav>
-
-            <!-- Sidebar Footer -->
-            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gray-800">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white text-sm font-semibold">
-                                {{ substr(Auth::user()->name, 0, 1) }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="ml-3 flex-1">
-                        <p class="text-sm font-medium text-white truncate">
-                            {{ Auth::user()->name }}
-                        </p>
-                        <p class="text-xs text-gray-400 truncate">
-                            Administrador
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mt-3 flex space-x-2">
-                    <a href="{{ route('dashboard') }}"
-                       class="flex-1 bg-gray-700 text-white text-xs px-3 py-2 rounded-md text-center hover:bg-gray-600 transition-colors duration-200">
-                        <i class="fas fa-user mr-1"></i>
-                        Área do Usuário
-                    </a>
-                    <form method="POST" action="{{ route('logout') }}" class="flex-1">
-                        @csrf
-                        <button type="submit"
-                                class="w-full bg-red-600 text-white text-xs px-3 py-2 rounded-md hover:bg-red-700 transition-colors duration-200">
-                            <i class="fas fa-sign-out-alt mr-1"></i>
-                            Sair
-                        </button>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <!-- Main Content -->
@@ -207,13 +177,67 @@
                             <span class="text-sm text-gray-500">
                                 Painel Administrativo <span class="text-xs text-gray-400 ml-1">v{{ config('app.version') }}</span>
                             </span>
-                            @if(Auth::user()->hasRole('sysadmin'))
-                                <a href="{{ route('sysadmin.dashboard') }}"
-                                   class="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                                    <i class="fas fa-cog mr-1"></i>
-                                    SysAdmin
-                                </a>
-                            @endif
+
+                            <!-- User Dropdown -->
+                            <div x-data="{ userMenuOpen: false }" class="relative">
+                                <button @click="userMenuOpen = !userMenuOpen"
+                                        class="flex items-center space-x-2 text-gray-700 hover:text-gray-900 focus:outline-none">
+                                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-sm font-semibold">
+                                            {{ substr(Auth::user()->name, 0, 1) }}
+                                        </span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </button>
+
+                                <!-- Dropdown Menu -->
+                                <div x-show="userMenuOpen"
+                                     @click.away="userMenuOpen = false"
+                                     x-cloak
+                                     x-transition:enter="transition ease-out duration-200"
+                                     x-transition:enter-start="opacity-0 scale-95"
+                                     x-transition:enter-end="opacity-100 scale-100"
+                                     x-transition:leave="transition ease-in duration-150"
+                                     x-transition:leave-start="opacity-100 scale-100"
+                                     x-transition:leave-end="opacity-0 scale-95"
+                                     class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+
+                                    <!-- User Info -->
+                                    <div class="px-4 py-3 border-b border-gray-200">
+                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                            {{ Auth::user()->name }}
+                                        </p>
+                                        <p class="text-xs text-gray-500 truncate">
+                                            {{ Auth::user()->email }}
+                                        </p>
+                                    </div>
+
+                                    <!-- Menu Items -->
+                                    <div class="py-1">
+                                        @if(Auth::user()->hasRole('sysadmin'))
+                                            <a href="{{ route('sysadmin.dashboard') }}"
+                                               class="flex items-center px-4 py-2 text-sm text-blue-600 hover:bg-gray-100">
+                                                <i class="fas fa-cog mr-3 w-4"></i>
+                                                Painel SysAdmin
+                                            </a>
+                                            <div class="border-t border-gray-200"></div>
+                                        @endif
+                                        <a href="{{ route('dashboard') }}"
+                                           class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                            <i class="fas fa-user mr-3 w-4 text-gray-400"></i>
+                                            Área do Usuário
+                                        </a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit"
+                                                    class="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                                <i class="fas fa-sign-out-alt mr-3 w-4"></i>
+                                                Sair
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -4,14 +4,16 @@ namespace App\Livewire;
 
 use App\Models\Course;
 use App\Models\ReligiousCourse;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ReligiousCourseForm extends Component
 {
     public $user;
+
     public $religiousCourses = [];
+
     public $availableCourses = [];
+
     public $newCourse = [
         'course_id' => '',
         'date' => '',
@@ -20,7 +22,9 @@ class ReligiousCourseForm extends Component
         'initiation_date' => '',
         'observations' => '',
     ];
+
     public $editingCourse = null;
+
     public $isEditing = false;
 
     protected $rules = [
@@ -70,7 +74,7 @@ class ReligiousCourseForm extends Component
             'date' => $this->newCourse['date'],
             'finished' => $this->newCourse['finished'],
             'has_initiation' => $this->newCourse['has_initiation'],
-            'initiation_date' => ($this->newCourse['has_initiation'] && !empty($this->newCourse['initiation_date'])) ? $this->newCourse['initiation_date'] : null,
+            'initiation_date' => ($this->newCourse['has_initiation'] && ! empty($this->newCourse['initiation_date'])) ? $this->newCourse['initiation_date'] : null,
             'observations' => $this->newCourse['observations'],
         ];
 

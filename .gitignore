@@ -37,3 +37,5 @@ deploy-stg.pub
 *.docx
 docs/
 
+# Seeders de teste (não commitar dados sensíveis)
+/database/seeders/AdminSeed.php

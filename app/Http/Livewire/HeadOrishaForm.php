@@ -2,21 +2,29 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use App\Models\HeadOrisha;
 use App\Http\Requests\HeadOrishaRequest;
+use App\Models\HeadOrisha;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class HeadOrishaForm extends Component
 {
     public $ancestor;
+
     public $front;
+
     public $front_together;
+
     public $back;
+
     public $back_together;
+
     public $right;
+
     public $left;
+
     public $crown;
+
     public $base;
 
     public function mount()
@@ -37,7 +45,7 @@ class HeadOrishaForm extends Component
 
     public function save()
     {
-        $data = $this->validate((new HeadOrishaRequest())->rules());
+        $data = $this->validate((new HeadOrishaRequest)->rules());
         HeadOrisha::updateOrCreate(
             ['user_id' => Auth::id()],
             array_merge($data, ['user_id' => Auth::id()])

@@ -10,10 +10,6 @@ class DateHelper
 {
     /**
      * Formata uma data para o formato brasileiro.
-     *
-     * @param string|DateTime $date
-     * @param string $format
-     * @return string
      */
     public static function format(string|DateTime $date, string $format = 'd/m/Y'): string
     {
@@ -30,10 +26,6 @@ class DateHelper
 
     /**
      * Calcula a diferença entre duas datas em dias.
-     *
-     * @param string|DateTime $date1
-     * @param string|DateTime $date2
-     * @return int
      */
     public static function diffInDays(string|DateTime $date1, string|DateTime $date2): int
     {
@@ -54,15 +46,12 @@ class DateHelper
         }
 
         $diff = $date1->diff($date2);
+
         return abs($diff->days);
     }
 
     /**
      * Verifica se uma data é maior que outra.
-     *
-     * @param string|DateTime $date1
-     * @param string|DateTime $date2
-     * @return bool
      */
     public static function isAfter(string|DateTime $date1, string|DateTime $date2): bool
     {
@@ -87,10 +76,6 @@ class DateHelper
 
     /**
      * Adiciona dias a uma data.
-     *
-     * @param string|DateTime $date
-     * @param int $days
-     * @return DateTime
      */
     public static function addDays(string|DateTime $date, int $days): DateTime
     {
@@ -98,7 +83,7 @@ class DateHelper
             try {
                 $date = new DateTime($date);
             } catch (Exception $e) {
-                return new DateTime();
+                return new DateTime;
             }
         }
 
@@ -107,11 +92,6 @@ class DateHelper
 
     /**
      * Converte uma data de um fuso horário para outro.
-     *
-     * @param string|DateTime $date
-     * @param string $fromTimezone
-     * @param string $toTimezone
-     * @return DateTime
      */
     public static function convertTimezone(string|DateTime $date, string $fromTimezone, string $toTimezone): DateTime
     {
@@ -119,7 +99,7 @@ class DateHelper
             try {
                 $date = new DateTime($date, new DateTimeZone($fromTimezone));
             } catch (Exception $e) {
-                return new DateTime();
+                return new DateTime;
             }
         } else {
             $date = clone $date;
@@ -127,6 +107,7 @@ class DateHelper
         }
 
         $date->setTimezone(new DateTimeZone($toTimezone));
+
         return $date;
     }
 }

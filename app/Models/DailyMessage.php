@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class DailyMessage extends Model
 {
@@ -43,10 +43,10 @@ class DailyMessage extends Model
 
         return $query->where(function ($q) use ($date) {
             $q->whereNull('valid_from')
-              ->orWhere('valid_from', '<=', $date);
+                ->orWhere('valid_from', '<=', $date);
         })->where(function ($q) use ($date) {
             $q->whereNull('valid_until')
-              ->orWhere('valid_until', '>=', $date);
+                ->orWhere('valid_until', '>=', $date);
         });
     }
 
@@ -71,7 +71,7 @@ class DailyMessage extends Model
      */
     public static function getTodaysMessage(): ?self
     {
-        $cacheKey = 'daily_message_' . now()->toDateString();
+        $cacheKey = 'daily_message_'.now()->toDateString();
 
         return cache()->remember($cacheKey, now()->addDay(), function () {
             return static::getRandomMessage();
@@ -120,18 +120,18 @@ class DailyMessage extends Model
      */
     public function getValidityPeriodAttribute(): string
     {
-        if (!$this->valid_from && !$this->valid_until) {
+        if (! $this->valid_from && ! $this->valid_until) {
             return 'Sempre válida';
         }
 
-        if ($this->valid_from && !$this->valid_until) {
-            return 'Válida a partir de ' . $this->valid_from->format('d/m/Y');
+        if ($this->valid_from && ! $this->valid_until) {
+            return 'Válida a partir de '.$this->valid_from->format('d/m/Y');
         }
 
-        if (!$this->valid_from && $this->valid_until) {
-            return 'Válida até ' . $this->valid_until->format('d/m/Y');
+        if (! $this->valid_from && $this->valid_until) {
+            return 'Válida até '.$this->valid_until->format('d/m/Y');
         }
 
-        return 'Válida de ' . $this->valid_from->format('d/m/Y') . ' até ' . $this->valid_until->format('d/m/Y');
+        return 'Válida de '.$this->valid_from->format('d/m/Y').' até '.$this->valid_until->format('d/m/Y');
     }
 }

@@ -4,19 +4,23 @@ namespace App\Livewire;
 
 use App\Models\InitiatedOrisha;
 use App\Models\Orisha;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class InitiatedOrishaForm extends Component
 {
     public $user;
+
     public $initiatedOrishas = [];
+
     public $availableOrishas = [];
+
     public $newOrisha = [
         'orisha_id' => '',
         'observations' => '',
     ];
+
     public $editingOrisha = null;
+
     public $isEditing = false;
 
     protected $rules = [

@@ -2,15 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use App\Models\Crossing;
 use App\Http\Requests\CrossingRequest;
+use App\Models\Crossing;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CrossingForm extends Component
 {
     public $date;
+
     public $entity;
+
     public $purpose;
 
     public function mount()
@@ -25,7 +27,7 @@ class CrossingForm extends Component
 
     public function save()
     {
-        $data = $this->validate((new CrossingRequest())->rules());
+        $data = $this->validate((new CrossingRequest)->rules());
         Crossing::updateOrCreate(
             ['user_id' => Auth::id()],
             array_merge($data, ['user_id' => Auth::id()])

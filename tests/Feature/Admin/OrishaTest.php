@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Models\User;
 use App\Models\Orisha;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 class OrishaTest extends TestCase
 {
@@ -31,7 +31,7 @@ class OrishaTest extends TestCase
             'view orishas',
             'create orishas',
             'edit orishas',
-            'delete orishas'
+            'delete orishas',
         ]);
 
         // Create admin user

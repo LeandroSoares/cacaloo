@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -15,6 +15,7 @@ class PermissionController extends Controller
     public function index(): View
     {
         $permissions = Permission::with('roles')->get();
+
         return view('sysadmin.permissions.index', compact('permissions'));
     }
 
@@ -55,7 +56,7 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|unique:permissions,name,' . $permission->id,
+            'name' => 'required|unique:permissions,name,'.$permission->id,
         ]);
 
         $permission->update(['name' => $request->name]);

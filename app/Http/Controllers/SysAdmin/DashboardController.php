@@ -17,10 +17,12 @@ class DashboardController extends Controller
         if ($request->has('download')) {
             $logPath = storage_path('logs/laravel.log');
             if (file_exists($logPath)) {
-                return response()->download($logPath, 'laravel-log-' . date('Y-m-d') . '.log');
+                return response()->download($logPath, 'laravel-log-'.date('Y-m-d').'.log');
             }
+
             return back()->with('error', 'Arquivo de log não encontrado.');
         }
+
         return view('sysadmin.system.logs');
     }
 }

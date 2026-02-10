@@ -6,10 +6,6 @@ class JsonHelper
 {
     /**
      * Converte um objeto ou array para JSON.
-     *
-     * @param mixed $data
-     * @param int $options
-     * @return string
      */
     public static function encode(mixed $data, int $options = 0): string
     {
@@ -18,10 +14,6 @@ class JsonHelper
 
     /**
      * Converte um JSON para objeto ou array.
-     *
-     * @param string $json
-     * @param bool $assoc
-     * @return mixed
      */
     public static function decode(string $json, bool $assoc = false): mixed
     {
@@ -30,9 +22,6 @@ class JsonHelper
 
     /**
      * Verifica se uma string é um JSON válido.
-     *
-     * @param string $json
-     * @return bool
      */
     public static function isValid(string $json): bool
     {
@@ -41,13 +30,12 @@ class JsonHelper
         }
 
         @json_decode($json);
+
         return json_last_error() === JSON_ERROR_NONE;
     }
 
     /**
      * Obtém o erro da última operação JSON.
-     *
-     * @return string
      */
     public static function getLastError(): string
     {
@@ -71,17 +59,15 @@ class JsonHelper
 
     /**
      * Formata um JSON para facilitar a leitura.
-     *
-     * @param string $json
-     * @return string
      */
     public static function format(string $json): string
     {
-        if (!self::isValid($json)) {
+        if (! self::isValid($json)) {
             return $json;
         }
 
         $result = json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
         return $result ?: $json;
     }
 }

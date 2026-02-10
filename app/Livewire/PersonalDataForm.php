@@ -2,15 +2,33 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-
-
 use App\Models\PersonalData;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class PersonalDataForm extends Component
 {
-    public $name, $address, $zip_code, $email, $cpf, $rg, $birth_date, $home_phone, $mobile_phone, $work_phone, $emergency_contact;
+    public $name;
+
+    public $address;
+
+    public $zip_code;
+
+    public $email;
+
+    public $cpf;
+
+    public $rg;
+
+    public $birth_date;
+
+    public $home_phone;
+
+    public $mobile_phone;
+
+    public $work_phone;
+
+    public $emergency_contact;
 
     public function mount()
     {

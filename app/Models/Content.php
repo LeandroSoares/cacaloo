@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
-    use HasFactory, CacheableModel;
+    use CacheableModel, HasFactory;
 
     protected $fillable = [
         'title',
@@ -37,9 +37,10 @@ class Content extends Model
         return $query->where('is_active', true)
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now());
-    } /** * Scope para filtrar por visibilidade pública */
-    public function
-        scopePublic(
+    }
+
+    /** * Scope para filtrar por visibilidade pública */
+    public function scopePublic(
         $query
     ) {
         return $query->where('visibility', ContentVisibility::PUBLIC);

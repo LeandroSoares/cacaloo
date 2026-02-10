@@ -1,9 +1,10 @@
 <?php
+
 // Migration para tipos de magias divinas
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -26,7 +27,7 @@ return new class extends Migration
             'Magia dos Gênios',
             'Magia das Conchas',
             'Magia dos Portais',
-            'Magia dos Anjos'
+            'Magia dos Anjos',
         ];
 
         foreach ($magicTypes as $type) {
@@ -34,7 +35,7 @@ return new class extends Migration
                 'name' => $type,
                 'active' => true,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ]);
         }
 

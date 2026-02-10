@@ -20,9 +20,12 @@ class UserTest extends TestCase
     public function test_user_attributes()
     {
         // Simula um objeto User
-        $user = new class {
+        $user = new class
+        {
             public $name = 'Test User';
+
             public $email = 'test@example.com';
+
             public $password = 'hashed_password';
         };
 
@@ -37,7 +40,8 @@ class UserTest extends TestCase
     public function test_user_role_checking()
     {
         // Simula um objeto User com método hasRole
-        $user = new class {
+        $user = new class
+        {
             private $roles = ['admin'];
 
             public function hasRole($role)

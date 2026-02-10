@@ -6,9 +6,6 @@ class FileHelper
 {
     /**
      * Obtém a extensão de um arquivo.
-     *
-     * @param string $filename
-     * @return string
      */
     public static function getExtension(string $filename): string
     {
@@ -17,9 +14,6 @@ class FileHelper
 
     /**
      * Verifica se um arquivo existe.
-     *
-     * @param string $path
-     * @return bool
      */
     public static function exists(string $path): bool
     {
@@ -28,10 +22,6 @@ class FileHelper
 
     /**
      * Formata o tamanho de um arquivo para uma unidade legível.
-     *
-     * @param int $bytes
-     * @param int $precision
-     * @return string
      */
     public static function formatSize(int $bytes, int $precision = 2): string
     {
@@ -43,20 +33,15 @@ class FileHelper
 
         $bytes /= (1 << (10 * $pow));
 
-        return round($bytes, $precision) . ' ' . $units[$pow];
+        return round($bytes, $precision).' '.$units[$pow];
     }
 
     /**
      * Cria um diretório se ele não existir.
-     *
-     * @param string $path
-     * @param int $permissions
-     * @param bool $recursive
-     * @return bool
      */
     public static function makeDirectory(string $path, int $permissions = 0755, bool $recursive = true): bool
     {
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             return mkdir($path, $permissions, $recursive);
         }
 
@@ -65,13 +50,10 @@ class FileHelper
 
     /**
      * Determina o tipo MIME de um arquivo.
-     *
-     * @param string $path
-     * @return string|false
      */
     public static function getMimeType(string $path): string|false
     {
-        if (!file_exists($path)) {
+        if (! file_exists($path)) {
             return false;
         }
 

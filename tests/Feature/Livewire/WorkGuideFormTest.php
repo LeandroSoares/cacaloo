@@ -2,12 +2,11 @@
 
 namespace Tests\Feature\Livewire;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\WorkGuide;
-use Livewire\Livewire;
 use App\Livewire\WorkGuideForm;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class WorkGuideFormTest extends TestCase
 {

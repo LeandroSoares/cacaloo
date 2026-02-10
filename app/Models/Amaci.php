@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Amaci extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'type',

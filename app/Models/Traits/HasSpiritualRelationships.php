@@ -109,6 +109,14 @@ trait HasSpiritualRelationships
     }
 
     /**
+     * Guias de trabalho do usuário (nova estrutura dinâmica)
+     */
+    public function workGuideValues()
+    {
+        return $this->hasMany(\App\Models\WorkGuideUserValue::class);
+    }
+
+    /**
      * Cursos religiosos do usuário
      */
     public function religiousCourses()

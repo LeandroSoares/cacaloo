@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -26,7 +26,7 @@ return new class extends Migration
             'Exu Mirim',
             'Exu do Fogo',
             'Exu do Ouro',
-            'Exu Guardião do Mar'
+            'Exu Guardião do Mar',
         ];
 
         foreach ($mysteries as $mystery) {
@@ -34,7 +34,7 @@ return new class extends Migration
                 'name' => $mystery,
                 'active' => true,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ]);
         }
     }

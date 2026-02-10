@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,14 +14,14 @@ class DatabaseSeeder extends Seeder
     {
         // Seeders que não dependem de outros dados (ordem de prioridade)
         $this->call([
-                // 1. Roles e Permissões (base do sistema de autorização)
+            // 1. Roles e Permissões (base do sistema de autorização)
             RolesAndPermissionsSeeder::class,
 
-                // 2. Dados básicos do sistema espiritual
+            // 2. Dados básicos do sistema espiritual
             MagicTypesSeeder::class,
             OrishaSeeder::class,
 
-                // 3. Conteúdo e configurações
+            // 3. Conteúdo e configurações
             HomeSectionsSeeder::class,
             ContentSeeder::class, // Conteúdos institucionais e trabalhos
             CoursesSeeder::class,

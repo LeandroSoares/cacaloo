@@ -20,7 +20,7 @@ class JsonHelperTest extends TestCase
         $this->assertEquals("{\n    \"name\": \"John\",\n    \"age\": 30\n}", JsonHelper::encode($array, JSON_PRETTY_PRINT));
 
         // Objeto
-        $object = new \stdClass();
+        $object = new \stdClass;
         $object->name = 'John';
         $object->age = 30;
         $this->assertEquals('{"name":"John","age":30}', JsonHelper::encode($object));
@@ -75,7 +75,7 @@ class JsonHelperTest extends TestCase
         $this->assertEquals('Syntax error, malformed JSON', JsonHelper::getLastError());
 
         // Com erro de UTF-8
-        $invalidUtf8 = '{"name":"' . chr(193) . '"}';
+        $invalidUtf8 = '{"name":"'.chr(193).'"}';
         JsonHelper::decode($invalidUtf8);
         $this->assertEquals('Malformed UTF-8 characters, possibly incorrectly encoded', JsonHelper::getLastError());
     }
