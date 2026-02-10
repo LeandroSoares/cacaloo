@@ -177,13 +177,6 @@
                             <span class="text-sm text-gray-500">
                                 Painel Administrativo <span class="text-xs text-gray-400 ml-1">v{{ config('app.version') }}</span>
                             </span>
-                            @if(Auth::user()->hasRole('sysadmin'))
-                                <a href="{{ route('sysadmin.dashboard') }}"
-                                   class="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                                    <i class="fas fa-cog mr-1"></i>
-                                    SysAdmin
-                                </a>
-                            @endif
 
                             <!-- User Dropdown -->
                             <div x-data="{ userMenuOpen: false }" class="relative">
@@ -221,6 +214,14 @@
 
                                     <!-- Menu Items -->
                                     <div class="py-1">
+                                        @if(Auth::user()->hasRole('sysadmin'))
+                                            <a href="{{ route('sysadmin.dashboard') }}"
+                                               class="flex items-center px-4 py-2 text-sm text-blue-600 hover:bg-gray-100">
+                                                <i class="fas fa-cog mr-3 w-4"></i>
+                                                Painel SysAdmin
+                                            </a>
+                                            <div class="border-t border-gray-200"></div>
+                                        @endif
                                         <a href="{{ route('dashboard') }}"
                                            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                             <i class="fas fa-user mr-3 w-4 text-gray-400"></i>
