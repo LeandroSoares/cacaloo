@@ -150,10 +150,10 @@
             <p class="text-gray-500 text-sm leading-relaxed">Dicas e obrigações para o desenvolvimento mediúnico.</p>
         </a>
        
-        <!-- Arquivos Diversos -->
-        <a href="{{ route('user.arquivos-diversos') }}" class="nav-card">
+        <!-- Biblioteca de Arquivos -->
+        <a href="{{ route('user.biblioteca-de-arquivos') }}" class="nav-card">
             <div class="nav-icon" style="background: #4338CA;">
-                <i class="fa-solid fa-hands-praying"></i>
+                <i class="fa-solid fa-book-open"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca de Arquivos</h3>
             <p class="text-gray-500 text-sm leading-relaxed">Biblioteca de Arquivos para conehcimento e auxilio no desenvolvimento mediúnico.</p>
