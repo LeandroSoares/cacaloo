@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
     Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
     Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
-    Route::view('/arquivos-diversos', 'user.static-pages.arquivos-diversos')->name('user.arquivos-diversos');
+ //   Route::view('/arquivos-diversos', 'user.static-pages.arquivos-diversos')->name('user.arquivos-diversos');
     Route::get('/orixas', [\App\Http\Controllers\User\StaticPageController::class, 'orixas'])->name('user.orixas');
 
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
@@ -44,17 +44,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // Incluido por Fernando - 21/10/2026
-use App\Http\Controllers\ArquivoCasaController;
 // use Illuminate\Support\Facades\Route;
-Route::middleware('auth')->prefix('arquivos-diversos')->name('arquivos-diversos.')->group(function () {
-    Route::get('/', [ArquivoCasaController::class,'index'])->name('index');
-    Route::get('/{arquivo}/download', [ArquivoCasaController::class,'download'])->name('download');
-    Route::get('/{arquivo}/capa', [ArquivoCasaController::class,'capa'])->name('capa');
-    Route::middleware('can:manage-casa-arquivos')->group(function () {
-        Route::post('/', [ArquivoCasaController::class,'store'])->name('store');
-        Route::delete('/{arquivo}', [ArquivoCasaController::class,'destroy'])->name('destroy');
-    });
-});
+// use App\Http\Controllers\ArquivoCasaController;
+
+//Route::middleware('auth')->prefix('arquivos-diversos')->name('arquivos-diversos.')->group(function () {
+//    Route::get('/', [ArquivoCasaController::class,'index'])->name('index');
+//    Route::get('/{arquivo}/download', [ArquivoCasaController::class,'download'])->name('download');
+//    Route::get('/{arquivo}/capa', [ArquivoCasaController::class,'capa'])->name('capa');
+//    Route::middleware('can:manage-casa-arquivos')->group(function () {
+//        Route::post('/', [ArquivoCasaController::class,'store'])->name('store');
+//        Route::delete('/{arquivo}', [ArquivoCasaController::class,'destroy'])->name('destroy');
+//    });
+//});
 // Fim Incluido Fernando
 
 // Rotas Administrativas
