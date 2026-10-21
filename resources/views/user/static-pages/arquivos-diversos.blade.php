@@ -20,7 +20,7 @@
 <section class="mb-8 rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm sm:p-7">
     <h2 class="text-xl font-bold text-gray-900">Adicionar arquivo</h2>
     <p class="mt-1 text-sm text-gray-600">Arquivo principal até 20 MB. Capa opcional até 5 MB.</p>
-<form action="{{ route('biblioteca-arquivos.store') }}" method="POST" enctype="multipart/form-data" class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">@csrf
+<form action="{{ route('arquivos-diversos.store') }}" method="POST" enctype="multipart/form-data" class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">@csrf
 <div>
     <label for="titulo" class="mb-1 block text-sm font-semibold text-gray-700">Título *</label>
     <input id="titulo" name="titulo" required maxlength="160" value="{{ old('titulo') }}" class="w-full rounded-lg border-gray-300 focus:border-emerald-600 focus:ring-emerald-600">
@@ -53,7 +53,7 @@
 </form>
 </section>
 @endcan
-<form method="GET" action="{{ route('biblioteca-arquivos.index') }}" class="mb-6 grid grid-cols-1 gap-3 rounded-xl bg-white p-4 shadow-sm sm:grid-cols-[1fr_220px_auto]">
+<form method="GET" action="{{ route('arquivos-diversos.index') }}" class="mb-6 grid grid-cols-1 gap-3 rounded-xl bg-white p-4 shadow-sm sm:grid-cols-[1fr_220px_auto]">
     <label class="sr-only" for="busca">Buscar arquivos</label>
     <input id="busca" name="busca" value="{{ request('busca') }}" type="search" placeholder="Buscar por título, descrição ou categoria..." class="w-full rounded-lg border-gray-300 focus:border-emerald-600 focus:ring-emerald-600">
     <label class="sr-only" for="categoria-filtro">Categoria</label>
@@ -71,8 +71,8 @@
 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">@foreach($arquivos as $arquivo)
 <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:shadow-md">
     <div class="flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 to-amber-50">
-@if($arquivo->capa_path)<img src="{{ route('biblioteca-arquivos.capa',$arquivo) }}" alt="Capa: {{ $arquivo->titulo }}" loading="lazy" class="h-full w-full object-cover">
-@elseif($arquivo->eh_imagem)<img src="{{ route('biblioteca-arquivos.download',$arquivo) }}" alt="{{ $arquivo->titulo }}" loading="lazy" class="h-full w-full object-contain p-3">
+@if($arquivo->capa_path)<img src="{{ route('arquivos-diversos.capa',$arquivo) }}" alt="Capa: {{ $arquivo->titulo }}" loading="lazy" class="h-full w-full object-cover">
+@elseif($arquivo->eh_imagem)<img src="{{ route('arquivos-diversos.download',$arquivo) }}" alt="{{ $arquivo->titulo }}" loading="lazy" class="h-full w-full object-contain p-3">
 @else 
     <div class="text-center"><svg class="mx-auto h-14 w-14 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M7 3.75h7l5 5v11.5a.75.75 0 0 1-.75.75h-11.5a.75.75 0 0 1-.75-.75V4.5a.75.75 0 0 1 .75-.75Z"/>
@@ -91,8 +91,8 @@
         @endif
 <div class="mt-3 text-xs text-gray-500">{{ number_format($arquivo->arquivo_tamanho/1048576,2,',','.') }} MB · {{ $arquivo->created_at->format('d/m/Y') }}
 </div>
-        <div class="mt-auto flex flex-wrap gap-2 pt-5"><a href="{{ route('biblioteca-arquivos.download',$arquivo) }}" class="inline-flex flex-1 items-center justify-center rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-800">Baixar arquivo</a>
-@can('manage-casa-arquivos')<form action="{{ route('biblioteca-arquivos.destroy',$arquivo) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir este arquivo da biblioteca?');">@csrf @method('DELETE')
+        <div class="mt-auto flex flex-wrap gap-2 pt-5"><a href="{{ route('arquivos-diversos.download',$arquivo) }}" class="inline-flex flex-1 items-center justify-center rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-800">Baixar arquivo</a>
+@can('manage-casa-arquivos')<form action="{{ route('arquivos-diversos.destroy',$arquivo) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir este arquivo da biblioteca?');">@csrf @method('DELETE')
     <button type="submit" class="rounded-lg border border-red-200 px-3 py-2.5 text-sm font-semibold text-red-700 hover:bg-red-50">Excluir</button>
 </form>
 @endcan
