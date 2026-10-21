@@ -149,16 +149,16 @@
             <h3 class="text-xl font-bold text-gray-900 mb-2">Conduta & Preparo</h3>
             <p class="text-gray-500 text-sm leading-relaxed">Dicas e obrigações para o desenvolvimento mediúnico.</p>
         </a>
-       
-        <!-- Biblioteca de Arquivos -->
-  <!--  <a href="{{ route('user.arquivos-diversos') }}" class="nav-card">
-            <div class="nav-icon" style="background: #4338CA;">
-                <i class="fa-solid fa-book-open"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca de Arquivos</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Biblioteca de Arquivos para conehcimento e auxilio no desenvolvimento mediúnico.</p>
-        </a> -->
     </div>
+        <!-- Biblioteca de Arquivos -->
+  <!--  <a href="{{ route('user.arquivos-diversos') }}" class="nav-card"> -->
+  <!--          <div class="nav-icon" style="background: #4338CA;"> -->
+  <!--              <i class="fa-solid fa-book-open"></i> -->
+  <!--          </div> -->
+  <!--          <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca de Arquivos</h3> -->
+  <!--         <p class="text-gray-500 text-sm leading-relaxed">Biblioteca de Arquivos para conehcimento e auxilio no desenvolvimento mediúnico.</p> -->
+  <!--      </a> -->
+  <!--  </div>  -->
 
     <!-- Mensagem Inspiradora -->
     <div class="user-card bg-gradient-to-r from-green-50 to-yellow-50 border-l-4" style="border-color: var(--gold-main);">
