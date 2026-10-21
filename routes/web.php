@@ -46,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Incluido por Fernando - 21/10/2026
 use App\Http\Controllers\ArquivoCasaController;
 // use Illuminate\Support\Facades\Route;
-Route::middleware('auth')->prefix('biblioteca-arquivos')->name('biblioteca-arquivos.')->group(function () {
+Route::middleware('auth')->prefix('arquivos-diversos')->name('arquivos-diversos.')->group(function () {
     Route::get('/', [ArquivoCasaController::class,'index'])->name('index');
     Route::get('/{arquivo}/download', [ArquivoCasaController::class,'download'])->name('download');
     Route::get('/{arquivo}/capa', [ArquivoCasaController::class,'capa'])->name('capa');
