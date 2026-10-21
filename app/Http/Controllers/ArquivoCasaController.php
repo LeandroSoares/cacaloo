@@ -16,7 +16,7 @@ class ArquivoCasaController extends Controller {
             })
             ->when($request->filled('categoria'), fn($q) => $q->where('categoria',$request->input('categoria')))
             ->latest()->paginate(12)->withQueryString();
-        return view('biblioteca-arquivos.index', compact('arquivos','categorias'));
+        return view('arquivos-diversos.index', compact('arquivos','categorias'));
     }
 
     public function store(Request $request) {
@@ -49,7 +49,7 @@ class ArquivoCasaController extends Controller {
         } catch (\Throwable $e) {
             $disk->delete(array_filter([$arquivoPath,$capaPath])); throw $e;
         }
-        return redirect()->route('biblioteca-arquivos.index')->with('success','Arquivo adicionado à biblioteca com sucesso.');
+        return redirect()->route('arquivos-diversos.index')->with('success','Arquivo adicionado à biblioteca com sucesso.');
     }
 
     public function download(ArquivoCasa $arquivo): StreamedResponse {
@@ -72,6 +72,6 @@ class ArquivoCasaController extends Controller {
     public function destroy(ArquivoCasa $arquivo) {
         $paths = array_filter([$arquivo->arquivo_path,$arquivo->capa_path]);
         $arquivo->delete(); Storage::disk('local')->delete($paths);
-        return redirect()->route('biblioteca-arquivos.index')->with('success','Arquivo excluído da biblioteca.');
+        return redirect()->route('arquivos-diversos.index')->with('success','Arquivo excluído da biblioteca.');
     }
 }
