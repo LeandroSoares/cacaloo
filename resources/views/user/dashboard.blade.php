@@ -151,7 +151,7 @@
         </a>
        
         <!-- Biblioteca de Arquivos -->
-      <!--  <a href="{{ route('user.arquivos-diversos') }}" class="nav-card">
+  <!--  <a href="{{ route('user.arquivos-diversos') }}" class="nav-card">
             <div class="nav-icon" style="background: #4338CA;">
                 <i class="fa-solid fa-book-open"></i>
             </div>
