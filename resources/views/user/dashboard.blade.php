@@ -155,8 +155,8 @@
             <div class="nav-icon" style="background: #4338CA;">
                 <i class="fa-solid fa-hands-praying"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Arquivos Diversos</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Arquivos para conehcimento e auxilio no desenvolvimento mediúnico.</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca de Arquivos</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Biblioteca de Arquivos para conehcimento e auxilio no desenvolvimento mediúnico.</p>
         </a>
     </div>
 
