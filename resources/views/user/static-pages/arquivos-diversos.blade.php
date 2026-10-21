@@ -59,7 +59,10 @@
     <label class="sr-only" for="categoria-filtro">Categoria</label>
     <select id="categoria-filtro" name="categoria" class="w-full rounded-lg border-gray-300 focus:border-emerald-600 focus:ring-emerald-600">
         <option value="">Todas as categorias</option>
-        @foreach($categorias as $categoria)<option value="{{ $categoria }}" @selected(request('categoria') === $categoria)>{{ $categoria }}</option>
+        @foreach($categorias as $categoria)
+        <option value="{{ $categoria }}" @selected(request('categoria') === $categoria)>
+            {{ $categoria }}
+        </option>
         @endforeach
     </select>
     <button class="rounded-lg border border-gray-300 px-5 py-2 font-semibold text-gray-700 hover:bg-gray-50" type="submit">Filtrar</button>
