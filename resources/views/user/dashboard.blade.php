@@ -149,6 +149,16 @@
             <h3 class="text-xl font-bold text-gray-900 mb-2">Conduta & Preparo</h3>
             <p class="text-gray-500 text-sm leading-relaxed">Dicas e obrigações para o desenvolvimento mediúnico.</p>
         </a>
+        
+        <!-- Arquivos diversos -->
+        <a href="{{ route('user.arquivos-diversos') }}" class="nav-card">
+            <div class="nav-icon" style="background: #4338CA;">
+                <i class="fa-solid fa-open-book"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca da Casa de Caridade</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Material para conhecimento e auxilio no preparo do desenvolvimento mediúnico.</p>
+        </a>
+        
     </div>
   
     <!-- Mensagem Inspiradora -->
