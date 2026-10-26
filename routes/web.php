@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
     Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
     Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
- //   Route::view('/arquivos-diversos', 'user.static-pages.arquivos-diversos')->name('user.arquivos-diversos');
+    Route::view('/arquivos-diversos', 'user.static-pages.arquivos-diversos')->name('user.arquivos-diversos');
     Route::get('/orixas', [\App\Http\Controllers\User\StaticPageController::class, 'orixas'])->name('user.orixas');
 
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
