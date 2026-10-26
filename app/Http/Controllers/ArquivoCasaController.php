@@ -32,10 +32,10 @@ class ArquivoCasaController extends Controller {
         ]);
         $disk = Storage::disk('local');
         $upload = $request->file('arquivo');
-        $arquivoPath = $upload->store('arquivos-diversos/arquivos','local');
+        $arquivoPath = $upload->store('biblioteca-casa/arquivos','local');
         $capaPath = null;
         try {
-            if ($request->hasFile('capa')) $capaPath = $request->file('capa')->store('arquivos-diversos/capas','local');
+            if ($request->hasFile('capa')) $capaPath = $request->file('capa')->store('biblioteca-casa/capas','local');
             ArquivoCasa::create([
                 'titulo'=>trim($data['titulo']), 'categoria'=>trim($data['categoria']),
                 'descricao'=>isset($data['descricao']) ? trim($data['descricao']) : null,
