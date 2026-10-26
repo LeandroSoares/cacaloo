@@ -158,7 +158,6 @@
             <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca da Casa de Caridade</h3>
             <p class="text-gray-500 text-sm leading-relaxed">Material para conhecimento e auxilio no preparo do desenvolvimento mediúnico.</p>
         </a>
-        
     </div>
   
     <!-- Mensagem Inspiradora -->
