@@ -60,6 +60,11 @@ class RolesAndPermissionsSeeder extends Seeder
             'report.export',
         ];
 
+        // Permissões da biblioteca de arquivos
+        $libraryPermissions = [
+            'library.manage',
+        ];
+
         // Permissões de gerenciamento de papéis
         $rolePermissions = [
             'role.view',
@@ -83,6 +88,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $mediumTypePermissions,
             $configPermissions,
             $reportPermissions,
+            $libraryPermissions,
             $rolePermissions,
             $roleAssignmentPermissions
         );
@@ -104,6 +110,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $invitePermissions,
             $mediumTypePermissions,
             $reportPermissions,
+            $libraryPermissions,
             ['role.view'],
             [
                 'role.assign.admin',

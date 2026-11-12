@@ -49,9 +49,22 @@ fi
 
 # Limpar e otimizar cache
 echo "Otimizando caches..."
+php artisan permission:cache-reset || true
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+
+# Garantir diretórios e permissões de storage e cache (após rodar artisan como root)
+echo "Verificando e corrigindo permissões de diretórios..."
+mkdir -p /var/www/html/storage/app/private/library/files \
+         /var/www/html/storage/app/private/library/covers \
+         /var/www/html/storage/framework/cache \
+         /var/www/html/storage/framework/sessions \
+         /var/www/html/storage/framework/views \
+         /var/www/html/storage/logs \
+         /var/www/html/bootstrap/cache
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 echo "Iniciando serviços..."
 

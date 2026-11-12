@@ -35,7 +35,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
     Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
     Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
-    Route::view('/arquivos-diversos', 'user.static-pages.arquivos-diversos')->name('user.arquivos-diversos');
     Route::get('/orixas', [\App\Http\Controllers\User\StaticPageController::class, 'orixas'])->name('user.orixas');
 
     Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
@@ -43,18 +42,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Adicione aqui outras rotas para a área do usuário comum
 });
 
-// Incluido por Fernando - 21/10/2026
-use App\Http\Controllers\ArquivoCasaController;
-Route::middleware('auth')->prefix('arquivos-diversos')->name('arquivos-diversos.')->group(function () {
-    Route::get('/', [ArquivoCasaController::class,'index'])->name('index');
-    Route::get('/{arquivo}/download', [ArquivoCasaController::class,'download'])->name('download');
-    Route::get('/{arquivo}/capa', [ArquivoCasaController::class,'capa'])->name('capa');
-    Route::middleware('can:manage-casa-arquivos')->group(function () {
-        Route::post('/', [ArquivoCasaController::class,'store'])->name('store');
-        Route::delete('/{arquivo}', [ArquivoCasaController::class,'destroy'])->name('destroy');
+// Biblioteca de Arquivos (acessível a todos os usuários autenticados)
+Route::middleware('auth')->group(function () {
+    Route::redirect('/arquivos-diversos', '/biblioteca', 301)->name('user.arquivos-diversos');
+
+    Route::prefix('biblioteca')->name('user.library.')->controller(\App\Http\Controllers\User\LibraryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{libraryFile}/download', 'download')->name('download');
+        Route::get('/{libraryFile}/capa', 'cover')->name('cover');
     });
 });
-// Fim Incluido Fernando
 
 // Rotas Administrativas
 Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('admin')->name('admin.')->group(function () {
@@ -89,6 +86,17 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
 
     // Gerenciador de Conteúdos (CMS)
     Route::resource('contents', \App\Http\Controllers\Admin\ContentController::class);
+
+    // Biblioteca de Arquivos
+    Route::middleware('can:library.manage')->group(function () {
+        Route::resource('library', \App\Http\Controllers\Admin\LibraryFileController::class);
+        Route::patch('library/{library}/toggle-active', [\App\Http\Controllers\Admin\LibraryFileController::class, 'toggleActive'])
+            ->name('library.toggle-active');
+        Route::get('library/{library}/download', [\App\Http\Controllers\Admin\LibraryFileController::class, 'download'])
+            ->name('library.download');
+        Route::get('library/{library}/cover', [\App\Http\Controllers\Admin\LibraryFileController::class, 'cover'])
+            ->name('library.cover');
+    });
 
     // Adicione aqui outras rotas administrativas
 });

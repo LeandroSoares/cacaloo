@@ -51,6 +51,14 @@
                             <span>{{ __('Artigos') }}</span>
                         </span>
                     </x-nav-link>
+
+                    <x-nav-link :href="route('user.library.index')" :active="request()->routeIs('user.library.*')"
+                        class="user-nav-item border-b-2 border-transparent hover:border-oxossi focus-ring">
+                        <span class="flex items-center space-x-2">
+                            <span>📂</span>
+                            <span>{{ __('Biblioteca') }}</span>
+                        </span>
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -139,6 +147,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.medium-history')" :active="request()->routeIs('user.medium-history')">
                 {{ __('Histórico Mediúnico') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.library.index')" :active="request()->routeIs('user.library.*')">
+                {{ __('Biblioteca') }}
             </x-responsive-nav-link>
         </div>
 
