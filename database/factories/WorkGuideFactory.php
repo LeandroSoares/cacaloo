@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\WorkGuide;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\WorkGuide>
+ * @extends Factory<WorkGuide>
  */
 class WorkGuideFactory extends Factory
 {
@@ -17,7 +19,7 @@ class WorkGuideFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
             'caboclo' => fake()->optional()->name(),
             'cabocla' => fake()->optional()->name(),
             'ogum' => fake()->optional()->name(),

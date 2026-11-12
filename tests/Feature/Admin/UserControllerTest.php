@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 use Tests\TestCase;
 
 class UserControllerTest extends TestCase
@@ -19,7 +20,7 @@ class UserControllerTest extends TestCase
         parent::setUp();
 
         // Configurar permissões e papéis
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Criar permissões básicas para teste
         Permission::create(['name' => 'user.view']);

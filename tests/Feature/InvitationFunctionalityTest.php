@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Services\InvitationService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
@@ -212,7 +213,7 @@ class InvitationFunctionalityTest extends TestCase
         // Tenta criar um convite com o mesmo e-mail
         $this->withoutExceptionHandling();
 
-        $this->expectException(\Illuminate\Validation\ValidationException::class);
+        $this->expectException(ValidationException::class);
 
         $this->post(route('admin.invitations.store'), [
             'email' => 'existing@example.com',

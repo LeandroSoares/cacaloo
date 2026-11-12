@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Amaci;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Amaci>
+ * @extends Factory<Amaci>
  */
 class AmaciFactory extends Factory
 {
@@ -25,7 +27,7 @@ class AmaciFactory extends Factory
         ];
 
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
             'type' => fake()->randomElement($types),
             'observations' => fake()->optional()->sentence(),
             'date' => fake()->date(),

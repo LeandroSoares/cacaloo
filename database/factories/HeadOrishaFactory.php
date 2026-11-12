@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\HeadOrisha;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HeadOrisha>
+ * @extends Factory<HeadOrisha>
  */
 class HeadOrishaFactory extends Factory
 {

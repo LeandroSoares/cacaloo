@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\LastTemple;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LastTemple>
+ * @extends Factory<LastTemple>
  */
 class LastTempleFactory extends Factory
 {
@@ -17,7 +19,7 @@ class LastTempleFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
             'name' => fake()->company(),
             'address' => fake()->optional()->address(),
             'leader_name' => fake()->optional()->name(),

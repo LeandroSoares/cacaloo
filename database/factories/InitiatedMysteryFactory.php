@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\InitiatedMystery;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\InitiatedMystery>
+ * @extends Factory<InitiatedMystery>
  */
 class InitiatedMysteryFactory extends Factory
 {

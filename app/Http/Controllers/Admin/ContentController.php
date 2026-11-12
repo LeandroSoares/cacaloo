@@ -7,6 +7,7 @@ use App\Enums\ContentVisibility;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Enum;
 
 class ContentController extends Controller
 {
@@ -40,8 +41,8 @@ class ContentController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:contents,slug',
             'body' => 'required|string',
-            'type' => ['required', new \Illuminate\Validation\Rules\Enum(ContentType::class)],
-            'visibility' => ['required', new \Illuminate\Validation\Rules\Enum(ContentVisibility::class)],
+            'type' => ['required', new Enum(ContentType::class)],
+            'visibility' => ['required', new Enum(ContentVisibility::class)],
             'published_at' => 'nullable|date',
             'is_active' => 'boolean',
         ]);
@@ -73,8 +74,8 @@ class ContentController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:contents,slug,'.$content->id,
             'body' => 'required|string',
-            'type' => ['required', new \Illuminate\Validation\Rules\Enum(ContentType::class)],
-            'visibility' => ['required', new \Illuminate\Validation\Rules\Enum(ContentVisibility::class)],
+            'type' => ['required', new Enum(ContentType::class)],
+            'visibility' => ['required', new Enum(ContentVisibility::class)],
             'published_at' => 'nullable|date',
             'is_active' => 'boolean',
         ]);

@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -13,7 +15,7 @@ abstract class TestCase extends BaseTestCase
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        $app->make(Kernel::class)->bootstrap();
 
         return $app;
     }
@@ -24,6 +26,6 @@ abstract class TestCase extends BaseTestCase
      */
     protected function withoutCsrf()
     {
-        return $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+        return $this->withoutMiddleware(VerifyCsrfToken::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Crowning;
 use App\Services\CrowningService;
 use Livewire\Component;
 
@@ -21,7 +22,7 @@ class CrowningForm extends Component
 
     public function mount()
     {
-        $crowning = \App\Models\Crowning::where('user_id', auth()->id())->first();
+        $crowning = Crowning::where('user_id', auth()->id())->first();
         if ($crowning) {
             $this->start_date = $crowning->start_date?->format('Y-m-d') ?? '';
             $this->end_date = $crowning->end_date?->format('Y-m-d') ?? '';

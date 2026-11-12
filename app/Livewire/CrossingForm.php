@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Crossing;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class CrossingForm extends Component
@@ -44,14 +45,14 @@ class CrossingForm extends Component
         if ($this->editingId) {
             $crossing = Crossing::find($this->editingId);
             if ($crossing && $crossing->user_id == $this->user->id) {
-                \Illuminate\Support\Facades\Log::info('Updating crossing', ['id' => $this->editingId]);
+                Log::info('Updating crossing', ['id' => $this->editingId]);
                 $crossing->update([
                     'entity' => $this->entity,
                     'date' => $this->date ?: null,
                     'purpose' => $this->purpose,
                 ]);
             } else {
-                \Illuminate\Support\Facades\Log::info('Update failed: Authorization or not found', ['editingId' => $this->editingId]);
+                Log::info('Update failed: Authorization or not found', ['editingId' => $this->editingId]);
             }
         } else {
             $this->user->crossings()->create([
@@ -70,13 +71,13 @@ class CrossingForm extends Component
 
     public function edit($id)
     {
-        \Illuminate\Support\Facades\Log::info('Edit method called', ['id' => $id, 'user_id' => $this->user->id]);
+        Log::info('Edit method called', ['id' => $id, 'user_id' => $this->user->id]);
         $crossing = Crossing::find($id);
 
         if ($crossing) {
-            \Illuminate\Support\Facades\Log::info('Crossing found', ['crossing_user_id' => $crossing->user_id]);
+            Log::info('Crossing found', ['crossing_user_id' => $crossing->user_id]);
         } else {
-            \Illuminate\Support\Facades\Log::info('Crossing not found');
+            Log::info('Crossing not found');
         }
 
         if ($crossing && $crossing->user_id == $this->user->id) {
@@ -85,7 +86,7 @@ class CrossingForm extends Component
             $this->date = $crossing->date?->format('Y-m-d');
             $this->purpose = $crossing->purpose;
 
-            \Illuminate\Support\Facades\Log::info('Crossing assigned', [
+            Log::info('Crossing assigned', [
                 'entity' => $this->entity,
                 'date' => $this->date,
                 'purpose' => $this->purpose,
@@ -94,7 +95,7 @@ class CrossingForm extends Component
             // Forçar re-renderização para atualizar os inputs
             // $this->js('$wire.$refresh()');
         } else {
-            \Illuminate\Support\Facades\Log::info('Authorization failed or crossing null');
+            Log::info('Authorization failed or crossing null');
         }
     }
 

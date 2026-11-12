@@ -1,13 +1,27 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\DailyMessageController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeCustomizationController;
+use App\Http\Controllers\Admin\LibraryFileController;
+use App\Http\Controllers\Admin\MagicTypeController;
+use App\Http\Controllers\Admin\MysteryController;
+use App\Http\Controllers\Admin\OrishaController;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\MediumHistoryController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\LibraryController;
+use App\Http\Controllers\User\StaticPageController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminAccess;
+use App\Http\Middleware\SysAdminAccess;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -15,15 +29,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Rotas de desenvolvimento (apenas local)
 if (app()->environment('local')) {
     // Rota de teste para envio de email
-    Route::get('/test-email', [\App\Http\Controllers\DebugController::class, 'testEmail']);
+    Route::get('/test-email', [DebugController::class, 'testEmail']);
 
     // Rota de debug para verificar papéis e permissões
-    Route::get('/check-roles-permissions', [\App\Http\Controllers\DebugController::class, 'checkRolesPermissions']);
+    Route::get('/check-roles-permissions', [DebugController::class, 'checkRolesPermissions']);
 }
 
 // Área do Usuário (comum)
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -35,9 +49,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/lendas', 'user.static-pages.lendas')->name('user.lendas');
     Route::view('/orientacoes-casa', 'user.static-pages.orientacoes-casa')->name('user.orientacoes-casa');
     Route::view('/orientacoes-mediuns', 'user.static-pages.orientacoes-mediuns')->name('user.orientacoes-mediuns');
-    Route::get('/orixas', [\App\Http\Controllers\User\StaticPageController::class, 'orixas'])->name('user.orixas');
+    Route::get('/orixas', [StaticPageController::class, 'orixas'])->name('user.orixas');
 
-    Route::get('/historico-mediunico', [\App\Http\Controllers\MediumHistoryController::class, 'show'])
+    Route::get('/historico-mediunico', [MediumHistoryController::class, 'show'])
         ->name('user.medium-history');
     // Adicione aqui outras rotas para a área do usuário comum
 });
@@ -46,7 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::redirect('/arquivos-diversos', '/biblioteca', 301)->name('user.arquivos-diversos');
 
-    Route::prefix('biblioteca')->name('user.library.')->controller(\App\Http\Controllers\User\LibraryController::class)->group(function () {
+    Route::prefix('biblioteca')->name('user.library.')->controller(LibraryController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{libraryFile}/download', 'download')->name('download');
         Route::get('/{libraryFile}/capa', 'cover')->name('cover');
@@ -54,9 +68,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rotas Administrativas
-Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', AdminAccess::class])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Admin
-    Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
     // Gerenciamento de Usuários
     Route::resource('users', UserController::class);
@@ -74,27 +88,27 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
     Route::post('home-customization', [HomeCustomizationController::class, 'store'])->name('home-customization.store');
 
     // Gerenciamento de Entidades do Sistema
-    Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
-    Route::resource('mysteries', \App\Http\Controllers\Admin\MysteryController::class);
-    Route::resource('orishas', \App\Http\Controllers\Admin\OrishaController::class);
-    Route::resource('magic-types', \App\Http\Controllers\Admin\MagicTypeController::class);
+    Route::resource('courses', CourseController::class);
+    Route::resource('mysteries', MysteryController::class);
+    Route::resource('orishas', OrishaController::class);
+    Route::resource('magic-types', MagicTypeController::class);
 
     // Mensagens do Dia
-    Route::resource('daily-messages', \App\Http\Controllers\Admin\DailyMessageController::class);
-    Route::patch('daily-messages/{dailyMessage}/toggle-active', [\App\Http\Controllers\Admin\DailyMessageController::class, 'toggleActive'])->name('daily-messages.toggle-active');
-    Route::post('daily-messages-cache/clear', [\App\Http\Controllers\Admin\DailyMessageController::class, 'clearCache'])->name('daily-messages.clear-cache');
+    Route::resource('daily-messages', DailyMessageController::class);
+    Route::patch('daily-messages/{dailyMessage}/toggle-active', [DailyMessageController::class, 'toggleActive'])->name('daily-messages.toggle-active');
+    Route::post('daily-messages-cache/clear', [DailyMessageController::class, 'clearCache'])->name('daily-messages.clear-cache');
 
     // Gerenciador de Conteúdos (CMS)
-    Route::resource('contents', \App\Http\Controllers\Admin\ContentController::class);
+    Route::resource('contents', App\Http\Controllers\Admin\ContentController::class);
 
     // Biblioteca de Arquivos
     Route::middleware('can:library.manage')->group(function () {
-        Route::resource('library', \App\Http\Controllers\Admin\LibraryFileController::class);
-        Route::patch('library/{library}/toggle-active', [\App\Http\Controllers\Admin\LibraryFileController::class, 'toggleActive'])
+        Route::resource('library', LibraryFileController::class);
+        Route::patch('library/{library}/toggle-active', [LibraryFileController::class, 'toggleActive'])
             ->name('library.toggle-active');
-        Route::get('library/{library}/download', [\App\Http\Controllers\Admin\LibraryFileController::class, 'download'])
+        Route::get('library/{library}/download', [LibraryFileController::class, 'download'])
             ->name('library.download');
-        Route::get('library/{library}/cover', [\App\Http\Controllers\Admin\LibraryFileController::class, 'cover'])
+        Route::get('library/{library}/cover', [LibraryFileController::class, 'cover'])
             ->name('library.cover');
     });
 
@@ -102,15 +116,15 @@ Route::middleware(['auth', \App\Http\Middleware\AdminAccess::class])->prefix('ad
 });
 
 // Rotas SysAdmin - Super Administrador
-Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix('sysadmin')->name('sysadmin.')->group(function () {
+Route::middleware(['auth', SysAdminAccess::class])->prefix('sysadmin')->name('sysadmin.')->group(function () {
     // Dashboard SysAdmin
-    Route::get('/dashboard', [\App\Http\Controllers\SysAdmin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\SysAdmin\DashboardController::class, 'index'])->name('dashboard');
 
     // Gerenciamento de Permissões
     Route::resource('permissions', PermissionController::class);
 
     // Logs do Sistema
-    Route::get('/system/logs', [\App\Http\Controllers\SysAdmin\DashboardController::class, 'logs'])->name('system.logs');
+    Route::get('/system/logs', [App\Http\Controllers\SysAdmin\DashboardController::class, 'logs'])->name('system.logs');
 
     // Gerenciamento de Papéis e Permissões
     Route::resource('roles', RoleController::class);
@@ -120,16 +134,16 @@ Route::middleware(['auth', \App\Http\Middleware\SysAdminAccess::class])->prefix(
 
 // Rotas de Conteúdo (CMS)
 // Privado (Portal)
-Route::get('/portal/artigos', [\App\Http\Controllers\ContentController::class, 'portalIndex'])
+Route::get('/portal/artigos', [ContentController::class, 'portalIndex'])
     ->name('portal.articles')
     ->middleware('auth');
 
-Route::get('/portal/{slug}', [\App\Http\Controllers\ContentController::class, 'showPrivate'])
+Route::get('/portal/{slug}', [ContentController::class, 'showPrivate'])
     ->name('portal.content')
     ->where('slug', '[a-z0-9\-]+');
 
 // Público (Prefixo /c/ para evitar conflitos com rotas de sistema como /login)
-Route::get('/c/{slug}', [\App\Http\Controllers\ContentController::class, 'showPublic'])
+Route::get('/c/{slug}', [ContentController::class, 'showPublic'])
     ->name('public.content')
     ->where('slug', '[a-z0-9\-]+');
 

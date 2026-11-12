@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\ContentVisibility;
 use App\Http\Controllers\Controller;
+use App\Models\Content;
 use App\Models\HomeSectionCard;
 use App\Services\HomeContentService;
 use Illuminate\Http\RedirectResponse;
@@ -23,8 +25,8 @@ class HomeCustomizationController extends Controller
         $homeData = $this->homeContentService->getHomeContent();
 
         // Buscar conteúdos públicos para sugestão de link
-        $publicContents = \App\Models\Content::published()
-            ->where('visibility', \App\Enums\ContentVisibility::PUBLIC)
+        $publicContents = Content::published()
+            ->where('visibility', ContentVisibility::PUBLIC)
             ->select('title', 'slug')
             ->get()
             ->map(function ($content) {

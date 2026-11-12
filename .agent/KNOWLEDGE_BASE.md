@@ -49,7 +49,8 @@ Acesso rigorosamente controlado.
 - **Domínio:** `casadecaridade.com.br`.
 - **Rotinas:** Backup diário automático (Banco + Storage) para local seguro.
 
-## 5. Contexto Espiritual (Regras de Design)
+## 5. Contexto Espiritual e Diretrizes Inegociáveis
+- **Segurança é Prioridade Absoluta (P0):** Nunca ignorar ou contornar alertas de segurança (`composer audit`, OWASP ZAP, headers HTTP, controle de acesso). Vulnerabilidades em dependências ou código devem ser corrigidas imediatamente antes de qualquer merge/deploy.
 - **Regência:** Casa de **Oxóssi** (Conhecimento/Verde) e **Ogum** (Lei/Vermelho).
 - **Filosofia:** O sistema deve refletir organização e conhecimento ("O cientista e doutrinador"). Evitar caos visual.
 - **Segurança Espiritual:** Dados de "Orixás de Cabeça" e "Guias" são sagrados. Apenas o próprio médium e a liderança podem ver. **Nunca** expor publicamente.

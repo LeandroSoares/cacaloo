@@ -6,6 +6,8 @@ use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Permission\Middleware\PermissionMiddleware;
+use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -25,8 +27,8 @@ class RoleServiceProvider extends ServiceProvider
         // Registrar middleware aliased
         $router = $this->app['router'];
         $router->aliasMiddleware('role', CheckRole::class);
-        $router->aliasMiddleware('permission', \Spatie\Permission\Middleware\PermissionMiddleware::class);
-        $router->aliasMiddleware('role_or_permission', \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class);
+        $router->aliasMiddleware('permission', PermissionMiddleware::class);
+        $router->aliasMiddleware('role_or_permission', RoleOrPermissionMiddleware::class);
 
         // Adicionar diretivas Blade para verificação de papéis e permissões
         Blade::directive('role', function ($role) {

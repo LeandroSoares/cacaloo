@@ -105,7 +105,7 @@ class LibraryModuleTest extends TestCase
         $admin->assignRole('admin');
 
         $pdf = UploadedFile::fake()->create('apostila.pdf', 512, 'application/pdf');
-        $cover = UploadedFile::fake()->image('capa.jpg', 400, 300);
+        $cover = UploadedFile::fake()->image('capa.png', 400, 300);
 
         $response = $this->actingAs($admin)->post(route('admin.library.store'), [
             'title' => 'Apostila de Umbanda',

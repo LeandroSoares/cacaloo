@@ -96,7 +96,7 @@ return new class extends Migration
                         ]);
                     }
                 }
-            } catch (\Throwable) {
+            } catch (Throwable) {
                 // Ignore legacy copy errors to never block production migrations
             }
         }
@@ -129,7 +129,7 @@ return new class extends Migration
                 }
 
                 app()[PermissionRegistrar::class]->forgetCachedPermissions();
-            } catch (\Throwable) {
+            } catch (Throwable) {
                 // Ignore permission sync errors during migration; Gate::after fallback handles admin/sysadmin
             }
         }
