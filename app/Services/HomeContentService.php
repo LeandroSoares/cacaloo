@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\ContentVisibility;
 use App\Models\Event;
 use App\Models\HomeSection;
 use Illuminate\Support\Facades\Cache;
@@ -59,7 +60,7 @@ class HomeContentService
         $section = HomeSection::getByKey('events');
         $events = Event::visible()
             ->published()
-            ->where('visibility', \App\Enums\ContentVisibility::PUBLIC) // Apenas públicos
+            ->where('visibility', ContentVisibility::PUBLIC) // Apenas públicos
             ->upcoming()
             ->ordered()
             ->limit(3)

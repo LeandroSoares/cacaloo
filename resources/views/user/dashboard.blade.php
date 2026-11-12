@@ -149,6 +149,15 @@
             <h3 class="text-xl font-bold text-gray-900 mb-2">Conduta & Preparo</h3>
             <p class="text-gray-500 text-sm leading-relaxed">Dicas e obrigações para o desenvolvimento mediúnico.</p>
         </a>
+
+        <!-- Biblioteca de Arquivos -->
+        <a href="{{ route('user.library.index') }}" class="nav-card">
+            <div class="nav-icon" style="background: #1B4332;">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Biblioteca de Arquivos</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Apostilas, orientações e materiais de apoio para o seu desenvolvimento mediúnico.</p>
+        </a>
     </div>
   
     <!-- Mensagem Inspiradora -->

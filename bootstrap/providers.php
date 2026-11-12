@@ -1,6 +1,9 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\RoleServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\RoleServiceProvider::class,
+    AppServiceProvider::class,
+    RoleServiceProvider::class,
 ];

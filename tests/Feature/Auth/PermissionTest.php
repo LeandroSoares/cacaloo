@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 use Tests\TestCase;
 
 class PermissionTest extends TestCase
@@ -17,7 +18,7 @@ class PermissionTest extends TestCase
         parent::setUp();
 
         // Criar papéis e permissões para testes
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Criar permissões para teste
         Permission::create(['name' => 'user.view']);

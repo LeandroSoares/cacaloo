@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Crowning;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Crowning>
+ * @extends Factory<Crowning>
  */
 class CrowningFactory extends Factory
 {
@@ -17,7 +19,7 @@ class CrowningFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
             'start_date' => fake()->optional()->date(),
             'end_date' => fake()->optional()->date(),
             'guide_name' => fake()->optional()->name(),

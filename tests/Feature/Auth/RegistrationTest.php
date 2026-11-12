@@ -2,7 +2,10 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Invitation;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -11,9 +14,9 @@ class RegistrationTest extends TestCase
 
     public function test_registration_screen_can_be_rendered(): void
     {
-        $admin = \App\Models\User::factory()->create();
+        $admin = User::factory()->create();
 
-        $invitation = \App\Models\Invitation::create([
+        $invitation = Invitation::create([
             'email' => 'test@example.com',
             'token' => 'valid-token',
             'expires_at' => now()->addDays(1),
@@ -27,10 +30,10 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
-        \Spatie\Permission\Models\Role::create(['name' => 'user']);
-        $admin = \App\Models\User::factory()->create();
+        Role::create(['name' => 'user']);
+        $admin = User::factory()->create();
 
-        $invitation = \App\Models\Invitation::create([
+        $invitation = Invitation::create([
             'email' => 'test@example.com',
             'token' => 'valid-token',
             'expires_at' => now()->addDays(1),

@@ -86,6 +86,13 @@
                         Páginas / CMS
                     </a>
 
+                    <a href="{{ route('admin.library.index') }}"
+                       class="group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200
+                              {{ request()->routeIs('admin.library.*') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-folder-open mr-3 text-gray-400 group-hover:text-gray-300"></i>
+                        Biblioteca de Arquivos
+                    </a>
+
                     <a href="{{ route('admin.courses.index') }}"
                        class="group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200
                               {{ request()->routeIs('admin.courses.*') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">

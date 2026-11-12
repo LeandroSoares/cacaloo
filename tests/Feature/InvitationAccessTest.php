@@ -24,7 +24,7 @@ class InvitationAccessTest extends TestCase
         Role::create(['name' => 'sysadmin']);
 
         // Criando um usuário com papel de admin
-        /** @var \App\Models\User $admin */
+        /** @var User $admin */
         $admin = User::factory()->create();
         $admin->assignRole('admin');
 
@@ -48,7 +48,7 @@ class InvitationAccessTest extends TestCase
         }
 
         // Criando um usuário com papel de sysadmin
-        /** @var \App\Models\User $sysadmin */
+        /** @var User $sysadmin */
         $sysadmin = User::factory()->create();
         $sysadmin->assignRole('sysadmin');
 
@@ -67,7 +67,7 @@ class InvitationAccessTest extends TestCase
     public function test_regular_user_cannot_access_invitations_area(): void
     {
         // Criando um usuário comum
-        /** @var \App\Models\User $user */
+        /** @var User $user */
         $user = User::factory()->create();
 
         // Realizando login como usuário comum

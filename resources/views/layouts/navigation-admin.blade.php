@@ -48,6 +48,10 @@
                         💬 {{ __('Mensagens do Dia') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admin.library.index')" :active="request()->routeIs('admin.library.*')" class="text-white hover:text-blue-200">
+                        📂 {{ __('Biblioteca') }}
+                    </x-nav-link>
+
                     <!-- Adicione aqui mais links administrativos -->
                 </div>
             </div>
