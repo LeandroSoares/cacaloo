@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\LibraryTag;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LibraryFileRequest extends FormRequest
@@ -28,8 +29,14 @@ class LibraryFileRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:160'],
             'description' => ['nullable', 'string', 'max:3000'],
-            'tags' => ['required', 'array', 'min:1'],
-            'tags.*' => ['required', 'string', 'max:100'],
+            'tags' => ['required', 'array', 'min:1', 'max:8'],
+            'tags.*' => [
+                'required',
+                'string',
+                'min:2',
+                'max:'.LibraryTag::MAX_NAME_LENGTH,
+                'regex:'.LibraryTag::NAME_REGEX,
+            ],
             'file' => [
                 $isCreating ? 'required' : 'nullable',
                 'file',
@@ -55,7 +62,10 @@ class LibraryFileRequest extends FormRequest
             'description.max' => 'A descrição não pode ter mais de 3000 caracteres.',
             'tags.required' => 'Selecione ou adicione pelo menos uma tag/categoria.',
             'tags.min' => 'Selecione ou adicione pelo menos uma tag/categoria.',
-            'tags.*.max' => 'Cada tag deve ter no máximo 100 caracteres.',
+            'tags.max' => 'Selecione no máximo 8 tags por arquivo.',
+            'tags.*.min' => 'Cada tag deve ter pelo menos 2 caracteres.',
+            'tags.*.max' => 'Cada tag deve ter no máximo '.LibraryTag::MAX_NAME_LENGTH.' caracteres (não cole textos ou descrições no campo de tag).',
+            'tags.*.regex' => 'Cada tag pode conter apenas letras, números, espaços e hífens (sem pontuação ou símbolos).',
             'file.required' => 'Selecione o arquivo principal para envio.',
             'file.max' => 'O arquivo principal deve ter no máximo 20 MB.',
             'file.mimes' => 'Formato não permitido. Envie um documento compatível (PDF, Office, TXT, CSV) ou imagem (JPG, PNG, WEBP, GIF).',
@@ -78,7 +88,7 @@ class LibraryFileRequest extends FormRequest
         }
 
         $normalizedTags = array_values(array_unique(array_filter(
-            array_map(fn ($tag) => trim((string) $tag), (array) $rawTags),
+            array_map(fn ($tag) => preg_replace('/\s+/u', ' ', trim((string) $tag)) ?? '', (array) $rawTags),
             fn ($tag) => $tag !== ''
         )));
 

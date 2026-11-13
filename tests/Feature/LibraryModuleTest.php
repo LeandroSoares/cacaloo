@@ -167,4 +167,55 @@ class LibraryModuleTest extends TestCase
             ])
             ->assertSessionHasErrors('file');
     }
+
+    public function test_invalid_or_overlong_tags_are_rejected_and_admin_can_delete_tags(): void
+    {
+        $admin = User::factory()->create();
+        $admin->assignRole('admin');
+
+        $pdf = UploadedFile::fake()->create('apostila.pdf', 120, 'application/pdf');
+
+        // Rejects tag exceeding 36 characters (pasted description)
+        $this->actingAs($admin)
+            ->post(route('admin.library.store'), [
+                'title' => 'Apostila Teste',
+                'tags' => ['Esta e uma descricao gigante colada no campo de tag por engano'],
+                'file' => $pdf,
+            ])
+            ->assertSessionHasErrors('tags.0');
+
+        // Rejects tag with invalid punctuation/symbols
+        $this->actingAs($admin)
+            ->post(route('admin.library.store'), [
+                'title' => 'Apostila Teste',
+                'tags' => ['Tag inválida: ponto!'],
+                'file' => $pdf,
+            ])
+            ->assertSessionHasErrors('tags.0');
+
+        // Admin can delete an unwanted tag without deleting the linked file
+        $badTag = LibraryTag::create([
+            'name' => 'Tag Poluida',
+            'slug' => 'tag-poluida',
+        ]);
+
+        $file = LibraryFile::create([
+            'title' => 'Documento Mantido',
+            'file_path' => 'library/files/doc.pdf',
+            'original_name' => 'doc.pdf',
+            'mime_type' => 'application/pdf',
+            'file_size' => 1024,
+            'visibility' => 'private',
+            'is_active' => true,
+        ]);
+        $file->tags()->sync([$badTag->id]);
+
+        $this->actingAs($admin)
+            ->deleteJson(route('admin.library.tags.destroy', $badTag))
+            ->assertOk()
+            ->assertJson(['deleted' => true]);
+
+        $this->assertDatabaseMissing('library_tags', ['id' => $badTag->id]);
+        $this->assertDatabaseHas('library_files', ['id' => $file->id]);
+    }
 }

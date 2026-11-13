@@ -12,6 +12,10 @@ class LibraryTag extends Model
 {
     use HasFactory;
 
+    public const MAX_NAME_LENGTH = 36;
+
+    public const NAME_REGEX = '/^[\p{L}\p{N}\s\-]+$/u';
+
     protected $fillable = [
         'name',
         'slug',
@@ -32,7 +36,7 @@ class LibraryTag extends Model
         $tagIds = [];
 
         foreach ($rawTagNames as $rawName) {
-            $cleanName = trim((string) $rawName);
+            $cleanName = preg_replace('/\s+/u', ' ', trim((string) $rawName)) ?? '';
             if ($cleanName === '') {
                 continue;
             }
@@ -41,7 +45,7 @@ class LibraryTag extends Model
 
             $tag = static::firstOrCreate(
                 ['slug' => $slug],
-                ['name' => Str::limit($cleanName, 100, '')]
+                ['name' => Str::limit($cleanName, self::MAX_NAME_LENGTH, '')]
             );
 
             $tagIds[] = $tag->id;

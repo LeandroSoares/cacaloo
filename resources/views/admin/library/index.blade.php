@@ -89,6 +89,65 @@
             </form>
         </div>
 
+        @can('library.manage')
+            @php
+                $hasInvalidTags = $tags->contains(fn ($t) => mb_strlen($t->name) > \App\Models\LibraryTag::MAX_NAME_LENGTH || ! preg_match(\App\Models\LibraryTag::NAME_REGEX, $t->name));
+            @endphp
+            <div class="bg-white shadow rounded-lg p-4 mb-6" x-data="{ openTags: @js($hasInvalidTags) }">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-tags text-green-700"></i>
+                        <span class="text-sm font-semibold text-gray-800">
+                            Tags Cadastradas ({{ $tags->count() }})
+                        </span>
+                        @if($hasInvalidTags)
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+                                <i class="fas fa-exclamation-triangle mr-1"></i>
+                                Há tags longas ou com pontuação para revisar
+                            </span>
+                        @endif
+                    </div>
+                    <button type="button"
+                            @click="openTags = !openTags"
+                            class="inline-flex items-center text-xs font-semibold text-green-700 hover:text-green-900">
+                        <span x-text="openTags ? 'Ocultar gerenciador de tags' : 'Gerenciar / Excluir tags'"></span>
+                        <i class="fas ml-1.5" :class="openTags ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                    </button>
+                </div>
+
+                <div x-show="openTags" x-cloak class="mt-4 pt-3 border-t border-gray-100">
+                    <p class="text-xs text-gray-500 mb-3">
+                        Clique no ícone <i class="fas fa-times text-red-600"></i> ao lado de uma tag para excluí-la permanentemente (os arquivos vinculados não serão apagados). Padrão permitido: até {{ \App\Models\LibraryTag::MAX_NAME_LENGTH }} caracteres, sem pontuação.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        @forelse($tags as $tag)
+                            @php
+                                $isIrregular = mb_strlen($tag->name) > \App\Models\LibraryTag::MAX_NAME_LENGTH || ! preg_match(\App\Models\LibraryTag::NAME_REGEX, $tag->name);
+                            @endphp
+                            <div class="inline-flex items-center gap-1.5 pl-3 pr-2 py-1 rounded-full text-xs font-medium border {{ $isIrregular ? 'bg-red-50 text-red-800 border-red-300' : 'bg-gray-100 text-gray-800 border-gray-300' }}">
+                                <span title="{{ $tag->name }}">{{ Str::limit($tag->name, 50) }}</span>
+                                <span class="text-[11px] {{ $isIrregular ? 'text-red-600' : 'text-gray-500' }}">({{ $tag->files_count }})</span>
+                                <form method="POST"
+                                      action="{{ route('admin.library.tags.destroy', $tag) }}"
+                                      class="inline"
+                                      onsubmit="return confirm('Deseja remover a tag {{ addslashes($tag->name) }}?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            class="ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full text-red-600 hover:bg-red-200 hover:text-red-900 transition"
+                                            title="Excluir tag">
+                                        <i class="fas fa-times text-[10px]"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        @empty
+                            <span class="text-xs text-gray-500">Nenhuma tag cadastrada.</span>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        @endcan
+
         @if(session('success'))
             <div class="mb-6 bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded relative" role="alert">
                 <span class="block sm:inline">{{ session('success') }}</span>

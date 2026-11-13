@@ -131,4 +131,22 @@ class LibraryFileController extends Controller
     {
         return $this->libraryService->streamCover($library);
     }
+
+    public function destroyTag(Request $request, LibraryTag $libraryTag)
+    {
+        $tagName = $libraryTag->name;
+        $libraryTag->files()->detach();
+        $libraryTag->delete();
+
+        $message = "Tag \"{$tagName}\" removida com sucesso!";
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'deleted' => true,
+                'message' => $message,
+            ]);
+        }
+
+        return back()->with('success', $message);
+    }
 }
