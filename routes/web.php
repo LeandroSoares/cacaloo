@@ -103,6 +103,8 @@ Route::middleware(['auth', AdminAccess::class])->prefix('admin')->name('admin.')
 
     // Biblioteca de Arquivos
     Route::middleware('can:library.manage')->group(function () {
+        Route::delete('library/tags/{libraryTag}', [LibraryFileController::class, 'destroyTag'])
+            ->name('library.tags.destroy');
         Route::resource('library', LibraryFileController::class);
         Route::patch('library/{library}/toggle-active', [LibraryFileController::class, 'toggleActive'])
             ->name('library.toggle-active');

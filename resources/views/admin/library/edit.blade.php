@@ -30,30 +30,88 @@
             </div>
         @endif
 
+        @php
+            $tagItems = $tags->map(fn ($t) => [
+                'id' => $t->id,
+                'name' => $t->name,
+                'destroyUrl' => route('admin.library.tags.destroy', $t),
+            ])->values();
+        @endphp
+
         <div class="bg-white shadow rounded-lg p-6"
              x-data="{
-                availableTags: @js($tags->pluck('name')->merge($file->tags->pluck('name'))->unique()->values()),
+                availableTags: @js($tagItems),
                 selectedTags: @js(old('tags', $file->tags->pluck('name')->values()->all())),
                 newTag: '',
-                toggleTag(tag) {
-                    const idx = this.selectedTags.indexOf(tag);
+                tagError: '',
+                tagNotice: '',
+                toggleTag(tagName) {
+                    this.tagError = '';
+                    const idx = this.selectedTags.indexOf(tagName);
                     if (idx >= 0) {
                         this.selectedTags.splice(idx, 1);
                     } else {
-                        this.selectedTags.push(tag);
+                        if (this.selectedTags.length >= 8) {
+                            this.tagError = 'Selecione no máximo 8 tags por arquivo.';
+                            return;
+                        }
+                        this.selectedTags.push(tagName);
                     }
                 },
                 addCustomTag() {
-                    const parts = this.newTag.split(',').map(t => t.trim()).filter(Boolean);
-                    parts.forEach(clean => {
+                    this.tagError = '';
+                    this.tagNotice = '';
+                    const regex = /^[\p{L}\p{N}\s\-]+$/u;
+                    const parts = this.newTag.split(',').map(t => t.replace(/\s+/g, ' ').trim()).filter(Boolean);
+                    for (const clean of parts) {
+                        if (clean.length < 2 || clean.length > {{ \App\Models\LibraryTag::MAX_NAME_LENGTH }}) {
+                            this.tagError = `A tag &quot;${clean.substring(0, 24)}...&quot; deve ter entre 2 e {{ \App\Models\LibraryTag::MAX_NAME_LENGTH }} caracteres (não cole descrições aqui).`;
+                            return;
+                        }
+                        if (!regex.test(clean)) {
+                            this.tagError = `A tag &quot;${clean}&quot; contém pontuação inválida. Use apenas letras, números, espaços ou hífen.`;
+                            return;
+                        }
                         if (!this.selectedTags.some(t => t.toLowerCase() === clean.toLowerCase())) {
+                            if (this.selectedTags.length >= 8) {
+                                this.tagError = 'Selecione no máximo 8 tags por arquivo.';
+                                return;
+                            }
                             this.selectedTags.push(clean);
                         }
-                        if (!this.availableTags.some(t => t.toLowerCase() === clean.toLowerCase())) {
-                            this.availableTags.push(clean);
+                        if (!this.availableTags.some(t => t.name.toLowerCase() === clean.toLowerCase())) {
+                            this.availableTags.push({ id: null, name: clean, destroyUrl: null });
                         }
-                    });
+                    }
                     this.newTag = '';
+                },
+                async deleteTag(tagObj) {
+                    this.tagError = '';
+                    this.tagNotice = '';
+                    if (!tagObj.destroyUrl) {
+                        this.availableTags = this.availableTags.filter(t => t.name !== tagObj.name);
+                        this.selectedTags = this.selectedTags.filter(t => t !== tagObj.name);
+                        return;
+                    }
+                    if (!confirm(`Deseja excluir permanentemente a tag \"${tagObj.name}\" do sistema?`)) {
+                        return;
+                    }
+                    try {
+                        const res = await fetch(tagObj.destroyUrl, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json',
+                            },
+                        });
+                        if (res.ok) {
+                            this.availableTags = this.availableTags.filter(t => t.name !== tagObj.name);
+                            this.selectedTags = this.selectedTags.filter(t => t !== tagObj.name);
+                            this.tagNotice = `Tag \"${tagObj.name}\" removida com sucesso.`;
+                        }
+                    } catch (e) {
+                        this.tagError = 'Não foi possível remover a tag agora.';
+                    }
                 }
              }">
             <form action="{{ route('admin.library.update', $file) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
@@ -80,20 +138,36 @@
                         Tags / Categorias <span class="text-red-600">*</span>
                     </label>
                     <p class="text-xs text-gray-500 mb-3">
-                        Selecione uma ou mais tags existentes ou crie novas tags abaixo.
+                        Clique em uma tag para selecioná-la (máx. 8 tags, até {{ \App\Models\LibraryTag::MAX_NAME_LENGTH }} caracteres cada, sem pontuação). Para apagar uma tag indesejada do sistema, clique no <i class="fas fa-times text-red-500"></i>.
                     </p>
 
+                    <template x-if="tagError">
+                        <div class="mb-3 px-3 py-2 rounded-lg bg-red-50 border border-red-200 text-xs text-red-700" x-html="tagError"></div>
+                    </template>
+                    <template x-if="tagNotice">
+                        <div class="mb-3 px-3 py-2 rounded-lg bg-green-50 border border-green-200 text-xs text-green-700" x-text="tagNotice"></div>
+                    </template>
+
                     <div class="flex flex-wrap gap-2 mb-3">
-                        <template x-for="tag in availableTags" :key="tag">
-                            <button type="button"
-                                    @click="toggleTag(tag)"
-                                    :class="selectedTags.includes(tag)
-                                        ? 'bg-green-700 text-white border-green-700 shadow-sm'
-                                        : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'"
-                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold border transition">
-                                <span x-text="tag"></span>
-                                <i class="fas ml-1.5" :class="selectedTags.includes(tag) ? 'fa-check' : 'fa-plus text-gray-400'"></i>
-                            </button>
+                        <template x-for="tag in availableTags" :key="tag.name">
+                            <div :class="selectedTags.includes(tag.name)
+                                    ? 'bg-green-700 text-white border-green-700 shadow-sm'
+                                    : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'"
+                                 class="inline-flex items-center rounded-full text-xs font-semibold border transition">
+                                <button type="button"
+                                        @click="toggleTag(tag.name)"
+                                        class="inline-flex items-center pl-3 pr-2 py-1.5">
+                                    <span x-text="tag.name"></span>
+                                    <i class="fas ml-1.5" :class="selectedTags.includes(tag.name) ? 'fa-check' : 'fa-plus text-gray-400'"></i>
+                                </button>
+                                <button type="button"
+                                        @click.stop="deleteTag(tag)"
+                                        :class="selectedTags.includes(tag.name) ? 'text-green-200 hover:text-white border-green-600' : 'text-red-500 hover:text-red-700 border-gray-300'"
+                                        class="pr-2.5 pl-1.5 py-1.5 border-l transition"
+                                        title="Excluir esta tag do sistema">
+                                    <i class="fas fa-times text-[10px]"></i>
+                                </button>
+                            </div>
                         </template>
                     </div>
 
@@ -101,8 +175,9 @@
                         <input type="text"
                                x-model="newTag"
                                name="custom_tags"
+                               maxlength="{{ \App\Models\LibraryTag::MAX_NAME_LENGTH }}"
                                @keydown.enter.prevent="addCustomTag()"
-                               placeholder="Digite uma nova tag e clique em Adicionar..."
+                               placeholder="Nova tag curta (até {{ \App\Models\LibraryTag::MAX_NAME_LENGTH }} caracteres, sem pontuação)..."
                                class="flex-1 rounded-lg border-gray-300 text-sm shadow-sm focus:border-green-700 focus:ring-green-700">
                         <button type="button"
                                 @click="addCustomTag()"
